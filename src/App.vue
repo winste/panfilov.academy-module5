@@ -1,7 +1,3 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
 <div class="wrapper">
   <header class="header">
@@ -22,6 +18,10 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
  
 </template>
+
+<script lang="ts" setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
 
 <style lang="scss" scoped>
 $colorBanner: rgba(239, 240, 242, 1);
