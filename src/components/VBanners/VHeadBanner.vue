@@ -1,50 +1,62 @@
 <template>
-    <section class="banner" >
-        <img v-if="this.info" :src="this.info.main.image" class="banner__image" alt="Banner">
-        <v-else v-if="!this.info"> Banner</v-else>
-    </section>
+  <section class="banner">
+    <img
+      v-if="bannersImages"
+      :src="bannersImages.main.image"
+      class="banner__image banner__image-main"
+      alt="Banner"
+    >
+    <VBannerForm />
+  </section>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script>
+import { useBannerStore } from '@/stores/bannersStore'
+import VBannerForm from '@/components/VBannerForm/VBannerForm.vue'
 
-
-export default defineComponent({
-    data() {
-        return {
-            info: null
-        }; 
-    }, 
-    mounted() {
-        async function getApi<T>(url: string): Promise<T> {
-            return await fetch(url)
-            .then(response => response.json())
-        }
-
-            getApi('https://module5.7t33n.ru/banners')
-                .then(data => this.info = data)
-                .catch(error => console.log(error))
-        }
-    
-})
+export default {
+  components: {
+    VBannerForm
+  },
+  data() {
+    return {
+      bannersImages: null,
+    }
+  },
+  async mounted() {
+    const store = useBannerStore()
+    await store.getImages()
+    this.bannersImages = store.getBannersAll
+  }
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+$bgcolor: rgba(239, 240, 242, 1);
+$textcolor: rgba(232, 234, 236, 1);
+
 .banner {
-    $bgcolor: rgba(239, 240, 242, 1);
-    height: 591px;
-    background-color: $bgcolor;
-    font-size: 120px;
-    color: rgba(232, 234, 236, 1);
+  position: relative;
+  height: 591px;
+  background-color: $bgcolor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__text {
     font-weight: 800;
+    font-size: 120px;
+    color: $textcolor;
     text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    margin-bottom: 93px;
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    &-main {
+      position: absolute;
     }
+  }
 }
 </style>

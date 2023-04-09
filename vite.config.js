@@ -10,5 +10,12 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  // server: { 
+  //   port: 8080,
+  //   hmr: {
+  //     host: '127.0.0.1',
+  //     port: 8080,
+  //   }
+  // }
 })

@@ -1,25 +1,53 @@
 <template>
-<div class="wrapper">
-  <header class="header">
-      <img src="./assets/images/logo.svg" alt="logo">
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__link"> <RouterLink to="/" class="nav__link">Find a Property</RouterLink> </li>
-            <li class="nav__link"> <RouterLink to="/" class="nav__link">Share Stories</RouterLink> </li>
-            <li class="nav__link"> <RouterLink to="/" class="nav__link">Rental Guides</RouterLink> </li>
-            <li class="nav__link"> <RouterLink to="/" class="nav__link">Download Mobile App</RouterLink> </li>
-          </ul>
-        </nav>
-     
-  </header>
-  <VHeadBanner/>
-</div>
+  <div class="wrapper">
+    <header class="header">
+      <img
+        src="./assets/images/logo.svg"
+        alt="logo"
+      >
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__link">
+            <RouterLink
+              to="/"
+              class="nav__link"
+            >
+              Find a Property
+            </RouterLink>
+          </li>
+          <li class="nav__link">
+            <RouterLink
+              to="/"
+              class="nav__link"
+            >
+              Share Stories
+            </RouterLink>
+          </li>
+          <li class="nav__link">
+            <RouterLink
+              to="/"
+              class="nav__link"
+            >
+              Rental Guides
+            </RouterLink>
+          </li>
+          <li class="nav__link">
+            <RouterLink
+              to="/"
+              class="nav__link"
+            >
+              Download Mobile App
+            </RouterLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <VHeadBanner />
+  </div>
   <RouterView />
-  
- 
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import VHeadBanner from './components/VBanners/VHeadBanner.vue'
 </script>
@@ -47,7 +75,7 @@ $colorBanner: rgba(239, 240, 242, 1);
     // }
     &:hover {
       :hover {
-        opacity: .5;
+        opacity: 0.5;
       }
     }
   }
