@@ -2,7 +2,7 @@
   <div class="wrapper">
     <header class="header">
       <img
-        src="./assets/images/logo.svg"
+        src="./assets/images/Logo.svg"
         alt="logo"
       >
       <nav class="nav">
@@ -49,7 +49,7 @@
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import VHeadBanner from './components/VBanners/VHeadBanner.vue'
+import VHeadBanner from './components/VHeadBanner.vue'
 </script>
 
 <style lang="scss" scoped>

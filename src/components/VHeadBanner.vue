@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { useBannerStore } from '@/stores/bannersStore'
-import VBannerForm from '@/components/VBannerForm/VBannerForm.vue'
+import VBannerForm from '@/components/VBannerForm.vue'
+import { api } from '@/api/api.js'
 
 export default {
   components: {
@@ -24,11 +24,11 @@ export default {
     }
   },
   async mounted() {
-    const store = useBannerStore()
-    await store.getImages()
-    this.bannersImages = store.getBannersAll
+    await api.fetchData("/banners")
+        .then(response => this.bannersImages = response.data)
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -41,7 +41,7 @@ $textcolor: rgba(232, 234, 236, 1);
   background-color: $bgcolor;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   &__text {
     font-weight: 800;

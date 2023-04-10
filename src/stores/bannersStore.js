@@ -1,19 +1,18 @@
 import { defineStore } from 'pinia'
 import { API } from '../api/API'
 
-export const useBannerStore = defineStore('bannerStore', {
+export const useHotelStore = defineStore('hotelStore', {
   state: () => ({
-    images: []
+    data: []
   }),
   getters: {
     getBannersAll(state) {
-      return state.images
+      return state.data
     }
   },
   actions: {
-    async getImages() {
-      this.images = await API.fetchData('/banners')
-      console.log(this.images);
+    async getData(route) {
+      this.data = await API.fetchData(route)
     }
   }
 })

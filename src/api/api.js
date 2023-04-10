@@ -1,16 +1,13 @@
 import axios from 'axios'
 
-export const API = {
+export const api = {
   connection: axios.create({
     baseURL: `https://module5.7t33n.ru/`
   }),
 
   async fetchData(route) {
     try {
-      await this.connection.get(route).then(response => {
-        console.log(response);
-        return response.data
-      })
+      return await this.connection.get(route)
     } catch (error) {
       console.log(error)
     }
