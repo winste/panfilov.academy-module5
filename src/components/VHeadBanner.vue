@@ -5,30 +5,30 @@
       :src="bannersImages.main.image"
       class="banner__image banner__image-main"
       alt="Banner"
-    >
-    <VBannerForm />
+    />
+    <VSearchBar />
   </section>
 </template>
 
 <script>
-import VBannerForm from '@/components/VBannerForm.vue'
-import { api } from '@/api/api.js'
+import { api } from "@/api/api.js";
+import VSearchBar from "./VSearchBar.vue";
 
 export default {
   components: {
-    VBannerForm
+    VSearchBar,
   },
   data() {
     return {
       bannersImages: null,
-    }
+    };
   },
   async mounted() {
-    await api.fetchData("/banners")
-        .then(response => this.bannersImages = response.data)
-  }
-}
-
+    await api
+      .fetchData("/banners")
+      .then((response) => (this.bannersImages = response.data));
+  },
+};
 </script>
 
 <style lang="scss" scoped>

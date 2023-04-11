@@ -31,9 +31,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.wrapper {
-  max-width: 1396px;
-  margin: 0 auto;
-  padding: 0 15px;
-  font-weight: normal;
+button {
+  cursor: pointer;
 }

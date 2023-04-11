@@ -9,7 +9,7 @@ module.exports = {
         "plugin:vue/vue3-essential"
     ],
     "parser": [
-        "@babel/eslint-parser"
+        ["@babel/eslint-parser"]
     ],
     "overrides": [
     ],

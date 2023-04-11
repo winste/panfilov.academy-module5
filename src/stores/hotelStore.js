@@ -1,30 +1,32 @@
 import { defineStore } from 'pinia'
-import axios from 'axios'
+import { api } from '@/api/api.js'
 
 export const useHotelStore = defineStore('hotelStore', {
     state: () => ({
-      location: null,
+      hotelsList: null,
       hotelOrderData: null
     }),
     getters: {
-      getBannersAll(state) {
-        return state.images
+      getHotelsAll(state) {
+        return state.hotelsList
       }
     },
     actions: {
-      async getHotelLocation() {
+
+      async getData() {
         try {
-          await instanse.get('/hotel/location').then((res) => {
-            this.images = res.data
+          await api.fetchData('/hotel/featured').then((res) => {
+            this.hotelsList = res.data
           })
         } catch (error) {
           console.log(error)
         }
       },
+
       async sendHotelOrder() {
         try {
-          await instanse.post('/hotel/order').then((res) => {
-            this.images = res.data
+          await api.postData('/hotel/order').then((res) => {
+            // this.hotelsList = res.data
           })
         } catch (error) {
           console.log(error)
