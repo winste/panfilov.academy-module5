@@ -14,8 +14,8 @@ export default {
 $size: 70px;
 
 .avatar {
-  max-width: $size;
-  max-height: $size;
+  width: $size;
+  height: $size;
   background-color: rgba(194, 198, 204, 1);
   border-radius: 50%;
 }

@@ -22,7 +22,7 @@
         <VNumberInput label="Guests" />
       </div>
       <button type="submit" class="button">
-        <VIcon :nameIcon="icon" />
+        <VIcon :nameIcon="icon" width="20" height="20" />
       </button>
     </form>
   </div>

@@ -5,7 +5,9 @@
       <VLatestBlockCard
         v-for="(card, index) in cards"
         :key="index"
-        :src="card.image"
+        :id="card._id"
+        :urlAvatar="card.author.avatar"
+        :urlBg="card.image"
         :name="card.name"
         :address="card.address"
         class="latest__cards"
@@ -29,6 +31,7 @@ export default {
   },
   async mounted() {
     await api.fetchData("/hotel/latest").then((response) => (this.cards = response.data));
+    console.log(this.cards);
   },
 };
 </script>

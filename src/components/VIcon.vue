@@ -1,5 +1,5 @@
 <template>
-  <svg :width="20" :height="20" :class="class">
+  <svg :width="width" :height="height" :class="class">
     <use :xlink:href="`#${nameIcon}`" />
   </svg>
 </template>
@@ -9,8 +9,8 @@ export default {
   props: {
     nameIcon: String,
     class: String,
-    width: Number,
-    height: Number,
+    width: String,
+    height: String,
   },
 };
 </script>
