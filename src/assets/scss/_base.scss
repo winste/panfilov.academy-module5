@@ -34,3 +34,17 @@ body {
 button {
   cursor: pointer;
 }
+
+.container {
+  max-width: 1396px;
+  margin: 0 auto;
+  padding: 0 15px;
+  font-weight: normal;
+}
+
+.wrapper {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 80px;
+  font-weight: normal;
+}

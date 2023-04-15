@@ -2,23 +2,37 @@
   <label for="select" class="select-title label">
     {{ label }}
   </label>
-  <vSelect :options="options" :placeholder="placeholder" />
+  <v-select class="select" :options="options" :placeholder="placeholder" />
 </template>
 
 <script>
-import vSelect from "vue-select";
-import "vue-select/dist/vue-select.css";
-
+import 'vue-select/dist/vue-select.css'
 export default {
-  components: {
-    vSelect,
-  },
   props: {
     label: String,
     options: Array,
-    placeholder: String,
-  },
-};
+    placeholder: String
+  }
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+@import '../assets/scss/mixins/placeholder';
+
+.select {
+  min-width: 250px;
+  & .vs__dropdown-toggle,
+  .vs__search {
+    padding: 0;
+    margin: 0;
+    border: none;
+    border: none;
+  }
+  & .vs__search {
+    @include placeholder-style;
+  }
+  & .vs__open-indicator {
+    display: none;
+  }
+}
+</style>

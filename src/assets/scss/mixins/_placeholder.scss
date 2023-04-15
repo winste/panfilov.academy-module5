@@ -1,0 +1,9 @@
+@mixin placeholder-style {
+  margin-top: 3px;
+  &::placeholder {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(194, 198, 204);
+  }
+}

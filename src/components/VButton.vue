@@ -1,15 +1,15 @@
 <template>
-  <button 
-    :type="typeBtn" 
-    class="button"></button>
+  <button :type="typeBtn" class="button">
+    <slot></slot>
+  </button>
 </template>
 
 <script>
 export default {
   props: {
-    typeBtn: String,
-  },
-};
+    typeBtn: String
+  }
+}
 </script>
 
 <style lang="scss">

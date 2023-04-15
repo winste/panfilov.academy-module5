@@ -18,13 +18,15 @@
     "vue-select": "^4.0.0-beta.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.21.3",
     "@types/vue-select": "^3.16.2",
     "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/eslint-config-prettier": "^7.1.0",
     "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier-vue": "^4.2.0",
     "eslint-plugin-vue": "^9.10.0",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.7",
     "sass": "^1.60.0",
     "vite": "^4.1.4",
     "vite-plugin-svg-sprite": "^0.3.1"

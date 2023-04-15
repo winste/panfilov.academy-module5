@@ -7,7 +7,7 @@ export const api = {
 
   async fetchData(route) {
     try {
-return await this.connection.get(route)
+      return await this.connection.get(route)
     } catch (error) {
       console.log(error)
     }

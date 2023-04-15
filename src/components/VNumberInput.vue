@@ -1,17 +1,35 @@
 <template>
-  <label for="select" class="date-title label">
+  <label for="select" class="number-title label">
     {{ label }}
   </label>
-  <input type="number" max="15" min="1" class="input-number" :placehoder="placehoder" />
+  <input type="number" min="1" max="20" class="input-number" value="" :placeholder="placeholder" />
 </template>
 
 <script>
 export default {
   props: {
     label: String,
-    placehoder: String,
-  },
-};
+    placeholder: String
+  }
+}
 </script>
 
-<style lang=""></style>
+<style lang="scss">
+@import '../assets/scss/mixins/placeholder';
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.input-number {
+  @include placeholder-style;
+}
+</style>

@@ -9,8 +9,14 @@ export default {
   props: {
     nameIcon: String,
     class: String,
-    width: String,
-    height: String,
-  },
-};
+    width: {
+      type: String,
+      default: '20'
+    },
+    height: {
+      type: String,
+      default: '20'
+    }
+  }
+}
 </script>
