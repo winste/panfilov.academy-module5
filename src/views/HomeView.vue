@@ -1,36 +1,32 @@
 <template>
-  <div class="container">
-    <VMainBanner v-if="bannersImages" :image="bannersImages.main.image">
-      <VSearchBar />
-    </VMainBanner>
+  <VMainBanner v-if="bannersImages" :image="bannersImages.main.image">
+    <VSearchBar />
+  </VMainBanner>
 
-    <div class="wrapper">
-      <div class="wrapper__latest">
-        <VLatestSection />
-      </div>
-
-      <VInfoBanner
-        v-if="bannersImages"
-        :title="bannersImages.second.title"
-        :description="bannersImages.second.description"
-        :image="bannersImages.second.image"
-      />
-
-      <div class="wrapper__featured">
-        <VFeaturedSection />
-      </div>
-
-      <div class="wrapper__banner">
-        <VInfoBanner
-          v-if="bannersImages"
-          :title="bannersImages.last.title"
-          :description="bannersImages.last.description"
-          :image="bannersImages.last.image"
-        />
-      </div>
+  <div class="wrapper">
+    <div class="wrapper__latest">
+      <VLatestSection />
     </div>
 
-    <VNewsLetter />
+    <VInfoBanner
+      v-if="bannersImages"
+      :title="bannersImages.second.title"
+      :description="bannersImages.second.description"
+      :image="bannersImages.second.image"
+    />
+
+    <div class="wrapper__featured">
+      <VFeaturedSection />
+    </div>
+
+    <div class="wrapper__banner">
+      <VInfoBanner
+        v-if="bannersImages"
+        :title="bannersImages.last.title"
+        :description="bannersImages.last.description"
+        :image="bannersImages.last.image"
+      />
+    </div>
   </div>
 </template>
 
@@ -41,7 +37,6 @@ import VLatestSection from '@/components/VLatestSection.vue'
 import VInfoBanner from '../components/VInfoBanner.vue'
 import VSearchBar from '../components/VSearchBar.vue'
 import VFeaturedSection from '../components/VFeaturedSection.vue'
-import VNewsLetter from '../components/VNewsLetter.vue'
 
 export default {
   components: {
@@ -49,8 +44,7 @@ export default {
     VLatestSection,
     VInfoBanner,
     VSearchBar,
-    VFeaturedSection,
-    VNewsLetter
+    VFeaturedSection
   },
   data() {
     return {

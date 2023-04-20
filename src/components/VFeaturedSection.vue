@@ -13,6 +13,7 @@
             <VIcon :nameIcon="icon1" />
             {{ card.info[0].bedroom }}
           </span>
+
           <span class="featured-section__property-item featured-section__bath">
             <VIcon :nameIcon="icon2" />
             {{ card.info[0].bathroom }}
@@ -29,20 +30,23 @@ import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
 import VIcon from './VIcon.vue'
 import VInfoCard from './VInfoCard.vue'
 import VInfoSection from './VInfoSection.vue'
-import BedIcon from '@/assets/images/BedIcon.svg'
-import BathroomIcon from '@/assets/images/BathroomIcon.svg'
+import Bedroom from '@/assets/images/icons/Bedroom.svg'
+import Bathroom from '@/assets/images/icons/Bathroom.svg'
+import VCardPropertyInfo from './VCardPropertyInfo.vue'
+
 export default {
   components: {
     VInfoSection,
     VFeaturedSectionCard,
     VInfoCard,
-    VIcon
+    VIcon,
+    VCardPropertyInfo
   },
   data() {
     return {
       cards: [],
-      icon1: BedIcon,
-      icon2: BathroomIcon
+      icon1: Bedroom,
+      icon2: Bathroom
     }
   },
   async created() {

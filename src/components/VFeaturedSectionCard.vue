@@ -2,9 +2,7 @@
   <div class="featured-card">
     <div class="featured-card__content" :style="urlBackground">
       <VIcon :nameIcon="icon" width="26" height="23" class="featured-card__icon" />
-      <span class="featured-card__price">
-        $ {{ price[0].slice(1) }} - {{ price[1].slice(1) }} USD
-      </span>
+      <span class="featured-card__price"> $ {{ formattedPrice }} USD </span>
     </div>
     <div class="featured-card__info">
       <slot>Card name and address info</slot>
@@ -14,14 +12,15 @@
 
 <script>
 import VIcon from './VIcon.vue'
-import LikeIcon from '@/assets/images/LikeIcon.svg'
+import Like from '@/assets/images/icons/Like.svg'
+
 export default {
   components: {
     VIcon
   },
   data() {
     return {
-      icon: LikeIcon
+      icon: Like
     }
   },
   props: {
@@ -31,6 +30,9 @@ export default {
   computed: {
     urlBackground() {
       return `background-image: url("${this.image}");`
+    },
+    formattedPrice() {
+      return `${this.price[0].slice(1)} - ${this.price[1].slice(1)}`
     }
   }
 }

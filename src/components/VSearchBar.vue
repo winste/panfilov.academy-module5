@@ -28,7 +28,7 @@
 <script>
 import { api } from '@/api/api.js'
 import VIcon from './VIcon.vue'
-import SearchIcon from '@/assets/images/SearchIcon.svg'
+import Search from '@/assets/images/icons/Search.svg'
 import VSelect from './VSelect.vue'
 import VDateInput from './VDateInput.vue'
 import VNumberInput from './VNumberInput.vue'
@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       countries: [],
-      icon: SearchIcon
+      icon: Search
     }
   },
   async mounted() {

@@ -23,17 +23,16 @@
 <script>
 import VButton from './VButton.vue'
 import VIcon from './VIcon.vue'
-import LetterSubmitIcon from '@/assets/images/LetterSubmitIcon.svg'
+import LetterSubmit from '@/assets/images/icons/LetterSubmit.svg'
 
 export default {
   components: {
     VButton,
-    VIcon,
-    LetterSubmitIcon
+    VIcon
   },
   data() {
     return {
-      icon: LetterSubmitIcon
+      icon: LetterSubmit
     }
   }
 }

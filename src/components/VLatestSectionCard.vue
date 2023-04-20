@@ -9,21 +9,21 @@
 </template>
 
 <script>
-import LikeIcon from '@/assets/images/LikeIcon.svg'
+import Like from '@/assets/images/icons/Like.svg'
 import VIcon from './VIcon.vue'
 import VAvatar from './VAvatar.vue'
 import VInfoCard from './VInfoCard.vue'
 
 export default {
   components: {
-    LikeIcon,
+    Like,
     VIcon,
     VAvatar,
     VInfoCard
   },
   data() {
     return {
-      icon: LikeIcon
+      icon: Like
     }
   },
   props: {
