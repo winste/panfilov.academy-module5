@@ -4,21 +4,16 @@
       <VFeaturedSectionCard
         v-for="(card, index) in cards"
         :key="index"
-        :image="card.image"
-        :price="card.price"
+        :carouselCard="card"
+        class="featured-section__card"
       >
-        <VInfoCard :idCard="card._id" :nameCard="card.name" :addressCard="card.address" />
-        <div class="featured-section__property">
-          <span class="featured-section__property-item featured-section__bed">
-            <VIcon :nameIcon="icon1" />
-            {{ card.info[0].bedroom }}
-          </span>
-
-          <span class="featured-section__property-item featured-section__bath">
-            <VIcon :nameIcon="icon2" />
-            {{ card.info[0].bathroom }}
-          </span>
-        </div>
+        <VInfoCard
+          :idCard="card._id"
+          :nameCard="card.name"
+          :addressCard="card.address"
+          class="featured-section__card-info"
+        />
+        <VCardPropertyInfo :propertyList="card.info" class="featured-section__card-property" />
       </VFeaturedSectionCard>
     </div>
   </VInfoSection>
@@ -64,13 +59,9 @@ export default {
     justify-content: space-between;
     row-gap: 60px;
   }
-  &__property {
-    margin-top: 12px;
-    display: flex;
-    gap: 16px;
-    &-item {
-      display: flex;
-      gap: 8px;
+  &__card {
+    &-info {
+      margin-bottom: 15px;
     }
   }
 }

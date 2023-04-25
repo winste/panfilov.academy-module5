@@ -1,9 +1,6 @@
 <template>
   <div class="featured-card">
-    <div class="featured-card__content" :style="urlBackground">
-      <VIcon :nameIcon="icon" width="26" height="23" class="featured-card__icon" />
-      <span class="featured-card__price"> $ {{ formattedPrice }} USD </span>
-    </div>
+    <VCarousel :carouselSlides="carouselCard.images" />
     <div class="featured-card__info">
       <slot>Card name and address info</slot>
     </div>
@@ -11,12 +8,14 @@
 </template>
 
 <script>
+import VCarousel from './VCarousel.vue'
 import VIcon from './VIcon.vue'
 import Like from '@/assets/images/icons/Like.svg'
 
 export default {
   components: {
-    VIcon
+    VIcon,
+    VCarousel
   },
   data() {
     return {
@@ -24,16 +23,7 @@ export default {
     }
   },
   props: {
-    image: String,
-    price: Object
-  },
-  computed: {
-    urlBackground() {
-      return `background-image: url("${this.image}");`
-    },
-    formattedPrice() {
-      return `${this.price[0].slice(1)} - ${this.price[1].slice(1)}`
-    }
+    carouselCard: Object
   }
 }
 </script>
@@ -48,6 +38,7 @@ export default {
     height: 340px;
     background-color: rgba(224, 226, 230, 1);
     border-radius: 12px;
+    background-size: cover;
   }
 }
 </style>
