@@ -1,12 +1,12 @@
 <template>
   <div class="card-property">
     <div class="card-property-item">
-      <VIcon :nameIcon="iconBedroom" />
+      <VIcon :iconName="iconBedroom" />
       {{ propertyList[0].bedroom }}
     </div>
 
     <div class="card-property-item">
-      <VIcon :nameIcon="iconBathroom" />
+      <VIcon :iconName="iconBathroom" />
       {{ propertyList[0].bathroom }}
     </div>
   </div>

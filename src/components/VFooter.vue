@@ -3,7 +3,7 @@
     <div class="footer__wrapper">
       <div class="footer__about">
         <a href="/" class="footer__logo">
-          <VIcon :nameIcon="logoIcon" width="166" height="56" />
+          <VIcon :iconName="logoIcon" width="166" height="56" />
         </a>
         <p class="footer__text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -12,13 +12,13 @@
         <div class="footer__stores">
           <div class="footer__store">
             <a href="https://www.apple.com/app-store/" target="_blank" class="footer__store-link">
-              <VIcon :nameIcon="appstoreIcon" width="22" height="22" />
+              <VIcon :iconName="appstoreIcon" width="22" height="22" />
               <p class="footer__store-name">PlayStore</p>
             </a>
           </div>
           <div class="footer__store">
             <a href="https://play.google.com/store/" target="_blank" class="footer__store-link">
-              <VIcon :nameIcon="playstoreIcon" width="22" height="22" />
+              <VIcon :iconName="playstoreIcon" width="22" height="22" />
               <p class="footer__store-name">AppleStore</p>
             </a>
           </div>

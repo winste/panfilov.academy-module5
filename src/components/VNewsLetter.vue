@@ -13,22 +13,23 @@
         placeholder="Your Email..."
         class="news-letter__input"
       />
-      <VButton class="news-letter__button">
-        <VIcon :nameIcon="icon" width="24" height="22" />
-      </VButton>
+      <VButtonSubmit
+        :btnIcon="icon"
+        btnIconWidth="26"
+        btnIconHeight="26"
+        class="news-letter__button"
+      />
     </form>
   </div>
 </template>
 
 <script>
-import VButton from './VButton.vue'
-import VIcon from './VIcon.vue'
+import VButtonSubmit from './VButtonSubmit.vue'
 import LetterSubmit from '@/assets/images/icons/LetterSubmit.svg'
 
 export default {
   components: {
-    VButton,
-    VIcon
+    VButtonSubmit
   },
   data() {
     return {

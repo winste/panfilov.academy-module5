@@ -1,33 +1,26 @@
 <template>
-  <VMainBanner v-if="bannersImages" :image="bannersImages.main.image">
-    <VSearchBar />
-  </VMainBanner>
+  <main class="main" v-if="bannersImages">
+    <VMainBanner :image="bannersImages.main.image" class="main__banner-main">
+      <VSearchBar />
+    </VMainBanner>
 
-  <div class="wrapper">
-    <div class="wrapper__latest">
-      <VLatestSection />
-    </div>
-
-    <VInfoBanner
-      v-if="bannersImages"
-      :title="bannersImages.second.title"
-      :description="bannersImages.second.description"
-      :image="bannersImages.second.image"
-    />
-
-    <div class="wrapper__featured">
-      <VFeaturedSection />
-    </div>
-
-    <div class="wrapper__banner">
+    <div class="container-wrapper">
+      <VLatestSection class="main__latest" />
       <VInfoBanner
-        v-if="bannersImages"
+        :title="bannersImages.second.title"
+        :description="bannersImages.second.description"
+        :image="bannersImages.second.image"
+        class="main__banner-hosting"
+      />
+      <VFeaturedSection class="main__featured" />
+      <VInfoBanner
         :title="bannersImages.last.title"
         :description="bannersImages.last.description"
         :image="bannersImages.last.image"
+        class="main__banner-browse"
       />
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -57,16 +50,35 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.wrapper__banner {
-  margin-bottom: 57px;
+<style lang="scss" scoped>
+.main {
+  &__banner {
+    &-main {
+      margin-bottom: 57px;
+    }
+    &-hosting {
+      margin-bottom: 25px;
+    }
+    &-browse {
+      margin-bottom: 57px;
+    }
+  }
+  &__latest {
+    margin-bottom: 46px;
+  }
+  &__featured {
+    margin-bottom: 63px;
+  }
 }
-.wrapper__latest {
-  margin-top: 88px;
-  margin-bottom: 46px;
-}
-.wrapper__featured {
-  margin-top: 20px;
-  margin-bottom: 36px;
-}
+// .wrapper__banner {
+//
+// }
+// .wrapper__latest {
+//   margin-top: 88px;
+//   margin-bottom: 46px;
+// }
+// .wrapper__featured {
+//   margin-top: 20px;
+//   margin-bottom: 36px;
+// }
 </style>

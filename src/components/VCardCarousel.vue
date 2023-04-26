@@ -9,23 +9,19 @@
     <div class="carousel__content"><slot></slot></div>
 
     <div class="carousel__interaction">
-      <button class="carousel__button">
-        <VIcon :nameIcon="icon" width="26" height="23" class="carousel__button-icon" />
-      </button>
-
+      <VButtonFavorite class="carousel__button" @click="addToFavorites" />
       <VCardPagination :slideCount="carouselSlides.length - 1" @switch="switchSlide" />
     </div>
   </div>
 </template>
 
 <script>
+import VButtonFavorite from './VButtonFavorite.vue'
 import VCardPagination from './VCardPagination.vue'
-import VIcon from './VIcon.vue'
-import Like from '@/assets/images/icons/Like.svg'
 
 export default {
   components: {
-    VIcon,
+    VButtonFavorite,
     VCardPagination
   },
   props: {
@@ -36,13 +32,16 @@ export default {
   },
   data() {
     return {
-      icon: Like,
-      curentSlideIndex: 0
+      curentSlideIndex: 0,
+      isFavorite: false
     }
   },
   methods: {
     switchSlide(id) {
       this.curentSlideIndex = id
+    },
+    addToFavorites() {
+      this.isFavorite = !this.isFavorite
     }
   }
 }
@@ -78,17 +77,6 @@ export default {
 .carousel__content,
 .carousel__button {
   align-self: end;
-}
-
-.carousel__button {
-  background-color: transparent;
-  &-icon {
-    &:hover {
-      width: 30px;
-      height: 26px;
-      transition: all linear 0.2s;
-    }
-  }
 }
 
 .slide {

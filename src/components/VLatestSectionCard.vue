@@ -1,7 +1,7 @@
 <template>
-  <div class="latestCard" :style="backgroundUrl">
-    <VIcon :nameIcon="icon" width="26" height="23" class="latestCard__icon" />
-    <div class="latestCard__content">
+  <div class="latest-card" :style="backgroundUrl">
+    <VButtonFavorite class="latest-card__icon" />
+    <div class="latest-card__content">
       <VAvatar :src="urlAvatar" />
       <VInfoCard :idCard="id" :nameCard="name" :addressCard="address" />
     </div>
@@ -9,22 +9,15 @@
 </template>
 
 <script>
-import Like from '@/assets/images/icons/Like.svg'
-import VIcon from './VIcon.vue'
 import VAvatar from './VAvatar.vue'
+import VButtonFavorite from './VButtonFavorite.vue'
 import VInfoCard from './VInfoCard.vue'
 
 export default {
   components: {
-    Like,
-    VIcon,
     VAvatar,
-    VInfoCard
-  },
-  data() {
-    return {
-      icon: Like
-    }
+    VInfoCard,
+    VButtonFavorite
   },
   props: {
     id: String,
@@ -42,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
-.latestCard {
+.latest-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

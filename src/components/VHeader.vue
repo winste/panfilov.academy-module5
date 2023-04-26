@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <a href="/">
-      <VIcon :nameIcon="icon" width="108" height="43" />
+      <VIcon :iconName="iconLogo" width="108" height="43" />
     </a>
     <VNavigation />
   </header>
@@ -19,7 +19,7 @@ export default {
   },
   data() {
     return {
-      icon: Logo
+      iconLogo: Logo
     }
   }
 }

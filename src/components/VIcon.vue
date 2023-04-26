@@ -1,19 +1,18 @@
 <template>
-  <svg :width="width" :height="height" :class="class">
-    <use :xlink:href="`#${nameIcon}`" />
+  <svg :width="iconWidth" :height="iconHeight">
+    <use :xlink:href="`#${iconName}`" />
   </svg>
 </template>
 
 <script>
 export default {
   props: {
-    nameIcon: String,
-    class: String,
-    width: {
+    iconName: String,
+    iconWidth: {
       type: String,
       default: '20'
     },
-    height: {
+    iconHeight: {
       type: String,
       default: '20'
     }

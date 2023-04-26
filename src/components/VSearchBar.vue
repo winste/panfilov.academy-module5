@@ -18,29 +18,25 @@
         <VNumberInput label="Guests" placeholder="Add Guests" />
       </div>
 
-      <VButton type="submit">
-        <VIcon :nameIcon="icon" />
-      </VButton>
+      <VButtonSubmit :btnIcon="icon" />
     </form>
   </div>
 </template>
 
 <script>
 import { api } from '@/api/api.js'
-import VIcon from './VIcon.vue'
 import Search from '@/assets/images/icons/Search.svg'
 import VSelect from './VSelect.vue'
 import VDateInput from './VDateInput.vue'
 import VNumberInput from './VNumberInput.vue'
-import VButton from './VButton.vue'
+import VButtonSubmit from './VButtonSubmit.vue'
 
 export default {
   components: {
-    VIcon,
     VSelect,
     VDateInput,
     VNumberInput,
-    VButton
+    VButtonSubmit
   },
 
   data() {
@@ -108,7 +104,7 @@ export default {
       transform: rotate(90deg);
     }
     &:last-child {
-      background-color: aqua;
+      background-color: rgb(187, 30, 30);
     }
   }
 }

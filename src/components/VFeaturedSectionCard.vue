@@ -1,6 +1,10 @@
 <template>
   <div class="featured-card">
-    <VCarousel :carouselSlides="carouselCard.images" />
+    <VCardCarousel :carouselSlides="carouselCard.images">
+      <p class="featured-card__price">
+        $ {{ carouselCard.price[0].slice(1) }} - {{ carouselCard.price[1].slice(1) }} USD
+      </p>
+    </VCardCarousel>
     <div class="featured-card__info">
       <slot>Card name and address info</slot>
     </div>
@@ -8,14 +12,14 @@
 </template>
 
 <script>
-import VCarousel from './VCarousel.vue'
+import VCardCarousel from './VCardCarousel.vue'
 import VIcon from './VIcon.vue'
 import Like from '@/assets/images/icons/Like.svg'
 
 export default {
   components: {
     VIcon,
-    VCarousel
+    VCardCarousel
   },
   data() {
     return {
@@ -33,12 +37,10 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  &__content {
-    width: 382px;
-    height: 340px;
-    background-color: rgba(224, 226, 230, 1);
-    border-radius: 12px;
-    background-size: cover;
+  &__price {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(154, 154, 154, 1);
   }
 }
 </style>
