@@ -30,6 +30,8 @@ input[type='number'] {
 }
 
 .input-number {
+  min-height: 24px;
+  margin-top: 3.5px;
   @include placeholder-style;
 }
 </style>

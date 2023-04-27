@@ -1,9 +1,6 @@
 <template>
   <main class="main" v-if="bannersImages">
-    <VMainBanner :image="bannersImages.main.image" class="main__banner-main">
-      <VSearchBar />
-    </VMainBanner>
-
+    <VMainBanner :image="bannersImages.main.image" class="main__banner-main" />
     <div class="container-wrapper">
       <VLatestSection class="main__latest" />
       <VInfoBanner
@@ -25,10 +22,9 @@
 
 <script>
 import { api } from '../api/api'
-import VMainBanner from '@/components/VMainBanner.vue'
-import VLatestSection from '@/components/VLatestSection.vue'
+import VMainBanner from '../components/VMainBanner.vue'
+import VLatestSection from '../components/VLatestSection.vue'
 import VInfoBanner from '../components/VInfoBanner.vue'
-import VSearchBar from '../components/VSearchBar.vue'
 import VFeaturedSection from '../components/VFeaturedSection.vue'
 
 export default {
@@ -36,7 +32,6 @@ export default {
     VMainBanner,
     VLatestSection,
     VInfoBanner,
-    VSearchBar,
     VFeaturedSection
   },
   data() {
@@ -53,9 +48,6 @@ export default {
 <style lang="scss" scoped>
 .main {
   &__banner {
-    &-main {
-      margin-bottom: 57px;
-    }
     &-hosting {
       margin-bottom: 25px;
     }
@@ -64,21 +56,11 @@ export default {
     }
   }
   &__latest {
+    padding-top: 88px;
     margin-bottom: 46px;
   }
   &__featured {
     margin-bottom: 63px;
   }
 }
-// .wrapper__banner {
-//
-// }
-// .wrapper__latest {
-//   margin-top: 88px;
-//   margin-bottom: 46px;
-// }
-// .wrapper__featured {
-//   margin-top: 20px;
-//   margin-bottom: 36px;
-// }
 </style>

@@ -1,9 +1,16 @@
 <template>
-  <div class="latest-card" :style="backgroundUrl">
+  <div class="latest-card" :style="{ 'background-image': `url(${urlBg})` }">
     <VButtonFavorite class="latest-card__icon" />
     <div class="latest-card__content">
-      <VAvatar :src="urlAvatar" />
-      <VInfoCard :idCard="id" :nameCard="name" :addressCard="address" />
+      <VAvatar :src="urlAvatar" class="latest-card__avatar" />
+      <VInfoCard
+        :idCard="id"
+        :nameCard="name"
+        :addressCard="address"
+        :fontSizeName="17"
+        :fontSizeAddress="13"
+        class="latest-card__info"
+      />
     </div>
   </div>
 </template>
@@ -25,11 +32,6 @@ export default {
     urlBg: String,
     name: String,
     address: String
-  },
-  computed: {
-    backgroundUrl() {
-      return `background-image: url("${this.urlBg}");`
-    }
   }
 }
 </script>
@@ -41,7 +43,7 @@ export default {
   justify-content: space-between;
   width: 279px;
   height: 340px;
-  padding: 18px 21px;
+  padding: 18px 17px 19px 21px;
   background-color: rgba(224, 226, 230, 1);
   border-radius: 8px;
   background-position: center;
@@ -49,8 +51,8 @@ export default {
   &__icon {
     align-self: end;
   }
-  &__name {
-    margin-top: 15px;
+  &__avatar {
+    margin-bottom: 15px;
   }
 }
 </style>

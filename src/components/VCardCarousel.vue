@@ -10,19 +10,19 @@
 
     <div class="carousel__interaction">
       <VButtonFavorite class="carousel__button" @click="addToFavorites" />
-      <VCardPagination :slideCount="carouselSlides.length - 1" @switch="switchSlide" />
+      <VCardCarouselPagination :slideCount="carouselSlides.length - 1" @switch="switchSlide" />
     </div>
   </div>
 </template>
 
 <script>
 import VButtonFavorite from './VButtonFavorite.vue'
-import VCardPagination from './VCardPagination.vue'
+import VCardCarouselPagination from './VCardCarouselPagination.vue'
 
 export default {
   components: {
     VButtonFavorite,
-    VCardPagination
+    VCardCarouselPagination
   },
   props: {
     carouselSlides: {
@@ -52,7 +52,7 @@ export default {
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 384px;
+  width: 382px;
   height: 340px;
   padding: 24px;
   overflow: hidden;

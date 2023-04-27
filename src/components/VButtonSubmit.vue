@@ -13,8 +13,8 @@ export default {
   },
   props: {
     btnIcon: String,
-    btnIconWidth: String,
-    btnIconHeight: String
+    btnIconWidth: Number,
+    btnIconHeight: Number
   }
 }
 </script>

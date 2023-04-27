@@ -1,26 +1,24 @@
 <template>
-  <div class="form-wrapper">
-    <h2 class="form__title">Find</h2>
-    <form class="form">
-      <div class="form__input form__input-select">
-        <VSelect label="Location" placeholder="Which city do you prefer?" :options="countries" />
-      </div>
+  <h2 class="form__title">Find</h2>
+  <form class="form">
+    <div class="form__input form__input-select">
+      <VSelect label="Location" placeholder="Which city do you prefer?" :options="countries" />
+    </div>
 
-      <div class="form__input form__input-date">
-        <VDateInput label="Check in" placeholder="AddDates" />
-      </div>
+    <div class="form__input form__input-date-in">
+      <VDateInput label="Check in" placeholder="Add Dates" />
+    </div>
 
-      <div class="form__input form__input-date">
-        <VDateInput label="Check out" placeholder="AddDates" />
-      </div>
+    <div class="form__input form__input-date-out">
+      <VDateInput label="Check out" placeholder="Add Dates" />
+    </div>
 
-      <div class="form__input form__input-number">
-        <VNumberInput label="Guests" placeholder="Add Guests" />
-      </div>
+    <div class="form__input form__input-number">
+      <VNumberInput label="Guests" placeholder="Add Guests" />
+    </div>
 
-      <VButtonSubmit :btnIcon="icon" />
-    </form>
-  </div>
+    <VButtonSubmit :btnIcon="icon" class="form__button" />
+  </form>
 </template>
 
 <script>
@@ -58,21 +56,14 @@ export default {
 </script>
 
 <style lang="scss">
-.form-wrapper {
-  z-index: 111;
-  padding-bottom: 75px;
-}
-
 .form {
   display: flex;
-  gap: 20px;
-  padding: 8px;
-  flex-wrap: wrap;
+  padding: 11px 8px 5px 8px;
   background-color: white;
   border-radius: 35px;
   &__title {
     display: block;
-    padding-bottom: 17px;
+    padding-bottom: 22px;
     padding-left: 30px;
     color: rgba(72, 72, 72, 1);
     font-weight: 700;
@@ -84,28 +75,37 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 16px;
     &-select {
-      max-width: 250px;
+      max-width: 260px;
       padding-left: 22px;
+      margin-right: 28px;
     }
-    &-date,
+    &-date-in {
+      max-width: 135px;
+      margin-right: 7px;
+    }
+    &-date-out {
+      max-width: 140px;
+      margin-right: 26px;
+    }
     &-number {
-      max-width: 138px;
+      max-width: 127px;
     }
-    &::after {
+    &:not(:first-child):before {
       content: '';
       position: absolute;
       width: 30px;
-      height: 0;
-      border: 0.5px solid #dddddd;
+      height: 1px;
+      background-color: #dddddd;
       top: 50%;
-      left: 100%;
+      right: 100%;
       transform: rotate(90deg);
     }
-    &:last-child {
-      background-color: rgb(187, 30, 30);
-    }
+  }
+  &__button {
+    position: relative;
+    top: -2px;
+    right: -1px;
   }
 }
 

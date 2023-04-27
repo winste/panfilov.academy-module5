@@ -1,9 +1,9 @@
 <template>
   <header class="header">
     <a href="/">
-      <VIcon :iconName="iconLogo" width="108" height="43" />
+      <VIcon :iconName="iconLogo" width="104" height="30" />
     </a>
-    <VNavigation />
+    <VNavigation class="header__navigation" />
   </header>
 </template>
 
@@ -30,8 +30,10 @@ $colorBanner: rgba(239, 240, 242, 1);
 
 .header {
   display: flex;
-  align-items: center;
-  padding: 27.5px 80px 20px 83px;
+  padding: 27px 80px 20px 82px;
   background-color: $colorBanner;
+  &__navigation {
+    padding-top: 5px;
+  }
 }
 </style>

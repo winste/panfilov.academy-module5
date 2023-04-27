@@ -15,8 +15,8 @@
       />
       <VButtonSubmit
         :btnIcon="icon"
-        btnIconWidth="26"
-        btnIconHeight="26"
+        :btnIconWidth="26"
+        :btnIconHeight="26"
         class="news-letter__button"
       />
     </form>
@@ -49,6 +49,9 @@ export default {
   gap: 70px;
   min-width: 100%;
   background-color: rgba(232, 234, 236, 1);
+  &__text {
+    font-size: 14px;
+  }
   &__form {
     flex: 1 1 0;
     max-width: 794px;

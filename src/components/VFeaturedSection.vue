@@ -1,5 +1,6 @@
 <template>
-  <VInfoSection title="Featured Properties on our Listing" class="featured-section">
+  <section class="featured-section">
+    <h2 class="featured-section__title">Featured Properties on our Listing</h2>
     <div class="featured-section__cards">
       <VFeaturedSectionCard
         v-for="(card, index) in cards"
@@ -16,7 +17,7 @@
         <VCardPropertyInfo :propertyList="card.info" class="featured-section__card-property" />
       </VFeaturedSectionCard>
     </div>
-  </VInfoSection>
+  </section>
 </template>
 
 <script>
@@ -24,14 +25,12 @@ import { api } from '../api/api'
 import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
 import VIcon from './VIcon.vue'
 import VInfoCard from './VInfoCard.vue'
-import VInfoSection from './VInfoSection.vue'
 import Bedroom from '@/assets/images/icons/Bedroom.svg'
 import Bathroom from '@/assets/images/icons/Bathroom.svg'
 import VCardPropertyInfo from './VCardPropertyInfo.vue'
 
 export default {
   components: {
-    VInfoSection,
     VFeaturedSectionCard,
     VInfoCard,
     VIcon,
@@ -51,12 +50,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/mixins/section-title';
 .featured-section {
+  &__title {
+    @include section-title-style;
+    margin-bottom: 82px;
+  }
   &__cards {
-    margin-top: 74px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: 27px;
     row-gap: 60px;
   }
   &__card {

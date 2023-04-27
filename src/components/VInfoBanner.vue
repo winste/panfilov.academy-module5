@@ -28,13 +28,22 @@ export default {
 .infoBanner {
   height: 395px;
   width: auto;
-  padding: 70px 55px;
+  padding: 70px 54px;
   background-size: 100%;
-  object-fit: cover;
+  background-position: center;
   border-radius: 12px;
   &__title {
     font-size: 36px;
+    line-height: 52px;
     max-width: 339px;
+    margin-bottom: 22px;
+  }
+  &__description {
+    max-width: 400px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 </style>

@@ -1,6 +1,11 @@
 <template>
   <button class="button-favorite">
-    <VIcon :iconName="favoriteIcon" width="26" height="23" class="button-favorite__icon" />
+    <VIcon
+      :iconName="favoriteIcon"
+      :iconWidth="30"
+      :iconHeight="30"
+      class="button-favorite__icon"
+    />
   </button>
 </template>
 
@@ -24,10 +29,22 @@ export default {
   background: transparent;
   &__icon {
     &:hover {
-      width: 30px;
-      height: 26px;
-      transition: all linear 0.2s;
+      // width: 40px;
+      // height: 40px;
+      // transition: all linear 0.2s;
+      animation: 1s infinite flashIcon;
     }
+  }
+}
+
+@keyframes flashIcon {
+  from {
+    scale: 0;
+  }
+
+  to {
+    scale: 2;
+    // height: 150%;
   }
 }
 </style>

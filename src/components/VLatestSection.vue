@@ -1,5 +1,6 @@
 <template>
-  <VInfoSection class="latest-section" title="Latest on the Property Listing">
+  <section class="latest-section">
+    <h2 class="latest-section__title">Latest on the Property Listing</h2>
     <div class="latest-section__cards">
       <VLatestSectionCard
         v-for="(card, index) in cards"
@@ -11,18 +12,16 @@
         :address="card.address"
       />
     </div>
-  </VInfoSection>
+  </section>
 </template>
 
 <script>
 import { api } from '../api/api'
-import VInfoSection from './VInfoSection.vue'
 import VLatestSectionCard from './VLatestSectionCard.vue'
 
 export default {
   components: {
-    VLatestSectionCard,
-    VInfoSection
+    VLatestSectionCard
   },
   data() {
     return {
@@ -35,12 +34,18 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '../assets/scss/mixins/section-title';
 .latest-section {
+  &__title {
+    @include section-title-style;
+    margin-bottom: 101px;
+  }
   &__cards {
-    margin-top: 94px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
   }
 }
 </style>

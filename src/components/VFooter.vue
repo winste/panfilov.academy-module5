@@ -46,11 +46,13 @@ import Logo from '@/assets/images/Logo.svg'
 import Appstore from '@/assets/images/icons/Appstore.svg'
 import Playstore from '@/assets/images/icons/Playstore.svg'
 import VFooterList from './VFooterList.vue'
+import VFooterSocialMedia from './VFooterSocialMedia.vue'
 
 export default {
   components: {
     VIcon,
-    VFooterList
+    VFooterList,
+    VFooterSocialMedia
   },
   data() {
     return {

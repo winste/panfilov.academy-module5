@@ -5,6 +5,7 @@
       :key="index"
       @click="$emit('switch', number)"
       class="pagination__button"
+      :class="number ? 'pagination__button' : 'pagination__button--active'"
     ></button>
   </div>
 </template>
@@ -31,6 +32,9 @@ export default {
     border-radius: 50%;
     &:hover {
       background-color: rgb(179, 173, 173);
+    }
+    &__button--active {
+      background-color: aqua;
     }
   }
 }

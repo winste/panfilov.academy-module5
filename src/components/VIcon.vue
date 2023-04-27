@@ -9,12 +9,12 @@ export default {
   props: {
     iconName: String,
     iconWidth: {
-      type: String,
-      default: '20'
+      type: Number,
+      default: 20
     },
     iconHeight: {
-      type: String,
-      default: '20'
+      type: Number,
+      default: 20
     }
   }
 }

@@ -35,6 +35,8 @@ export default {
 
 .date {
   &__input {
+    margin-top: 3.5px;
+    font-size: 13px;
     border: none;
     padding: 0;
     @include placeholder-style;
