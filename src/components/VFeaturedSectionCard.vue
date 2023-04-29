@@ -36,11 +36,14 @@ export default {
 .featured-card {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 31px;
   &__price {
     font-size: 18px;
     font-weight: 600;
     color: rgba(154, 154, 154, 1);
+  }
+  &__info {
+    margin-left: 2px;
   }
 }
 </style>

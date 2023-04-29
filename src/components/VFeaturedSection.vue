@@ -54,18 +54,16 @@ export default {
 .featured-section {
   &__title {
     @include section-title-style;
-    margin-bottom: 82px;
+    margin-bottom: 81px;
   }
   &__cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 27px;
-    row-gap: 60px;
+    display: grid;
+    grid-template-columns: 385px 382px 382px;
+    grid-gap: 65px 30px;
   }
   &__card {
     &-info {
-      margin-bottom: 15px;
+      margin-bottom: 14px;
     }
   }
 }

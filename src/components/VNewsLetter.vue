@@ -42,32 +42,43 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/mixins/placeholder';
 .news-letter {
-  padding: 30px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 70px;
+  justify-content: space-between;
+  gap: 30px;
   min-width: 100%;
+  padding: 34px 179px 32px 187px;
   background-color: rgba(232, 234, 236, 1);
+  &__title {
+    font-size: 18px;
+    letter-spacing: -0.2px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+  }
   &__text {
     font-size: 14px;
+    letter-spacing: 0.1px;
   }
   &__form {
+    display: flex;
     flex: 1 1 0;
     max-width: 794px;
     background-color: rgb(255, 255, 255);
     border-radius: 26px;
-    display: flex;
+    max-height: 50px;
   }
   &__input {
     flex: 1 1 0;
-    padding: 16px 23px;
-    border-radius: 26px;
-    color: rgba(154, 154, 154, 1);
     font-family: 'Montserrat';
     font-weight: 500;
+    color: rgba(154, 154, 154, 1);
+    padding: 16px 23px;
+    border-radius: 26px;
   }
   &__button {
+    position: relative;
+    top: -1px;
+    right: 2px;
     opacity: 0.5;
   }
 }

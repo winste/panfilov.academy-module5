@@ -17,7 +17,7 @@
       <VNumberInput label="Guests" placeholder="Add Guests" />
     </div>
 
-    <VButtonSubmit :btnIcon="icon" class="form__button" />
+    <VButtonSubmit :btnSize="54" :btnIcon="icon" class="form__button" />
   </form>
 </template>
 

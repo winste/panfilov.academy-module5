@@ -41,13 +41,14 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 279px;
-  height: 340px;
+  max-width: 279px;
+  min-height: 340px;
   padding: 18px 17px 19px 21px;
   background-color: rgba(224, 226, 230, 1);
   border-radius: 8px;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   &__icon {
     align-self: end;
   }

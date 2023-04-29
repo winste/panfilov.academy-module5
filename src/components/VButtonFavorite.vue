@@ -29,22 +29,20 @@ export default {
   background: transparent;
   &__icon {
     &:hover {
-      // width: 40px;
-      // height: 40px;
-      // transition: all linear 0.2s;
-      animation: 1s infinite flashIcon;
+      animation: 0.5s forwards flashIcon;
     }
   }
 }
 
 @keyframes flashIcon {
-  from {
-    scale: 0;
+  0% {
+    scale: 1;
   }
-
-  to {
-    scale: 2;
-    // height: 150%;
+  10% {
+    scale: 0.9;
+  }
+  100% {
+    scale: 1.2;
   }
 }
 </style>

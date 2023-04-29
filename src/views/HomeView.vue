@@ -53,6 +53,8 @@ export default {
     }
     &-browse {
       margin-bottom: 57px;
+      margin-left: 15px;
+      min-width: 100%;
     }
   }
   &__latest {

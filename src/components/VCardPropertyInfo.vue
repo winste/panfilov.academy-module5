@@ -1,13 +1,23 @@
 <template>
   <div class="card-property">
-    <div class="card-property-item">
-      <VIcon :iconName="iconBedroom" />
-      {{ propertyList[0].bedroom }}
+    <div class="card-property__item">
+      <VIcon
+        :iconName="iconBedroom"
+        :iconWidth="25"
+        :iconHeight="24"
+        class="card-property__icon card-property__icon-bed"
+      />
+      <span class="card-property__number">{{ propertyList[0].bedroom }} </span>
     </div>
 
-    <div class="card-property-item">
-      <VIcon :iconName="iconBathroom" />
-      {{ propertyList[0].bathroom }}
+    <div class="card-property__item">
+      <VIcon
+        :iconName="iconBathroom"
+        :iconWidth="20"
+        :iconHeight="21"
+        class="card-property__icon card-property__icon-bath"
+      />
+      <span class="card-property__number">{{ propertyList[0].bathroom }}</span>
     </div>
   </div>
 </template>
@@ -39,10 +49,23 @@ export default {
 <style lang="scss" scoped>
 .card-property {
   display: flex;
-  gap: 16px;
-  &-item {
+  align-items: center;
+  gap: 21px;
+  &__item {
     display: flex;
-    gap: 8px;
+    gap: 7px;
+  }
+  &__icon {
+    margin-left: 1px;
+    &-bed {
+      margin-left: 3px;
+    }
+    &-bath {
+      margin-bottom: 2px;
+    }
+  }
+  &__number {
+    align-self: center;
   }
 }
 </style>

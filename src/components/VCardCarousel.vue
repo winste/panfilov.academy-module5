@@ -1,16 +1,23 @@
 <template>
   <div class="carousel-wrapper">
     <div class="carousel" :style="{ 'margin-left': `-${100 * curentSlideIndex}%` }">
-      <div v-for="(slide, index) in carouselSlides" :key="index" class="slide">
-        <div :style="{ 'background-image': `url(${slide})` }" class="carousel__slide"></div>
-      </div>
+      <div
+        v-for="(slide, index) in carouselSlides"
+        :key="index"
+        :style="{ 'background-image': `url(${slide})` }"
+        class="carousel__slide"
+      ></div>
     </div>
 
-    <div class="carousel__content"><slot></slot></div>
+    <div class="carousel__content"><slot class="carousel__content"></slot></div>
 
     <div class="carousel__interaction">
-      <VButtonFavorite class="carousel__button" @click="addToFavorites" />
-      <VCardCarouselPagination :slideCount="carouselSlides.length - 1" @switch="switchSlide" />
+      <VButtonFavorite @click="addToFavorites" class="carousel__button" />
+      <VCardCarouselPagination
+        :slideCount="carouselSlides.length - 1"
+        @switch="switchSlide"
+        class="carousel__pagination"
+      />
     </div>
   </div>
 </template>
@@ -48,13 +55,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$slideWidth: 382px;
+$slideHeight: 340px;
 .carousel-wrapper {
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 382px;
-  height: 340px;
-  padding: 24px;
+  max-width: $slideWidth;
+  min-height: $slideHeight;
+  padding: 21px 18px 19px 23px;
   overflow: hidden;
   border-radius: 12px;
 }
@@ -66,29 +75,24 @@ export default {
   display: flex;
   transition: all ease 0.5s;
   z-index: -111;
-}
-
-.carousel__interaction {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.carousel__content,
-.carousel__button {
-  align-self: end;
-}
-
-.slide {
-  width: 384px;
-  height: 340px;
-  flex: 0 0 auto;
-}
-
-.carousel__slide {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  z-index: -111;
+  &__interaction {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__content,
+  &__button {
+    align-self: end;
+  }
+  &__slide {
+    width: $slideWidth;
+    height: $slideHeight;
+    background-size: cover;
+    z-index: -111;
+  }
+  &__pagination {
+    margin-right: 2px;
+    margin-bottom: 5px;
+  }
 }
 </style>
