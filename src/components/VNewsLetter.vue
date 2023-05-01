@@ -47,7 +47,7 @@ export default {
   justify-content: space-between;
   gap: 30px;
   min-width: 100%;
-  padding: 34px 179px 32px 187px;
+  padding: 34px 179px 33px 187px;
   background-color: rgba(232, 234, 236, 1);
   &__title {
     font-size: 18px;
@@ -63,9 +63,10 @@ export default {
     display: flex;
     flex: 1 1 0;
     max-width: 794px;
+    max-height: 50px;
     background-color: rgb(255, 255, 255);
     border-radius: 26px;
-    max-height: 50px;
+    box-shadow: inset -2px 0px 0px rgb(232, 234, 236);
   }
   &__input {
     flex: 1 1 0;

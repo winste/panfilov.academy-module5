@@ -27,7 +27,7 @@ import Search from '@/assets/images/icons/Search.svg'
 import VSelect from './VSelect.vue'
 import VDateInput from './VDateInput.vue'
 import VNumberInput from './VNumberInput.vue'
-import VButtonSubmit from './VButtonSubmit.vue'
+import VButtonSubmit from '../VButtonSubmit.vue'
 
 export default {
   components: {
@@ -56,16 +56,21 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/const';
+
+$form-color: rgb(255, 255, 255);
+$delimiter-color: rgb(221, 221, 221);
+
 .form {
   display: flex;
   padding: 11px 8px 5px 8px;
-  background-color: white;
+  background-color: $form-color;
   border-radius: 35px;
   &__title {
     display: block;
     padding-bottom: 22px;
     padding-left: 30px;
-    color: rgba(72, 72, 72, 1);
+    color: $main-font-color;
     font-weight: 700;
     font-size: 40px;
     text-transform: uppercase;
@@ -89,14 +94,14 @@ export default {
       margin-right: 26px;
     }
     &-number {
-      max-width: 127px;
+      width: 127px;
     }
     &:not(:first-child):before {
       content: '';
       position: absolute;
       width: 30px;
       height: 1px;
-      background-color: #dddddd;
+      background-color: $delimiter-color;
       top: 50%;
       right: 100%;
       transform: rotate(90deg);

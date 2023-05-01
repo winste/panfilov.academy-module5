@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/scss/mixins/placeholder';
+@import '@/assets/scss/mixins/placeholder';
 
 .select {
   min-width: 250px;

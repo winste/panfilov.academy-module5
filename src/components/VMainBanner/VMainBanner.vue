@@ -1,16 +1,16 @@
 <template>
   <section class="main-banner" :style="{ 'background-image': `url(${image})` }">
     <div class="main-banner__search">
-      <VMainBannerSearchBar />
+      <VSearchBar />
     </div>
   </section>
 </template>
 
 <script>
-import VMainBannerSearchBar from '../components/VMainBannerSearchBar.vue'
+import VSearchBar from './VSearchBar.vue'
 export default {
   components: {
-    VMainBannerSearchBar
+    VSearchBar
   },
   props: {
     image: String
@@ -19,17 +19,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$bgcolor: rgba(239, 240, 242, 1);
-
+@import '@/assets/scss/const';
+@import '@/assets/scss/mixins/background-position';
 .main-banner {
-  height: 567px;
-  background-color: $bgcolor;
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  background-size: 100%;
-  background-position: center;
+  min-height: $banner-main-height;
+  background-color: $main-decor-color;
+  @include background-position;
   &__search {
     padding-bottom: 77px;
   }

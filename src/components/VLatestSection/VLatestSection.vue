@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { api } from '../api/api'
+import { api } from '../../api/api'
 import VLatestSectionCard from './VLatestSectionCard.vue'
 
 export default {
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/mixins/section-title';
+@import '../../assets/scss/mixins/section-title';
 .latest-section {
   &__title {
     @include section-title-style;

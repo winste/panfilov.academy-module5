@@ -1,8 +1,10 @@
+@import '../const';
+
 @mixin placeholder-style {
   &::placeholder {
-    font-family: 'Montserrat';
+    font-family: $main-font-family;
     font-size: 14px;
     font-weight: 600;
-    color: rgb(194, 198, 204);
+    color: $search-bar-placeholder-color;
   }
 }

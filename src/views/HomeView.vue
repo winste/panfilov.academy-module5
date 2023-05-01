@@ -3,14 +3,14 @@
     <VMainBanner :image="bannersImages.main.image" class="main__banner-main" />
     <div class="container-wrapper">
       <VLatestSection class="main__latest" />
-      <VInfoBanner
+      <VBanner
         :title="bannersImages.second.title"
         :description="bannersImages.second.description"
         :image="bannersImages.second.image"
         class="main__banner-hosting"
       />
       <VFeaturedSection class="main__featured" />
-      <VInfoBanner
+      <VBanner
         :title="bannersImages.last.title"
         :description="bannersImages.last.description"
         :image="bannersImages.last.image"
@@ -22,16 +22,16 @@
 
 <script>
 import { api } from '../api/api'
-import VMainBanner from '../components/VMainBanner.vue'
-import VLatestSection from '../components/VLatestSection.vue'
-import VInfoBanner from '../components/VInfoBanner.vue'
-import VFeaturedSection from '../components/VFeaturedSection.vue'
+import VMainBanner from '../components/VMainBanner/VMainBanner.vue'
+import VLatestSection from '../components/VLatestSection/VLatestSection.vue'
+import VBanner from '../components/VBanner.vue'
+import VFeaturedSection from '../components/VFeaturedSection/VFeaturedSection.vue'
 
 export default {
   components: {
     VMainBanner,
     VLatestSection,
-    VInfoBanner,
+    VBanner,
     VFeaturedSection
   },
   data() {

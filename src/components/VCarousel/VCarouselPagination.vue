@@ -3,9 +3,10 @@
     <button
       v-for="(number, index) in slideCount"
       :key="index"
-      @click="$emit('switch', number)"
-      class="pagination__button"
-      :class="number ? 'pagination__button' : 'pagination__button--active'"
+      @click="$emit('switch', index)"
+      :class="
+        index == slideIndex ? 'pagination__button pagination__button--active' : 'pagination__button'
+      "
     ></button>
   </div>
 </template>
@@ -14,6 +15,10 @@
 export default {
   props: {
     slideCount: {
+      type: Number,
+      default: 0
+    },
+    slideIndex: {
       type: Number,
       default: 0
     }
@@ -33,8 +38,8 @@ export default {
     &:hover {
       background-color: rgb(179, 173, 173);
     }
-    &__button--active {
-      background-color: aqua;
+    &--active {
+      background-color: rgb(179, 173, 173);
     }
   }
 }

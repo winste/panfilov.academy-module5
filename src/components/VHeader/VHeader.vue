@@ -1,39 +1,33 @@
 <template>
   <header class="header">
-    <a href="/">
-      <VIcon :iconName="iconLogo" width="104" height="30" />
-    </a>
+    <VLogo />
     <VNavigation class="header__navigation" />
   </header>
 </template>
 
 <script>
-import VIcon from './VIcon.vue'
-import Logo from '@/assets/images/Logo.svg'
 import VNavigation from './VNavigation.vue'
+import VLogo from '../VLogo.vue'
 
 export default {
   components: {
-    VIcon,
+    VLogo,
     VNavigation
-  },
-  data() {
-    return {
-      iconLogo: Logo
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-$colorBanner: rgba(239, 240, 242, 1);
+@import '@/assets/scss/const';
 
 .header {
   display: flex;
   padding: 27px 80px 20px 82px;
-  background-color: $colorBanner;
+  background-color: $main-decor-color;
+  border-radius: 20px 20px 0 0;
   &__navigation {
-    padding-top: 5px;
+    margin-left: 135px;
+    margin-top: 5px;
   }
 }
 </style>

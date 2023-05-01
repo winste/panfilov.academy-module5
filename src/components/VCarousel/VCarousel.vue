@@ -1,6 +1,6 @@
 <template>
   <div class="carousel-wrapper">
-    <div class="carousel" :style="{ 'margin-left': `-${100 * curentSlideIndex}%` }">
+    <div :style="{ 'margin-left': `-${100 * currentSlideIndex}%` }" class="carousel">
       <div
         v-for="(slide, index) in carouselSlides"
         :key="index"
@@ -9,12 +9,15 @@
       ></div>
     </div>
 
-    <div class="carousel__content"><slot class="carousel__content"></slot></div>
+    <div class="carousel__content">
+      <slot></slot>
+    </div>
 
     <div class="carousel__interaction">
       <VButtonFavorite @click="addToFavorites" class="carousel__button" />
-      <VCardCarouselPagination
-        :slideCount="carouselSlides.length - 1"
+      <VCarouselPagination
+        :slideCount="carouselSlides.length"
+        :slideIndex="currentSlideIndex"
         @switch="switchSlide"
         class="carousel__pagination"
       />
@@ -23,15 +26,21 @@
 </template>
 
 <script>
-import VButtonFavorite from './VButtonFavorite.vue'
-import VCardCarouselPagination from './VCardCarouselPagination.vue'
+import VButtonFavorite from '../VButtonFavorite.vue'
+import VCarouselPagination from './VCarouselPagination.vue'
 
 export default {
+  startX: null,
+  endX: null,
+
   components: {
     VButtonFavorite,
-    VCardCarouselPagination
+    VCarouselPagination
   },
   props: {
+    carouselMainBackground: {
+      type: String
+    },
     carouselSlides: {
       type: Array,
       default: () => []
@@ -39,13 +48,13 @@ export default {
   },
   data() {
     return {
-      curentSlideIndex: 0,
+      currentSlideIndex: 0,
       isFavorite: false
     }
   },
   methods: {
     switchSlide(id) {
-      this.curentSlideIndex = id
+      this.currentSlideIndex = id
     },
     addToFavorites() {
       this.isFavorite = !this.isFavorite

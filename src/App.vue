@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import VHeader from './components/VHeader.vue'
+import VFooter from './components/VFooter/VFooter.vue'
+import VHeader from './components/VHeader/VHeader.vue'
 import VNewsLetter from './components/VNewsLetter.vue'
-import VFooter from './components/VFooter.vue'
 
 export default {
   components: {

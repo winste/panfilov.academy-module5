@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import VAvatar from './VAvatar.vue'
-import VButtonFavorite from './VButtonFavorite.vue'
-import VInfoCard from './VInfoCard.vue'
+import VAvatar from '../VAvatar.vue'
+import VButtonFavorite from '../VButtonFavorite.vue'
+import VInfoCard from '../VInfoCard.vue'
 
 export default {
   components: {
@@ -36,19 +36,24 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '../../assets/scss/const';
+@import '../../assets/scss/mixins/background-position';
+
+$card-width: 279px;
+$card-height: 340px;
+$card-border-radius: 8px;
+
 .latest-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 279px;
-  min-height: 340px;
+  max-width: $card-width;
+  min-height: $card-height;
   padding: 18px 17px 19px 21px;
-  background-color: rgba(224, 226, 230, 1);
-  border-radius: 8px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  border-radius: $card-border-radius;
+  background-color: $card-bg-color;
+  @include background-position;
   &__icon {
     align-self: end;
   }

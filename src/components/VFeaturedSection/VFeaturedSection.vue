@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import { api } from '../api/api'
+import { api } from '@/api/api'
 import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
-import VIcon from './VIcon.vue'
-import VInfoCard from './VInfoCard.vue'
+import VIcon from '../VIcon.vue'
+import VInfoCard from '../VInfoCard.vue'
 import Bedroom from '@/assets/images/icons/Bedroom.svg'
 import Bathroom from '@/assets/images/icons/Bathroom.svg'
-import VCardPropertyInfo from './VCardPropertyInfo.vue'
+import VCardPropertyInfo from '../VCardPropertyInfo.vue'
 
 export default {
   components: {
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/mixins/section-title';
+@import '@/assets/scss/mixins/section-title';
 .featured-section {
   &__title {
     @include section-title-style;

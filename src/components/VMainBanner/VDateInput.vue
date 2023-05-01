@@ -31,7 +31,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '../assets/scss/mixins/placeholder';
+@import '@/assets/scss/mixins/placeholder';
 
 .date {
   &__input {

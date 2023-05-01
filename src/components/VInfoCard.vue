@@ -34,7 +34,7 @@ export default {
   justify-content: space-between;
 
   &__name {
-    padding-bottom: 10px;
+    margin-bottom: 10px;
   }
   &__address {
     font-size: 14px;

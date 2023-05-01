@@ -27,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 .infoBanner {
   min-height: 395px;
-  width: auto;
+  min-width: 100%;
   padding: 70px 54px;
   background-size: 100%;
   background-position: center;
