@@ -9,12 +9,16 @@
         class="featured-section__card"
       >
         <VInfoCard
-          :idCard="card._id"
-          :nameCard="card.name"
-          :addressCard="card.address"
+          :cardId="card._id"
+          :cardName="card.name"
+          :cardAddress="card.address"
+          cardNameFontSize="18px"
           class="featured-section__card-info"
         />
-        <VCardPropertyInfo :propertyList="card.info" class="featured-section__card-property" />
+        <VCardPropertyInfo
+          :propertyList="card.info"
+          class="featured-section__card-property"
+        />
       </VFeaturedSectionCard>
     </div>
   </section>
@@ -34,23 +38,27 @@ export default {
     VFeaturedSectionCard,
     VInfoCard,
     VIcon,
-    VCardPropertyInfo
+    VCardPropertyInfo,
   },
   data() {
     return {
       cards: [],
       icon1: Bedroom,
-      icon2: Bathroom
+      icon2: Bathroom,
     }
   },
   async created() {
-    await api.fetchData('/hotel/featured').then((response) => (this.cards = response.data))
-  }
+    await api
+      .fetchData('/hotel/featured')
+      .then((response) => (this.cards = response.data))
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/section-title';
+
+$cardSize: 382px;
 .featured-section {
   &__title {
     @include section-title-style;
@@ -58,7 +66,7 @@ export default {
   }
   &__cards {
     display: grid;
-    grid-template-columns: 385px 382px 382px;
+    grid-template-columns: calc($cardSize + 3px) $cardSize $cardSize;
     grid-gap: 65px 30px;
   }
   &__card {

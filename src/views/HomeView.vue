@@ -4,16 +4,16 @@
     <div class="container-wrapper">
       <VLatestSection class="main__latest" />
       <VBanner
-        :title="bannersImages.second.title"
-        :description="bannersImages.second.description"
-        :image="bannersImages.second.image"
+        :bannerImage="bannersImages.second.image"
+        :bannerTitle="bannersImages.second.title"
+        :bannerDescription="bannersImages.second.description"
         class="main__banner-hosting"
       />
       <VFeaturedSection class="main__featured" />
       <VBanner
-        :title="bannersImages.last.title"
-        :description="bannersImages.last.description"
-        :image="bannersImages.last.image"
+        :bannerImage="bannersImages.last.image"
+        :bannerTitle="bannersImages.last.title"
+        :bannerDescription="bannersImages.last.description"
         class="main__banner-browse"
       />
     </div>
@@ -21,28 +21,30 @@
 </template>
 
 <script>
-import { api } from '../api/api'
-import VMainBanner from '../components/VMainBanner/VMainBanner.vue'
-import VLatestSection from '../components/VLatestSection/VLatestSection.vue'
-import VBanner from '../components/VBanner.vue'
-import VFeaturedSection from '../components/VFeaturedSection/VFeaturedSection.vue'
+import { api } from "../api/api";
+import VMainBanner from "../components/VMainBanner/VMainBanner.vue";
+import VLatestSection from "../components/VLatestSection/VLatestSection.vue";
+import VBanner from "../components/VBanner.vue";
+import VFeaturedSection from "../components/VFeaturedSection/VFeaturedSection.vue";
 
 export default {
   components: {
     VMainBanner,
     VLatestSection,
     VBanner,
-    VFeaturedSection
+    VFeaturedSection,
   },
   data() {
     return {
-      bannersImages: null
-    }
+      bannersImages: null,
+    };
   },
   async created() {
-    await api.fetchData('/banners').then((response) => (this.bannersImages = response.data))
-  }
-}
+    await api
+      .fetchData("/banners")
+      .then((response) => (this.bannersImages = response.data));
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -4,7 +4,11 @@
     class="button-submit"
     :style="{ width: `${btnSize}px`, height: `${btnSize}px` }"
   >
-    <VIcon :iconName="btnIcon" :iconWidth="btnIconWidth" :iconHeight="btnIconHeight" />
+    <VIcon
+      :iconName="btnIcon"
+      :iconWidth="btnIconWidth"
+      :iconHeight="btnIconHeight"
+    />
   </button>
 </template>
 
@@ -13,26 +17,27 @@ import VIcon from './VIcon.vue'
 
 export default {
   components: {
-    VIcon
+    VIcon,
   },
   props: {
     btnSize: {
       type: Number,
-      default: 52
+      default: 52,
     },
     btnIcon: String,
     btnIconWidth: Number,
-    btnIconHeight: Number
-  }
+    btnIconHeight: Number,
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
+@import '@/assets/scss/mixins/button-hover';
+
 .button-submit {
-  background-color: rgba(72, 72, 72, 1);
+  background-color: $main-font-color;
   border-radius: 50%;
-  &:hover {
-    box-shadow: inset 0 0 5px 2px #ffffffb7;
-  }
+  @include button-hover;
 }
 </style>

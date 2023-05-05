@@ -1,11 +1,11 @@
 <template>
-  <img :src="src" alt="avatar" class="avatar" />
+  <img :src="avatarUrl" alt="avatar" class="avatar" />
 </template>
 
 <script>
 export default {
   props: {
-    src: String
+    avatarUrl: String
   }
 }
 </script>

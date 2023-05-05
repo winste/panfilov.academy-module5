@@ -29,20 +29,20 @@ import Bathroom from '@/assets/images/icons/Bathroom.svg'
 
 export default {
   components: {
-    VIcon
+    VIcon,
   },
   data() {
     return {
       iconBedroom: Bedroom,
-      iconBathroom: Bathroom
+      iconBathroom: Bathroom,
     }
   },
   props: {
     propertyList: {
       type: Array,
-      default: () => []
-    }
-  }
+      default: () => [],
+    },
+  },
 }
 </script>
 

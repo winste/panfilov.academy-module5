@@ -5,7 +5,9 @@
       :key="index"
       @click="$emit('switch', index)"
       :class="
-        index == slideIndex ? 'pagination__button pagination__button--active' : 'pagination__button'
+        index == slideIndex
+          ? 'pagination__indicator pagination__indicator--active'
+          : 'pagination__indicator'
       "
     ></button>
   </div>
@@ -27,19 +29,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
+
+$indicator-size: 10px;
+
 .pagination {
   display: flex;
   gap: 5px;
-  &__button {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 1);
+  &__indicator {
+    width: $indicator-size;
+    height: $indicator-size;
+    background-color: $input-bg-color;
     border-radius: 50%;
     &:hover {
-      background-color: rgb(179, 173, 173);
+      background-color: $secondary-font-color;
     }
     &--active {
-      background-color: rgb(179, 173, 173);
+      background-color: $secondary-font-color;
     }
   }
 }

@@ -40,7 +40,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/mixins/placeholder';
+@import '@/assets/scss/const';
+
+$formWidth: 794px;
+$formHeight: 50px;
+
 .news-letter {
   display: flex;
   align-items: center;
@@ -48,7 +52,7 @@ export default {
   gap: 30px;
   min-width: 100%;
   padding: 34px 179px 33px 187px;
-  background-color: rgba(232, 234, 236, 1);
+  background-color: $news-letter-bg-color;
   &__title {
     font-size: 18px;
     letter-spacing: -0.2px;
@@ -62,17 +66,17 @@ export default {
   &__form {
     display: flex;
     flex: 1 1 0;
-    max-width: 794px;
-    max-height: 50px;
-    background-color: rgb(255, 255, 255);
+    max-width: $formWidth;
+    max-height: $formHeight;
+    background-color: $input-bg-color;
     border-radius: 26px;
-    box-shadow: inset -2px 0px 0px rgb(232, 234, 236);
+    box-shadow: inset -2px 0px 0px $news-letter-bg-color;
   }
   &__input {
     flex: 1 1 0;
-    font-family: 'Montserrat';
+    font-family: $main-font-family;
     font-weight: 500;
-    color: rgba(154, 154, 154, 1);
+    color: $secondary-font-color;
     padding: 16px 23px;
     border-radius: 26px;
   }

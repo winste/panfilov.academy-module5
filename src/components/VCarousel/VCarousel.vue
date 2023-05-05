@@ -1,6 +1,14 @@
 <template>
   <div class="carousel-wrapper">
-    <div :style="{ 'margin-left': `-${100 * currentSlideIndex}%` }" class="carousel">
+    <div
+      :style="{ 'margin-left': `-${100 * currentSlideIndex}%` }"
+      class="carousel"
+    >
+      <div
+        v-if="carouselMainSlide"
+        :style="{ 'background-image': `url(${carouselMainSlide})` }"
+        class="carousel__slide"
+      ></div>
       <div
         v-for="(slide, index) in carouselSlides"
         :key="index"
@@ -14,9 +22,15 @@
     </div>
 
     <div class="carousel__interaction">
-      <VButtonFavorite @click="addToFavorites" class="carousel__button" />
+      <VButtonIcon
+        :buttonIcon="carouselIcon"
+        :buttonWidth="30"
+        :buttonHeigh="30"
+        @click="addToFavorites"
+        class="carousel__button"
+      />
       <VCarouselPagination
-        :slideCount="carouselSlides.length"
+        :slideCount="slideCounting"
         :slideIndex="currentSlideIndex"
         @switch="switchSlide"
         class="carousel__pagination"
@@ -26,31 +40,39 @@
 </template>
 
 <script>
-import VButtonFavorite from '../VButtonFavorite.vue'
+import VButtonIcon from '../VButtonIcon.vue'
 import VCarouselPagination from './VCarouselPagination.vue'
+import Like from '../../assets/images/icons/Like.svg'
 
 export default {
-  startX: null,
-  endX: null,
-
   components: {
-    VButtonFavorite,
-    VCarouselPagination
+    VButtonIcon,
+    VCarouselPagination,
   },
   props: {
-    carouselMainBackground: {
-      type: String
+    carouselMainSlide: {
+      type: String,
     },
     carouselSlides: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
+    carouselWidth: String,
+    carouselHeight: String,
   },
   data() {
     return {
+      carouselIcon: Like,
       currentSlideIndex: 0,
-      isFavorite: false
+      isFavorite: false,
     }
+  },
+  computed: {
+    slideCounting() {
+      return this.carouselMainSlide
+        ? this.carouselSlides.length + 1
+        : this.carouselSlides.length
+    },
   },
   methods: {
     switchSlide(id) {
@@ -58,20 +80,21 @@ export default {
     },
     addToFavorites() {
       this.isFavorite = !this.isFavorite
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-$slideWidth: 382px;
-$slideHeight: 340px;
+@import '@/assets/scss/const';
+@import '@/assets/scss/mixins/background-position';
+
 .carousel-wrapper {
   position: relative;
   display: flex;
   justify-content: space-between;
-  max-width: $slideWidth;
-  min-height: $slideHeight;
+  max-width: v-bind(carouselWidth);
+  min-height: v-bind(carouselHeight);
   padding: 21px 18px 19px 23px;
   overflow: hidden;
   border-radius: 12px;
@@ -94,9 +117,10 @@ $slideHeight: 340px;
     align-self: end;
   }
   &__slide {
-    width: $slideWidth;
-    height: $slideHeight;
-    background-size: cover;
+    width: v-bind(carouselWidth);
+    height: v-bind(carouselHeight);
+    @include background-position;
+    background-color: $card-bg-color;
     z-index: -111;
   }
   &__pagination {

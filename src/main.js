@@ -6,6 +6,7 @@ import './assets/scss/_main.scss'
 import VueSelect from 'vue-select'
 import VueDatePicker from '@vuepic/vue-datepicker'
 
+
 const app = createApp(App)
 
 app

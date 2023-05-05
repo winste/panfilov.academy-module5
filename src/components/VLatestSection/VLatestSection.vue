@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/mixins/section-title';
+@import '@/assets/scss/mixins/section-title';
 .latest-section {
   &__title {
     @include section-title-style;

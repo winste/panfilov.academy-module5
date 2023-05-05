@@ -2,7 +2,11 @@
   <h2 class="form__title">Find</h2>
   <form class="form">
     <div class="form__input form__input-select">
-      <VSelect label="Location" placeholder="Which city do you prefer?" :options="countries" />
+      <VSelect
+        label="Location"
+        placeholder="Which city do you prefer?"
+        :options="countries"
+      />
     </div>
 
     <div class="form__input form__input-date-in">
@@ -34,24 +38,28 @@ export default {
     VSelect,
     VDateInput,
     VNumberInput,
-    VButtonSubmit
+    VButtonSubmit,
   },
 
   data() {
     return {
       countries: [],
-      icon: Search
+      icon: Search,
     }
   },
   async mounted() {
-    const countryList = await api.fetchData('/hotel/location').then((response) => response.data)
-    this.countries = countryList.map((country) => country.name).sort((a, b) => a.localeCompare(b))
+    const countryList = await api
+      .fetchData('/hotel/location')
+      .then((response) => response.data)
+    this.countries = countryList
+      .map((country) => country.name)
+      .sort((a, b) => a.localeCompare(b))
   },
   methods: {
     addDate() {
       this.type = 'date'
-    }
-  }
+    },
+  },
 }
 </script>
 

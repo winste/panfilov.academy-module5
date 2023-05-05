@@ -1,10 +1,10 @@
 <template>
-  <section class="infoBanner" :style="urlBackground">
-    <h2 class="infoBanner__title">
-      {{ title }}
+  <section class="info-banner" :style="{ 'background-image': `url(${bannerImage})` }">
+    <h2 class="info-banner__title">
+      {{ bannerTitle }}
     </h2>
-    <p class="infoBanner__description">
-      {{ description }}
+    <p class="info-banner__description">
+      {{ bannerDescription }}
     </p>
   </section>
 </template>
@@ -12,38 +12,38 @@
 <script>
 export default {
   props: {
-    title: String,
-    description: String,
-    image: String
-  },
-  computed: {
-    urlBackground() {
-      return `background-image: url("${this.image}");`
-    }
+    bannerImage: String,
+    bannerTitle: String,
+    bannerDescription: String
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.infoBanner {
-  min-height: 395px;
-  min-width: 100%;
+@import '@/assets/scss/mixins/background-position';
+@import '@/assets/scss/mixins/text-hide';
+@import '@/assets/scss/const';
+
+$banner-height: 395px;
+$banner-width: 100%;
+$title-width: 339px;
+$description-title: 400px;
+
+.info-banner {
+  min-height: $banner-height;
+  min-width: $banner-width;
   padding: 70px 54px;
-  background-size: 100%;
-  background-position: center;
+  @include background-position;
   border-radius: 12px;
   &__title {
-    font-size: 36px;
+    font-size: $h2-font-size;
     line-height: 52px;
-    max-width: 339px;
+    max-width: $title-width;
     margin-bottom: 22px;
   }
   &__description {
-    max-width: 400px;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    max-width: $description-title;
+    @include text-hide;
   }
 }
 </style>
