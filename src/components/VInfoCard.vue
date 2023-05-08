@@ -1,13 +1,9 @@
 <template>
   <div class="card-info">
     <a :href="cardDetailLink">
-      <h4 class="card-info__name">
-        {{ cardName }}
-      </h4>
+      <h4 v-text="cardName" class="card-info__name"></h4>
     </a>
-    <p class="card-info__address">
-      {{ cardAddress }}
-    </p>
+    <p v-text="cardAddress" class="card-info__address"></p>
   </div>
 </template>
 
@@ -20,14 +16,14 @@ export default {
     cardNameFontSize: String,
     cardAddressFontSize: {
       type: String,
-      default: '14px',
-    },
+      default: '14px'
+    }
   },
   computed: {
     cardDetailLink() {
       return `/hotel/detail/${this.cardId}`
-    },
-  },
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

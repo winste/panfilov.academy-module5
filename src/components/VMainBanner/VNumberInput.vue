@@ -1,7 +1,5 @@
 <template>
-  <label for="select" class="number-title label">
-    {{ label }}
-  </label>
+  <label v-text="label" for="select" class="number-title label"></label>
   <input type="number" min="1" max="20" class="input-number" value="" :placeholder="placeholder" />
 </template>
 

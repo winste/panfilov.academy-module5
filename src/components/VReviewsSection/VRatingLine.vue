@@ -4,7 +4,7 @@
       <span class="rating-line__line"></span>
     </div>
 
-    <span class="rating-line__number">{{ formattedRating }}</span>
+    <span v-text="formattedRating" class="rating-line__number"></span>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/const';
+@import '@/assets/scss/const';
 
 $line-width: 4px;
 

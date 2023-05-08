@@ -1,7 +1,5 @@
 <template>
-  <label for="select" class="date-title label">
-    {{ label }}
-  </label>
+  <label v-text="label" for="select" class="date-title label"></label>
   <VueDatePicker
     v-model="date"
     :placeholder="placeholder"

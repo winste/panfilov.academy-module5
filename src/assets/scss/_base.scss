@@ -13,12 +13,8 @@
   list-style: none;
 }
 
-a {
-  text-decoration: none;
-  color: $main-font-color;
-  &:hover {
-    opacity: 0.5;
-  }
+html {
+  overflow-y: scroll;
 }
 
 body {
@@ -29,6 +25,14 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: $main-font-color;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 button {
@@ -46,6 +50,10 @@ h3 {
 
 h4 {
   font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
 }
 
 .container {

@@ -7,7 +7,7 @@
         :iconHeight="24"
         class="card-property__icon card-property__icon-bed"
       />
-      <span class="card-property__number">{{ propertyList[0].bedroom }} </span>
+      <span v-text="propertyList[0].bedroom" class="card-property__number"></span>
     </div>
 
     <div class="card-property__item">
@@ -17,7 +17,7 @@
         :iconHeight="21"
         class="card-property__icon card-property__icon-bath"
       />
-      <span class="card-property__number">{{ propertyList[0].bathroom }}</span>
+      <span v-text="propertyList[0].bathroom" class="card-property__number"></span>
     </div>
   </div>
 </template>
@@ -29,20 +29,20 @@ import Bathroom from '@/assets/images/icons/Bathroom.svg'
 
 export default {
   components: {
-    VIcon,
+    VIcon
   },
   data() {
     return {
       iconBedroom: Bedroom,
-      iconBathroom: Bathroom,
+      iconBathroom: Bathroom
     }
   },
   props: {
     propertyList: {
       type: Array,
-      default: () => [],
-    },
-  },
+      default: () => []
+    }
+  }
 }
 </script>
 

@@ -1,11 +1,7 @@
 <template>
   <div class="hotel-info">
-    <h3 class="hotel-info__title">
-      {{ hotelName }}
-    </h3>
-    <p class="hotel-info__address">
-      {{ hotelAddress }}
-    </p>
+    <h3 v-text="hotelName" class="hotel-info__title"></h3>
+    <p v-text="hotelAddress" class="hotel-info__address"></p>
   </div>
 </template>
 
@@ -13,18 +9,19 @@
 export default {
   props: {
     hotelName: String,
-    hotelAddress: String,
-  },
+    hotelAddress: String
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
 .hotel-info {
   &__title {
     margin-bottom: 10px;
   }
   &__address {
-    color: rgba(154, 154, 154, 1);
+    color: $secondary-font-color;
   }
 }
 </style>

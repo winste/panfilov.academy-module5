@@ -1,11 +1,8 @@
 <template>
   <section class="amenities">
-    <h3 class="amenities__title">Offered Amenities</h3>
+    <h4 class="amenities__title">Offered Amenities</h4>
     <div class="amenities__list">
-      <span v-for="(amenity, id) in amenitiesListFormatted" :key="id" class="amenities__item">
-        <img :src="amenity.icon" alt="Icon amenities" class="amenities__image" />
-        <p>{{ amenity.name }}</p>
-      </span>
+      <VAmenity :amenitiesList="amenitiesListFormatted" />
     </div>
 
     <VButtonShowMore
@@ -17,12 +14,12 @@
 </template>
 
 <script>
-import VButtonShowMore from './VButtonShowMore.vue'
-import VIcon from './VIcon.vue'
+import VAmenity from './VAmenity.vue'
+import VButtonShowMore from '../VButtonShowMore.vue'
 
 export default {
   components: {
-    VIcon,
+    VAmenity,
     VButtonShowMore
   },
   props: {
@@ -53,8 +50,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$icon-size: 30px;
-
 .amenities {
   margin-bottom: 56px;
   &__title {
@@ -65,15 +60,6 @@ $icon-size: 30px;
     grid-template-columns: 1fr 1fr;
     row-gap: 20px;
     padding-bottom: 41px;
-  }
-  &__item {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
-  &__image {
-    max-width: $icon-size;
-    max-height: $icon-size;
   }
 }
 </style>

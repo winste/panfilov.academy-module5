@@ -7,7 +7,7 @@
         :height="storeIconHeight"
         class="store-icon"
       />
-      <p class="store-name">{{ storeName }}</p>
+      <p v-text="storeName" class="store-name"></p>
     </a>
   </div>
 </template>
@@ -30,6 +30,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/const';
+@import '@/assets/scss/mixins/button-hover';
+
 .store {
   background-color: rgba(224, 226, 230, 1);
   border-radius: 6px;
@@ -45,6 +48,9 @@ export default {
     justify-content: center;
     gap: 15px;
     padding: 15px 15px 13px 13px;
+    &:hover {
+      @include button-hover($animation: true);
+    }
   }
 }
 </style>

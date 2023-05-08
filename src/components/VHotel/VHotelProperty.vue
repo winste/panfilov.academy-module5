@@ -1,6 +1,6 @@
 <template>
-  <div class="hotel-property">
-    <div class="hotel-property__icon">
+  <div class="property">
+    <div class="property__icon">
       <VIcon :iconName="propertyIcon" :iconWidth="40" :iconHeight="40" />
     </div>
     <span> {{ propertyCount }} {{ propertyName }} </span>
@@ -8,27 +8,27 @@
 </template>
 
 <script>
-import VIcon from '../components/VIcon.vue'
+import VIcon from '../../components/VIcon.vue'
 
 export default {
   components: {
-    VIcon,
+    VIcon
   },
   props: {
     propertyIcon: String,
     propertyName: String,
-    propertyCount: Number,
-  },
+    propertyCount: Number
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/const';
+@import '@/assets/scss/const';
 
 $property-width: 176px;
 $property-height: 160px;
 
-.hotel-property {
+.property {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -5,6 +5,7 @@ import { createPinia } from 'pinia'
 import './assets/scss/_main.scss'
 import VueSelect from 'vue-select'
 import VueDatePicker from '@vuepic/vue-datepicker'
+import VueGallery from 'vue-gallery'
 
 
 const app = createApp(App)
@@ -14,4 +15,5 @@ app
   .use(createPinia())
   .component('v-select', VueSelect)
   .component('VueDatePicker', VueDatePicker)
+  .component('VGallery', VueGallery)
   .mount('#app')

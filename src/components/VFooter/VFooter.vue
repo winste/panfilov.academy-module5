@@ -116,7 +116,7 @@ export default {
   &__text {
     font-size: 15px;
     line-height: 20px;
-    color: #9a9a9a;
+    color: rgb(154, 154, 154);
     margin-bottom: 13px;
   }
   &__stores {
@@ -144,7 +144,7 @@ export default {
     justify-content: space-between;
     padding-top: 40px;
     font-weight: 600;
-    border-top: 1px solid #e0e2e6;
+    border-top: 1px solid rgb(224, 226, 230);
     &-name {
       font-weight: 700;
     }

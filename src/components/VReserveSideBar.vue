@@ -1,6 +1,6 @@
 <template>
   <div class="reserve">
-    <div class="reserve__price">{{ formattedPrice }}</div>
+    <div v-text="formattedPrice" class="reserve__price"></div>
     <button type="submit" class="reserve__button">Reserve Now</button>
   </div>
 </template>
@@ -10,25 +10,29 @@ export default {
   props: {
     reservePrice: {
       type: Object,
-      defaut: () => {},
-    },
+      defaut: () => {}
+    }
   },
   computed: {
     formattedPrice() {
-      return this.reservePrice
-        .map((price) => price.replace('$', '$ '))
-        .join(' - ')
-    },
-  },
+      return this.reservePrice.map((price) => price.replace('$', '$ ')).join(' - ')
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
 @import '@/assets/scss/mixins/button-hover';
 
+$reserve-width: 382px;
+$reserve-height: 201px;
+$button-width: 324px;
+$button-height: 60px;
+
 .reserve {
-  max-width: 382px;
-  min-height: 201px;
+  max-width: $reserve-width;
+  min-height: $reserve-height;
   padding: 30px;
   box-shadow: 0px 0px 16px rgba(194, 198, 204, 0.6);
   border-radius: 10px;
@@ -38,18 +42,17 @@ export default {
   &__price {
     padding-bottom: 27px;
     margin-bottom: 27px;
-    border-bottom: 1px solid #e0e2e6;
+    border-bottom: 1px solid $card-bg-color;
   }
   &__button {
     font-weight: 700;
     font-size: 15px;
-    color: #fff;
-    font-family: 'Montserrat';
-    width: 324px;
-    height: 60px;
-    background: rgb(72, 72, 72);
+    color: $button-font-color;
+    min-width: $button-width;
+    min-height: $button-height;
+    background: $main-font-color;
     border-radius: 30px;
-    @include button-hover;
+    @include button-hover($animation: true);
   }
 }
 </style>

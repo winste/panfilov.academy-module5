@@ -1,14 +1,14 @@
 <template>
   <main class="hotel" v-if="hotelData">
     <div class="hotel-wrapper">
-      <VImageGallery
+      <VGallery
         :galleryMainImage="hotelData.image"
         :galleryImages="hotelData.images"
         class="hotel__gallery"
       />
 
       <div class="container-wrapper">
-        <div class="hotel__info">
+        <div class="hotel__main">
           <div class="hotel__heading">
             <VHotelTitle :hotelName="hotelData.name" :hotelAddress="hotelData.address" />
             <div class="hotel__interaction">
@@ -24,21 +24,19 @@
               propertyName="Bedrooms"
             />
             <VHotelProperty
-              :propertyIcon="iconBedroom"
+              :propertyIcon="iconBathroom"
               :propertyCount="+hotelData.info[0].bathroom"
               propertyName="Bathrooms"
             />
           </div>
 
           <VReserveSideBar :reservePrice="hotelData.price" class="hotel__reserve" />
+          <VHotelDescription :hotelDescription="hotelData.description[0]" />
         </div>
+
         <div class="hotel__information">
-          <div class="hotel__description">
-            <h3 class="hotel__description-title">Apartment Description</h3>
-            <VHotelDescription :hotelDescription="hotelData.description[0]" />
-          </div>
-          <VHotelAmenities :amenitiesList="hotelData.amenities" :amenitiesDisplayedCount="6" />
-          <VHotelReviewsSection :reviewsList="hotelData.reviews" :reviewsDisplayedCount="4" />
+          <VAmenitiesSection :amenitiesList="hotelData.amenities" :amenitiesDisplayedCount="6" />
+          <VReviewsSection :reviewsList="hotelData.reviews" :reviewsDisplayedCount="4" />
         </div>
       </div>
     </div>
@@ -47,31 +45,29 @@
 
 <script>
 import { api } from '@/api/api'
-import VImageGallery from '../components/VImageGallery.vue'
+import VGallery from '../components/VGallery/VGallery.vue'
 import VButtonIcon from '../components/VButtonIcon.vue'
 import LikeBig from '../assets/images/icons/LikeBig.svg'
 import Share from '../assets/images/icons/Share.svg'
 import Bedroom from '../assets/images/icons/Bedroom.svg'
 import Bathroom from '../assets/images/icons/Bathroom.svg'
 import VReserveSideBar from '../components/VReserveSideBar.vue'
-import VHotelHeading from '../components/VHotelHeading.vue'
-import VHotelProperty from '../components/VHotelProperty.vue'
-import VHotelTitle from '../components/VHotelTitle.vue'
-import VHotelDescription from '../components/VHotelDescription.vue'
-import VHotelAmenities from '../components/VHotelAmenities.vue'
-import VHotelReviewsSection from '../components/VHotelReviewsSection.vue'
+import VHotelProperty from '../components/VHotel/VHotelProperty.vue'
+import VHotelTitle from '../components/VHotel/VHotelTitle.vue'
+import VHotelDescription from '../components/VHotel/VHotelDescription.vue'
+import VAmenitiesSection from '../components/VAmenitiesSection/VAmenitiesSection.vue'
+import VReviewsSection from '../components/VReviewsSection/VReviewsSection.vue'
 
 export default {
   components: {
-    VImageGallery,
+    VGallery,
     VButtonIcon,
     VReserveSideBar,
-    VHotelHeading,
     VHotelProperty,
     VHotelTitle,
     VHotelDescription,
-    VHotelAmenities,
-    VHotelReviewsSection
+    VAmenitiesSection,
+    VReviewsSection
   },
   data() {
     return {
@@ -87,11 +83,6 @@ export default {
     await api
       .fetchData(`/hotel/detail/${this.idHotel}`)
       .then((response) => (this.hotelData = response.data))
-  },
-  computed: {
-    formattedText() {
-      return this.hotelData.description[0].split('""')
-    }
   }
 }
 </script>
@@ -102,10 +93,12 @@ export default {
     padding: 0 16px;
   }
   &__gallery {
+    max-height: 540px;
+    overflow: hidden;
     margin-top: 35px;
     margin-bottom: 90px;
   }
-  &__info {
+  &__main {
     display: grid;
     grid-template-columns: 2fr 1fr;
     column-gap: 90px;
@@ -127,31 +120,11 @@ export default {
   &__property {
     display: flex;
     gap: 14px;
+    margin-bottom: 57px;
   }
-  &__description {
-    margin-bottom: 80px;
-    &-title {
-      margin-bottom: 15px;
-    }
+  &__information {
+    max-width: 800px;
+    margin-bottom: 31px;
   }
-  &__reviews-name {
-    min-width: 180px;
-  }
-  &__reviews-total {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 13px 45px;
-  }
-  &__reviews-item {
-    display: flex;
-  }
-  &__reviews-rating {
-    min-width: 150px;
-  }
-}
-
-.hotel__information {
-  max-width: 800px;
-  margin-bottom: 31px;
 }
 </style>

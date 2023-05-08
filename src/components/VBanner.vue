@@ -1,11 +1,7 @@
 <template>
   <section class="info-banner" :style="{ 'background-image': `url(${bannerImage})` }">
-    <h2 class="info-banner__title">
-      {{ bannerTitle }}
-    </h2>
-    <p class="info-banner__description">
-      {{ bannerDescription }}
-    </p>
+    <h2 v-text="bannerTitle" class="info-banner__title"></h2>
+    <p v-text="bannerDescription" class="info-banner__description"></p>
   </section>
 </template>
 
