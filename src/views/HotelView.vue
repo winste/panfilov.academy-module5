@@ -2,6 +2,9 @@
   <main class="hotel" v-if="hotelData">
     <div class="hotel-wrapper">
       <VGallery
+        :avatarUrl="hotelData.author.avatar"
+        :authorName="hotelData.name"
+        :price="hotelData.price"
         :galleryMainImage="hotelData.image"
         :galleryImages="hotelData.images"
         class="hotel__gallery"
@@ -36,6 +39,12 @@
 
         <div class="hotel__information">
           <VAmenitiesSection :amenitiesList="hotelData.amenities" :amenitiesDisplayedCount="6" />
+          <VMap
+            :mapCoords="hotelData.coords"
+            mapWidth="771px"
+            mapHeight="420px"
+            class="hotel__map"
+          />
           <VReviewsSection :reviewsList="hotelData.reviews" :reviewsDisplayedCount="4" />
         </div>
       </div>
@@ -57,6 +66,7 @@ import VHotelTitle from '../components/VHotel/VHotelTitle.vue'
 import VHotelDescription from '../components/VHotel/VHotelDescription.vue'
 import VAmenitiesSection from '../components/VAmenitiesSection/VAmenitiesSection.vue'
 import VReviewsSection from '../components/VReviewsSection/VReviewsSection.vue'
+import VMap from '../components/VMap.vue'
 
 export default {
   components: {
@@ -67,7 +77,8 @@ export default {
     VHotelTitle,
     VHotelDescription,
     VAmenitiesSection,
-    VReviewsSection
+    VReviewsSection,
+    VMap
   },
   data() {
     return {
@@ -94,7 +105,7 @@ export default {
   }
   &__gallery {
     max-height: 540px;
-    overflow: hidden;
+    overflow-y: hidden;
     margin-top: 35px;
     margin-bottom: 90px;
   }
@@ -125,6 +136,9 @@ export default {
   &__information {
     max-width: 800px;
     margin-bottom: 31px;
+  }
+  &__map {
+    margin-bottom: 43px;
   }
 }
 </style>
