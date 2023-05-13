@@ -5,18 +5,22 @@
 <script>
 export default {
   props: {
-    avatarUrl: String
+    avatarUrl: String,
+    avatarSize: {
+      type: String,
+      default: '70px'
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-$size: 70px;
+@import '@/assets/scss/const';
 
 .avatar {
-  width: $size;
-  height: $size;
-  background-color: rgba(194, 198, 204, 1);
+  width: v-bind(avatarSize);
+  height: v-bind(avatarSize);
+  background-color: $placeholder-color;
   border-radius: 50%;
 }
 </style>

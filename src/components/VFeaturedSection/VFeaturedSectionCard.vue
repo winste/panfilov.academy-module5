@@ -9,7 +9,7 @@
       <p class="featured-card__price">$ {{ formattedPrice }} USD</p>
     </VCarousel>
     <div class="featured-card__info">
-      <slot>Card name and address info</slot>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -19,26 +19,25 @@ import VCarousel from '../VCarousel/VCarousel.vue'
 
 export default {
   components: {
-    VCarousel,
+    VCarousel
   },
   props: {
-    carouselCard: Object,
+    carouselCard: Object
   },
   computed: {
     formattedPrice() {
       return this.carouselCard.price.map((price) => price.slice(1)).join('-')
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-direction';
 
 .featured-card {
-  display: flex;
-  flex-direction: column;
-  gap: 31px;
+  @include flexbox-direction($direction: column, $gap: 31px);
   &__price {
     font-size: 18px;
     font-weight: 600;

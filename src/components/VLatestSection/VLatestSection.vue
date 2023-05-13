@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import { api } from '../../api/api'
 import VLatestSectionCard from './VLatestSectionCard.vue'
+import { useHotelStore } from '@/store/hotelStore'
 
 export default {
   components: {
@@ -29,7 +29,9 @@ export default {
     }
   },
   async created() {
-    await api.fetchData('/hotel/latest').then((response) => (this.cards = response.data))
+    const store = useHotelStore()
+    await store.fetchLatestHotels()
+    this.cards = store.getLatestHotels
   }
 }
 </script>

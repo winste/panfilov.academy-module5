@@ -15,17 +15,14 @@
           cardNameFontSize="18px"
           class="featured-section__card-info"
         />
-        <VCardPropertyInfo
-          :propertyList="card.info"
-          class="featured-section__card-property"
-        />
+        <VCardPropertyInfo :propertyList="card.info" class="featured-section__card-property" />
       </VFeaturedSectionCard>
     </div>
   </section>
 </template>
 
 <script>
-import { api } from '@/api/api'
+import { useHotelStore } from '@/store/hotelStore'
 import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
 import VIcon from '../VIcon.vue'
 import VInfoCard from '../VInfoCard.vue'
@@ -38,20 +35,20 @@ export default {
     VFeaturedSectionCard,
     VInfoCard,
     VIcon,
-    VCardPropertyInfo,
+    VCardPropertyInfo
   },
   data() {
     return {
       cards: [],
       icon1: Bedroom,
-      icon2: Bathroom,
+      icon2: Bathroom
     }
   },
   async created() {
-    await api
-      .fetchData('/hotel/featured')
-      .then((response) => (this.cards = response.data))
-  },
+    const store = useHotelStore()
+    await store.fetchFeaturedHotels()
+    this.cards = store.getFeaturedHotels
+  }
 }
 </script>
 

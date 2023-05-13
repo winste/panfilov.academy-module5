@@ -1,8 +1,8 @@
 <template>
   <div class="card-info">
-    <a :href="cardDetailLink">
+    <router-link :to="cardDetailLink">
       <h4 v-text="cardName" class="card-info__name"></h4>
-    </a>
+    </router-link>
     <p v-text="cardAddress" class="card-info__address"></p>
   </div>
 </template>
@@ -26,15 +26,15 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/text-hide';
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-direction';
 
 .card-info {
-  display: flex;
-  flex-direction: column;
+  @include flexbox-direction($direction: column, $gap: 0);
   justify-content: space-between;
-
   &__name {
     font-size: v-bind(cardNameFontSize);
     margin-bottom: 10px;

@@ -20,7 +20,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .map {
-  width: v-bind(mapWidth);
+  max-width: v-bind(mapWidth);
   height: v-bind(mapHeight);
 }
 </style>

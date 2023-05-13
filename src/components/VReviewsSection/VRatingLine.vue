@@ -50,7 +50,7 @@ $line-width: 4px;
     &-wrapper {
       display: flex;
       align-items: center;
-      min-width: v-bind(formattedWidth);
+      min-width: v-bind(maxWidth);
     }
   }
 }

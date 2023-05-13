@@ -7,7 +7,13 @@ import createSvgSpritePlugin from 'vite-plugin-svg-sprite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),
+  plugins: [vue({
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => ['md-linedivider'].includes(tag),
+      }
+    }
+  }),
     createSvgSpritePlugin({
     symbolId: 'icon-[name]-[hash]'}),
   ],

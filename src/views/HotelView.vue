@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { api } from '@/api/api'
+import { useHotelStore } from '@/store/hotelStore'
 import VGallery from '../components/VGallery/VGallery.vue'
 import VButtonIcon from '../components/VButtonIcon.vue'
 import LikeBig from '../assets/images/icons/LikeBig.svg'
@@ -91,9 +91,9 @@ export default {
     }
   },
   async created() {
-    await api
-      .fetchData(`/hotel/detail/${this.idHotel}`)
-      .then((response) => (this.hotelData = response.data))
+    const store = useHotelStore()
+    await store.fetchHotelDetail(this.idHotel)
+    this.hotelData = store.getHotelDetail
   }
 }
 </script>
@@ -101,12 +101,10 @@ export default {
 <style lang="scss" scoped>
 .hotel {
   &-wrapper {
-    padding: 0 16px;
+    padding: 0 13px 0 19px;
+    margin-top: 35px;
   }
   &__gallery {
-    max-height: 540px;
-    overflow-y: hidden;
-    margin-top: 35px;
     margin-bottom: 90px;
   }
   &__main {

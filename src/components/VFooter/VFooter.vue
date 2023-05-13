@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer__wrapper">
       <div class="footer__about">
-        <VLogo :logoWidth="148.5" :logoHeight="40" class="footer__logo" />
+        <VIcon :iconName="icon" :width="148.5" :height="40" class="footer__logo" />
         <p class="footer__text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua.
@@ -51,7 +51,8 @@
 </template>
 
 <script>
-import VLogo from '../VLogo.vue'
+import VIcon from '@/components/VIcon.vue'
+import Logo from '@/assets/images/Logo.svg'
 import VStoreLink from './VStoreLink.vue'
 import Appstore from '@/assets/images/icons/Appstore.svg'
 import Playstore from '@/assets/images/icons/Playstore.svg'
@@ -60,13 +61,14 @@ import VSocialMedia from '@/components/VFooter/VSocialMedia.vue'
 
 export default {
   components: {
-    VLogo,
+    VIcon,
     VFooterList,
     VSocialMedia,
     VStoreLink
   },
   data() {
     return {
+      icon: Logo,
       appstoreIcon: Appstore,
       playstoreIcon: Playstore,
       listAbout: [

@@ -9,6 +9,7 @@ $line-height: 6px;
   font-size: $h2-font-size;
   max-width: $title-width;
   line-height: 48px;
+  letter-spacing: -0.4px;
   &::after {
     content: '';
     position: absolute;

@@ -1,18 +1,26 @@
 <template>
   <header class="header">
-    <VLogo />
+    <router-link to="/"
+      ><VIcon :iconName="logoIcon" :width="104" :height="30" class="logo" />
+    </router-link>
     <VNavigation class="header__navigation" />
   </header>
 </template>
 
 <script>
+import VIcon from '@/components/VIcon.vue'
+import Logo from '@/assets/images/Logo.svg'
 import VNavigation from './VNavigation.vue'
-import VLogo from '../VLogo.vue'
 
 export default {
   components: {
-    VLogo,
+    VIcon,
     VNavigation
+  },
+  data() {
+    return {
+      logoIcon: Logo
+    }
   }
 }
 </script>

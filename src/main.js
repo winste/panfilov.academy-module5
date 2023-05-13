@@ -17,9 +17,8 @@ const settings = {
   version: '2.1'
 }
 
-const app = createApp(App)
 
-app
+createApp(App)
   .use(router)
   .use(createPinia())
   .use(YmapPlugin, settings)

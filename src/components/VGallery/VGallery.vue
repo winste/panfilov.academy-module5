@@ -1,7 +1,7 @@
 <template>
   <section class="gallery">
     <div class="gallery__main" :style="{ 'background-image': `url(${galleryMainImage})` }">
-      <VAvatar :avatarUrl="avatarUrl" />
+      <VAvatar :avatarUrl="avatarUrl" avatarSize="76px" />
       <div class="gallery__text">
         <p class="gallery__text-item">Listed By:</p>
         <p class="gallery__text-author">{{ authorName }}</p>
@@ -16,11 +16,18 @@
         @click="index = imageIndex"
         :style="{ backgroundImage: 'url(' + image + ')' }"
         :class="
-          imageIndex == countDisplayedImages
+          imageIndex == countDisplayedImages - 1
             ? 'gallery__image gallery__image--btn'
             : 'gallery__image'
         "
-      ></div>
+      >
+        <slot v-if="imageIndex == countDisplayedImages - 1">
+          <span class="gallery__image-number">+{{ restImagesCount }} </span>
+          <span class="gallery__image-text"
+            >More <span class="gallery__image-subtext">Photos</span>
+          </span>
+        </slot>
+      </div>
     </div>
   </section>
 </template>
@@ -46,30 +53,17 @@ export default {
   },
   data() {
     return {
-      countDisplayedImages: 3,
-      galleryOpen: false,
-      index: null,
-      showList: this.galleryImages.slice(0, this.countDisplayedImages)
+      countDisplayedImages: 4,
+      index: null
     }
   },
   computed: {
     restImagesCount() {
       return this.galleryImages.length - this.countDisplayedImages
     },
-    btnStartImage() {
-      return this.galleryImages[this.countDisplayedImages]
-    },
     formattedPrice() {
-      return this.price.map((price) => price.replace('$', '$ ')).join(' - ')
+      return this.price.map((price) => price.replace('$', ' $ ')).join('  -  ')
     }
-  },
-  mounted() {
-    this.$el.lastChild.children[4].innerHTML = `
-        <span class="gallery__image-number">+${this.restImagesCount} </span>
-        <span class="gallery__image-text"
-          >More <span class="gallery__image-subtext">Photos</span>
-        </span>
-        `
   }
 }
 </script>
@@ -77,69 +71,73 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
 @import '@/assets/scss/mixins/background-position';
+@import '@/assets/scss/mixins/flexbox-general';
+@import '@/assets/scss/mixins/flexbox-center';
+@import '@/assets/scss/mixins/flexbox-direction';
+
+$image-item-width: 315px;
+$image-item-height: 260px;
+$images-gallery-width: 648px;
+$images-gallery-height: 540px;
+$gallery-bg-color: rgba(194, 198, 204, 1);
 
 .gallery {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 17px;
+  @include flexbox-general($gap: 17px);
+  justify-content: center;
   &__main {
-    display: flex;
+    @include flexbox-general($gap: 22px, $flexWrap: nowrap);
     align-items: end;
-    gap: 20px;
-    width: 669px;
-    height: 540px;
-    padding: 65px 54px;
-    background-color: rgba(194, 198, 204, 1);
+    flex: 1 1 0;
+    min-width: 400px;
+    min-height: 350px;
+    padding: 55px 65px;
+    background-color: $gallery-bg-color;
     border-radius: 16px;
     background-image: v-bind(galleryMainImage);
     @include background-position;
   }
   &__text {
-    display: flex;
-    flex-direction: column;
+    @include flexbox-direction($direction: column, $gap: 4px);
+    font-weight: 500;
     &-item {
-      font-weight: 500;
       font-size: 12px;
     }
     &-author {
       font-weight: 700;
       font-size: 18px;
     }
+    &-price {
+      margin-bottom: 4px;
+    }
   }
   &__images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    @include flexbox-general($gap: 19px 18px);
+    max-width: $images-gallery-width;
+    max-height: $images-gallery-height;
+    margin-top: 1px;
+    overflow-y: hidden;
   }
   &__image {
-    width: 315px;
-    height: 260px;
-    background-color: rgba(194, 198, 204, 1);
+    min-width: $image-item-width;
+    min-height: $image-item-height;
+    background-color: $gallery-bg-color;
     @include background-position;
     border-radius: 8px;
     cursor: pointer;
     &-number {
       font-weight: 700;
       font-size: 48px;
-      z-index: 111;
     }
     &-text {
-      display: flex;
-      flex-direction: column;
+      @include flexbox-direction($direction: column, $gap: 0);
       align-items: start;
-      z-index: 111;
     }
     &-subtext {
       font-weight: 700;
       font-size: 18px;
     }
     &--btn {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
+      @include flexbox-center($gap: 10px);
     }
   }
 }
