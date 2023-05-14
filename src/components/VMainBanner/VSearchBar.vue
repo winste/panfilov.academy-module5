@@ -1,32 +1,27 @@
 <template>
-  <h2 class="form__title">Find</h2>
-  <form class="form">
-    <div class="form__input form__input-select">
-      <VSelect
-        label="Location"
-        placeholder="Which city do you prefer?"
-        :options="countries"
-      />
+  <h2 class="form-banner__title">Find</h2>
+  <form class="form-banner">
+    <div class="form-banner__input form-banner__input-select">
+      <VSelect label="Location" placeholder="Which city do you prefer?" />
     </div>
 
-    <div class="form__input form__input-date-in">
+    <div class="form-banner__input form-banner__input-date-in">
       <VDateInput label="Check in" placeholder="Add Dates" />
     </div>
 
-    <div class="form__input form__input-date-out">
+    <div class="form-banner__input form-banner__input-date-out">
       <VDateInput label="Check out" placeholder="Add Dates" />
     </div>
 
-    <div class="form__input form__input-number">
+    <div class="form-banner__input form-banner__input-number">
       <VNumberInput label="Guests" placeholder="Add Guests" />
     </div>
 
-    <VButtonSubmit :btnSize="54" :btnIcon="icon" class="form__button" />
+    <VButtonSubmit :btnSize="54" :btnIcon="icon" class="form-banner__button" />
   </form>
 </template>
 
 <script>
-import { api } from '@/api/api.js'
 import Search from '@/assets/images/icons/Search.svg'
 import VSelect from './VSelect.vue'
 import VDateInput from './VDateInput.vue'
@@ -38,41 +33,28 @@ export default {
     VSelect,
     VDateInput,
     VNumberInput,
-    VButtonSubmit,
+    VButtonSubmit
   },
 
   data() {
     return {
       countries: [],
-      icon: Search,
+      icon: Search
     }
-  },
-  async mounted() {
-    const countryList = await api
-      .fetchData('/hotel/location')
-      .then((response) => response.data)
-    this.countries = countryList
-      .map((country) => country.name)
-      .sort((a, b) => a.localeCompare(b))
-  },
-  methods: {
-    addDate() {
-      this.type = 'date'
-    },
-  },
+  }
 }
 </script>
 
 <style lang="scss">
 @import '@/assets/scss/const';
 
-$form-color: rgb(255, 255, 255);
+$form-banner-color: rgb(255, 255, 255);
 $delimiter-color: rgb(221, 221, 221);
 
-.form {
+.form-banner {
   display: flex;
   padding: 11px 8px 5px 8px;
-  background-color: $form-color;
+  background-color: $form-banner-color;
   border-radius: 35px;
   &__title {
     display: block;

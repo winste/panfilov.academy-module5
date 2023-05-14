@@ -1,13 +1,8 @@
 <template>
   <div class="featured-card">
-    <VCarousel
-      :carouselMainSlide="carouselCard.image"
-      :carouselSlides="carouselCard.images"
-      carouselWidth="382px"
-      carouselHeight="340px"
-    >
+    <VSwiper :slides="carouselCard.images" width="382px" height="340px">
       <p class="featured-card__price">$ {{ formattedPrice }} USD</p>
-    </VCarousel>
+    </VSwiper>
     <div class="featured-card__info">
       <slot></slot>
     </div>
@@ -15,11 +10,11 @@
 </template>
 
 <script>
-import VCarousel from '../VCarousel/VCarousel.vue'
+import VSwiper from '../VSwiper.vue'
 
 export default {
   components: {
-    VCarousel
+    VSwiper
   },
   props: {
     carouselCard: Object

@@ -13,7 +13,10 @@ export default {
     cardId: String,
     cardName: String,
     cardAddress: String,
-    cardNameFontSize: String,
+    cardNameFontSize: {
+      type: String,
+      default: '16px'
+    },
     cardAddressFontSize: {
       type: String,
       default: '14px'

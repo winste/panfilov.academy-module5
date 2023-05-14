@@ -1,17 +1,25 @@
 <template>
-  <label for="select" class="select-title label">
-    {{ label }}
-  </label>
-  <v-select class="select" :options="options" :placeholder="placeholder" />
+  <label v-text="label" for="select" class="select-title label"></label>
+  <v-select class="select" :options="this.countries" :placeholder="placeholder" />
 </template>
 
 <script>
+import { api } from '@/api/api.js'
 import 'vue-select/dist/vue-select.css'
+
 export default {
   props: {
     label: String,
-    options: Array,
     placeholder: String
+  },
+  data() {
+    return {
+      countries: []
+    }
+  },
+  async mounted() {
+    const countryList = await api.fetchData('/hotel/location').then((response) => response.data)
+    this.countries = countryList.map((country) => country.name).sort((a, b) => a.localeCompare(b))
   }
 }
 </script>

@@ -33,7 +33,11 @@
             />
           </div>
 
-          <VReserveSideBar :reservePrice="hotelData.price" class="hotel__reserve" />
+          <VReserveSideBar
+            :reservePrice="hotelData.price"
+            :reserveIdHotel="idHotel"
+            class="hotel__reserve"
+          />
           <VHotelDescription :hotelDescription="hotelData.description[0]" />
         </div>
 

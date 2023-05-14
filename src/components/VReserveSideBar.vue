@@ -1,21 +1,32 @@
 <template>
   <div class="reserve">
     <div v-text="formattedPrice" class="reserve__price"></div>
-    <button type="submit" class="reserve__button">Reserve Now</button>
+    <router-link :to="linkForOrder">
+      <VButtonReserve />
+    </router-link>
   </div>
 </template>
 
 <script>
+import VButtonReserve from './VButtonReserve.vue'
+
 export default {
+  components: {
+    VButtonReserve
+  },
   props: {
     reservePrice: {
       type: Object,
       defaut: () => {}
-    }
+    },
+    reserveIdHotel: String
   },
   computed: {
     formattedPrice() {
       return this.reservePrice.map((price) => price.replace('$', '$ ')).join(' - ')
+    },
+    linkForOrder() {
+      return `/order/${this.reserveIdHotel}`
     }
   }
 }
@@ -43,16 +54,6 @@ $button-height: 60px;
     padding-bottom: 27px;
     margin-bottom: 27px;
     border-bottom: 1px solid $card-bg-color;
-  }
-  &__button {
-    font-weight: 700;
-    font-size: 15px;
-    color: $button-font-color;
-    min-width: $button-width;
-    min-height: $button-height;
-    background: $main-font-color;
-    border-radius: 30px;
-    @include button-hover($animation: true);
   }
 }
 </style>

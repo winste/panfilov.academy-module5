@@ -35,6 +35,7 @@ $indicator-size: 10px;
 
 .pagination {
   display: flex;
+  align-items: center;
   gap: 5px;
   &__indicator {
     width: $indicator-size;
