@@ -1,5 +1,5 @@
 <template>
-  <main class="main" v-if="bannersImages">
+  <main v-if="bannersImages" class="main">
     <VMainBanner :image="bannersImages.main.image" class="main__banner-main" />
     <div class="container-wrapper">
       <VLatestSection class="main__latest" />
@@ -21,30 +21,28 @@
 </template>
 
 <script>
-import { api } from "../api/api";
-import VMainBanner from "../components/VMainBanner/VMainBanner.vue";
-import VLatestSection from "../components/VLatestSection/VLatestSection.vue";
-import VBanner from "../components/VBanner.vue";
-import VFeaturedSection from "../components/VFeaturedSection/VFeaturedSection.vue";
+import { api } from '../api/api'
+import VBanner from '@/components/VBanner.vue'
+import VMainBanner from '@/pages/HomePage/VMainBanner/VMainBanner.vue'
+import VLatestSection from '@/pages/HomePage/VLatestSection/VLatestSection.vue'
+import VFeaturedSection from '@/pages/HomePage/VFeaturedSection/VFeaturedSection.vue'
 
 export default {
   components: {
     VMainBanner,
     VLatestSection,
     VBanner,
-    VFeaturedSection,
+    VFeaturedSection
   },
   data() {
     return {
-      bannersImages: null,
-    };
+      bannersImages: null
+    }
   },
   async created() {
-    await api
-      .fetchData("/banners")
-      .then((response) => (this.bannersImages = response.data));
-  },
-};
+    await api.fetchData('/banners').then((response) => (this.bannersImages = response.data))
+  }
+}
 </script>
 
 <style lang="scss" scoped>

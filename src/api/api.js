@@ -15,9 +15,7 @@ export const api = {
 
   async postData(route) {
     try {
-      await this.connection.post(route).then((response) => {
-        return response.data
-      })
+      await this.connection.post(route, body)
     } catch (error) {
       console.log(error)
     }

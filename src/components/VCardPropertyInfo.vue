@@ -1,20 +1,20 @@
 <template>
   <div class="card-property">
     <div class="card-property__item">
-      <VIcon
-        :iconName="iconBedroom"
-        :iconWidth="25"
-        :iconHeight="24"
+      <AppIcon
+        :name="iconBedroom"
+        :width="25"
+        :height="24"
         class="card-property__icon card-property__icon-bed"
       />
       <span v-text="propertyList[0].bedroom" class="card-property__number"></span>
     </div>
 
     <div class="card-property__item">
-      <VIcon
-        :iconName="iconBathroom"
-        :iconWidth="20"
-        :iconHeight="21"
+      <AppIcon
+        :name="iconBathroom"
+        :width="20"
+        :height="21"
         class="card-property__icon card-property__icon-bath"
       />
       <span v-text="propertyList[0].bathroom" class="card-property__number"></span>
@@ -23,13 +23,13 @@
 </template>
 
 <script>
-import VIcon from './VIcon.vue'
+import AppIcon from './AppIcon.vue'
 import Bedroom from '@/assets/images/icons/Bedroom.svg'
 import Bathroom from '@/assets/images/icons/Bathroom.svg'
 
 export default {
   components: {
-    VIcon
+    AppIcon
   },
   data() {
     return {

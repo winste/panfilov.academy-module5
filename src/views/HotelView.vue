@@ -15,8 +15,8 @@
           <div class="hotel__heading">
             <VHotelTitle :hotelName="hotelData.name" :hotelAddress="hotelData.address" />
             <div class="hotel__interaction">
-              <VButtonIcon :buttonIcon="buttonIconLike" :buttonWidth="36" :buttonHeigh="36" />
-              <VButtonIcon :buttonIcon="buttonIconSearch" :buttonWidth="35" :buttonHeigh="35" />
+              <AppButtonIcon :buttonIcon="buttonIconLike" :buttonWidth="36" :buttonHeigh="36" />
+              <AppButtonIcon :buttonIcon="buttonIconSearch" :buttonWidth="35" :buttonHeigh="35" />
             </div>
           </div>
 
@@ -33,7 +33,7 @@
             />
           </div>
 
-          <VReserveSideBar
+          <VHotelDetailReserveSideBar
             :reservePrice="hotelData.price"
             :reserveIdHotel="idHotel"
             class="hotel__reserve"
@@ -57,26 +57,26 @@
 </template>
 
 <script>
-import { useHotelStore } from '@/store/hotelStore'
-import VGallery from '../components/VGallery/VGallery.vue'
-import VButtonIcon from '../components/VButtonIcon.vue'
-import LikeBig from '../assets/images/icons/LikeBig.svg'
-import Share from '../assets/images/icons/Share.svg'
-import Bedroom from '../assets/images/icons/Bedroom.svg'
-import Bathroom from '../assets/images/icons/Bathroom.svg'
-import VReserveSideBar from '../components/VReserveSideBar.vue'
-import VHotelProperty from '../components/VHotel/VHotelProperty.vue'
-import VHotelTitle from '../components/VHotel/VHotelTitle.vue'
-import VHotelDescription from '../components/VHotel/VHotelDescription.vue'
-import VAmenitiesSection from '../components/VAmenitiesSection/VAmenitiesSection.vue'
-import VReviewsSection from '../components/VReviewsSection/VReviewsSection.vue'
-import VMap from '../components/VMap.vue'
+import { api } from '@/api/api'
+import VGallery from '@/components/VGallery.vue'
+import AppButtonIcon from '@/components/AppButtonIcon.vue'
+import LikeBig from '@/assets/images/icons/LikeBig.svg'
+import Share from '@/assets/images/icons/Share.svg'
+import Bedroom from '@/assets/images/icons/Bedroom.svg'
+import Bathroom from '@/assets/images/icons/Bathroom.svg'
+import VHotelDetailReserveSideBar from '@/pages/HotelDetailPage/VHotel/VHotelDetailReserveSideBar.vue'
+import VHotelProperty from '@/pages/HotelDetailPage/VHotel/VHotelProperty.vue'
+import VHotelTitle from '@/pages/HotelDetailPage/VHotel/VHotelTitle.vue'
+import VHotelDescription from '@/pages/HotelDetailPage/VHotel/VHotelDescription.vue'
+import VAmenitiesSection from '@/pages/HotelDetailPage/VAmenitiesSection/VAmenitiesSection.vue'
+import VReviewsSection from '@/pages/HotelDetailPage/VReviewsSection/VReviewsSection.vue'
+import VMap from '@/components/VMap.vue'
 
 export default {
   components: {
     VGallery,
-    VButtonIcon,
-    VReserveSideBar,
+    AppButtonIcon,
+    VHotelDetailReserveSideBar,
     VHotelProperty,
     VHotelTitle,
     VHotelDescription,
@@ -95,9 +95,9 @@ export default {
     }
   },
   async created() {
-    const store = useHotelStore()
-    await store.fetchHotelDetail(this.idHotel)
-    this.hotelData = store.getHotelDetail
+    await api
+      .fetchData(`/hotel/detail/${this.idHotel}`)
+      .then((response) => (this.hotelData = response.data))
   }
 }
 </script>

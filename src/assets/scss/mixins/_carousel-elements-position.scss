@@ -1,0 +1,10 @@
+@mixin carousel-elements-position($position) {
+  position: absolute;
+  z-index: 111;
+  @if ($position == bottom) {
+    bottom: 0;
+  } @else if ($position== top) {
+    right: 0;
+    top: 0;
+  }
+}
