@@ -1,12 +1,12 @@
 <template>
-  <img :src="avatarUrl" alt="avatar" class="avatar" />
+  <img :src="url" alt="avatar" class="avatar" />
 </template>
 
 <script>
 export default {
   props: {
-    avatarUrl: String,
-    avatarSize: {
+    url: String,
+    size: {
       type: String,
       default: '70px'
     }
@@ -18,8 +18,11 @@ export default {
 @import '@/assets/scss/const';
 
 .avatar {
-  width: v-bind(avatarSize);
-  height: v-bind(avatarSize);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: v-bind(size);
+  height: v-bind(size);
   background-color: $placeholder-color;
   border-radius: 50%;
 }

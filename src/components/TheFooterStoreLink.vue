@@ -1,13 +1,8 @@
 <template>
   <div class="store">
-    <a :href="storeUrl" target="_blank" class="store-link">
-      <AppIcon
-        :name="storeIcon"
-        :width="storeIconWidth"
-        :height="storeIconHeight"
-        class="store-icon"
-      />
-      <p v-text="storeName" class="store-name"></p>
+    <a :href="url" target="_blank" class="store-link">
+      <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" class="store-icon" />
+      <p v-text="name" class="store-name"></p>
     </a>
   </div>
 </template>
@@ -20,11 +15,11 @@ export default {
     AppIcon
   },
   props: {
-    storeUrl: String,
-    storeIcon: String,
-    storeIconWidth: Number,
-    storeIconHeight: Number,
-    storeName: String
+    url: String,
+    name: String,
+    icon: String,
+    iconWidth: Number,
+    iconHeight: Number
   }
 }
 </script>

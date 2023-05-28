@@ -1,12 +1,13 @@
 <template>
   <main class="hotel" v-if="hotelData">
     <div class="hotel-wrapper">
-      <VGallery
-        :avatarUrl="hotelData.author.avatar"
-        :authorName="hotelData.name"
+      <VHotelGallery
+        :avatar="hotelData.author.avatar"
+        :name="hotelData.name"
         :price="hotelData.price"
-        :galleryMainImage="hotelData.image"
-        :galleryImages="hotelData.images"
+        :mainImage="hotelData.image"
+        :images="hotelData.images"
+        :countDisplayedImages="4"
         class="hotel__gallery"
       />
 
@@ -43,12 +44,7 @@
 
         <div class="hotel__information">
           <VAmenitiesSection :amenitiesList="hotelData.amenities" :amenitiesDisplayedCount="6" />
-          <VMap
-            :mapCoords="hotelData.coords"
-            mapWidth="771px"
-            mapHeight="420px"
-            class="hotel__map"
-          />
+          <VMap :coords="hotelData.coords" width="771px" height="420px" class="hotel__map" />
           <VReviewsSection :reviewsList="hotelData.reviews" :reviewsDisplayedCount="4" />
         </div>
       </div>
@@ -68,13 +64,16 @@ import VHotelDetailReserveSideBar from '@/pages/HotelDetailPage/VHotel/VHotelDet
 import VHotelProperty from '@/pages/HotelDetailPage/VHotel/VHotelProperty.vue'
 import VHotelTitle from '@/pages/HotelDetailPage/VHotel/VHotelTitle.vue'
 import VHotelDescription from '@/pages/HotelDetailPage/VHotel/VHotelDescription.vue'
+import VHotelGallery from '@/pages/HotelDetailPage/VHotel/VHotelGallery.vue'
 import VAmenitiesSection from '@/pages/HotelDetailPage/VAmenitiesSection/VAmenitiesSection.vue'
 import VReviewsSection from '@/pages/HotelDetailPage/VReviewsSection/VReviewsSection.vue'
+
 import VMap from '@/components/VMap.vue'
 
 export default {
   components: {
     VGallery,
+    VHotelGallery,
     AppButtonIcon,
     VHotelDetailReserveSideBar,
     VHotelProperty,

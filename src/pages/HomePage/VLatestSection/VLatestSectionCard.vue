@@ -7,13 +7,13 @@
       class="latest-card__icon"
     />
     <div class="latest-card__content">
-      <AppAvatar :avatarUrl="urlAvatar" class="latest-card__avatar" />
+      <AppAvatar :src="urlAvatar" class="latest-card__avatar" />
       <VCardTitleInfo
-        :cardId="id"
-        :cardName="name"
-        :cardAddress="address"
-        cardNameFontSize="17px"
-        cardAddressFontSize="13px"
+        :id="id"
+        :name="name"
+        :address="address"
+        nameSize="17px"
+        addressSize="13px"
         class="latest-card__info"
       />
     </div>

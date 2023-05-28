@@ -1,8 +1,8 @@
 <template>
   <div class="info">
-    <h4 v-text="itemsTitle" class="info__list-title"></h4>
+    <h4 v-text="title" class="info__list-title"></h4>
     <ul class="info__list">
-      <li v-for="(item, index) in itemsList" :key="index" class="info__list-item">
+      <li v-for="item in list" class="info__list-item">
         <a :href="item.href" v-text="item.name" class="info__list-link"></a>
       </li>
       <li class="info__list-item">
@@ -15,8 +15,8 @@
 <script>
 export default {
   props: {
-    itemsTitle: String,
-    itemsList: Array
+    title: String,
+    list: Array
   }
 }
 </script>

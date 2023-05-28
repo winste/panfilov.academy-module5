@@ -1,9 +1,10 @@
 <template>
   <label v-text="label" for="select" class="date-title label"></label>
   <VueDatePicker
-    v-model="date"
     :placeholder="placeholder"
     :enable-time-picker="false"
+    :model-value="modelValue"
+    @update:model-value="setDate"
     hide-input-icon
     class="date"
     input-class-name="date__input"
@@ -17,14 +18,16 @@ export default {
   components: {
     VueDatePicker
   },
-  data() {
-    return {
-      date: null
-    }
-  },
+
   props: {
+    modelValue: '',
     label: String,
     placeholder: String
+  },
+  methods: {
+    setDate(value) {
+      this.$emit('update:modelValue', value)
+    }
   }
 }
 </script>

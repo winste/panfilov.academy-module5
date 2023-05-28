@@ -20,11 +20,7 @@
       />
     </div>
 
-    <AppButtonShowMore
-      @showAll="changeDisplayedValue"
-      :listItemsCount="reviewsListCount"
-      listItemsName="Reviews"
-    />
+    <AppButtonShowMore @showAll="changeDisplayedValue" :count="reviewsListCount" name="Reviews" />
   </section>
 </template>
 

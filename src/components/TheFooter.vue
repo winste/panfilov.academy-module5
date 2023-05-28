@@ -2,41 +2,33 @@
   <footer class="footer">
     <div class="footer__wrapper">
       <div class="footer__about">
-        <AppIcon :name="icon" :width="148.5" :height="40" class="footer__logo" />
+        <AppIcon :name="logoIcon" :width="148.5" :height="40" class="footer__logo" />
         <p class="footer__text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua.
         </p>
         <div class="footer__stores">
           <TheFooterStoreLink
-            storeUrl="https://play.google.com/store/"
-            :storeIcon="playstoreIcon"
-            :storeIconWidth="22"
-            :storeIconHeight="22"
-            storeName="PlayStore"
+            url="https://play.google.com/store/"
+            name="PlayStore"
+            :icon="playstoreIcon"
+            :iconWidth="22"
+            :iconHeight="22"
           />
           <TheFooterStoreLink
-            storeUrl="https://www.apple.com/app-store/"
-            :storeIcon="appstoreIcon"
-            :storeIconWidth="24"
-            :storeIconHeight="24"
-            storeName="AppleStore"
+            url="https://www.apple.com/app-store/"
+            name="AppleStore"
+            :icon="appstoreIcon"
+            :iconWidth="24"
+            :iconHeight="24"
           />
         </div>
       </div>
 
       <div class="footer__info">
-        <TheFooterList itemsTitle="COMPANY" :itemsList="listAbout" class="footer__social-company" />
-        <TheFooterList
-          itemsTitle="HELP CENTER"
-          :itemsList="listHelpCenter"
-          class="footer__social-help"
-        />
-        <TheFooterList
-          itemsTitle="CONTACT INFO"
-          :itemsList="listContacts"
-          class="footer__social-contacts"
-        >
+        <TheFooterList title="COMPANY" :list="listAbout" class="footer__social-company" />
+        <TheFooterList title="HELP CENTER" :list="listHelpCenter" class="footer__social-help" />
+        <TheFooterList title="CONTACT INFO" :list="listContacts" class="footer__social-contacts">
           <TheFooterSocialMedia class="footer__social" />
         </TheFooterList>
       </div>
@@ -68,7 +60,7 @@ export default {
   },
   data() {
     return {
-      icon: Logo,
+      logoIcon: Logo,
       appstoreIcon: Appstore,
       playstoreIcon: Playstore,
       listAbout: [
@@ -98,7 +90,6 @@ export default {
 .footer {
   padding: 83px 80px 30px 80px;
   background-color: rgba(239, 240, 242, 1);
-  border-radius: 0 0 20px 20px;
   &__wrapper {
     display: flex;
     gap: 45px;

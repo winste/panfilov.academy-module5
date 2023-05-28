@@ -1,17 +1,9 @@
 <template>
-  <section class="gallery">
-    <div class="gallery__main" :style="{ 'background-image': `url(${galleryMainImage})` }">
-      <AppAvatar :avatarUrl="avatarUrl" avatarSize="76px" />
-      <div class="gallery__text">
-        <p class="gallery__text-item">Listed By:</p>
-        <p class="gallery__text-author">{{ authorName }}</p>
-        <p class="gallery__text-price">For: {{ formattedPrice }}</p>
-      </div>
-    </div>
+  <section class="gallery" v-cloak>
     <div class="gallery__images">
-      <VueGallery :images="galleryImages" :index="index" @close="index = null"></VueGallery>
+      <VueGallery :images="images" :index="index" @close="index = null"></VueGallery>
       <div
-        v-for="(image, imageIndex) in galleryImages"
+        v-for="(image, imageIndex) in images"
         :key="imageIndex"
         @click="index = imageIndex"
         :style="{ backgroundImage: 'url(' + image + ')' }"
@@ -42,24 +34,20 @@ export default {
     VueGallery
   },
   props: {
-    avatarUrl: String,
-    authorName: String,
-    price: Array,
-    galleryMainImage: String,
-    galleryImages: {
+    images: {
       type: Array,
       default: () => []
-    }
+    },
+    countDisplayedImages: Number
   },
   data() {
     return {
-      countDisplayedImages: 4,
       index: null
     }
   },
   computed: {
     restImagesCount() {
-      return this.galleryImages.length - this.countDisplayedImages
+      return this.images.length - this.countDisplayedImages
     },
     formattedPrice() {
       return this.price.map((price) => price.replace('$', ' $ ')).join('  -  ')
@@ -84,32 +72,6 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
 .gallery {
   @include flexbox-general($gap: 17px);
   justify-content: center;
-  &__main {
-    @include flexbox-general($gap: 22px, $flexWrap: nowrap);
-    align-items: end;
-    flex: 1 1 0;
-    min-width: 400px;
-    min-height: 350px;
-    padding: 55px 65px;
-    background-color: $gallery-bg-color;
-    border-radius: 16px;
-    background-image: v-bind(galleryMainImage);
-    @include background-position;
-  }
-  &__text {
-    @include flexbox-direction($direction: column, $gap: 4px);
-    font-weight: 500;
-    &-item {
-      font-size: 12px;
-    }
-    &-author {
-      font-weight: 700;
-      font-size: 18px;
-    }
-    &-price {
-      margin-bottom: 4px;
-    }
-  }
   &__images {
     @include flexbox-general($gap: 19px 18px);
     max-width: $images-gallery-width;

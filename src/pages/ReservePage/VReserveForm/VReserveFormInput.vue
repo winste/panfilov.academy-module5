@@ -1,10 +1,17 @@
 <template>
-  <input :type="inputType" :placeholder="inputPlaceholder" class="input" />
+  <input
+    :type="inputType"
+    :placeholder="inputPlaceholder"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+    class="input"
+  />
 </template>
 
 <script>
 export default {
   props: {
+    modelValue: '',
     inputType: String,
     inputPlaceholder: String
   }
@@ -14,7 +21,6 @@ export default {
 <style lang="scss" scoped>
 .input {
   padding: 14.5px 14px 15.1px 14px;
-  min-width: 329px;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;

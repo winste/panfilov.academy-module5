@@ -9,13 +9,13 @@
         class="featured-section__card"
       >
         <VCardTitleInfo
-          :cardId="card._id"
-          :cardName="card.name"
-          :cardAddress="card.address"
-          cardNameFontSize="18px"
+          :id="card._id"
+          :name="card.name"
+          :address="card.address"
+          nameSize="18px"
           class="featured-section__card-info"
         />
-        <VCardPropertyInfo :propertyList="card.info" class="featured-section__card-property" />
+        <VCardPropertyInfo :properties="card.info" class="featured-section__card-property" />
       </VFeaturedSectionCard>
     </div>
   </section>
@@ -59,7 +59,8 @@ $cardSize: 382px;
   }
   &__cards {
     display: grid;
-    grid-template-columns: calc($cardSize + 3px) $cardSize $cardSize;
+    // grid-template-columns: calc($cardSize + 3px) $cardSize $cardSize;
+    grid-template-columns: repeat(auto-fill, minmax($cardSize, 1fr));
     grid-gap: 65px 30px;
   }
   &__card {

@@ -18,11 +18,12 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/mixins/flexbox-general';
+
 .navbar {
   &__list {
-    display: flex;
+    @include flexbox-general($gap: 32.5px);
     justify-content: space-around;
-    gap: 32.5px;
   }
   &__link {
     font-weight: 600;

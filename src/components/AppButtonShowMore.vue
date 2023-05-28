@@ -1,15 +1,15 @@
 <template>
   <button @click="switchDisplayedList(), $emit('showAll', showAll)" class="button-show">
-    <span v-if="!showAll"> Show All {{ listItemsCount }} {{ listItemsName }}</span>
-    <span v-else> Hide {{ listItemsName }} list </span>
+    <span v-if="!showAll"> Show All {{ count }} {{ name }}</span>
+    <span v-else> Hide {{ name }} list </span>
   </button>
 </template>
 
 <script>
 export default {
   props: {
-    listItemsCount: Number,
-    listItemsName: String
+    count: Number,
+    name: String
   },
   data() {
     return {

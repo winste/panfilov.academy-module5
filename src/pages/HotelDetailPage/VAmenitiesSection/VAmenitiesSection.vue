@@ -7,8 +7,8 @@
 
     <AppButtonShowMore
       @showAll="changeDisplayedValue"
-      :listItemsCount="amenitiesListCount"
-      listItemsName="Amenities"
+      :count="amenitiesListCount"
+      name="Amenities"
     />
   </section>
 </template>

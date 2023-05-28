@@ -4,17 +4,17 @@
       <img :src="hotelData.image" alt="Hotel image" class="hotel-preview__image" />
       <div class="hotel-preview__info">
         <VCardTitleInfo
-          :cardId="idHotel"
-          :cardName="hotelData.name"
-          :cardAddress="hotelData.address"
+          :id="idHotel"
+          :name="hotelData.name"
+          :address="hotelData.address"
           class="hotel-preview__address"
         />
         <span class="hotel-preview__property">
           <VReserveHotelProperty
-            v-for="(name, count) in hotelData.info[0]"
+            v-for="(count, name) in hotelData.info[0]"
             :key="name"
-            :nameProperty="count"
-            :countProperty="name"
+            :countProperty="+count"
+            :nameProperty="name"
           />
         </span>
       </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { useHotelStore } from '@/store/hotelStore'
+import { api } from '@/api/api'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
 import VReserveHotelProperty from './VReserveHotelProperty.vue'
 
@@ -48,9 +48,9 @@ export default {
     }
   },
   async created() {
-    const store = useHotelStore()
-    await store.fetchHotelDetail(this.idHotel)
-    this.hotelData = store.getHotelDetail
+    await api
+      .fetchData(`/hotel/detail/${this.idHotel}`)
+      .then((response) => (this.hotelData = response.data))
   }
 }
 </script>
@@ -99,7 +99,7 @@ export default {
       font-weight: 500;
       font-size: 15px;
       line-height: 18px;
-      color: #9a9a9a;
+      color: rgb(154, 154, 154);
     }
   }
 }

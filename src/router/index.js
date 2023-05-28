@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import HotelView from '../views/HotelView.vue'
-import ReserveView from '../views/ReserveView.vue'
+import HomeView from '@/views/HomeView.vue'
+import HotelView from '@/views/HotelView.vue'
+import ReserveView from '@/views/ReserveView.vue'
+import SearchView from '@/views/SearchView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/order/:id',
       name: 'reserve',
       component: ReserveView
+    },
+    {
+      path: '/hotel/search',
+      name: 'search',
+      component: SearchView
     }
   ]
 })

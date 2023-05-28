@@ -1,7 +1,12 @@
 <template>
   <div class="featured-card">
-    <VCarousel :slides="carouselCard.images" width="382px" height="340px">
-      <p class="featured-card__price">$ {{ formattedPrice }} USD</p>
+    <VCarousel
+      :slides="carouselCard.images"
+      width="382px"
+      height="340px"
+      class="featured-card__carousel"
+    >
+      <p class="featured-card__price">$ {{ correctPrice }} USD</p>
     </VCarousel>
     <div class="featured-card__info">
       <slot></slot>
@@ -11,6 +16,7 @@
 
 <script>
 import VCarousel from '@/components/VCarousel.vue'
+import formattedPrice from '@/helpers/formattedPrice'
 
 export default {
   components: {
@@ -20,8 +26,8 @@ export default {
     carouselCard: Object
   },
   computed: {
-    formattedPrice() {
-      return this.carouselCard.price.map((price) => price.slice(1)).join('-')
+    correctPrice() {
+      return formattedPrice(this.carouselCard.price)
     }
   }
 }
@@ -32,7 +38,11 @@ export default {
 @import '@/assets/scss/mixins/flexbox-direction';
 
 .featured-card {
+  justify-self: center;
   @include flexbox-direction($direction: column, $gap: 31px);
+  &__carousel {
+    border-radius: 12px;
+  }
   &__price {
     font-size: 18px;
     font-weight: 600;

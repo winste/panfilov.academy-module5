@@ -1,16 +1,16 @@
 <template>
-  <section class="info-banner" :style="{ 'background-image': `url(${bannerImage})` }">
-    <h2 v-text="bannerTitle" class="info-banner__title"></h2>
-    <p v-text="bannerDescription" class="info-banner__description"></p>
+  <section class="info-banner" :style="{ 'background-image': `url(${url})` }">
+    <h2 v-text="title" class="info-banner__title"></h2>
+    <p v-text="text" class="info-banner__description"></p>
   </section>
 </template>
 
 <script>
 export default {
   props: {
-    bannerImage: String,
-    bannerTitle: String,
-    bannerDescription: String
+    url: String,
+    title: String,
+    text: String
   }
 }
 </script>
@@ -23,7 +23,7 @@ export default {
 $banner-height: 395px;
 $banner-width: 100%;
 $title-width: 339px;
-$description-title: 400px;
+$description-width: 400px;
 
 .info-banner {
   min-height: $banner-height;
@@ -38,7 +38,7 @@ $description-title: 400px;
     margin-bottom: 22px;
   }
   &__description {
-    max-width: $description-title;
+    max-width: $description-width;
     @include text-hide;
   }
 }

@@ -1,10 +1,6 @@
 <template>
-  <button
-    type="submit"
-    class="button-submit"
-    :style="{ width: `${btnSize}px`, height: `${btnSize}px` }"
-  >
-    <AppIcon :name="btnIcon" :width="btnIconWidth" :height="btnIconHeight" />
+  <button type="submit" class="button-submit">
+    <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" />
   </button>
 </template>
 
@@ -16,13 +12,13 @@ export default {
     AppIcon
   },
   props: {
-    btnSize: {
-      type: Number,
-      default: 52
+    size: {
+      type: String,
+      default: '52px'
     },
-    btnIcon: String,
-    btnIconWidth: Number,
-    btnIconHeight: Number
+    icon: String,
+    iconWidth: Number,
+    iconHeight: Number
   }
 }
 </script>
@@ -32,6 +28,8 @@ export default {
 @import '@/assets/scss/mixins/button-hover';
 
 .button-submit {
+  width: v-bind(size);
+  height: v-bind(size);
   background-color: $main-font-color;
   border-radius: 50%;
   @include button-hover;

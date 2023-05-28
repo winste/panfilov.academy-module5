@@ -21,7 +21,8 @@ export default {
 @import '@/assets/scss/mixins/flexbox-general';
 
 .reserve {
-  @include flexbox-general($gap: 65px);
+  @include flexbox-general($gap: 20px);
+  justify-content: space-between;
   padding: 83px 82px 75px 68px;
   margin: 0 auto;
 }

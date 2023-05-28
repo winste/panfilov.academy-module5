@@ -32,7 +32,6 @@ export default {
   display: flex;
   padding: 27px 80px 20px 82px;
   background-color: $main-decor-color;
-  border-radius: 20px 20px 0 0;
   &__navigation {
     margin-left: 135px;
     margin-top: 5px;

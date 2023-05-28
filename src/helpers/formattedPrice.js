@@ -1,0 +1,1 @@
+export default array => array.map((item) => item.slice(1)).join('-')

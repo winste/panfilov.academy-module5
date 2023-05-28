@@ -7,7 +7,7 @@
         :height="24"
         class="card-property__icon card-property__icon-bed"
       />
-      <span v-text="propertyList[0].bedroom" class="card-property__number"></span>
+      <span v-text="properties[0].bedroom" class="card-property__number"></span>
     </div>
 
     <div class="card-property__item">
@@ -17,7 +17,7 @@
         :height="21"
         class="card-property__icon card-property__icon-bath"
       />
-      <span v-text="propertyList[0].bathroom" class="card-property__number"></span>
+      <span v-text="properties[0].bathroom" class="card-property__number"></span>
     </div>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
     }
   },
   props: {
-    propertyList: {
+    properties: {
       type: Array,
       default: () => []
     }

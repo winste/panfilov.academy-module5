@@ -1,11 +1,20 @@
 <template>
   <label v-text="label" for="select" class="number-title label"></label>
-  <input type="number" min="1" max="20" class="input-number" value="" :placeholder="placeholder" />
+  <input
+    type="number"
+    min="1"
+    max="20"
+    :placeholder="placeholder"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+    class="input-number"
+  />
 </template>
 
 <script>
 export default {
   props: {
+    modelValue: '',
     label: String,
     placeholder: String
   }

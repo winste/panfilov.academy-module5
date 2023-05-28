@@ -80,11 +80,11 @@ $element-indent: 21px 18px 19px 23px;
 
 .swiper {
   position: relative;
-  width: v-bind(width);
+  max-width: v-bind(width);
   height: v-bind(height);
-  border-radius: 12px;
+  margin: 0;
   &__slide {
-    width: v-bind(width);
+    max-width: v-bind(width);
     height: v-bind(height);
     @include background-position;
   }

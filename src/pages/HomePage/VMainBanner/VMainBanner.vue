@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import VSearchBar from './SearchBar/VSearchBar.vue'
+import VSearchBar from './VSearchBar.vue'
 export default {
   components: {
     VSearchBar

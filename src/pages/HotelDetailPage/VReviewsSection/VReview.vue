@@ -1,7 +1,7 @@
 <template>
   <div class="review">
     <div class="review__main">
-      <AppAvatar :avatarUrl="reviewAvatar" class="review__avatar" />
+      <AppAvatar :url="reviewAvatar" class="review__avatar" />
       <h5 v-text="reviewName" class="review__title"></h5>
       <span v-text="dataFormatted" class="review__date"></span>
     </div>

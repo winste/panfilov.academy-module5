@@ -4,16 +4,16 @@
     <div class="container-wrapper">
       <VLatestSection class="main__latest" />
       <VBanner
-        :bannerImage="bannersImages.second.image"
-        :bannerTitle="bannersImages.second.title"
-        :bannerDescription="bannersImages.second.description"
+        :url="bannersImages.second.image"
+        :title="bannersImages.second.title"
+        :text="bannersImages.second.description"
         class="main__banner-hosting"
       />
       <VFeaturedSection class="main__featured" />
       <VBanner
-        :bannerImage="bannersImages.last.image"
-        :bannerTitle="bannersImages.last.title"
-        :bannerDescription="bannersImages.last.description"
+        :url="bannersImages.last.image"
+        :title="bannersImages.last.title"
+        :text="bannersImages.last.description"
         class="main__banner-browse"
       />
     </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { api } from '../api/api'
+import { api } from '@/api/api'
 import VBanner from '@/components/VBanner.vue'
 import VMainBanner from '@/pages/HomePage/VMainBanner/VMainBanner.vue'
 import VLatestSection from '@/pages/HomePage/VLatestSection/VLatestSection.vue'

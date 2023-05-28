@@ -13,12 +13,7 @@
         placeholder="Your Email..."
         class="news-letter__input"
       />
-      <AppButtonSubmit
-        :btnIcon="icon"
-        :btnIconWidth="26"
-        :btnIconHeight="26"
-        class="news-letter__button"
-      />
+      <AppButtonSubmit :icon="icon" :iconWidth="26" :iconHeight="26" class="news-letter__button" />
     </form>
   </div>
 </template>
