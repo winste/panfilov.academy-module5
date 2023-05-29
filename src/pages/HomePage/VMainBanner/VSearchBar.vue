@@ -35,13 +35,13 @@
 
 <script>
 import { api } from '@/api/api.js'
+import { useHotelStore } from '@/store/hotelStore'
 import Search from '@/assets/images/icons/Search.svg'
 import VSelect from '@/components/VSelect.vue'
 import VDateInput from '@/components/VInputDate.vue'
 import VNumberInput from '@/components/VInputNumber.vue'
 import AppButtonSubmit from '@/components/AppButtonSubmit.vue'
 import sortByName from '@/helpers/sortByName'
-import { useHotelStore } from '@/store/hotelStore'
 
 const dateFormatted = (date) => {
   if (date) return new Date(date).toISOString()

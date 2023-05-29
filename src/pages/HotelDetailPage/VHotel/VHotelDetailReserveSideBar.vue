@@ -1,13 +1,12 @@
 <template>
   <div class="reserve">
     <div v-text="formattedPrice" class="reserve__price"></div>
-    <router-link :to="linkForOrder">
-      <AppButtonReserve />
-    </router-link>
+    <AppButtonReserve @click.prevent="reserveHotel" />
   </div>
 </template>
 
 <script>
+import { useReserveStore } from '@/store/reserveStore'
 import AppButtonReserve from '@/components/AppButtonReserve.vue'
 
 export default {
@@ -15,18 +14,37 @@ export default {
     AppButtonReserve
   },
   props: {
-    reservePrice: {
-      type: Object,
-      defaut: () => {}
-    },
-    reserveIdHotel: String
+    id: String,
+    name: String,
+    address: String,
+    price: Array,
+    properties: Object,
+    image: String
   },
+
+  data() {
+    return {
+      store: useReserveStore(),
+      reserveData: {
+        id: this.id,
+        name: this.name,
+        address: this.address,
+        price: this.price,
+        properties: this.properties,
+        image: this.image
+      }
+    }
+  },
+
   computed: {
     formattedPrice() {
-      return this.reservePrice.map((price) => price.replace('$', '$ ')).join(' - ')
-    },
-    linkForOrder() {
-      return `/order/${this.reserveIdHotel}`
+      return this.price.map((item) => item.replace('$', '$ ')).join(' - ')
+    }
+  },
+  methods: {
+    reserveHotel() {
+      this.store.addReserve(this.reserveData)
+      this.$router.push('/order')
     }
   }
 }

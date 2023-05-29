@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 .input {
-  padding: 14.5px 14px 15.1px 14px;
+  padding: 14px 14px 12px 14px;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;

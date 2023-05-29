@@ -1,12 +1,12 @@
 <template>
-  <span class="property-preview"> {{ countProperty }} {{ nameProperty }} </span>
+  <span class="property-preview"> {{ count }} {{ name }}</span>
 </template>
 
 <script>
 export default {
   props: {
-    countProperty: Number,
-    nameProperty: String
+    count: String,
+    name: String
   }
 }
 </script>

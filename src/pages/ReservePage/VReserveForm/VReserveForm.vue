@@ -12,7 +12,7 @@
           inputType="text"
           inputPlaceholder="Last name *"
           v-model="order.last_name"
-          class="form__field"
+          class="form__field form__field-last-name"
         />
         <VReserveFormInput
           inputType="text"
@@ -24,7 +24,7 @@
           inputType="text"
           inputPlaceholder="Info-2 *"
           v-model="order.info_2"
-          class="form__field"
+          class="form__field form__field-info-2"
         />
         <div class="form__field form__field-select">
           <VSelect
@@ -40,7 +40,7 @@
           inputType="email"
           inputPlaceholder="Email address *"
           v-model="order.email"
-          class="form__field"
+          class="form__field form__field-email"
         />
       </div>
 
@@ -57,17 +57,17 @@
         class="form__field form__field-comment"
       />
     </div>
-    <AppButtonReserve @click.prevent="submitReserve" class="form__button" />
+    <AppButtonReserve @click.prevent="submitOrder" class="form__button" />
   </form>
 </template>
 
 <script>
 import { api } from '@/api/api'
+import { useReserveStore } from '@/store/reserveStore'
 import AppButtonReserve from '@/components/AppButtonReserve.vue'
 import VSelect from '@/components/VSelect.vue'
 import VReserveFormInput from './VReserveFormInput.vue'
 import sortByName from '@/helpers/sortByName'
-import { useReserveStore } from '@/store/reserveStore'
 
 export default {
   components: {
@@ -99,34 +99,16 @@ export default {
   },
 
   methods: {
-    submitReserve() {
+    submitOrder() {
       // api
-      //   .postData('/order', {
-      //     first_name: `${this.order.first_name}`,
-      //     last_name: `${this.order.last_name}`,
-      //     info_1: `${this.order.info_1}`,
-      //     info_2: `${this.order.info_2}`,
-      //     country: `${this.order.country}`,
-      //     email: `${this.order.email}`,
-      //     phone: `${this.order.phone}`,
-      //     comment: `${this.order.comment}`
-      //   })
+      //   .postData('/order', this.order)
       //   .then((response) => {
       //     this.store.addReserve(response)
       //   })
       //   .catch((error) => {
       //     console.log(error)
       //   })
-      console.log({
-        first_name: `${this.order.first_name}`,
-        last_name: `${this.order.last_name}`,
-        info_1: `${this.order.info_1}`,
-        info_2: `${this.order.info_2}`,
-        country: `${this.order.country}`,
-        email: `${this.order.email}`,
-        phone: `${this.order.phone}`,
-        comment: `${this.order.comment}`
-      })
+      console.log(this.order)
     }
   }
 }
@@ -142,15 +124,26 @@ $form-width: 670px;
   flex-direction: column;
   gap: 24px;
   max-width: $form-width;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
   &__main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    row-gap: 13px;
   }
   &__field {
     min-width: 329px;
     color: $form-placeholder-color;
     border-bottom: 1px solid rgb(0, 0, 0);
+    &-last-name,
+    &-info-2,
+    &-email {
+      padding-left: 18px;
+    }
     &-select {
       position: relative;
       padding: 12px;
@@ -159,7 +152,8 @@ $form-width: 670px;
       &::before {
         position: absolute;
         content: '';
-        right: 12px;
+        right: 20px;
+        bottom: 22px;
         width: 10px;
         height: 10px;
         border-top: 1px solid rgb(205, 205, 205);
@@ -173,6 +167,8 @@ $form-width: 670px;
     }
   }
   &__button {
+    position: relative;
+    left: 13px;
     align-self: end;
   }
 }

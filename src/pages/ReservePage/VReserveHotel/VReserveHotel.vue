@@ -1,20 +1,21 @@
 <template>
-  <section class="hotel-preview" v-if="hotelData">
+  <section class="hotel-preview">
     <div class="hotel-preview__main">
       <img :src="hotelData.image" alt="Hotel image" class="hotel-preview__image" />
       <div class="hotel-preview__info">
         <VCardTitleInfo
-          :id="idHotel"
+          :id="hotelData.id"
           :name="hotelData.name"
           :address="hotelData.address"
+          gap="5px"
           class="hotel-preview__address"
         />
         <span class="hotel-preview__property">
           <VReserveHotelProperty
-            v-for="(count, name) in hotelData.info[0]"
+            v-for="(count, name) in hotelData.properties"
             :key="name"
-            :countProperty="+count"
-            :nameProperty="name"
+            :count="count"
+            :name="name"
           />
         </span>
       </div>
@@ -24,7 +25,7 @@
       <h3 class="hotel-preview__price-title">Price Details</h3>
       <span class="hotel-preview__price-info">
         <span>Short Period: {{ hotelData.price[0] }}</span>
-        <span>Meduim Period: {{ hotelData.price[1] }}</span>
+        <span>Medium Period: {{ hotelData.price[1] }}</span>
         <span>Long Period: {{ hotelData.price[1] }}</span>
       </span>
     </div>
@@ -32,7 +33,6 @@
 </template>
 
 <script>
-import { api } from '@/api/api'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
 import VReserveHotelProperty from './VReserveHotelProperty.vue'
 
@@ -41,30 +41,23 @@ export default {
     VCardTitleInfo,
     VReserveHotelProperty
   },
-  data() {
-    return {
-      hotelData: null,
-      idHotel: this.$route.params.id
-    }
-  },
-  async created() {
-    await api
-      .fetchData(`/hotel/detail/${this.idHotel}`)
-      .then((response) => (this.hotelData = response.data))
+
+  props: {
+    hotelData: Object
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/mixins/flexbox-general';
+@import '@/assets/scss/mixins/flexbox-direction';
+
 .hotel-preview {
-  padding: 30px;
-  max-width: 480px;
-  min-height: 349px;
+  padding: 30px 30px 58px 31px;
   background: rgb(239, 240, 242);
   border-radius: 10px;
   &__main {
-    display: flex;
-    gap: 22px;
+    @include flexbox-general($flexWrap: nowrap, $gap: 22px);
     margin-bottom: 47px;
   }
   &__image {
@@ -76,25 +69,26 @@ export default {
     border-radius: 6px;
   }
   &__address {
-    padding-bottom: 15px;
+    padding-bottom: 13px;
     border-bottom: 1px solid rgb(224, 226, 230);
   }
   &__property {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    @include flexbox-general($gap: 15px);
     margin-top: 10px;
     text-transform: capitalize;
+  }
+  &__info {
+    @include flexbox-direction($direction: column, $gap: 0);
+    justify-content: center;
   }
   &__price {
     &-title {
       font-size: 18px;
-      margin-bottom: 17px;
+      letter-spacing: -0.3px;
+      margin-bottom: 18px;
     }
     &-info {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      @include flexbox-direction($direction: column, $gap: 10px);
       font-style: normal;
       font-weight: 500;
       font-size: 15px;

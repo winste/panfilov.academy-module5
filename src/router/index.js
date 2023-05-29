@@ -18,7 +18,7 @@ const router = createRouter({
       component: HotelView
     },
     {
-      path: '/order/:id',
+      path: '/order',
       name: 'reserve',
       component: ReserveView
     },

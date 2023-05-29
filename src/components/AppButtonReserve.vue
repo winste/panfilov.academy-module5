@@ -19,6 +19,8 @@ $button-height: 60px;
   color: $button-font-color;
   min-width: $button-width;
   min-height: $button-height;
+  padding-left: 13px;
+  letter-spacing: -0.1px;
   background: $main-font-color;
   border-radius: 30px;
   @include button-hover($animation: true);

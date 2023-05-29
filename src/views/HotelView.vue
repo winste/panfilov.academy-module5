@@ -35,8 +35,12 @@
           </div>
 
           <VHotelDetailReserveSideBar
-            :reservePrice="hotelData.price"
-            :reserveIdHotel="idHotel"
+            :id="hotelData._id"
+            :name="hotelData.name"
+            :address="hotelData.address"
+            :price="hotelData.price"
+            :properties="hotelData.info[0]"
+            :image="hotelData.image"
             class="hotel__reserve"
           />
           <VHotelDescription :hotelDescription="hotelData.description[0]" />

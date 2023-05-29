@@ -20,6 +20,10 @@ export default {
     addressSize: {
       type: String,
       default: '14px'
+    },
+    gap: {
+      type: String,
+      default: '10px'
     }
   },
   computed: {
@@ -36,11 +40,10 @@ export default {
 @import '@/assets/scss/mixins/flexbox-direction';
 
 .card-info {
-  @include flexbox-direction($direction: column, $gap: 0);
+  @include flexbox-direction($direction: column, $gap: v-bind(gap));
   justify-content: space-between;
   &__name {
     font-size: v-bind(nameSize);
-    margin-bottom: 10px;
   }
   &__address {
     font-size: v-bind(addressSize);
