@@ -1,22 +1,17 @@
 <template>
   <main>
-    <div v-if="store.getHotels.data !== undefined">
-      <div class="search">
-        <h4 class="search__title">{{ store.getHotels.data.length }} Results Found</h4>
-
-        <div class="search__cards">
-          <VSearchCard v-for="hotel in store.getHotels.data" :id="hotel._id" />
-        </div>
+    {{ hotelData }}
+    <div class="search">
+      <h4 class="search__title">{{ hotelsInStore.length }} Results Found</h4>
+      <div v-if="hotelsInStore.length" class="search__cards">
+        <VSearchCard v-for="(hotel, index) in hotelsInStore" :key="index" :id="hotel._id" />
       </div>
-    </div>
-
-    <div v-else>
-      <p>No results for the given parameters</p>
     </div>
   </main>
 </template>
 
 <script>
+import { api } from '@/api/api'
 import { useHotelStore } from '@/store/hotelStore'
 import VSearchCard from '@/pages/SearchPage/VSearchCard.vue'
 
@@ -27,13 +22,26 @@ export default {
   data() {
     return {
       store: useHotelStore(),
-      hotels: []
+      firstHotelId: null,
+      hotelData: null
     }
   },
-  computed() {
-    return this.store.getHotels.data !== undefined
-      ? (this.hotels = this.store.getHotels.data)
-      : this.hotels
+
+  async unmounted() {
+    this.firstHotelId = this.idHotels
+
+    await api
+      .fetchData(`/hotel/detail/${this.idHotels}`)
+      .then((response) => (this.hotelData = response.data))
+  },
+
+  computed: {
+    hotelsInStore() {
+      return this.store.getHotels
+    },
+    idHotels() {
+      return this.hotelsInStore[0]._id
+    }
   }
 }
 </script>
@@ -43,11 +51,9 @@ export default {
 
 .search {
   padding: 90px 80px;
-  &__title {
-    margin-bottom: 110px;
-  }
   &__cards {
     @include flexbox-direction($direction: column, $gap: 78px);
+    margin-top: 110px;
   }
 }
 </style>

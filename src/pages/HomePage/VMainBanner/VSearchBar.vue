@@ -91,7 +91,7 @@ export default {
           guest: `${this.filter.guest ? this.filter.guest : 0}`
         })
         .then((response) => {
-          this.store.addHotels(response)
+          this.store.addHotels(response.data)
         })
         .catch((error) => {
           console.log(error)

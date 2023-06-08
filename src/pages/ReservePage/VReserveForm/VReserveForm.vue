@@ -1,69 +1,92 @@
 <template>
-  <form class="form">
+  <form @submit.prevent="submitOrder" class="form">
     <div class="form__wrapper">
       <div class="form__main">
         <VReserveFormInput
-          inputType="text"
-          inputPlaceholder="First name *"
+          type="text"
+          placeholder="First name *"
+          :error="condition('first_name')"
+          :message="msg('first_name')"
           v-model="order.first_name"
           class="form__field"
         />
+
         <VReserveFormInput
-          inputType="text"
-          inputPlaceholder="Last name *"
+          type="text"
+          placeholder="Last name *"
+          :error="condition('last_name')"
+          :message="msg('last_name')"
           v-model="order.last_name"
           class="form__field form__field-last-name"
         />
+
         <VReserveFormInput
-          inputType="text"
-          inputPlaceholder="Info-1 *"
+          type="text"
+          placeholder="Info-1 *"
+          :error="condition('info_1')"
+          :message="msg('info_1')"
           v-model="order.info_1"
           class="form__field"
         />
+
         <VReserveFormInput
-          inputType="text"
-          inputPlaceholder="Info-2 *"
+          type="text"
+          placeholder="Info-2 *"
+          :error="condition('info_2')"
+          :message="msg('info_2')"
           v-model="order.info_2"
           class="form__field form__field-info-2"
         />
-        <div class="form__field form__field-select">
-          <VSelect
-            :options="countries"
-            color="#959595"
-            weight="500"
-            placeholder="Country *"
-            v-model="order.country"
-          />
+
+        <div class="form__field">
+          <div class="form__field-select">
+            <VSelect
+              :options="countries"
+              color="#959595"
+              weight="500"
+              placeholder="Country *"
+              v-model="order.country"
+            />
+          </div>
+          <span v-if="condition('country')" v-text="msg('country')" class="form__field-select-msg">
+          </span>
         </div>
 
         <VReserveFormInput
-          inputType="email"
-          inputPlaceholder="Email address *"
+          type="email"
+          placeholder="Email address *"
+          :error="condition('email')"
+          :message="msg('email')"
           v-model="order.email"
           class="form__field form__field-email"
         />
       </div>
 
       <VReserveFormInput
-        inputType="phone"
-        inputPlaceholder="Phone number"
+        type="phone"
+        placeholder="Phone number"
+        :error="condition('phone')"
+        message="Incorrect format"
         v-model="order.phone"
         class="form__field form__field-phone"
       />
+
       <VReserveFormInput
-        inputType="text"
-        inputPlaceholder="Comment"
+        type="text"
+        placeholder="Comment"
         v-model="order.comment"
         class="form__field form__field-comment"
       />
     </div>
-    <AppButtonReserve @click.prevent="submitOrder" class="form__button" />
+    <AppButtonReserve class="form__button" />
   </form>
 </template>
 
 <script>
 import { api } from '@/api/api'
 import { useReserveStore } from '@/store/reserveStore'
+import { useVuelidate } from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
 import AppButtonReserve from '@/components/AppButtonReserve.vue'
 import VSelect from '@/components/VSelect.vue'
 import VReserveFormInput from './VReserveFormInput.vue'
@@ -78,6 +101,7 @@ export default {
 
   data() {
     return {
+      v$: useVuelidate(),
       countries: [],
       order: {
         first_name: '',
@@ -93,22 +117,48 @@ export default {
     }
   },
 
+  validations() {
+    return {
+      order: {
+        first_name: { required },
+        last_name: { required },
+        info_1: { required },
+        info_2: { required },
+        country: { required },
+        email: { required, email }
+      }
+    }
+  },
+
   async created() {
     const countries = await api.fetchData('/hotel/location').then((response) => response.data)
     this.countries = sortByName(countries)
   },
 
   methods: {
-    submitOrder() {
-      // api
-      //   .postData('/order', this.order)
-      //   .then((response) => {
-      //     this.store.addReserve(response)
-      //   })
-      //   .catch((error) => {
-      //     console.log(error)
-      //   })
-      console.log(this.order)
+    condition(name) {
+      return this.v$.$errors.map((item) => item.$property).includes(name)
+    },
+    msg(name) {
+      if (this.v$.$errors.length) {
+        const index = this.v$.$errors.map((item) => item.$property).indexOf(name)
+        return index != -1 ? this.v$.$errors[index].$message : false
+      }
+    },
+
+    async submitOrder() {
+      const result = await this.v$.$validate()
+
+      if (result) {
+        api
+          .postData('/order', this.order)
+          .then((response) => {
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
     }
   }
 }
@@ -116,39 +166,38 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-general';
+@import '@/assets/scss/mixins/flexbox-direction';
+@import '@/assets/scss/mixins/reserve-input';
 
 $form-width: 670px;
+$input-width: 329px;
+$input-height: 49px;
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  @include flexbox-direction($direction: column, $gap: 24px);
   max-width: $form-width;
   &__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    @include flexbox-direction($direction: column, $gap: 12px);
   }
   &__main {
-    display: flex;
-    flex-wrap: wrap;
+    @include flexbox-general($gap: 10px 0);
     justify-content: space-between;
-    row-gap: 13px;
+  }
+  &__item {
+    @include flexbox-direction($direction: column, $gap: 0);
   }
   &__field {
-    min-width: 329px;
-    color: $form-placeholder-color;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    &-last-name,
-    &-info-2,
-    &-email {
-      padding-left: 18px;
-    }
     &-select {
       position: relative;
-      padding: 12px;
-      display: flex;
+      @include flexbox-general();
       align-items: center;
+      @include reserve-input($width: $input-width, $height: $input-height);
+      &-msg {
+        padding: 5px 10px;
+        font-size: 10px;
+        color: red;
+      }
       &::before {
         position: absolute;
         content: '';
