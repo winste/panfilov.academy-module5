@@ -1,24 +1,12 @@
 <template>
   <div class="card-property">
-    <div class="card-property__item">
-      <AppIcon
-        :name="iconBedroom"
-        :width="25"
-        :height="24"
-        class="card-property__icon card-property__icon-bed"
-      />
-      <span v-text="properties[0].bedroom" class="card-property__number"></span>
-    </div>
-
-    <div class="card-property__item">
-      <AppIcon
-        :name="iconBathroom"
-        :width="20"
-        :height="21"
-        class="card-property__icon card-property__icon-bath"
-      />
-      <span v-text="properties[0].bathroom" class="card-property__number"></span>
-    </div>
+    <AppIcon
+      :name="iconName"
+      :width="iconWidth"
+      :height="iconHeight"
+      class="card-property__icon card-property__icon-pet"
+    />
+    <span v-text="count" class="card-property__number"></span>
   </div>
 </template>
 
@@ -26,21 +14,57 @@
 import AppIcon from './AppIcon.vue'
 import Bedroom from '@/assets/images/icons/Bedroom.svg'
 import Bathroom from '@/assets/images/icons/Bathroom.svg'
+import Parking from '@/assets/images/icons/Parking.svg'
+import Pet from '@/assets/images/icons/Pet.svg'
 
 export default {
   components: {
     AppIcon
   },
+
   data() {
     return {
       iconBedroom: Bedroom,
-      iconBathroom: Bathroom
+      iconBathroom: Bathroom,
+      iconParking: Parking,
+      iconPet: Pet
     }
   },
+
   props: {
-    properties: {
-      type: Array,
-      default: () => []
+    name: String,
+    width: {
+      type: Number,
+      default: 25
+    },
+    height: {
+      type: Number,
+      default: 24
+    },
+    count: String,
+    showAll: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  computed: {
+    iconName() {
+      const icon = {
+        bedroom: this.iconBathroom,
+        bathroom: this.iconBathroom,
+        parking: this.iconParking,
+        pet: this.iconPet
+      }
+      return icon[this.name]
+    },
+
+    iconWidth() {
+      return this.name == 'bathroom' ? 20 : this.width
+    },
+
+    iconHeight() {
+      return this.name == 'bathroom' ? 21 : this.width
     }
   }
 }
@@ -50,11 +74,7 @@ export default {
 .card-property {
   display: flex;
   align-items: center;
-  gap: 21px;
-  &__item {
-    display: flex;
-    gap: 7px;
-  }
+  gap: 7px;
   &__icon {
     margin-left: 1px;
     &-bed {

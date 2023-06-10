@@ -15,6 +15,7 @@
         <VCarouselPagination
           :slideCount="slides.length"
           :slideIndex="currentSlideIndex()"
+          :position="paginationPosition"
           @switch="switchSlideByButton"
           @click="slideToIndex(buttonIndex)"
           class="swiper__pagination"
@@ -43,7 +44,11 @@ export default {
   props: {
     slides: Array,
     width: String,
-    height: String
+    height: String,
+    block: {
+      type: String,
+      default: 'featured'
+    }
   },
 
   data() {
@@ -51,6 +56,15 @@ export default {
       buttonIndex: 0,
       swiper: null,
       icon: Like
+    }
+  },
+
+  computed: {
+    indent() {
+      return this.block == 'search' ? '23px 22px 28px 26px' : '21px 18px 19px 23px'
+    },
+    paginationPosition() {
+      return this.block == 'search' ? 'end' : 'center'
     }
   },
 
@@ -76,8 +90,6 @@ export default {
 @import '@/assets/scss/mixins/background-position';
 @import '@/assets/scss/mixins/carousel-elements-position';
 
-$element-indent: 21px 18px 19px 23px;
-
 .swiper {
   position: relative;
   max-width: v-bind(width);
@@ -89,17 +101,21 @@ $element-indent: 21px 18px 19px 23px;
     @include background-position;
   }
   &__button {
-    margin: $element-indent;
+    margin: v-bind(indent);
     @include carousel-elements-position(top);
   }
   &__interaction {
     @include carousel-elements-position(bottom);
     min-width: 100%;
-    padding: $element-indent;
+    padding: v-bind(indent);
+    padding-top: 0;
     &-wrapper {
       display: flex;
       justify-content: space-between;
     }
+  }
+  &__pagination {
+    margin-right: 3px;
   }
 }
 </style>

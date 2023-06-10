@@ -16,18 +16,20 @@
 
 <script>
 import VCarousel from '@/components/VCarousel.vue'
-import formattedPrice from '@/helpers/formattedPrice'
+import { formattedPrice } from '@/helpers/formattedPrice'
 
 export default {
   components: {
     VCarousel
   },
+
   props: {
     carouselCard: Object
   },
+
   computed: {
     correctPrice() {
-      return formattedPrice(this.carouselCard.price)
+      return formattedPrice.deleteCharacterHyphen(this.carouselCard.price)
     }
   }
 }
@@ -39,7 +41,7 @@ export default {
 
 .featured-card {
   justify-self: center;
-  @include flexbox-direction($direction: column, $gap: 31px);
+  @include flexbox-direction($direction: column, $gap: 27px);
   &__carousel {
     border-radius: 12px;
   }

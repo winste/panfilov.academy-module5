@@ -1,59 +1,84 @@
 <template>
-  <main>
-    {{ hotelData }}
-    <div class="search">
-      <h4 class="search__title">{{ hotelsInStore.length }} Results Found</h4>
-      <div v-if="hotelsInStore.length" class="search__cards">
-        <VSearchCard v-for="(hotel, index) in hotelsInStore" :key="index" :id="hotel._id" />
-      </div>
-    </div>
+  <main class="search">
+    <VSearchMapSection
+      v-if="hotelsInStore && firstHotelData"
+      :coords="firstHotelData.coords"
+      :image="firstHotelData.image"
+      :id="firstHotelData._id"
+      :name="firstHotelData.name"
+      :address="firstHotelData.address"
+      class="search__map"
+    />
+
+    <VSearchCardsSection
+      v-if="hotelsInStore"
+      :amount="hotels.length"
+      :hotels="hotels"
+      class="search__result"
+    />
   </main>
 </template>
 
 <script>
 import { api } from '@/api/api'
 import { useHotelStore } from '@/store/hotelStore'
-import VSearchCard from '@/pages/SearchPage/VSearchCard.vue'
+import VSearchCardsSection from '../pages/SearchPage/VSearchCardsSection.vue'
+import VSearchMapSection from '../pages/SearchPage/VSearchMapSection.vue'
 
 export default {
   components: {
-    VSearchCard
+    VSearchCardsSection,
+    VSearchMapSection
   },
   data() {
     return {
       store: useHotelStore(),
+      hotels: null,
       firstHotelId: null,
-      hotelData: null
+      firstHotelData: null
     }
-  },
-
-  async unmounted() {
-    this.firstHotelId = this.idHotels
-
-    await api
-      .fetchData(`/hotel/detail/${this.idHotels}`)
-      .then((response) => (this.hotelData = response.data))
   },
 
   computed: {
     hotelsInStore() {
+      this.hotels = this.store.getHotels
       return this.store.getHotels
+    }
+  },
+
+  watch: {
+    hotels() {
+      if (this.hotels.length) this.getFirstHotelId()
     },
-    idHotels() {
-      return this.hotelsInStore[0]._id
+    firstHotelId() {
+      if (this.firstHotelId) this.getFirstfirstHotelData()
+    }
+  },
+
+  methods: {
+    getFirstHotelId() {
+      this.firstHotelId = this.hotels[0]._id
+    },
+    async getFirstfirstHotelData() {
+      await api
+        .fetchData(`/hotel/detail/${this.firstHotelId}`)
+        .then((response) => (this.firstHotelData = response.data))
     }
   }
 }
 </script>
 
-<style lang="scss">
-@import '@/assets/scss/mixins/flexbox-direction';
+<style lang="scss" scoped>
+@import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-general';
 
 .search {
-  padding: 90px 80px;
-  &__cards {
-    @include flexbox-direction($direction: column, $gap: 78px);
-    margin-top: 110px;
+  @include flexbox-general($gap: 0, $flexWrap: nowrap);
+  &__map {
+    order: 1;
+  }
+  &__result {
+    padding: 90px 80px;
   }
 }
 </style>

@@ -178,7 +178,7 @@ $input-height: 49px;
   @include flexbox-direction($direction: column, $gap: 24px);
   max-width: $form-width;
   &__wrapper {
-    @include flexbox-direction($direction: column, $gap: 12px);
+    @include flexbox-direction($direction: column, $gap: 10px);
   }
   &__main {
     @include flexbox-general($gap: 10px 0);

@@ -3,8 +3,7 @@
     <h2 class="featured-section__title">Featured Properties on our Listing</h2>
     <div class="featured-section__cards">
       <VFeaturedSectionCard
-        v-for="(card, index) in cards"
-        :key="index"
+        v-for="card in cards"
         :carouselCard="card"
         class="featured-section__card"
       >
@@ -15,7 +14,15 @@
           nameSize="18px"
           class="featured-section__card-info"
         />
-        <VCardPropertyInfo :properties="card.info" class="featured-section__card-property" />
+
+        <div class="featured-section__card-properties">
+          <VCardPropertyInfo
+            v-for="(property, name) in card.info[0]"
+            :key="name"
+            :name="name"
+            :count="property"
+          />
+        </div>
       </VFeaturedSectionCard>
     </div>
   </section>
@@ -23,8 +30,6 @@
 
 <script>
 import { api } from '@/api/api'
-import Bedroom from '@/assets/images/icons/Bedroom.svg'
-import Bathroom from '@/assets/images/icons/Bathroom.svg'
 import VCardPropertyInfo from '@/components/VCardPropertyInfo.vue'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
 import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
@@ -37,9 +42,7 @@ export default {
   },
   data() {
     return {
-      cards: [],
-      icon1: Bedroom,
-      icon2: Bathroom
+      cards: []
     }
   },
   async created() {
@@ -59,13 +62,16 @@ $cardSize: 382px;
   }
   &__cards {
     display: grid;
-    // grid-template-columns: calc($cardSize + 3px) $cardSize $cardSize;
     grid-template-columns: repeat(auto-fill, minmax($cardSize, 1fr));
     grid-gap: 65px 30px;
   }
   &__card {
     &-info {
       margin-bottom: 14px;
+    }
+    &-properties {
+      display: flex;
+      gap: 21px;
     }
   }
 }

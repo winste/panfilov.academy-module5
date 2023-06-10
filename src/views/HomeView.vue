@@ -1,19 +1,19 @@
 <template>
-  <main v-if="bannersImages" class="main">
-    <VMainBanner :image="bannersImages.main.image" class="main__banner-main" />
+  <main v-if="banners" class="main">
+    <VMainBanner :image="banners.main.image" class="main__banner-main" />
     <div class="container-wrapper">
       <VLatestSection class="main__latest" />
       <VBanner
-        :url="bannersImages.second.image"
-        :title="bannersImages.second.title"
-        :text="bannersImages.second.description"
+        :url="banners.second.image"
+        :title="banners.second.title"
+        :text="banners.second.description"
         class="main__banner-hosting"
       />
       <VFeaturedSection class="main__featured" />
       <VBanner
-        :url="bannersImages.last.image"
-        :title="bannersImages.last.title"
-        :text="bannersImages.last.description"
+        :url="banners.last.image"
+        :title="banners.last.title"
+        :text="banners.last.description"
         class="main__banner-browse"
       />
     </div>
@@ -36,11 +36,11 @@ export default {
   },
   data() {
     return {
-      bannersImages: null
+      banners: null
     }
   },
   async created() {
-    await api.fetchData('/banners').then((response) => (this.bannersImages = response.data))
+    await api.fetchData('/banners').then((response) => (this.banners = response.data))
   }
 }
 </script>

@@ -1,9 +1,10 @@
 <template>
-  <div v-if="hotelData !== null" class="search-card">
+  <div v-if="hotelData" class="search-card">
     <VCarousel
       :slides="hotelData.images"
       width="574px"
       height="382px"
+      block="search"
       class="search-card__carousel"
     >
       <VCardHostInfo
@@ -19,7 +20,16 @@
         :address="hotelData.address"
         class="search-card__title"
       />
-      <VCardPropertyInfo :properties="hotelData.info" />
+
+      <div class="search-card__properties">
+        <VCardPropertyInfo
+          v-for="(property, name) in hotelData.info[0]"
+          :key="name"
+          :name="name"
+          :count="property"
+        />
+      </div>
+
       <span class="search-card__period">
         <p class="search-card__type">{{ hotelData.type[0] }}</p>
         <p class="search-card__period-delimiter"></p>
@@ -65,6 +75,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-general';
+
 $border-radus: 16px;
 
 .search-card {
@@ -73,6 +86,9 @@ $border-radus: 16px;
   box-shadow: 0px 0px 10px rgb(229, 229, 229);
   &__info {
     padding: 26px 20px;
+  }
+  &__properties {
+    @include flexbox-general($gap: 21px);
   }
   &__title {
     margin-bottom: 20px;

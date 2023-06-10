@@ -8,6 +8,9 @@ export const useHotelStore = defineStore('hotelStore', {
       getHotels(state) {
         return state.hotels
       },
+      getFirstHotel(state) {
+        return state.hotels[0]
+      }
     },
     actions: {
       addHotels(data) {

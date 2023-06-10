@@ -15,7 +15,7 @@ export default {
     address: String,
     nameSize: {
       type: String,
-      default: '16px'
+      default: '18px'
     },
     addressSize: {
       type: String,
@@ -41,7 +41,6 @@ export default {
 
 .card-info {
   @include flexbox-direction($direction: column, $gap: v-bind(gap));
-  justify-content: space-between;
   &__name {
     font-size: v-bind(nameSize);
   }

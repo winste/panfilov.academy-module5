@@ -24,9 +24,9 @@
     <div class="hotel-preview__price">
       <h3 class="hotel-preview__price-title">Price Details</h3>
       <span class="hotel-preview__price-info">
-        <span>Short Period: {{ hotelData.price[0] }}</span>
-        <span>Medium Period: {{ hotelData.price[1] }}</span>
-        <span>Long Period: {{ hotelData.price[1] }}</span>
+        <span>Short Period: {{ formattedPrice[0] }}</span>
+        <span>Medium Period: {{ formattedPrice[1] }}</span>
+        <span>Long Period: {{ formattedPrice[1] }}</span>
       </span>
     </div>
   </section>
@@ -44,6 +44,12 @@ export default {
 
   props: {
     hotelData: Object
+  },
+
+  computed: {
+    formattedPrice() {
+      return this.hotelData.price.map((item) => item.replace('$', '$ '))
+    }
   }
 }
 </script>

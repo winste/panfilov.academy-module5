@@ -83,6 +83,7 @@ export default {
   },
   methods: {
     searchHotels() {
+      this.store.$reset()
       api
         .postData('/hotel/filter', {
           location: `${this.filter.location}`,

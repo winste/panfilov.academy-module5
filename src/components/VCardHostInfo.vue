@@ -1,6 +1,6 @@
 <template lang="">
   <div class="host-info">
-    <AppAvatar :url="avatar" avatarSize="76px" />
+    <AppAvatar :url="avatar" size="76px" />
     <span class="host-info__text">
       <p class="host-info__text-item">Listed By:</p>
       <p class="host-info__text-author">{{ name }}</p>

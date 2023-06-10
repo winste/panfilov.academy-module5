@@ -23,6 +23,10 @@ export default {
     slideIndex: {
       type: Number,
       default: 0
+    },
+    position: {
+      type: String,
+      default: 'center'
     }
   }
 }
@@ -30,13 +34,13 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-general';
 
 $indicator-size: 10px;
 
 .pagination {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  @include flexbox-general($gap: 5px);
+  align-items: v-bind(position);
   &__indicator {
     width: $indicator-size;
     height: $indicator-size;
