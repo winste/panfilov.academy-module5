@@ -7,6 +7,7 @@
       :id="firstHotelData._id"
       :name="firstHotelData.name"
       :address="firstHotelData.address"
+      :properties="firstHotelData.info[0]"
       class="search__map"
     />
 
@@ -22,8 +23,8 @@
 <script>
 import { api } from '@/api/api'
 import { useHotelStore } from '@/store/hotelStore'
-import VSearchCardsSection from '../pages/SearchPage/VSearchCardsSection.vue'
-import VSearchMapSection from '../pages/SearchPage/VSearchMapSection.vue'
+import VSearchCardsSection from '@/pages/SearchPage/VSearchCardsSection.vue'
+import VSearchMapSection from '@/pages/SearchPage/VSearchMapSection.vue'
 
 export default {
   components: {
@@ -73,12 +74,13 @@ export default {
 @import '@/assets/scss/mixins/flexbox-general';
 
 .search {
-  @include flexbox-general($gap: 0, $flexWrap: nowrap);
+  @include flexbox-general($gap: 15px, $flexWrap: nowrap);
+  justify-content: space-between;
   &__map {
     order: 1;
   }
   &__result {
-    padding: 90px 80px;
+    padding: 90px 0px 90px 80px;
   }
 }
 </style>

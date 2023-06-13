@@ -15,14 +15,7 @@
           class="featured-section__card-info"
         />
 
-        <div class="featured-section__card-properties">
-          <VCardPropertyInfo
-            v-for="(property, name) in card.info[0]"
-            :key="name"
-            :name="name"
-            :count="property"
-          />
-        </div>
+        <VCardPropertiesInfo :properties="card.info[0]" />
       </VFeaturedSectionCard>
     </div>
   </section>
@@ -33,12 +26,14 @@ import { api } from '@/api/api'
 import VCardPropertyInfo from '@/components/VCardPropertyInfo.vue'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
 import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
+import VCardPropertiesInfo from '../../../components/VCardPropertiesInfo.vue'
 
 export default {
   components: {
     VFeaturedSectionCard,
     VCardTitleInfo,
-    VCardPropertyInfo
+    VCardPropertyInfo,
+    VCardPropertiesInfo
   },
   data() {
     return {

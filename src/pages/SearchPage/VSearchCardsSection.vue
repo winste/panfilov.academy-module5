@@ -35,7 +35,7 @@ export default {
   }
   &__list {
     @include flexbox-direction($direction: column, $gap: 78px);
-    margin-top: 116px;
+    margin-top: 117px;
   }
 }
 </style>

@@ -41,17 +41,13 @@ export default {
       type: Number,
       default: 24
     },
-    count: String,
-    showAll: {
-      type: Boolean,
-      default: false
-    }
+    count: String
   },
 
   computed: {
     iconName() {
       const icon = {
-        bedroom: this.iconBathroom,
+        bedroom: this.iconBedroom,
         bathroom: this.iconBathroom,
         parking: this.iconParking,
         pet: this.iconPet
@@ -60,11 +56,21 @@ export default {
     },
 
     iconWidth() {
-      return this.name == 'bathroom' ? 20 : this.width
+      const icon = {
+        bathroom: 20,
+        parking: 22,
+        pet: 24
+      }
+      return icon[this.name] ? icon[this.name] : this.width
     },
 
     iconHeight() {
-      return this.name == 'bathroom' ? 21 : this.width
+      const icon = {
+        bathroom: 21,
+        parking: 20,
+        pet: 22
+      }
+      return icon[this.name] ? icon[this.name] : this.width
     }
   }
 }

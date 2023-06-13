@@ -65,6 +65,10 @@ export default {
     },
     paginationPosition() {
       return this.block == 'search' ? 'end' : 'center'
+    },
+
+    paginationMargin() {
+      return this.block == 'search' ? '6px' : '3px'
     }
   },
 
@@ -115,7 +119,7 @@ export default {
     }
   }
   &__pagination {
-    margin-right: 3px;
+    margin-right: v-bind(paginationMargin);
   }
 }
 </style>

@@ -37,6 +37,7 @@ export default {
   &__text {
     @include flexbox-direction($direction: column, $gap: 4px);
     font-weight: 500;
+    margin-top: 8px;
     &-item {
       font-size: 12px;
     }

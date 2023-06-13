@@ -1,0 +1,62 @@
+<template>
+  <div class="map-properties">
+    <img :src="image" alt="Hotel image" class="map-properties__image" />
+    <div class="map-properties__info">
+      <VCardTitleInfo
+        :id="id"
+        :name="name"
+        :address="address"
+        gap="6px"
+        class="map-properties__title"
+      />
+      <VCardPropertiesInfo :properties="properties" :showAll="true" />
+    </div>
+  </div>
+</template>
+
+<script>
+import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
+import VCardPropertyInfo from '../../components/VCardPropertyInfo.vue'
+import VCardPropertiesInfo from '../../components/VCardPropertiesInfo.vue'
+
+export default {
+  components: {
+    VCardTitleInfo,
+    VCardPropertyInfo,
+    VCardPropertiesInfo
+  },
+
+  props: {
+    image: String,
+    id: String,
+    name: String,
+    address: String,
+    properties: Object
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+@import '@/assets/scss/const';
+
+.map-properties {
+  max-width: 485px;
+  min-height: 160px;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgb(255, 255, 255);
+  box-shadow: $box-shadow;
+  &__image {
+    max-width: 160px;
+    min-height: 160px;
+    background: $card-bg-color;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    padding: 26px 16px;
+  }
+}
+</style>

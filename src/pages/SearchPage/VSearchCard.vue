@@ -18,6 +18,7 @@
         :id="id"
         :name="hotelData.name"
         :address="hotelData.address"
+        gap="2px"
         class="search-card__title"
       />
 
@@ -83,12 +84,13 @@ $border-radus: 16px;
 .search-card {
   max-width: 574px;
   border-radius: $border-radus;
-  box-shadow: 0px 0px 10px rgb(229, 229, 229);
+  box-shadow: $box-shadow;
   &__info {
-    padding: 26px 20px;
+    padding: 31px 27px 22px 24px;
   }
   &__properties {
     @include flexbox-general($gap: 21px);
+    margin-bottom: 18px;
   }
   &__title {
     margin-bottom: 20px;
@@ -97,15 +99,13 @@ $border-radus: 16px;
     border-radius: $border-radus $border-radus 0 0;
   }
   &__period {
-    display: flex;
-    gap: 17px;
+    @include flexbox-general($gap: 17px);
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
-    color: rgb(154, 154, 154);
-    margin-top: 22px;
+    color: $secondary-font-color;
     &-delimiter {
-      border-right: 1px solid rgb(224, 226, 230);
+      border-right: 1px solid $card-bg-color;
     }
   }
 }
