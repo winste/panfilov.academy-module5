@@ -1,56 +1,53 @@
 <template>
   <main class="hotel" v-if="hotelData">
-    <div class="hotel-wrapper">
-      <VHotelGallery
-        :avatar="hotelData.author.avatar"
-        :name="hotelData.name"
-        :price="hotelData.price"
-        :mainImage="hotelData.image"
-        :images="hotelData.images"
-        :countDisplayedImages="4"
-        class="hotel__gallery"
-      />
+    <VHotelGallery
+      :avatar="hotelData.author.avatar"
+      :name="hotelData.name"
+      :price="hotelData.price"
+      :mainImage="hotelData.image"
+      :images="hotelData.images"
+      :countDisplayedImages="4"
+      class="hotel__gallery"
+    />
 
-      <div class="container-wrapper">
-        <div class="hotel__main">
-          <div class="hotel__heading">
-            <VHotelTitle :hotelName="hotelData.name" :hotelAddress="hotelData.address" />
-            <div class="hotel__interaction">
-              <AppButtonIcon :buttonIcon="buttonIconLike" :buttonWidth="36" :buttonHeigh="36" />
-              <AppButtonIcon :buttonIcon="buttonIconSearch" :buttonWidth="35" :buttonHeigh="35" />
-            </div>
+    <div class="container-wrapper">
+      <div class="hotel__main">
+        <div class="hotel__heading">
+          <VHotelTitle :hotelName="hotelData.name" :hotelAddress="hotelData.address" />
+          <div class="hotel__interaction">
+            <AppButtonIcon :buttonIcon="buttonIconLike" :buttonWidth="36" :buttonHeigh="36" />
+            <AppButtonIcon :buttonIcon="buttonIconSearch" :buttonWidth="35" :buttonHeigh="35" />
           </div>
+        </div>
 
-          <div class="hotel__property">
-            <VHotelProperty
-              :propertyIcon="iconBedroom"
-              :propertyCount="+hotelData.info[0].bedroom"
-              propertyName="Bedrooms"
-            />
-            <VHotelProperty
-              :propertyIcon="iconBathroom"
-              :propertyCount="+hotelData.info[0].bathroom"
-              propertyName="Bathrooms"
-            />
-          </div>
-
-          <VHotelDetailReserveSideBar
-            :id="hotelData._id"
-            :name="hotelData.name"
-            :address="hotelData.address"
-            :price="hotelData.price"
-            :properties="hotelData.info[0]"
-            :image="hotelData.image"
-            class="hotel__reserve"
+        <div class="hotel__property">
+          <VHotelProperty :icon="iconBedroom" :count="+hotelData.info[0].bedroom" name="Bedrooms" />
+          <VHotelProperty
+            :icon="iconBathroom"
+            :count="+hotelData.info[0].bathroom"
+            name="Bathrooms"
           />
-          <VHotelDescription :hotelDescription="hotelData.description[0]" />
         </div>
 
-        <div class="hotel__information">
-          <VAmenitiesSection :amenitiesList="hotelData.amenities" :amenitiesDisplayedCount="6" />
-          <VMap :coords="hotelData.coords" width="771px" height="420px" class="hotel__map" />
-          <VReviewsSection :reviewsList="hotelData.reviews" :reviewsDisplayedCount="4" />
-        </div>
+        <VHotelDetailReserveSideBar
+          :id="hotelData._id"
+          :name="hotelData.name"
+          :address="hotelData.address"
+          :price="hotelData.price"
+          :properties="hotelData.info[0]"
+          :image="hotelData.image"
+          class="hotel__reserve"
+        />
+        <VHotelDescription
+          :hotelDescription="hotelData.description[0]"
+          class="hotel__description"
+        />
+      </div>
+
+      <div class="hotel__information">
+        <VAmenitiesSection :amenitiesList="hotelData.amenities" :amenitiesDisplayedCount="6" />
+        <VMap :coords="hotelData.coords" width="771px" height="420px" class="hotel__map" />
+        <VReviewsSection :reviewsList="hotelData.reviews" :reviewsDisplayedCount="4" />
       </div>
     </div>
   </main>
@@ -107,43 +104,57 @@ export default {
 
 <style lang="scss" scoped>
 .hotel {
-  &-wrapper {
-    padding: 0 13px 0 19px;
-    margin-top: 35px;
-  }
+  margin-bottom: 51px;
+  // &-wrapper {
+  //   padding: 0 14px;
+  //   margin-top: 35px;
+  // }
   &__gallery {
-    margin-bottom: 90px;
+    margin: 35px 0 90px 0;
+    padding: 0 14px;
   }
   &__main {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    column-gap: 90px;
-    margin-bottom: 57px;
+    column-gap: 88px;
+    margin-bottom: 63px;
   }
   &__heading {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 55px;
   }
   &__interaction {
     display: flex;
-    gap: 24px;
+    gap: 18px;
+    margin-top: 5px;
   }
   &__reserve {
     grid-area: 1/2/3/3;
     align-self: start;
+    margin-top: 5px;
   }
   &__property {
     display: flex;
     gap: 14px;
-    margin-bottom: 57px;
+    margin-bottom: 27px;
+  }
+  &__description {
+    margin-top: 30px;
   }
   &__information {
     max-width: 800px;
-    margin-bottom: 31px;
   }
   &__map {
     margin-bottom: 43px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hotel {
+    &__main {
+      display: block;
+    }
   }
 }
 </style>

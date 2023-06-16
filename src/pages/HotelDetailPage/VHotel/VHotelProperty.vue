@@ -1,9 +1,9 @@
 <template>
   <div class="property">
     <div class="property__icon">
-      <AppIcon :name="propertyIcon" :width="40" :height="40" />
+      <AppIcon :name="icon" :width="iconWidth" :height="44" />
     </div>
-    <span> {{ propertyCount }} {{ propertyName }} </span>
+    <span class="property__text"> {{ count }} {{ name }} </span>
   </div>
 </template>
 
@@ -14,10 +14,20 @@ export default {
   components: {
     AppIcon
   },
+
   props: {
-    propertyIcon: String,
-    propertyName: String,
-    propertyCount: Number
+    icon: String,
+    name: String,
+    count: Number
+  },
+
+  computed: {
+    iconWidth() {
+      return this.name == 'Bedrooms' ? 47 : 38
+    },
+    iconMargin() {
+      return this.name == 'Bedrooms' ? '1px' : '13px'
+    }
   }
 }
 </script>
@@ -33,9 +43,16 @@ $property-height: 160px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: $property-width;
+  min-width: $property-width;
   min-height: $property-height;
   background-color: $main-decor-color;
   border-radius: 8px;
+  &__icon {
+    margin-left: v-bind(iconMargin);
+    margin-bottom: 8px;
+  }
+  &__text {
+    margin-bottom: 2px;
+  }
 }
 </style>

@@ -53,13 +53,24 @@ export default {
 .amenities {
   margin-bottom: 56px;
   &__title {
-    margin-bottom: 26px;
+    font-size: 20px;
+    margin-bottom: 29px;
   }
   &__list {
+    $column-width: 325px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(min-content, $column-width));
+    gap: 17px 10px;
     padding-bottom: 41px;
+  }
+}
+
+@media (max-width: 768px) {
+  .amenities {
+    &__list {
+      $column-width: 200px;
+      grid-template-columns: repeat(auto-fill, minmax(min-content, $column-width));
+    }
   }
 }
 </style>

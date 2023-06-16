@@ -2,7 +2,7 @@
   <section class="reviews">
     <h4 class="reviews__title">
       <span class="reviews__title-text">Reviews</span>
-      <AppIcon :iconName="reviewsIcon" />
+      <AppIcon :name="reviewsIcon" class="reviews__title-icon" />
       <span v-text="averageRating" class="reviews__title-rating"></span>
     </h4>
 
@@ -85,10 +85,13 @@ export default {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 27px;
     &-text {
       letter-spacing: -0.1px;
       margin-right: 7px;
+    }
+    &-icon {
+      margin-bottom: 1px;
     }
     &-rating {
       margin-left: 5px;
@@ -103,14 +106,16 @@ export default {
   &__rating {
     display: flex;
     flex-wrap: wrap;
-    gap: 13px 45px;
-    margin-bottom: 47px;
+    gap: 16.5px 47.5px;
+    margin-bottom: 50px;
+    margin-left: 2px;
   }
   &__list {
     margin-bottom: 40px;
   }
   &__item {
     max-width: 382px;
+    padding-left: 2px;
   }
 }
 </style>

@@ -92,6 +92,8 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
     }
     &-text {
       @include flexbox-direction($direction: column, $gap: 0);
+      font-weight: 600;
+      font-size: 14px;
       align-items: start;
     }
     &-subtext {
@@ -99,7 +101,9 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
       font-size: 18px;
     }
     &--btn {
-      @include flexbox-center($gap: 10px);
+      @include flexbox-center($gap: 15px);
+      letter-spacing: -0.2px;
+      padding-right: 25px;
     }
   }
 }

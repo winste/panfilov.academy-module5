@@ -20,7 +20,7 @@ $icon-size: 30px;
 .amenity {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 17px;
   color: $main-font-color;
   &__image {
     max-width: $icon-size;

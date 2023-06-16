@@ -33,7 +33,8 @@ export default {
   justify-content: center;
   font-weight: 600;
   font-size: 15px;
-  padding: 22px 37px;
+  letter-spacing: -0.2px;
+  padding: 20px 36px 19px 36px;
   background: $button-font-color;
   border: 1px solid $main-font-color;
   border-radius: 6px;

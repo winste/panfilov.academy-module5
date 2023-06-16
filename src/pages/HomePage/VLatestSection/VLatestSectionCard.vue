@@ -1,5 +1,5 @@
 <template>
-  <div class="latest-card" :style="{ 'background-image': `url(${urlBg})` }">
+  <div class="latest-card" :style="{ 'background-image': `url(${background})` }">
     <AppButtonIcon
       :buttonIcon="latestCardIcon"
       :buttonWidth="30"
@@ -7,7 +7,7 @@
       class="latest-card__icon"
     />
     <div class="latest-card__content">
-      <AppAvatar :src="urlAvatar" class="latest-card__avatar" />
+      <AppAvatar :src="avatar" class="latest-card__avatar" />
       <VCardTitleInfo
         :id="id"
         :name="name"
@@ -34,10 +34,18 @@ export default {
   },
   props: {
     id: String,
-    urlAvatar: String,
-    urlBg: String,
+    avatar: String,
+    background: String,
     name: String,
-    address: String
+    address: String,
+    width: {
+      type: String,
+      default: '279px'
+    },
+    height: {
+      type: String,
+      default: '340px'
+    }
   },
   data() {
     return {
@@ -50,19 +58,16 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
 @import '@/assets/scss/mixins/background-position';
-
-$card-width: 279px;
-$card-height: 340px;
-$card-border-radius: 8px;
+@import '@/assets/scss/mixins/flexbox-direction';
 
 .latest-card {
-  display: flex;
-  flex-direction: column;
+  @include flexbox-direction($direction: column, $gap: 0px, $flexWrap: nowrap);
   justify-content: space-between;
-  max-width: $card-width;
-  min-height: $card-height;
+  min-width: v-bind(width);
+  max-width: 600px;
+  min-height: v-bind(height);
   padding: 18px 17px 19px 21px;
-  border-radius: $card-border-radius;
+  border-radius: 8px;
   background-color: $card-bg-color;
   @include background-position;
   &__icon {

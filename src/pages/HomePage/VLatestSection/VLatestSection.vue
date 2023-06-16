@@ -6,10 +6,11 @@
         v-for="(card, index) in cards"
         :key="index"
         :id="card._id"
-        :urlAvatar="card.author.avatar"
-        :urlBg="card.image"
+        :avatar="card.author.avatar"
+        :background="card.image"
         :name="card.name"
         :address="card.address"
+        class="latest-section__card"
       />
     </div>
   </section>
@@ -36,16 +37,19 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/section-title';
+@import '@/assets/scss/mixins/flexbox-general';
+
 .latest-section {
   &__title {
     @include section-title-style;
     margin-bottom: 101px;
   }
   &__cards {
-    display: flex;
+    @include flexbox-general($gap: 30px);
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
+  }
+  &__card {
+    flex: 1 1 0;
   }
 }
 </style>

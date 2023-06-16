@@ -24,14 +24,11 @@ export default {
 .rating {
   &__name {
     min-width: 180px;
-  }
-  &__total {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 13px 45px;
+    letter-spacing: 0.1px;
   }
   &__item {
     display: flex;
+    gap: 14px;
   }
 }
 </style>

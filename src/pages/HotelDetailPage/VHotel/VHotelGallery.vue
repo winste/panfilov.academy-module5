@@ -54,12 +54,12 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
     @include flexbox-general($gap: 22px, $flexWrap: nowrap);
     align-items: end;
     flex: 1 1 0;
-    min-width: 400px;
+    min-width: 300px;
+    max-width: 669px;
     min-height: 350px;
     padding: 55px 65px;
     background-color: $gallery-bg-color;
     border-radius: 16px;
-    background-image: v-bind(galleryMainImage);
     @include background-position;
   }
   &__text {

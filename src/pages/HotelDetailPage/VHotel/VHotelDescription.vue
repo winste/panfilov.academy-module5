@@ -27,6 +27,7 @@ export default {
 .description {
   &__title {
     margin-bottom: 15px;
+    letter-spacing: -0.2px;
   }
   &__text {
     font-size: 15px;

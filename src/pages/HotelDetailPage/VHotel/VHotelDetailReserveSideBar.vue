@@ -1,7 +1,7 @@
 <template>
   <div class="reserve">
     <div v-text="formattedPrice" class="reserve__price"></div>
-    <AppButtonReserve @click.prevent="reserveHotel" />
+    <AppButtonReserve @click.prevent="reserveHotel" class="reserve__btn" />
   </div>
 </template>
 
@@ -62,16 +62,20 @@ $button-height: 60px;
 .reserve {
   max-width: $reserve-width;
   min-height: $reserve-height;
-  padding: 30px;
+  padding: 30px 30px 30px 29px;
   box-shadow: 0px 0px 16px rgba(194, 198, 204, 0.6);
   border-radius: 10px;
   font-weight: 700;
   font-size: 22px;
   line-height: 27px;
   &__price {
-    padding-bottom: 27px;
+    padding-bottom: 26px;
     margin-bottom: 27px;
+    margin-left: 1px;
     border-bottom: 1px solid $card-bg-color;
+  }
+  &__btn {
+    margin-right: 1px;
   }
 }
 </style>

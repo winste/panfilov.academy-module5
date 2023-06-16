@@ -44,7 +44,7 @@ export default {
   &__main {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    gap: 3px 13px;
+    gap: 3px 16px;
     margin-bottom: 20px;
   }
   &__avatar {

@@ -18,7 +18,7 @@ export default {
 @import '@/assets/scss/const';
 .hotel-info {
   &__title {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   &__address {
     color: $secondary-font-color;
