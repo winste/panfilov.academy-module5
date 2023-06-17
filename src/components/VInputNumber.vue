@@ -1,5 +1,4 @@
 <template>
-  <label v-text="label" for="select" class="number-title label"></label>
   <input
     type="number"
     min="1"
@@ -15,13 +14,12 @@
 export default {
   props: {
     modelValue: '',
-    label: String,
     placeholder: String
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/scss/mixins/placeholder';
 
 input::-webkit-outer-spin-button,
@@ -38,7 +36,6 @@ input[type='number'] {
 
 .input-number {
   min-height: 24px;
-  margin-top: 3.5px;
   @include placeholder-style;
 }
 </style>

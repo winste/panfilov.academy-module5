@@ -1,5 +1,4 @@
 <template>
-  <label v-text="label" for="select" class="date-title label"></label>
   <VueDatePicker
     :placeholder="placeholder"
     :enable-time-picker="false"
@@ -21,7 +20,6 @@ export default {
 
   props: {
     modelValue: '',
-    label: String,
     placeholder: String
   },
   methods: {
@@ -36,7 +34,6 @@ export default {
 
 .date {
   &__input {
-    margin-top: 3.5px;
     font-size: 13px;
     border: none;
     padding: 0;

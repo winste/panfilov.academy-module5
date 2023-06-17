@@ -1,5 +1,6 @@
 <template>
   <main v-if="banners" class="main">
+    <AppMetaTags :metaInfo="metaInfo" />
     <VMainBanner :image="banners.main.image" class="main__banner-main" />
     <div class="container-wrapper">
       <VLatestSection class="main__latest" />
@@ -26,17 +27,32 @@ import VBanner from '@/components/VBanner.vue'
 import VMainBanner from '@/pages/HomePage/VMainBanner/VMainBanner.vue'
 import VLatestSection from '@/pages/HomePage/VLatestSection/VLatestSection.vue'
 import VFeaturedSection from '@/pages/HomePage/VFeaturedSection/VFeaturedSection.vue'
+import AppMetaTags from '../components/AppMetaTags.vue'
 
 export default {
   components: {
     VMainBanner,
     VLatestSection,
     VBanner,
-    VFeaturedSection
+    VFeaturedSection,
+    AppMetaTags
   },
   data() {
     return {
-      banners: null
+      banners: null,
+      metaInfo: {
+        title: 'Hotel Prototype Booking',
+        meta: [
+          {
+            name: 'description',
+            content: 'My page description'
+          },
+          {
+            name: 'keywords',
+            content: 'vue, meta, tutorial'
+          }
+        ]
+      }
     }
   },
   async created() {

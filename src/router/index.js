@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import HotelView from '@/views/HotelView.vue'
 import ReserveView from '@/views/ReserveView.vue'
 import SearchView from '@/views/SearchView.vue'
+import NotFound  from '@/views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/hotel/search',
       name: 'search',
       component: SearchView
+    },
+    {       
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFound
     }
   ]
 })

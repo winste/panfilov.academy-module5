@@ -1,5 +1,6 @@
 <template>
   <main class="reserve">
+    <AppMetaTags :metaInfo="metaInfo" />
     <VReserveForm class="reserve__form" />
     <VReserveHotel :hotelData="store.getReserve" class="reserve__preview" />
   </main>
@@ -9,15 +10,31 @@
 import { useReserveStore } from '@/store/reserveStore'
 import VReserveForm from '@/pages/ReservePage/VReserveForm/VReserveForm.vue'
 import VReserveHotel from '@/pages/ReservePage/VReserveHotel/VReserveHotel.vue'
+import AppMetaTags from '../components/AppMetaTags.vue'
 
 export default {
   components: {
     VReserveForm,
-    VReserveHotel
+    VReserveHotel,
+    AppMetaTags
   },
   data() {
     return {
-      store: useReserveStore()
+      store: useReserveStore(),
+
+      metaInfo: {
+        title: 'Reserve Hotel',
+        meta: [
+          {
+            name: 'description',
+            content: 'My page description'
+          },
+          {
+            name: 'keywords',
+            content: 'vue, meta, tutorial'
+          }
+        ]
+      }
     }
   }
 }

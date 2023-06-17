@@ -12,6 +12,7 @@
           :name="card.name"
           :address="card.address"
           nameSize="18px"
+          gap="8px"
           class="featured-section__card-info"
         />
 
@@ -25,8 +26,8 @@
 import { api } from '@/api/api'
 import VCardPropertyInfo from '@/components/VCardPropertyInfo.vue'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
+import VCardPropertiesInfo from '@/components/VCardPropertiesInfo.vue'
 import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
-import VCardPropertiesInfo from '../../../components/VCardPropertiesInfo.vue'
 
 export default {
   components: {
@@ -58,15 +59,25 @@ $cardSize: 382px;
   &__cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax($cardSize, 1fr));
-    grid-gap: 65px 30px;
+    grid-gap: 65px 32px;
+    margin-right: -4px;
   }
   &__card {
+    padding-left: 2px;
     &-info {
       margin-bottom: 14px;
     }
     &-properties {
       display: flex;
       gap: 21px;
+    }
+  }
+}
+
+@media (max-width: 1336px) {
+  .hotel {
+    &__main {
+      display: block;
     }
   }
 }

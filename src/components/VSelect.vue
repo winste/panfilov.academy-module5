@@ -1,5 +1,4 @@
 <template>
-  <label v-if="label" v-text="label" for="select" class="select-title label"></label>
   <VueSelect
     :options="options"
     :placeholder="placeholder"
@@ -21,10 +20,6 @@ export default {
   props: {
     modelValue: '',
     options: Array,
-    label: {
-      type: String,
-      default: null
-    },
     placeholder: String,
     style: {
       type: Boolean,
@@ -66,10 +61,13 @@ export default {
   }
   & .vs__selected {
     font-size: 13px;
+    display: flex;
+    align-items: baseline;
     margin: 0;
     padding: 0;
   }
   & .vs__selected-options {
+    height: 24px;
     text-overflow: ellipsis;
     overflow: hidden;
   }

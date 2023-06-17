@@ -64,10 +64,10 @@ export default {
       appstoreIcon: Appstore,
       playstoreIcon: Playstore,
       listAbout: [
-        { name: 'About Us', href: '#' },
-        { name: 'Legal Information', href: '#' },
-        { name: 'Contact Us', href: '#' },
-        { name: 'Blogs', href: '#' }
+        { name: 'About Us', href: '/about' },
+        { name: 'Legal Information', href: '/legal' },
+        { name: 'Contact Us', href: '/contact' },
+        { name: 'Blogs', href: '/blogs' }
       ],
       listHelpCenter: [
         { name: 'Find a Property', href: '#' },
@@ -77,8 +77,8 @@ export default {
         { name: 'Rental Guides', href: '#' }
       ],
       listContacts: [
-        { name: 'Phone: 1234567890', href: '#' },
-        { name: 'Email: company@email.com', href: '#' },
+        { name: 'Phone: 1234567890', href: 'tel:1234567890' },
+        { name: 'Email: company@email.com', href: 'mailto:company@email.com' },
         { name: 'Location: 100 Smart Street, LA, USA', href: '#' }
       ]
     }

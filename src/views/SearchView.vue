@@ -1,5 +1,6 @@
 <template>
   <main class="search">
+    <AppMetaTags :metaInfo="metaInfo" />
     <VSearchMapSection
       v-if="hotelsInStore && firstHotelData"
       :coords="firstHotelData.coords"
@@ -25,18 +26,34 @@ import { api } from '@/api/api'
 import { useHotelStore } from '@/store/hotelStore'
 import VSearchCardsSection from '@/pages/SearchPage/VSearchCardsSection.vue'
 import VSearchMapSection from '@/pages/SearchPage/VSearchMapSection.vue'
+import AppMetaTags from '@/components/AppMetaTags.vue'
 
 export default {
   components: {
     VSearchCardsSection,
-    VSearchMapSection
+    VSearchMapSection,
+    AppMetaTags
   },
   data() {
     return {
       store: useHotelStore(),
       hotels: null,
       firstHotelId: null,
-      firstHotelData: null
+      firstHotelData: null,
+
+      metaInfo: {
+        title: 'Search results',
+        meta: [
+          {
+            name: 'description',
+            content: 'My page description'
+          },
+          {
+            name: 'keywords',
+            content: 'vue, meta, tutorial'
+          }
+        ]
+      }
     }
   },
 

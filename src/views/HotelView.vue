@@ -1,5 +1,6 @@
 <template>
   <main class="hotel" v-if="hotelData">
+    <AppMetaTags :metaInfo="metaInfo" />
     <VHotelGallery
       :avatar="hotelData.author.avatar"
       :name="hotelData.name"
@@ -68,10 +69,11 @@ import VHotelDescription from '@/pages/HotelDetailPage/VHotel/VHotelDescription.
 import VHotelGallery from '@/pages/HotelDetailPage/VHotel/VHotelGallery.vue'
 import VAmenitiesSection from '@/pages/HotelDetailPage/VAmenitiesSection/VAmenitiesSection.vue'
 import VReviewsSection from '@/pages/HotelDetailPage/VReviewsSection/VReviewsSection.vue'
-
 import VMap from '@/components/VMap.vue'
+import AppMetaTags from '@/components/AppMetaTags.vue'
 
 export default {
+  name: 'MyComponent',
   components: {
     VGallery,
     VHotelGallery,
@@ -82,7 +84,8 @@ export default {
     VHotelDescription,
     VAmenitiesSection,
     VReviewsSection,
-    VMap
+    VMap,
+    AppMetaTags
   },
   data() {
     return {
@@ -91,7 +94,21 @@ export default {
       iconBedroom: Bedroom,
       iconBathroom: Bathroom,
       buttonIconLike: LikeBig,
-      buttonIconSearch: Share
+      buttonIconSearch: Share,
+
+      metaInfo: {
+        title: 'Hotel detail',
+        meta: [
+          {
+            name: 'description',
+            content: 'My page description'
+          },
+          {
+            name: 'keywords',
+            content: 'vue, meta, tutorial'
+          }
+        ]
+      }
     }
   },
   async created() {
@@ -105,10 +122,6 @@ export default {
 <style lang="scss" scoped>
 .hotel {
   margin-bottom: 51px;
-  // &-wrapper {
-  //   padding: 0 14px;
-  //   margin-top: 35px;
-  // }
   &__gallery {
     margin: 35px 0 90px 0;
     padding: 0 14px;

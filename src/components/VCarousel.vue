@@ -66,7 +66,6 @@ export default {
     paginationPosition() {
       return this.block == 'search' ? 'end' : 'center'
     },
-
     paginationMargin() {
       return this.block == 'search' ? '6px' : '3px'
     }

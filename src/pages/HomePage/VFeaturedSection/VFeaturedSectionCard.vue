@@ -2,8 +2,8 @@
   <div class="featured-card">
     <VCarousel
       :slides="carouselCard.images"
-      width="382px"
-      height="340px"
+      width="100%"
+      :height="height"
       class="featured-card__carousel"
     >
       <p class="featured-card__price">$ {{ correctPrice }} USD</p>
@@ -24,7 +24,15 @@ export default {
   },
 
   props: {
-    carouselCard: Object
+    carouselCard: Object,
+    width: {
+      type: String,
+      default: '384px'
+    },
+    height: {
+      type: String,
+      default: '340px'
+    }
   },
 
   computed: {
@@ -41,7 +49,9 @@ export default {
 
 .featured-card {
   justify-self: center;
-  @include flexbox-direction($direction: column, $gap: 27px);
+  @include flexbox-direction($direction: column, $gap: 30px);
+  min-width: v-bind(width);
+  max-width: 100%;
   &__carousel {
     border-radius: 12px;
   }
