@@ -73,12 +73,4 @@ $cardSize: 382px;
     }
   }
 }
-
-@media (max-width: 1336px) {
-  .hotel {
-    &__main {
-      display: block;
-    }
-  }
-}
 </style>

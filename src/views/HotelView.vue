@@ -71,6 +71,7 @@ import VAmenitiesSection from '@/pages/HotelDetailPage/VAmenitiesSection/VAmenit
 import VReviewsSection from '@/pages/HotelDetailPage/VReviewsSection/VReviewsSection.vue'
 import VMap from '@/components/VMap.vue'
 import AppMetaTags from '@/components/AppMetaTags.vue'
+import metaTags from '@/helpers/metaTags'
 
 export default {
   name: 'MyComponent',
@@ -87,6 +88,7 @@ export default {
     VMap,
     AppMetaTags
   },
+
   data() {
     return {
       idHotel: this.$route.params.id,
@@ -96,21 +98,14 @@ export default {
       buttonIconLike: LikeBig,
       buttonIconSearch: Share,
 
-      metaInfo: {
-        title: 'Hotel detail',
-        meta: [
-          {
-            name: 'description',
-            content: 'My page description'
-          },
-          {
-            name: 'keywords',
-            content: 'vue, meta, tutorial'
-          }
-        ]
-      }
+      metaInfo: metaTags(
+        'Hotel Detail Information',
+        'Detailed information about the selected hotel for booking in the desired country',
+        'hotel detail information, hotels all over the world, large selection of hotels in many countries, hotels booking, hotels search'
+      )
     }
   },
+
   async created() {
     await api
       .fetchData(`/hotel/detail/${this.idHotel}`)

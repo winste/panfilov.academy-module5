@@ -27,6 +27,7 @@ import { useHotelStore } from '@/store/hotelStore'
 import VSearchCardsSection from '@/pages/SearchPage/VSearchCardsSection.vue'
 import VSearchMapSection from '@/pages/SearchPage/VSearchMapSection.vue'
 import AppMetaTags from '@/components/AppMetaTags.vue'
+import metaTags from '@/helpers/metaTags'
 
 export default {
   components: {
@@ -41,19 +42,11 @@ export default {
       firstHotelId: null,
       firstHotelData: null,
 
-      metaInfo: {
-        title: 'Search results',
-        meta: [
-          {
-            name: 'description',
-            content: 'My page description'
-          },
-          {
-            name: 'keywords',
-            content: 'vue, meta, tutorial'
-          }
-        ]
-      }
+      metaInfo: metaTags(
+        'Search results',
+        'Search result hotels for booking according to the given parameters',
+        'hotels, booking hotels, search hotels, booking hotels in different countries, search hotels to the given parameters'
+      )
     }
   },
 

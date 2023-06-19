@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import AppMetaTags from '../components/AppMetaTags.vue'
+import AppMetaTags from '@/components/AppMetaTags.vue'
+import metaTags from '@/helpers/metaTags'
 
 export default {
   components: {
@@ -17,19 +18,11 @@ export default {
   },
   data() {
     return {
-      metaInfo: {
-        title: 'Page not found',
-        meta: [
-          {
-            name: 'description',
-            content: 'My page description'
-          },
-          {
-            name: 'keywords',
-            content: 'vue, meta, tutorial'
-          }
-        ]
-      }
+      metaInfo: metaTags(
+        'Page not found',
+        'Page not found in the service for convenient and fast hotel booking around the world',
+        'hotels all over the world, large selection of hotels, convenient hotel booking, hotels in different countries, booking hotels, search hotels'
+      )
     }
   }
 }

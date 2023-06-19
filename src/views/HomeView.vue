@@ -27,7 +27,8 @@ import VBanner from '@/components/VBanner.vue'
 import VMainBanner from '@/pages/HomePage/VMainBanner/VMainBanner.vue'
 import VLatestSection from '@/pages/HomePage/VLatestSection/VLatestSection.vue'
 import VFeaturedSection from '@/pages/HomePage/VFeaturedSection/VFeaturedSection.vue'
-import AppMetaTags from '../components/AppMetaTags.vue'
+import AppMetaTags from '@/components/AppMetaTags.vue'
+import metaTags from '@/helpers/metaTags'
 
 export default {
   components: {
@@ -40,19 +41,11 @@ export default {
   data() {
     return {
       banners: null,
-      metaInfo: {
-        title: 'Hotel Prototype Booking',
-        meta: [
-          {
-            name: 'description',
-            content: 'My page description'
-          },
-          {
-            name: 'keywords',
-            content: 'vue, meta, tutorial'
-          }
-        ]
-      }
+      metaInfo: metaTags(
+        'Hotels Booking',
+        'The best service for booking and reserve hotels from all over the world',
+        'fast booking, hotels all over the world, large selection of hotels, convenient hotel booking, hotels in different countries'
+      )
     }
   },
   async created() {

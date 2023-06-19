@@ -10,7 +10,8 @@
 import { useReserveStore } from '@/store/reserveStore'
 import VReserveForm from '@/pages/ReservePage/VReserveForm/VReserveForm.vue'
 import VReserveHotel from '@/pages/ReservePage/VReserveHotel/VReserveHotel.vue'
-import AppMetaTags from '../components/AppMetaTags.vue'
+import AppMetaTags from '@/components/AppMetaTags.vue'
+import metaTags from '@/helpers/metaTags'
 
 export default {
   components: {
@@ -22,19 +23,11 @@ export default {
     return {
       store: useReserveStore(),
 
-      metaInfo: {
-        title: 'Reserve Hotel',
-        meta: [
-          {
-            name: 'description',
-            content: 'My page description'
-          },
-          {
-            name: 'keywords',
-            content: 'vue, meta, tutorial'
-          }
-        ]
-      }
+      metaInfo: metaTags(
+        'Reserve Hotel',
+        'The best service for booking and reserve hotels from all over the world',
+        'reserve hotels, fast reserve hotels, fast and comfortable reserve hotels, booking hotels'
+      )
     }
   }
 }
