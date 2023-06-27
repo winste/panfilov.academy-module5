@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer id="footer" class="footer">
     <div class="footer__wrapper">
       <div class="footer__about">
         <AppIcon :name="logoIcon" :width="148.5" :height="40" class="footer__logo" />
@@ -28,7 +28,12 @@
       <div class="footer__info">
         <TheFooterList title="COMPANY" :list="listAbout" class="footer__social-company" />
         <TheFooterList title="HELP CENTER" :list="listHelpCenter" class="footer__social-help" />
-        <TheFooterList title="CONTACT INFO" :list="listContacts" class="footer__social-contacts">
+        <TheFooterList
+          title="CONTACT INFO"
+          :list="listContacts"
+          typeFollow="link"
+          class="footer__social-contacts"
+        >
           <TheFooterSocialMedia class="footer__social" />
         </TheFooterList>
       </div>
@@ -66,20 +71,23 @@ export default {
       listAbout: [
         { name: 'About Us', href: '/about' },
         { name: 'Legal Information', href: '/legal' },
-        { name: 'Contact Us', href: '/contact' },
+        { name: 'Contact Us', href: '/contacts' },
         { name: 'Blogs', href: '/blogs' }
       ],
       listHelpCenter: [
-        { name: 'Find a Property', href: '#' },
-        { name: 'How To Host?', href: '#' },
-        { name: 'Why Us?', href: '#' },
-        { name: 'FAQs', href: '#' },
-        { name: 'Rental Guides', href: '#' }
+        { name: 'Find a Property', href: '/find' },
+        { name: 'How To Host?', href: '/accommodation' },
+        { name: 'Why Us?', href: '/advantages' },
+        { name: 'FAQs', href: '/faq' },
+        { name: 'Rental Guides', href: '/guides' }
       ],
       listContacts: [
         { name: 'Phone: 1234567890', href: 'tel:1234567890' },
         { name: 'Email: company@email.com', href: 'mailto:company@email.com' },
-        { name: 'Location: 100 Smart Street, LA, USA', href: '#' }
+        {
+          name: 'Location: 100 Smart Street, LA, USA',
+          href: 'https://yandex.ru/maps/200/los-angeles/'
+        }
       ]
     }
   }
@@ -87,19 +95,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-general';
+@import '@/assets/scss/mixins/flexbox-direction';
+
 .footer {
   padding: 83px 80px 30px 80px;
   background-color: rgba(239, 240, 242, 1);
   &__wrapper {
-    display: flex;
-    gap: 45px;
+    @include flexbox-general($gap: 45px);
     padding-bottom: 199px;
   }
   &__about {
     max-width: 380px;
-    display: flex;
-    flex-direction: column;
-    gap: 31px;
+    @include flexbox-direction($direction: column, $gap: 31px);
   }
   &__logo {
     align-self: start;
@@ -109,23 +118,18 @@ export default {
   &__text {
     font-size: 15px;
     line-height: 20px;
-    color: rgb(154, 154, 154);
+    color: $secondary-font-color;
     margin-bottom: 13px;
   }
   &__stores {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 13px;
+    @include flexbox-general($gap: 13px);
   }
   &__info {
-    display: flex;
-    gap: 55px;
+    @include flexbox-general($gap: 55px);
     margin-top: 2px;
   }
   &__social {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+    @include flexbox-general($gap: 24px);
     margin-top: 21px;
     margin-left: 1px;
     &-contacts {
@@ -135,9 +139,10 @@ export default {
   &__copywrite {
     display: flex;
     justify-content: space-between;
-    padding-top: 40px;
     font-weight: 600;
-    border-top: 1px solid rgb(224, 226, 230);
+    border-top: 1px solid $card-bg-color;
+    margin: 0 -80px;
+    padding: 40px 76px 0 80px;
     &-name {
       font-weight: 700;
     }

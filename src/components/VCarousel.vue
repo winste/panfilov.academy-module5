@@ -7,7 +7,7 @@
     >
     </SwiperSlide>
 
-    <AppButtonIcon :buttonIcon="icon" :buttonWidth="30" :buttonHeigh="30" class="swiper__button" />
+    <AppButtonIcon :icon="icon" :width="30" :heigh="30" class="swiper__button" />
 
     <div class="swiper__interaction">
       <div class="swiper__interaction-wrapper">
@@ -92,6 +92,7 @@ export default {
 @import '@/assets/scss/const';
 @import '@/assets/scss/mixins/background-position';
 @import '@/assets/scss/mixins/carousel-elements-position';
+@import '@/assets/scss/mixins/flexbox-general';
 
 .swiper {
   position: relative;
@@ -113,7 +114,7 @@ export default {
     padding: v-bind(indent);
     padding-top: 0;
     &-wrapper {
-      display: flex;
+      @include flexbox-general($gap: 15px);
       justify-content: space-between;
     }
   }

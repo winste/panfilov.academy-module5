@@ -1,18 +1,19 @@
 <template>
-  <div class="news-letter">
+  <div id="news-letter" class="news-letter">
     <div class="news-letter__info">
       <h4 class="news-letter__title">NEWSLETTER</h4>
       <p class="news-letter__text">Stay Upto Date</p>
     </div>
 
-    <form class="news-letter__form">
+    <form @submit.prevent="submitEmail" class="news-letter__form">
       <input
         type="email"
         name="email"
-        value=""
+        v-model="email"
         placeholder="Your Email..."
         class="news-letter__input"
       />
+
       <AppButtonSubmit :icon="icon" :iconWidth="26" :iconHeight="26" class="news-letter__button" />
     </form>
   </div>
@@ -21,14 +22,34 @@
 <script>
 import AppButtonSubmit from '@/components/AppButtonSubmit.vue'
 import LetterSubmit from '@/assets/images/icons/LetterSubmit.svg'
+import { useVuelidate } from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
 
 export default {
   components: {
     AppButtonSubmit
   },
+
   data() {
     return {
+      v$: useVuelidate(),
+      email: '',
       icon: LetterSubmit
+    }
+  },
+
+  validations() {
+    return {
+      email: { required, email }
+    }
+  },
+
+  methods: {
+    async submitEmail() {
+      const result = await this.v$.$validate()
+      if (result) {
+        alert('NEWS LETTER subscribed')
+      }
     }
   }
 }

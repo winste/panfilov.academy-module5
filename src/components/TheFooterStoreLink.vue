@@ -44,7 +44,7 @@ export default {
     gap: 15px;
     padding: 15px 15px 13px 13px;
     &:hover {
-      @include button-hover($animation: true);
+      @include button-hover;
     }
   }
 }

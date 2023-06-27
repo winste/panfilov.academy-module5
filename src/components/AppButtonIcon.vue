@@ -1,11 +1,6 @@
 <template>
   <button class="button-icon">
-    <AppIcon
-      :name="buttonIcon"
-      :width="buttonWidth"
-      :height="buttonHeigh"
-      class="button-icon__icon"
-    />
+    <AppIcon :name="icon" :width="width" :height="height" class="button-icon__icon" />
   </button>
 </template>
 
@@ -17,12 +12,12 @@ export default {
     AppIcon
   },
   props: {
-    buttonIcon: String,
-    buttonWidth: {
+    icon: String,
+    width: {
       type: Number,
       default: 30
     },
-    buttonHeigh: {
+    height: {
       type: Number,
       default: 30
     }

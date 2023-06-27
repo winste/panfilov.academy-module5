@@ -14,11 +14,14 @@
 
     <VSearchCardsSection
       v-if="hotelsInStore"
-      :amount="hotels.length"
+      :count="hotels.length"
       :hotels="hotels"
       class="search__result"
     />
+
+    <h3 class="search__result" v-if="!hotelsInStore">No results for the given parameters</h3>
   </main>
+  <AppErrorMessage v-if="error" :msg="error" />
 </template>
 
 <script>
@@ -28,12 +31,14 @@ import VSearchCardsSection from '@/pages/SearchPage/VSearchCardsSection.vue'
 import VSearchMapSection from '@/pages/SearchPage/VSearchMapSection.vue'
 import AppMetaTags from '@/components/AppMetaTags.vue'
 import metaTags from '@/helpers/metaTags'
+import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 export default {
   components: {
     VSearchCardsSection,
     VSearchMapSection,
-    AppMetaTags
+    AppMetaTags,
+    AppErrorMessage
   },
   data() {
     return {
@@ -41,6 +46,7 @@ export default {
       hotels: null,
       firstHotelId: null,
       firstHotelData: null,
+      error: null,
 
       metaInfo: metaTags(
         'Search results',
@@ -53,7 +59,7 @@ export default {
   computed: {
     hotelsInStore() {
       this.hotels = this.store.getHotels
-      return this.store.getHotels
+      return this.store.getHotels.length
     }
   },
 
@@ -74,6 +80,7 @@ export default {
       await api
         .fetchData(`/hotel/detail/${this.firstHotelId}`)
         .then((response) => (this.firstHotelData = response.data))
+        .catch((error) => (this.error = error))
     }
   }
 }
@@ -81,16 +88,15 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
 
 .search {
-  @include flexbox-general($gap: 15px, $flexWrap: nowrap);
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   &__map {
     order: 1;
   }
   &__result {
-    padding: 90px 0px 90px 80px;
+    padding: 90px 30px 90px 80px;
   }
 }
 </style>

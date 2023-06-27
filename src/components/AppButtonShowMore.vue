@@ -40,7 +40,7 @@ export default {
   border-radius: 6px;
   &:hover {
     color: $secondary-font-color;
-    @include button-hover($animation: true);
+    @include button-hover;
   }
 }
 </style>

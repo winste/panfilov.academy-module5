@@ -40,6 +40,7 @@
       class="filter__button"
     />
   </form>
+  <AppErrorMessage v-if="error" :msg="error" />
 </template>
 
 <script>
@@ -51,6 +52,7 @@ import VDateInput from '@/components/VInputDate.vue'
 import VNumberInput from '@/components/VInputNumber.vue'
 import AppButtonSubmit from '@/components/AppButtonSubmit.vue'
 import sortByName from '@/helpers/sortByName'
+import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 const dateFormatted = (date) => {
   if (date) return new Date(date).toISOString()
@@ -61,7 +63,8 @@ export default {
     VSelect,
     VDateInput,
     VNumberInput,
-    AppButtonSubmit
+    AppButtonSubmit,
+    AppErrorMessage
   },
 
   data() {
@@ -74,30 +77,31 @@ export default {
         checkOut: '',
         guest: ''
       },
-      store: useHotelStore()
+      store: useHotelStore(),
+      error: null
     }
   },
   async created() {
-    const countries = await api.fetchData('/hotel/location').then((response) => response.data)
-    this.countries = sortByName(countries)
-  },
-
-  computed: {
-    dateFormat() {
-      return dateFormatted(this.filter.checkIn)
-    },
-    dateFormat2() {
-      return dateFormatted(this.filter.checkOut)
+    try {
+      const countries = await api.fetchData('/hotel/location').then((response) => response.data)
+      this.countries = sortByName(countries)
+    } catch (error) {
+      this.error = error
     }
   },
+
   methods: {
+    dateFormat(value) {
+      return dateFormatted(value)
+    },
+
     searchHotels() {
       this.store.$reset()
       api
         .postData('/hotel/filter', {
           location: `${this.filter.location}`,
-          checkIn: `${this.dateFormat}`,
-          checkOut: `${this.dateFormat2}`,
+          checkIn: `${this.dateFormat(this.filter.checkIn)}`,
+          checkOut: `${this.dateFormat(this.filter.checkOut)}`,
           guest: `${this.filter.guest ? this.filter.guest : 0}`
         })
         .then((response) => {

@@ -59,4 +59,19 @@ export default {
     padding: 26px 16px;
   }
 }
+
+@media (max-width: 1024px) {
+  .map-properties {
+    max-width: 380px;
+    min-height: auto;
+    &__info {
+      padding: 15px;
+      gap: 10px;
+    }
+    &__image {
+      max-width: 100px;
+      min-height: auto;
+    }
+  }
+}
 </style>

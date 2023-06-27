@@ -1,11 +1,6 @@
 <template>
   <div class="latest-card" :style="{ 'background-image': `url(${background})` }">
-    <AppButtonIcon
-      :buttonIcon="latestCardIcon"
-      :buttonWidth="30"
-      :buttonHeigh="30"
-      class="latest-card__icon"
-    />
+    <AppButtonIcon :icon="icon" :width="30" :heigh="30" class="latest-card__icon" />
     <div class="latest-card__content">
       <AppAvatar :src="avatar" class="latest-card__avatar" />
       <VCardTitleInfo
@@ -32,6 +27,7 @@ export default {
     VCardTitleInfo,
     AppButtonIcon
   },
+
   props: {
     id: String,
     avatar: String,
@@ -47,9 +43,10 @@ export default {
       default: '340px'
     }
   },
+
   data() {
     return {
-      latestCardIcon: Like
+      icon: Like
     }
   }
 }

@@ -2,8 +2,10 @@
   <div class="container">
     <TheHeader />
     <RouterView />
-    <TheNewsLetter />
-    <TheFooter />
+    <div v-if="checkRoute">
+      <TheNewsLetter />
+      <TheFooter />
+    </div>
   </div>
 </template>
 
@@ -17,6 +19,22 @@ export default {
     TheHeader,
     TheNewsLetter,
     TheFooter
+  },
+
+  data() {
+    return {
+      route: null
+    }
+  },
+
+  computed: {
+    getRoute() {
+      return (this.route = this.$route.name)
+    },
+
+    checkRoute() {
+      return this.getRoute != 'search'
+    }
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div v-if="hotelData" class="search-card">
     <VCarousel
       :slides="hotelData.images"
-      width="574px"
+      width="100%"
       height="382px"
       block="search"
       class="search-card__carousel"
@@ -38,6 +38,7 @@
       </span>
     </div>
   </div>
+  <AppErrorMessage v-if="error" :msg="error" />
 </template>
 
 <script>
@@ -46,26 +47,30 @@ import VCarousel from '@/components/VCarousel.vue'
 import VCardHostInfo from '@/components/VCardHostInfo.vue'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
 import VCardPropertyInfo from '@/components/VCardPropertyInfo.vue'
+import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 export default {
   components: {
     VCarousel,
     VCardHostInfo,
     VCardTitleInfo,
-    VCardPropertyInfo
+    VCardPropertyInfo,
+    AppErrorMessage
   },
   props: {
     id: String
   },
   data() {
     return {
-      hotelData: null
+      hotelData: null,
+      error: null
     }
   },
   async created() {
     await api
       .fetchData(`/hotel/detail/${this.id}`)
       .then((response) => (this.hotelData = response.data))
+      .catch((error) => (this.error = error))
   },
   computed: {
     periodLength() {
@@ -82,7 +87,8 @@ export default {
 $border-radus: 16px;
 
 .search-card {
-  max-width: 574px;
+  min-width: 300px;
+  max-width: 100%;
   border-radius: $border-radus;
   box-shadow: $box-shadow;
   &__info {

@@ -23,6 +23,6 @@ $button-height: 60px;
   letter-spacing: -0.1px;
   background: $main-font-color;
   border-radius: 30px;
-  @include button-hover($animation: true);
+  @include button-hover;
 }
 </style>

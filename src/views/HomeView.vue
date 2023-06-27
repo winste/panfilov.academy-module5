@@ -19,6 +19,7 @@
       />
     </div>
   </main>
+  <AppErrorMessage v-if="error" :msg="error" />
 </template>
 
 <script>
@@ -29,6 +30,7 @@ import VLatestSection from '@/pages/HomePage/VLatestSection/VLatestSection.vue'
 import VFeaturedSection from '@/pages/HomePage/VFeaturedSection/VFeaturedSection.vue'
 import AppMetaTags from '@/components/AppMetaTags.vue'
 import metaTags from '@/helpers/metaTags'
+import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 export default {
   components: {
@@ -36,11 +38,13 @@ export default {
     VLatestSection,
     VBanner,
     VFeaturedSection,
-    AppMetaTags
+    AppMetaTags,
+    AppErrorMessage
   },
   data() {
     return {
       banners: null,
+      error: null,
       metaInfo: metaTags(
         'Hotels Booking',
         'The best service for booking and reserve hotels from all over the world',
@@ -49,7 +53,10 @@ export default {
     }
   },
   async created() {
-    await api.fetchData('/banners').then((response) => (this.banners = response.data))
+    await api
+      .fetchData('/banners')
+      .then((response) => (this.banners = response.data))
+      .catch((error) => (this.error = error))
   }
 }
 </script>

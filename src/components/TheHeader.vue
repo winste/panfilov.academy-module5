@@ -37,4 +37,12 @@ export default {
     margin-top: 5px;
   }
 }
+
+@media (max-width: 1024px) {
+  .header {
+    &__navigation {
+      margin-left: 60px;
+    }
+  }
+}
 </style>

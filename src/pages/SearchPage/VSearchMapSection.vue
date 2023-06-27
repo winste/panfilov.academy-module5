@@ -42,28 +42,17 @@ export default {
 
 .search-map {
   position: relative;
-  min-width: 668px;
-  height: 757px;
+  max-width: 668px;
+  max-height: 757px;
   background-color: $main-decor-color;
   &__info {
     position: absolute;
     bottom: 117px;
     left: 101px;
-    max-width: 485px;
-    min-height: 160px;
-    display: flex;
     border-radius: 10px;
     overflow: hidden;
     background: rgb(255, 255, 255);
     box-shadow: $box-shadow;
-  }
-  &__image {
-    max-width: 160px;
-    min-height: 160px;
-    background: $card-bg-color;
-  }
-  &__title {
-    padding: 26px 18px;
   }
 }
 </style>

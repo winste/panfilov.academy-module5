@@ -1,10 +1,9 @@
 <template>
-  <section class="latest-section">
+  <section id="latest" class="latest-section">
     <h2 class="latest-section__title">Latest on the Property Listing</h2>
     <div class="latest-section__cards">
       <VLatestSectionCard
-        v-for="(card, index) in cards"
-        :key="index"
+        v-for="card in cards"
         :id="card._id"
         :avatar="card.author.avatar"
         :background="card.image"
@@ -13,24 +12,33 @@
         class="latest-section__card"
       />
     </div>
+    <AppErrorMessage v-if="error" :msg="error" />
   </section>
 </template>
 
 <script>
 import { api } from '@/api/api'
 import VLatestSectionCard from './VLatestSectionCard.vue'
+import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 export default {
   components: {
-    VLatestSectionCard
+    VLatestSectionCard,
+    AppErrorMessage
   },
+
   data() {
     return {
-      cards: []
+      cards: [],
+      error: null
     }
   },
+
   async created() {
-    await api.fetchData('/hotel/latest').then((response) => (this.cards = response.data))
+    await api
+      .fetchData('/hotel/latest')
+      .then((response) => (this.cards = response.data))
+      .catch((error) => (this.error = error))
   }
 }
 </script>

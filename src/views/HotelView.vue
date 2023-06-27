@@ -16,8 +16,8 @@
         <div class="hotel__heading">
           <VHotelTitle :hotelName="hotelData.name" :hotelAddress="hotelData.address" />
           <div class="hotel__interaction">
-            <AppButtonIcon :buttonIcon="buttonIconLike" :buttonWidth="36" :buttonHeigh="36" />
-            <AppButtonIcon :buttonIcon="buttonIconSearch" :buttonWidth="35" :buttonHeigh="35" />
+            <AppButtonIcon :icon="buttonIconLike" :width="36" :height="36" />
+            <AppButtonIcon :icon="buttonIconSearch" :width="35" :height="35" />
           </div>
         </div>
 
@@ -52,6 +52,7 @@
       </div>
     </div>
   </main>
+  <AppErrorMessage v-if="error" :msg="error" />
 </template>
 
 <script>
@@ -72,6 +73,7 @@ import VReviewsSection from '@/pages/HotelDetailPage/VReviewsSection/VReviewsSec
 import VMap from '@/components/VMap.vue'
 import AppMetaTags from '@/components/AppMetaTags.vue'
 import metaTags from '@/helpers/metaTags'
+import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 export default {
   name: 'MyComponent',
@@ -86,7 +88,8 @@ export default {
     VAmenitiesSection,
     VReviewsSection,
     VMap,
-    AppMetaTags
+    AppMetaTags,
+    AppErrorMessage
   },
 
   data() {
@@ -97,6 +100,7 @@ export default {
       iconBathroom: Bathroom,
       buttonIconLike: LikeBig,
       buttonIconSearch: Share,
+      error: null,
 
       metaInfo: metaTags(
         'Hotel Detail Information',
@@ -110,6 +114,7 @@ export default {
     await api
       .fetchData(`/hotel/detail/${this.idHotel}`)
       .then((response) => (this.hotelData = response.data))
+      .catch((error) => (this.error = error))
   }
 }
 </script>

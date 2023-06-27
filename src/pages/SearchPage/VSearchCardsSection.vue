@@ -1,8 +1,11 @@
 <template>
-  <section class="cards">
-    <h3 class="cards__title">{{ amount }} Results Found</h3>
-    <div v-if="amount" class="cards__list">
-      <VSearchCard v-for="(hotel, index) in hotels" :key="index" :id="hotel._id" />
+  <section v-if="count" class="cards">
+    <h3 class="cards__title">{{ count }} Results Found</h3>
+    <div class="cards__list">
+      <VSearchCard v-for="(hotel, index) in hotelsList" :key="index" :id="hotel._id" />
+      <button v-if="checkDisplayed && !checkClick" @click="showMore" class="cards__button">
+        Other as per found results...
+      </button>
     </div>
   </section>
 </template>
@@ -16,16 +19,38 @@ export default {
   },
 
   props: {
-    amount: {
-      type: Number,
-      default: 0
-    },
+    count: Number,
     hotels: Array
+  },
+
+  data() {
+    return {
+      countDisplayedHotels: 3,
+      checkClick: false
+    }
+  },
+
+  computed: {
+    checkDisplayed() {
+      if (this.checkClick) return
+      return this.hotels.length > this.countDisplayedHotels
+    },
+
+    hotelsList() {
+      return this.checkDisplayed ? this.hotels.slice(0, this.countDisplayedHotels) : this.hotels
+    }
+  },
+
+  methods: {
+    showMore() {
+      this.checkClick = true
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
 @import '@/assets/scss/mixins/flexbox-direction';
 
 .cards {
@@ -36,6 +61,17 @@ export default {
   &__list {
     @include flexbox-direction($direction: column, $gap: 78px);
     margin-top: 117px;
+  }
+  &__button {
+    display: flex;
+    align-self: start;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: transparent;
+    color: $main-font-color;
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 </style>

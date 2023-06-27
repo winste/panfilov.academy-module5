@@ -3,7 +3,18 @@
     <h4 v-text="title" class="info__list-title"></h4>
     <ul class="info__list">
       <li v-for="item in list" class="info__list-item">
-        <a :href="item.href" v-text="item.name" class="info__list-link"></a>
+        <router-link
+          v-if="typeFollow == 'router'"
+          :to="item.href"
+          v-text="item.name"
+          class="info__list-link"
+        ></router-link>
+        <a
+          v-if="typeFollow == 'link'"
+          :href="item.href"
+          v-text="item.name"
+          class="info__list-link"
+        ></a>
       </li>
       <li class="info__list-item">
         <slot></slot>
@@ -16,7 +27,11 @@
 export default {
   props: {
     title: String,
-    list: Array
+    list: Array,
+    typeFollow: {
+      type: String,
+      default: 'router'
+    }
   }
 }
 </script>

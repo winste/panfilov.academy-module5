@@ -1,20 +1,8 @@
 @import '../const';
 
-@mixin button-hover($animation: false) {
-  transition: 0.1s;
+@mixin button-hover() {
   &:hover {
-    box-shadow: inset 0 0 5px 0px $input-bg-color;
-    @if ($animation) {
-      animation: 0.1s forwards flashIcon;
-    }
-  }
-}
-
-@keyframes flashIcon {
-  0% {
-    scale: 1;
-  }
-  100% {
-    scale: 1.05;
+    box-shadow: 0px 0px 5px $secondary-font-color;
+    opacity: 0.8;
   }
 }

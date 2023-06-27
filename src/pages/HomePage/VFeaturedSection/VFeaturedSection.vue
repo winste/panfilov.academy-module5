@@ -1,5 +1,5 @@
 <template>
-  <section class="featured-section">
+  <section id="featured" class="featured-section">
     <h2 class="featured-section__title">Featured Properties on our Listing</h2>
     <div class="featured-section__cards">
       <VFeaturedSectionCard
@@ -19,6 +19,7 @@
         <VCardPropertiesInfo :properties="card.info[0]" />
       </VFeaturedSectionCard>
     </div>
+    <AppErrorMessage v-if="error" :msg="error" />
   </section>
 </template>
 
@@ -28,21 +29,27 @@ import VCardPropertyInfo from '@/components/VCardPropertyInfo.vue'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
 import VCardPropertiesInfo from '@/components/VCardPropertiesInfo.vue'
 import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
+import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 export default {
   components: {
     VFeaturedSectionCard,
     VCardTitleInfo,
     VCardPropertyInfo,
-    VCardPropertiesInfo
+    VCardPropertiesInfo,
+    AppErrorMessage
   },
   data() {
     return {
-      cards: []
+      cards: [],
+      error: null
     }
   },
   async created() {
-    await api.fetchData('/hotel/featured').then((response) => (this.cards = response.data))
+    await api
+      .fetchData('/hotel/featured')
+      .then((response) => (this.cards = response.data))
+      .catch((error) => (this.error = error))
   }
 }
 </script>
