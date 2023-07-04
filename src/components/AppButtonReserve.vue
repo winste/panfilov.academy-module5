@@ -25,4 +25,10 @@ $button-height: 60px;
   border-radius: 30px;
   @include button-hover;
 }
+
+@media (max-width: 768px) {
+  .button-reserve {
+    min-width: 100%;
+  }
+}
 </style>

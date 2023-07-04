@@ -8,27 +8,43 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
 @import '@/assets/scss/mixins/flexbox-general';
 
 .navbar {
   @include flexbox-general($gap: 32.5px);
   font-weight: 600;
-  &__list {
-    justify-content: space-around;
-  }
-  &__link {
-    font-weight: 600;
-    &:hover {
-      :hover {
-        opacity: 0.5;
-      }
-    }
-  }
 }
 
 @media (max-width: 1024px) {
   .navbar {
     gap: 20px;
+  }
+}
+
+@media (max-width: 920px) {
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    padding: 70px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 45px;
+    z-index: 111;
+    background-color: $main-decor-color;
+    box-shadow: $box-shadow;
+    border-radius: 12px;
+    &.open {
+      display: flex;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    min-width: 100%;
   }
 }
 </style>

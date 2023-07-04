@@ -40,12 +40,14 @@
       class="filter__button"
     />
   </form>
-  <AppErrorMessage v-if="error" :msg="error" />
+  <AppErrorMessage v-show="error" :msg="error" />
 </template>
 
 <script>
 import { api } from '@/api/api.js'
 import { useHotelStore } from '@/store/hotelStore'
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 import Search from '@/assets/images/icons/Search.svg'
 import VSelect from '@/components/VSelect.vue'
 import VDateInput from '@/components/VInputDate.vue'
@@ -69,6 +71,7 @@ export default {
 
   data() {
     return {
+      v$: useVuelidate(),
       icon: Search,
       countries: [],
       filter: {
@@ -81,6 +84,15 @@ export default {
       error: null
     }
   },
+
+  validations() {
+    return {
+      filter: {
+        location: { required }
+      }
+    }
+  },
+
   async created() {
     try {
       const countries = await api.fetchData('/hotel/location').then((response) => response.data)
@@ -95,38 +107,43 @@ export default {
       return dateFormatted(value)
     },
 
-    searchHotels() {
+    async searchHotels() {
       this.store.$reset()
-      api
-        .postData('/hotel/filter', {
-          location: `${this.filter.location}`,
-          checkIn: `${this.dateFormat(this.filter.checkIn)}`,
-          checkOut: `${this.dateFormat(this.filter.checkOut)}`,
-          guest: `${this.filter.guest ? this.filter.guest : 0}`
-        })
-        .then((response) => {
-          this.store.addHotels(response.data)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+      const result = await this.v$.$validate()
 
-      this.$router.push('/hotel/search')
+      if (result) {
+        api
+          .postData('/hotel/filter', {
+            location: `${this.filter.location}`,
+            checkIn: `${this.dateFormat(this.filter.checkIn)}`,
+            checkOut: `${this.dateFormat(this.filter.checkOut)}`,
+            guest: `${this.filter.guest ? this.filter.guest : 0}`
+          })
+          .then((response) => {
+            this.store.addHotels(response.data)
+            this.$router.push('/hotel/search')
+          })
+          .catch((error) => {
+            this.error = error.message
+            console.log(error)
+          })
+      }
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/scss/const';
 @import '@/assets/scss/mixins/placeholder';
+@import '@/assets/scss/mixins/flexbox-general';
 @import '@/assets/scss/mixins/flexbox-direction';
 
 $filter-color: rgb(255, 255, 255);
 $delimiter-color: rgb(221, 221, 221);
 
 .filter {
-  display: flex;
+  @include flexbox-general($flexWrap: nowrap);
   padding: 11px 8px 5px 8px;
   background-color: $filter-color;
   border-radius: 35px;
@@ -144,17 +161,17 @@ $delimiter-color: rgb(221, 221, 221);
     @include flexbox-direction($direction: column, $gap: 0px);
     justify-content: center;
     &-select {
-      width: 260px;
+      min-width: 255px;
       min-height: 24px;
       padding-left: 22px;
       margin-right: 28px;
     }
     &-date-in {
-      max-width: 135px;
+      max-width: 133px;
       margin-right: 7px;
     }
     &-date-out {
-      max-width: 140px;
+      max-width: 139px;
       margin-right: 26px;
     }
     &-number {
@@ -170,7 +187,6 @@ $delimiter-color: rgb(221, 221, 221);
   &__button {
     position: relative;
     top: -2px;
-    right: -1px;
   }
   &__delimiter {
     position: relative;
@@ -179,6 +195,41 @@ $delimiter-color: rgb(221, 221, 221);
     border-right: 1px solid $delimiter-color;
     width: 2px;
     height: 30px;
+  }
+}
+
+@media (max-width: 840px) {
+  .filter {
+    flex-wrap: wrap;
+    padding: 20px 40px;
+    &__title {
+      text-transform: uppercase;
+    }
+    &__input {
+      &-select,
+      &-date-in,
+      &-date-out,
+      &-number {
+        min-width: 100%;
+        border-bottom: 1px solid $delimiter-color;
+        padding: 10px 0;
+        margin-right: 0;
+      }
+      &-select {
+        padding: 10px 0;
+      }
+      &-number {
+        min-width: auto;
+        margin-right: 20px;
+        flex: 1;
+      }
+    }
+    &__delimiter {
+      display: none;
+    }
+    &__button {
+      margin-top: 15px;
+    }
   }
 }
 </style>

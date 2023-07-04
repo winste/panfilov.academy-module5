@@ -48,4 +48,20 @@ export default {
     height: min-content;
   }
 }
+
+@media (max-width: 820px) {
+  .reserve {
+    padding: 70px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reserve {
+    padding: 70px 15px;
+    &__preview {
+      padding: 30px;
+      min-width: auto;
+    }
+  }
+}
 </style>

@@ -56,6 +56,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/section-title';
+@import '@/assets//scss/mixins/flexbox-general';
+@import '@/assets//scss/mixins/flexbox-direction';
 
 $cardSize: 382px;
 .featured-section {
@@ -75,8 +77,16 @@ $cardSize: 382px;
       margin-bottom: 14px;
     }
     &-properties {
-      display: flex;
-      gap: 21px;
+      @include flexbox-general($gap: 21px);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-section {
+    &__cards {
+      @include flexbox-direction($direction: column, $gap: 40px, $flexWrap: nowrap);
+      align-items: center;
     }
   }
 }

@@ -51,4 +51,10 @@ export default {
     color: rgb(255, 0, 0);
   }
 }
+
+@media (max-width: 768px) {
+  .input {
+    min-width: 100%;
+  }
+}
 </style>

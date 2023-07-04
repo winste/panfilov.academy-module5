@@ -55,12 +55,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
 @import '@/assets/scss/mixins/flexbox-general';
 @import '@/assets/scss/mixins/flexbox-direction';
 
 .hotel-preview {
   padding: 30px 30px 58px 31px;
-  background: rgb(239, 240, 242);
+  background: $main-decor-color;
   border-radius: 10px;
   &__main {
     @include flexbox-general($flexWrap: nowrap, $gap: 22px);
@@ -71,7 +72,6 @@ export default {
     height: 100px;
     left: 835px;
     top: 193px;
-    background: rgb(194, 198, 204);
     border-radius: 6px;
   }
   &__address {
@@ -100,6 +100,18 @@ export default {
       font-size: 15px;
       line-height: 18px;
       color: rgb(154, 154, 154);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hotel-preview {
+    &__main {
+      flex-direction: column;
+      gap: 10px;
+    }
+    &__property {
+      gap: 5px;
     }
   }
 }

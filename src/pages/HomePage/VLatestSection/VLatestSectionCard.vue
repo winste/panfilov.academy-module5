@@ -74,4 +74,10 @@ export default {
     margin-bottom: 15px;
   }
 }
+
+@media (max-width: 480px) {
+  .latest-card {
+    min-height: auto;
+  }
+}
 </style>

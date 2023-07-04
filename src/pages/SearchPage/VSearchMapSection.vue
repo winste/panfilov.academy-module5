@@ -1,6 +1,6 @@
 <template>
   <section class="search-map">
-    <VMap :coords="coords" width="668px" height="757px" />
+    <VMap :coords="coords" :width="width" :height="height" />
 
     <div class="search-map__info">
       <VSearchMapProperties
@@ -32,7 +32,15 @@ export default {
     id: String,
     name: String,
     address: String,
-    properties: Object
+    properties: Object,
+    width: {
+      type: String,
+      default: '668px'
+    },
+    height: {
+      type: String,
+      default: '757px'
+    }
   }
 }
 </script>
@@ -42,8 +50,8 @@ export default {
 
 .search-map {
   position: relative;
-  max-width: 668px;
-  max-height: 757px;
+  max-width: v-bind(width);
+  max-height: v-bind(height);
   background-color: $main-decor-color;
   &__info {
     position: absolute;
@@ -53,6 +61,12 @@ export default {
     overflow: hidden;
     background: rgb(255, 255, 255);
     box-shadow: $box-shadow;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-map {
+    display: none;
   }
 }
 </style>

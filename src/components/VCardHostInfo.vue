@@ -1,6 +1,6 @@
-<template lang="">
+<template>
   <div class="host-info">
-    <AppAvatar :url="avatar" size="76px" />
+    <AppAvatar :url="avatar" size="76px" class="host-info__avatar" />
     <span class="host-info__text">
       <p class="host-info__text-item">Listed By:</p>
       <p class="host-info__text-author">{{ name }}</p>
@@ -47,6 +47,19 @@ export default {
     }
     &-price {
       margin-bottom: 4px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .host-info {
+    flex-wrap: nowrap;
+    gap: 7px;
+    &__text {
+      margin: 0;
+      &-author {
+        font-size: 16px;
+      }
     }
   }
 }

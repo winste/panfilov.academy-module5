@@ -34,6 +34,23 @@ $banner-main-height: 567px;
   @include background-position;
   &__search {
     padding-bottom: 77px;
+    padding-left: 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-banner {
+    &__search {
+      margin: 30px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .main-banner {
+    &__search {
+      margin: 10px;
+    }
   }
 }
 </style>

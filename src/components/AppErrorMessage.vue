@@ -1,5 +1,5 @@
 <template>
-  <span class="error-msg">
+  <span v-show="errorCheck" class="error-msg">
     <p v-text="msg"></p>
   </span>
 </template>
@@ -7,7 +7,14 @@
 <script>
 export default {
   props: {
-    msg: Object
+    msg: String
+  },
+
+  computed: {
+    errorCheck() {
+      const regex = /4\d{2}|5\d{2}/
+      return regex.test(this.msg)
+    }
   }
 }
 </script>
@@ -16,8 +23,8 @@ export default {
 @import '@/assets/scss/const';
 .error-msg {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 0%;
+  right: 0%;
   padding: 10px;
   max-width: 200px;
   text-align: center;

@@ -80,7 +80,7 @@ export default {
       await api
         .fetchData(`/hotel/detail/${this.firstHotelId}`)
         .then((response) => (this.firstHotelData = response.data))
-        .catch((error) => (this.error = error))
+        .catch((error) => (this.error = error.message))
     }
   }
 }
@@ -97,6 +97,22 @@ export default {
   }
   &__result {
     padding: 90px 30px 90px 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search {
+    &__result {
+      padding: 70px 60px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .search {
+    &__result {
+      padding: 40px 25px;
+    }
   }
 }
 </style>

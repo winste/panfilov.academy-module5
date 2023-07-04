@@ -56,7 +56,7 @@ export default {
     await api
       .fetchData('/banners')
       .then((response) => (this.banners = response.data))
-      .catch((error) => (this.error = error))
+      .catch((error) => (this.error = error.message))
   }
 }
 </script>
@@ -79,6 +79,16 @@ export default {
   }
   &__featured {
     margin-bottom: 63px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    &__banner {
+      &-browse {
+        margin-left: 0;
+      }
+    }
   }
 }
 </style>

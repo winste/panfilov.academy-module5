@@ -26,4 +26,11 @@ export default {
   background-color: $placeholder-color;
   border-radius: 50%;
 }
+
+@media (max-width: 480px) {
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+}
 </style>

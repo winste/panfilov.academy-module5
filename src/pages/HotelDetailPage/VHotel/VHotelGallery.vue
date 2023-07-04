@@ -21,11 +21,9 @@ export default {
     name: String,
     price: Array,
     mainImage: String,
-    images: {
-      type: Array,
-      default: () => []
-    }
+    images: Array
   },
+
   computed: {
     formattedPrice() {
       return this.price.map((price) => price.replace('$', ' $ ')).join('  -  ')
@@ -75,6 +73,29 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
     &-price {
       margin-bottom: 4px;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .hotel-images {
+    &__main {
+      min-width: 100%;
+      padding: 20px;
+    }
+    // &__text {
+    //   @include flexbox-direction($direction: column, $gap: 4px);
+    //   font-weight: 500;
+    //   &-item {
+    //     font-size: 12px;
+    //   }
+    //   &-author {
+    //     font-weight: 700;
+    //     font-size: 18px;
+    //   }
+    //   &-price {
+    //     margin-bottom: 4px;
+    //   }
+    // }
   }
 }
 </style>

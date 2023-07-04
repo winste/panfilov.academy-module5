@@ -79,6 +79,7 @@
       />
     </div>
     <AppButtonReserve class="form__button" />
+    <AppErrorMessage v-if="error" :msg="error" />
   </form>
 </template>
 
@@ -91,12 +92,14 @@ import AppButtonReserve from '@/components/AppButtonReserve.vue'
 import VSelect from '@/components/VSelect.vue'
 import VReserveFormInput from './VReserveFormInput.vue'
 import sortByName from '@/helpers/sortByName'
+import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 export default {
   components: {
     VReserveFormInput,
     VSelect,
-    AppButtonReserve
+    AppButtonReserve,
+    AppErrorMessage
   },
 
   data() {
@@ -113,7 +116,8 @@ export default {
         phone: '',
         comment: ''
       },
-      store: useReserveStore()
+      store: useReserveStore(),
+      error: null
     }
   },
 
@@ -156,6 +160,7 @@ export default {
             console.log(response)
           })
           .catch((error) => {
+            this.error = error.message
             console.log(error)
           })
       }
@@ -196,7 +201,7 @@ $input-height: 49px;
       &-msg {
         padding: 5px 10px;
         font-size: 10px;
-        color: red;
+        color: rgb(255, 0, 0);
       }
       &::before {
         position: absolute;
@@ -219,6 +224,24 @@ $input-height: 49px;
     position: relative;
     left: 13px;
     align-self: end;
+  }
+}
+
+@media (max-width: 820px) {
+  .form {
+    min-width: 100%;
+    padding: 0 30px;
+    &__wrapper {
+      display: block;
+    }
+    &__main {
+      display: block;
+    }
+    &__field {
+      &-select {
+        min-width: 100%;
+      }
+    }
   }
 }
 </style>

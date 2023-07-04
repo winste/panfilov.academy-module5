@@ -1,5 +1,5 @@
 <template>
-  <div id="news-letter" class="news-letter">
+  <div id="news-letter" class="news-letter container-wrapper">
     <div class="news-letter__info">
       <h4 class="news-letter__title">NEWSLETTER</h4>
       <p class="news-letter__text">Stay Upto Date</p>
@@ -57,23 +57,25 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '../../src/assets/scss/mixins/flexbox-center';
 
 $formWidth: 794px;
 $formHeight: 50px;
 
 .news-letter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+  @include flexbox-center($gap: 80px);
   min-width: 100%;
-  padding: 34px 179px 33px 187px;
+  padding-top: 34px;
+  padding-bottom: 33px;
   background-color: $news-letter-bg-color;
   &__title {
     font-size: 18px;
     letter-spacing: -0.2px;
     margin-top: 2px;
     margin-bottom: 5px;
+  }
+  &__info {
+    padding-left: 6px;
   }
   &__text {
     font-size: 14px;
@@ -101,6 +103,12 @@ $formHeight: 50px;
     top: -1px;
     right: 2px;
     opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-letter {
+    gap: 20px;
   }
 }
 </style>

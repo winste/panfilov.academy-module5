@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="footer">
+  <footer id="footer" class="footer container-wrapper">
     <div class="footer__wrapper">
       <div class="footer__about">
         <AppIcon :name="logoIcon" :width="148.5" :height="40" class="footer__logo" />
@@ -100,7 +100,8 @@ export default {
 @import '@/assets/scss/mixins/flexbox-direction';
 
 .footer {
-  padding: 83px 80px 30px 80px;
+  padding-top: 83px;
+  padding-bottom: 30px;
   background-color: rgba(239, 240, 242, 1);
   &__wrapper {
     @include flexbox-general($gap: 45px);
@@ -137,7 +138,7 @@ export default {
     }
   }
   &__copywrite {
-    display: flex;
+    @include flexbox-general($gap: 20px);
     justify-content: space-between;
     font-weight: 600;
     border-top: 1px solid $card-bg-color;
@@ -145,6 +146,34 @@ export default {
     padding: 40px 76px 0 80px;
     &-name {
       font-weight: 700;
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .footer {
+    &__wrapper {
+      padding-bottom: 50px;
+    }
+    &__info {
+      gap: 20px;
+    }
+    &__social {
+      &-contacts {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    &__wrapper {
+      padding-bottom: 30px;
+    }
+    &__info {
+      flex-direction: column;
+      margin-left: 15px;
     }
   }
 }

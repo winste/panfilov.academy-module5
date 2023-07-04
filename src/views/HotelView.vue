@@ -114,12 +114,13 @@ export default {
     await api
       .fetchData(`/hotel/detail/${this.idHotel}`)
       .then((response) => (this.hotelData = response.data))
-      .catch((error) => (this.error = error))
+      .catch((error) => (this.error = error.message))
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/mixins/flexbox-general';
 .hotel {
   margin-bottom: 51px;
   &__gallery {
@@ -133,13 +134,12 @@ export default {
     margin-bottom: 63px;
   }
   &__heading {
-    display: flex;
+    @include flexbox-general($gap: 40px);
     justify-content: space-between;
     margin-bottom: 55px;
   }
   &__interaction {
-    display: flex;
-    gap: 18px;
+    @include flexbox-general($gap: 18px);
     margin-top: 5px;
   }
   &__reserve {
@@ -148,8 +148,7 @@ export default {
     margin-top: 5px;
   }
   &__property {
-    display: flex;
-    gap: 14px;
+    @include flexbox-general($gap: 14px);
     margin-bottom: 27px;
   }
   &__description {

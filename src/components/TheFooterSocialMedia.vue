@@ -1,16 +1,16 @@
 <template>
   <div class="social">
     <a href="https://www.facebook.com" target="_blank" class="social__facebook">
-      <AppButtonIcon :buttonIcon="iconFacebook" :buttonWidth="24" :buttonHeigh="24" />
+      <AppButtonIcon :icon="iconFacebook" :width="24" :height="24" />
     </a>
     <a href="https://twitter.com" target="_blank" class="social__twitter">
-      <AppButtonIcon :buttonIcon="iconTwitter" :buttonWidth="27" :buttonHeigh="26" />
+      <AppButtonIcon :icon="iconTwitter" :width="27" :height="26" />
     </a>
     <a href="https://www.instagram.com" target="_blank" class="social__instagram">
-      <AppButtonIcon :buttonIcon="iconInstagram" :buttonWidth="24" :buttonHeigh="24" />
+      <AppButtonIcon :icon="iconInstagram" :width="24" :height="24" />
     </a>
     <a href="https://ru.linkedin.com" target="_blank" class="social__linkedin">
-      <AppButtonIcon :buttonIcon="iconLinkedin" :buttonWidth="24" :buttonHeigh="24" />
+      <AppButtonIcon :icon="iconLinkedin" :width="24" :height="24" />
     </a>
   </div>
 </template>
@@ -36,5 +36,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>

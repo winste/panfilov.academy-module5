@@ -21,14 +21,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/mixins/flexbox-general';
 .rating {
   &__name {
     min-width: 180px;
     letter-spacing: 0.1px;
   }
   &__item {
-    display: flex;
-    gap: 14px;
+    @include flexbox-general($gap: 14px);
+  }
+}
+
+@media (max-width: 480px) {
+  .rating {
+    &__item {
+      gap: 0;
+    }
   }
 }
 </style>

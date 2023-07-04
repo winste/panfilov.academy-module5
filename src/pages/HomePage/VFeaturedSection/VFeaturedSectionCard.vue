@@ -56,4 +56,11 @@ export default {
     margin-left: 2px;
   }
 }
+
+@media (max-width: 480px) {
+  .featured-card {
+    min-width: auto;
+    gap: 10px;
+  }
+}
 </style>

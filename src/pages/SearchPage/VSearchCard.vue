@@ -115,4 +115,19 @@ $border-radus: 16px;
     }
   }
 }
+
+@media (max-width: 480px) {
+  .search-card {
+    min-width: auto;
+    &__info {
+      padding: 20px;
+    }
+    &__period {
+      gap: 0;
+      &-delimiter {
+        display: none;
+      }
+    }
+  }
+}
 </style>

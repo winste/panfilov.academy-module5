@@ -32,7 +32,6 @@ $description-width: 400px;
   @include background-position;
   border-radius: 12px;
   &__title {
-    font-size: $h2-font-size;
     line-height: 52px;
     max-width: $title-width;
     margin-bottom: 22px;
@@ -40,6 +39,14 @@ $description-width: 400px;
   &__description {
     max-width: $description-width;
     @include text-hide;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-banner {
+    &__title {
+      line-height: normal;
+    }
   }
 }
 </style>

@@ -55,4 +55,11 @@ $property-height: 160px;
     margin-bottom: 2px;
   }
 }
+
+@media (max-width: 480px) {
+  .property {
+    min-width: 120px;
+    min-height: 130px;
+  }
+}
 </style>

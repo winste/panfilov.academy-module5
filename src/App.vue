@@ -2,7 +2,7 @@
   <div class="container">
     <TheHeader />
     <RouterView />
-    <div v-if="checkRoute">
+    <div v-if="['search'].indexOf($route.name)">
       <TheNewsLetter />
       <TheFooter />
     </div>
@@ -19,22 +19,6 @@ export default {
     TheHeader,
     TheNewsLetter,
     TheFooter
-  },
-
-  data() {
-    return {
-      route: null
-    }
-  },
-
-  computed: {
-    getRoute() {
-      return (this.route = this.$route.name)
-    },
-
-    checkRoute() {
-      return this.getRoute != 'search'
-    }
   }
 }
 </script>

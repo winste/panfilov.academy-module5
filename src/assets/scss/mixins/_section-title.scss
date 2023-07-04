@@ -6,9 +6,11 @@ $line-height: 6px;
 
 @mixin section-title-style {
   position: relative;
-  font-size: $h2-font-size;
   max-width: $title-width;
   line-height: 48px;
+  @media (max-width: 480px) {
+    line-height: normal;
+  }
   &::after {
     content: '';
     position: absolute;
