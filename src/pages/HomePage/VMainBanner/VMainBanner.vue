@@ -34,7 +34,6 @@ $banner-main-height: 567px;
   @include background-position;
   &__search {
     padding-bottom: 77px;
-    padding-left: 4px;
   }
 }
 

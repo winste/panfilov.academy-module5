@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
-@import '../../src/assets/scss/mixins/flexbox-center';
+@import '@/assets/scss/mixins/flexbox-center';
 
 $formWidth: 794px;
 $formHeight: 50px;
@@ -68,14 +68,14 @@ $formHeight: 50px;
   padding-top: 34px;
   padding-bottom: 33px;
   background-color: $news-letter-bg-color;
+  &__info {
+    padding-left: 7px;
+  }
   &__title {
     font-size: 18px;
     letter-spacing: -0.2px;
     margin-top: 2px;
     margin-bottom: 5px;
-  }
-  &__info {
-    padding-left: 6px;
   }
   &__text {
     font-size: 14px;

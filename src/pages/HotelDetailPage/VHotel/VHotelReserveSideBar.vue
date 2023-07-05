@@ -1,12 +1,13 @@
 <template>
   <div class="reserve">
-    <div v-text="formattedPrice" class="reserve__price"></div>
+    <div v-text="correctPrice" class="reserve__price"></div>
     <AppButtonReserve @click.prevent="reserveHotel" class="reserve__btn" />
   </div>
 </template>
 
 <script>
 import { useReserveStore } from '@/store/reserveStore'
+import formattedPrice from '@/helpers/formattedPrice'
 import AppButtonReserve from '@/components/AppButtonReserve.vue'
 
 export default {
@@ -37,10 +38,11 @@ export default {
   },
 
   computed: {
-    formattedPrice() {
-      return this.price.map((item) => item.replace('$', '$ ')).join(' - ')
+    correctPrice() {
+      return formattedPrice.addSpaceWithDash(this.price)
     }
   },
+
   methods: {
     reserveHotel() {
       this.store.addReserve(this.reserveData)

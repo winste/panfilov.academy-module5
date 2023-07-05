@@ -30,7 +30,7 @@
           />
         </div>
 
-        <VHotelDetailReserveSideBar
+        <VHotelReserveSideBar
           :id="hotelData._id"
           :name="hotelData.name"
           :address="hotelData.address"
@@ -63,7 +63,7 @@ import LikeBig from '@/assets/images/icons/LikeBig.svg'
 import Share from '@/assets/images/icons/Share.svg'
 import Bedroom from '@/assets/images/icons/Bedroom.svg'
 import Bathroom from '@/assets/images/icons/Bathroom.svg'
-import VHotelDetailReserveSideBar from '@/pages/HotelDetailPage/VHotel/VHotelDetailReserveSideBar.vue'
+import VHotelReserveSideBar from '@/pages/HotelDetailPage/VHotel/VHotelReserveSideBar.vue'
 import VHotelProperty from '@/pages/HotelDetailPage/VHotel/VHotelProperty.vue'
 import VHotelTitle from '@/pages/HotelDetailPage/VHotel/VHotelTitle.vue'
 import VHotelDescription from '@/pages/HotelDetailPage/VHotel/VHotelDescription.vue'
@@ -81,7 +81,7 @@ export default {
     VGallery,
     VHotelGallery,
     AppButtonIcon,
-    VHotelDetailReserveSideBar,
+    VHotelReserveSideBar,
     VHotelProperty,
     VHotelTitle,
     VHotelDescription,

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import AppIcon from './AppIcon.vue'
+import AppIcon from '@/components/AppIcon.vue'
 
 export default {
   components: {
@@ -26,10 +26,11 @@ export default {
 
 <style lang="scss">
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-general';
 @import '@/assets/scss/mixins/button-hover';
 
 .store {
-  background-color: rgba(224, 226, 230, 1);
+  background-color: $card-bg-color;
   border-radius: 6px;
   width: 172px;
   height: 52px;
@@ -39,9 +40,8 @@ export default {
     margin-top: 2px;
   }
   &-link {
-    display: flex;
+    @include flexbox-general($gap: 15px);
     justify-content: center;
-    gap: 15px;
     padding: 15px 15px 13px 13px;
     &:hover {
       @include button-hover;

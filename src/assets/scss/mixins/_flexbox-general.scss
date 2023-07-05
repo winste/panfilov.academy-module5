@@ -1,5 +1,5 @@
-@mixin flexbox-general($gap: normal, $flexWrap: wrap) {
+@mixin flexbox-general($gap: normal, $wrap: wrap) {
   display: flex;
-  flex-wrap: $flexWrap;
+  flex-wrap: $wrap;
   gap: $gap;
 }

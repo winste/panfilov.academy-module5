@@ -16,7 +16,7 @@
 
 <script>
 import VCarousel from '@/components/VCarousel.vue'
-import { formattedPrice } from '@/helpers/formattedPrice'
+import formattedPrice from '@/helpers/formattedPrice'
 
 export default {
   components: {
@@ -29,7 +29,7 @@ export default {
 
   computed: {
     correctPrice() {
-      return formattedPrice.deleteCharacterHyphen(this.carouselCard.price)
+      return formattedPrice.separateWithDash(this.carouselCard.price)
     }
   }
 }

@@ -68,7 +68,7 @@ export default {
       if (this.hotels.length) this.getFirstHotelId()
     },
     firstHotelId() {
-      if (this.firstHotelId) this.getFirstfirstHotelData()
+      if (this.firstHotelId) this.getFirstHotelData()
     }
   },
 
@@ -76,7 +76,7 @@ export default {
     getFirstHotelId() {
       this.firstHotelId = this.hotels[0]._id
     },
-    async getFirstfirstHotelData() {
+    async getFirstHotelData() {
       await api
         .fetchData(`/hotel/detail/${this.firstHotelId}`)
         .then((response) => (this.firstHotelData = response.data))
@@ -110,6 +110,7 @@ export default {
 
 @media (max-width: 480px) {
   .search {
+    display: block;
     &__result {
       padding: 40px 25px;
     }

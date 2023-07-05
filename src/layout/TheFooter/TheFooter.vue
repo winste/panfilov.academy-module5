@@ -25,18 +25,7 @@
         </div>
       </div>
 
-      <div class="footer__info">
-        <TheFooterList title="COMPANY" :list="listAbout" class="footer__social-company" />
-        <TheFooterList title="HELP CENTER" :list="listHelpCenter" class="footer__social-help" />
-        <TheFooterList
-          title="CONTACT INFO"
-          :list="listContacts"
-          typeFollow="link"
-          class="footer__social-contacts"
-        >
-          <TheFooterSocialMedia class="footer__social" />
-        </TheFooterList>
-      </div>
+      <TheFooterList class="footer__info" />
     </div>
     <div class="footer__copywrite">
       <p class="footer__copywrite-text">© 2022 thecreation.design | All rights raserved</p>
@@ -102,7 +91,7 @@ export default {
 .footer {
   padding-top: 83px;
   padding-bottom: 30px;
-  background-color: rgba(239, 240, 242, 1);
+  background-color: $main-decor-color;
   &__wrapper {
     @include flexbox-general($gap: 45px);
     padding-bottom: 199px;
@@ -126,16 +115,7 @@ export default {
     @include flexbox-general($gap: 13px);
   }
   &__info {
-    @include flexbox-general($gap: 55px);
     margin-top: 2px;
-  }
-  &__social {
-    @include flexbox-general($gap: 24px);
-    margin-top: 21px;
-    margin-left: 1px;
-    &-contacts {
-      margin-left: 14px;
-    }
   }
   &__copywrite {
     @include flexbox-general($gap: 20px);
@@ -143,7 +123,7 @@ export default {
     font-weight: 600;
     border-top: 1px solid $card-bg-color;
     margin: 0 -80px;
-    padding: 40px 76px 0 80px;
+    padding: 40px 79px 0 80px;
     &-name {
       font-weight: 700;
     }

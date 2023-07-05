@@ -2,35 +2,44 @@
   <h2 class="filter__title">Find</h2>
   <form class="filter">
     <div class="filter__input filter__input-select">
-      <label for="select" class="filter__label">Location</label>
-      <VSelect
-        :options="countries"
-        color="#C2C6CC"
-        weight="600"
-        placeholder="Which city do you prefer?"
-        v-model="filter.location"
-      />
+      <label class="filter__label"
+        >Location
+        <VSelect
+          :options="countries"
+          color="#C2C6CC"
+          weight="600"
+          placeholder="Which city do you prefer?"
+          v-model="filter.location"
+          id="select"
+        />
+      </label>
     </div>
 
     <span class="filter__delimiter"></span>
 
     <div class="filter__input filter__input-date-in">
-      <label for="date" class="filter__label">Check In</label>
-      <VDateInput placeholder="Add Dates" v-model="filter.checkIn" />
+      <label class="filter__label"
+        >Check In
+        <VDateInput placeholder="Add Dates" v-model="filter.checkIn" />
+      </label>
     </div>
 
     <span class="filter__delimiter"></span>
 
     <div class="filter__input filter__input-date-out">
-      <label for="date" class="filter__label">Check Out</label>
-      <VDateInput placeholder="Add Dates" v-model="filter.checkOut" />
+      <label class="filter__label"
+        >Check Out
+        <VDateInput placeholder="Add Dates" v-model="filter.checkOut" />
+      </label>
     </div>
 
     <span class="filter__delimiter"></span>
 
     <div class="filter__input filter__input-number">
-      <label for="number" class="filter__label">Guests</label>
-      <VNumberInput placeholder="Add Guests" v-model="filter.guest" />
+      <label class="filter__label"
+        >Guests
+        <VNumberInput placeholder="Add Guests" v-model="filter.guest" />
+      </label>
     </div>
 
     <AppButtonSubmit
@@ -98,7 +107,7 @@ export default {
       const countries = await api.fetchData('/hotel/location').then((response) => response.data)
       this.countries = sortByName(countries)
     } catch (error) {
-      this.error = error
+      this.error = error.message
     }
   },
 
@@ -143,7 +152,7 @@ $filter-color: rgb(255, 255, 255);
 $delimiter-color: rgb(221, 221, 221);
 
 .filter {
-  @include flexbox-general($flexWrap: nowrap);
+  @include flexbox-general($wrap: nowrap);
   padding: 11px 8px 5px 8px;
   background-color: $filter-color;
   border-radius: 35px;
@@ -161,7 +170,7 @@ $delimiter-color: rgb(221, 221, 221);
     @include flexbox-direction($direction: column, $gap: 0px);
     justify-content: center;
     &-select {
-      min-width: 255px;
+      min-width: 258px;
       min-height: 24px;
       padding-left: 22px;
       margin-right: 28px;
@@ -179,7 +188,9 @@ $delimiter-color: rgb(221, 221, 221);
     }
   }
   &__label {
-    margin-bottom: 3.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.1px;
     font-weight: 600;
     font-size: 12px;
     color: $main-font-color;

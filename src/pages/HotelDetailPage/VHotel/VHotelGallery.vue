@@ -22,12 +22,6 @@ export default {
     price: Array,
     mainImage: String,
     images: Array
-  },
-
-  computed: {
-    formattedPrice() {
-      return this.price.map((price) => price.replace('$', ' $ ')).join('  -  ')
-    }
   }
 }
 </script>
@@ -49,7 +43,7 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
   @include flexbox-general($gap: 17px);
   justify-content: center;
   &__main {
-    @include flexbox-general($gap: 22px, $flexWrap: nowrap);
+    @include flexbox-general($gap: 22px, $wrap: nowrap);
     align-items: end;
     flex: 1 1 0;
     min-width: 300px;
@@ -82,20 +76,6 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
       min-width: 100%;
       padding: 20px;
     }
-    // &__text {
-    //   @include flexbox-direction($direction: column, $gap: 4px);
-    //   font-weight: 500;
-    //   &-item {
-    //     font-size: 12px;
-    //   }
-    //   &-author {
-    //     font-weight: 700;
-    //     font-size: 18px;
-    //   }
-    //   &-price {
-    //     margin-bottom: 4px;
-    //   }
-    // }
   }
 }
 </style>

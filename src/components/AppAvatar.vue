@@ -16,11 +16,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-center';
 
 .avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox-center;
   width: v-bind(size);
   height: v-bind(size);
   background-color: $placeholder-color;
@@ -28,9 +27,11 @@ export default {
 }
 
 @media (max-width: 480px) {
+  $size: 60px;
+
   .avatar {
-    width: 60px;
-    height: 60px;
+    width: $size;
+    height: $size;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="container">
     <TheHeader />
     <RouterView />
-    <div v-if="['search'].indexOf($route.name)">
+    <div v-if="'search'.indexOf($route.name)">
       <TheNewsLetter />
       <TheFooter />
     </div>
@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import TheFooter from '@/components/TheFooter.vue'
-import TheHeader from '@/components/TheHeader.vue'
-import TheNewsLetter from '@/components/TheNewsLetter.vue'
+import TheFooter from '@/layout/TheFooter/TheFooter.vue'
+import TheHeader from '@/layout/TheHeader/TheHeader.vue'
+import TheNewsLetter from '@/layout/TheNewsLetter.vue'
 
 export default {
   components: {

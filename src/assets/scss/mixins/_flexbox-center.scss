@@ -1,6 +1,6 @@
 @import './flexbox-general';
 
-@mixin flexbox-center($gap) {
+@mixin flexbox-center($gap: 0) {
   @include flexbox-general($gap);
   justify-content: center;
   align-items: center;

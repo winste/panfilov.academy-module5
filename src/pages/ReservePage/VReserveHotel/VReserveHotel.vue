@@ -24,9 +24,9 @@
     <div class="hotel-preview__price">
       <h3 class="hotel-preview__price-title">Price Details</h3>
       <span class="hotel-preview__price-info">
-        <span>Short Period: {{ formattedPrice[0] }}</span>
-        <span>Medium Period: {{ formattedPrice[1] }}</span>
-        <span>Long Period: {{ formattedPrice[1] }}</span>
+        <span>Short Period: {{ correctPrice[0] }}</span>
+        <span>Medium Period: {{ correctPrice[1] }}</span>
+        <span>Long Period: {{ correctPrice[1] }}</span>
       </span>
     </div>
   </section>
@@ -34,6 +34,7 @@
 
 <script>
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
+import formattedPrice from '@/helpers/formattedPrice'
 import VReserveHotelProperty from './VReserveHotelProperty.vue'
 
 export default {
@@ -47,8 +48,8 @@ export default {
   },
 
   computed: {
-    formattedPrice() {
-      return this.hotelData.price.map((item) => item.replace('$', '$ '))
+    correctPrice() {
+      return formattedPrice.addSpace(this.hotelData.price)
     }
   }
 }
@@ -64,19 +65,17 @@ export default {
   background: $main-decor-color;
   border-radius: 10px;
   &__main {
-    @include flexbox-general($flexWrap: nowrap, $gap: 22px);
+    @include flexbox-general($wrap: nowrap, $gap: 22px);
     margin-bottom: 47px;
   }
   &__image {
     width: 100px;
     height: 100px;
-    left: 835px;
-    top: 193px;
     border-radius: 6px;
   }
   &__address {
     padding-bottom: 13px;
-    border-bottom: 1px solid rgb(224, 226, 230);
+    border-bottom: 1px solid $card-bg-color;
   }
   &__property {
     @include flexbox-general($gap: 15px);
@@ -99,7 +98,7 @@ export default {
       font-weight: 500;
       font-size: 15px;
       line-height: 18px;
-      color: rgb(154, 154, 154);
+      color: $secondary-font-color;
     }
   }
 }

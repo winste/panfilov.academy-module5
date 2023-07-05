@@ -1,6 +1,6 @@
 <template>
   <button type="submit" class="button-submit">
-    <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" />
+    <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" class="button-submit__icon" />
   </button>
 </template>
 
@@ -33,5 +33,8 @@ export default {
   background-color: $main-font-color;
   border-radius: 50%;
   @include button-hover;
+  &__icon {
+    margin-top: 6px;
+  }
 }
 </style>

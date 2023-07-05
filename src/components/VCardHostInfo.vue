@@ -4,13 +4,15 @@
     <span class="host-info__text">
       <p class="host-info__text-item">Listed By:</p>
       <p class="host-info__text-author">{{ name }}</p>
-      <p class="host-info__text-price">For: {{ formattedPrice }}</p>
+      <p class="host-info__text-price">For: {{ correctPrice }}</p>
     </span>
   </div>
 </template>
 
 <script>
 import AppAvatar from '@/components/AppAvatar.vue'
+import formattedPrice from '@/helpers/formattedPrice'
+
 export default {
   components: {
     AppAvatar
@@ -21,8 +23,8 @@ export default {
     price: Array
   },
   computed: {
-    formattedPrice() {
-      return this.price.map((price) => price.replace('$', ' $ ')).join('  -  ')
+    correctPrice() {
+      return formattedPrice.addSpaceWithDash(this.price)
     }
   }
 }
