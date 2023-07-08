@@ -1,14 +1,14 @@
 <template>
   <div class="description">
     <h4 class="description__title">Apartment Description</h4>
-    <div v-html="formattedText" class="description__text"></div>
+    <div class="description__text" v-html="formattedText"></div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    hotelDescription: String
+    hotelDescription: { type: String, required: true },
   },
   computed: {
     formattedText() {
@@ -16,8 +16,8 @@ export default {
         .split('.')
         .map((item) => item.replace('\n', `<p> </p>`))
         .join('.')
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -37,3 +37,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

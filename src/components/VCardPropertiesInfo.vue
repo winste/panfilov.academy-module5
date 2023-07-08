@@ -8,7 +8,7 @@
       :name="name"
     />
   </div>
-</template>
+</template>
 
 <script>
 import AppIcon from './AppIcon.vue'
@@ -17,34 +17,34 @@ import VCardPropertyInfo from './VCardPropertyInfo.vue'
 export default {
   components: {
     AppIcon,
-    VCardPropertyInfo
-  },
-
-  data() {
-    return {
-      restProperties: {
-        parking: '0',
-        pet: '0'
-      },
-      name: ''
-    }
+    VCardPropertyInfo,
   },
 
   props: {
     properties: Object,
     showAll: {
       type: Boolean,
-      default: false
+      default: false,
+    },
+  },
+
+  data() {
+    return {
+      restProperties: {
+        parking: '0',
+        pet: '0',
+      },
+      name: '',
     }
   },
 
   methods: {
     hasProperty(val) {
       return Object.entries(this.properties).includes(val)
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/flexbox-general';
@@ -52,4 +52,4 @@ export default {
 .properties {
   @include flexbox-general($gap: 20px);
 }
-</style>
+</style>

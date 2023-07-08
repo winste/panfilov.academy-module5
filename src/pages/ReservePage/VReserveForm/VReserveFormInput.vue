@@ -4,33 +4,33 @@
       :type="type"
       :placeholder="placeholder"
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
       class="input"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
-    <span v-if="error" v-text="message" class="input__msg"> </span>
+    <span v-if="error" class="input__msg" v-text="message"> </span>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    modelValue: '',
-    type: String,
-    placeholder: String,
+    modelValue: { type: String, default: '' },
+    type: { type: String, required: true },
+    placeholder: { type: String, default: '' },
     height: {
       type: String,
-      default: '49px'
+      default: '49px',
     },
     width: {
       type: String,
-      default: '329px'
+      default: '329px',
     },
     error: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    message: ''
-  }
+    message: { type: String, default: 'value' },
+  },
 }
 </script>
 
@@ -58,3 +58,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

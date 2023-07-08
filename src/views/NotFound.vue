@@ -1,6 +1,6 @@
 <template>
   <main class="not-found container-wrapper">
-    <AppMetaTags :metaInfo="metaInfo" />
+    <AppMetaTags :meta-info="metaInfo" />
     <h4>
       Page not found.
       <router-link to="/">Home Page</router-link>
@@ -14,7 +14,7 @@ import metaTags from '@/helpers/metaTags'
 
 export default {
   components: {
-    AppMetaTags
+    AppMetaTags,
   },
   data() {
     return {
@@ -22,9 +22,9 @@ export default {
         'Page not found',
         'Page not found in the service for convenient and fast hotel booking around the world',
         'hotels all over the world, large selection of hotels, convenient hotel booking, hotels in different countries, booking hotels, search hotels'
-      )
+      ),
     }
-  }
+  },
 }
 </script>
 
@@ -34,3 +34,13 @@ export default {
   padding-bottom: 90px;
 }
 </style>
+
+
+
+
+
+
+
+
+
+

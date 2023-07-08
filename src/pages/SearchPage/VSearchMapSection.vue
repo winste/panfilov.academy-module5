@@ -4,8 +4,8 @@
 
     <div class="search-map__info">
       <VSearchMapProperties
-        :image="image"
         :id="id"
+        :image="image"
         :name="name"
         :address="address"
         :properties="properties"
@@ -15,33 +15,31 @@
 </template>
 
 <script>
-import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
 import VMap from '@/components/VMap.vue'
 import VSearchMapProperties from './VSearchMapProperties.vue'
 
 export default {
   components: {
     VMap,
-    VCardTitleInfo,
-    VSearchMapProperties
+    VSearchMapProperties,
   },
 
   props: {
-    coords: Array,
-    image: String,
-    id: String,
-    name: String,
-    address: String,
-    properties: Object,
+    coords: { type: Array, required: true },
+    image: { type: String, required: true },
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    address: { type: String, required: true },
+    properties: { type: Object, required: true },
     width: {
       type: String,
-      default: '668px'
+      default: '668px',
     },
     height: {
       type: String,
-      default: '757px'
-    }
-  }
+      default: '757px',
+    },
+  },
 }
 </script>
 
@@ -70,3 +68,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

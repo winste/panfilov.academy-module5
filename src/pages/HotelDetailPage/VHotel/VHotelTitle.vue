@@ -1,16 +1,16 @@
 <template>
   <div class="hotel-info">
-    <h3 v-text="hotelName" class="hotel-info__title"></h3>
-    <p v-text="hotelAddress" class="hotel-info__address"></p>
+    <h3 class="hotel-info__title" v-text="hotelName"></h3>
+    <p class="hotel-info__address" v-text="hotelAddress"></p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    hotelName: String,
-    hotelAddress: String
-  }
+    hotelName: { type: String, required: true },
+    hotelAddress: { type: String, required: true },
+  },
 }
 </script>
 
@@ -25,3 +25,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

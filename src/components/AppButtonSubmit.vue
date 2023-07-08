@@ -2,26 +2,26 @@
   <button type="submit" class="button-submit">
     <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" class="button-submit__icon" />
   </button>
-</template>
+</template>
 
 <script>
 import AppIcon from './AppIcon.vue'
 
 export default {
   components: {
-    AppIcon
+    AppIcon,
   },
   props: {
     size: {
       type: String,
-      default: '52px'
+      default: '52px',
     },
     icon: String,
     iconWidth: Number,
-    iconHeight: Number
-  }
+    iconHeight: Number,
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -37,4 +37,4 @@ export default {
     margin-top: 6px;
   }
 }
-</style>
+</style>

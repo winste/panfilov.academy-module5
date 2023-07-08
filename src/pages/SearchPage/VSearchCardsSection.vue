@@ -2,8 +2,8 @@
   <section v-if="count" class="cards">
     <h3 class="cards__title">{{ count }} Results Found</h3>
     <div class="cards__list">
-      <VSearchCard v-for="(hotel, index) in hotelsList" :key="index" :id="hotel._id" />
-      <button v-if="checkDisplayed && !checkClick" @click="showMore" class="cards__button">
+      <VSearchCard v-for="(hotel, index) in hotelsList" :id="hotel._id" :key="index" />
+      <button v-if="checkDisplayed && !checkClick" class="cards__button" @click="showMore">
         Other as per found results...
       </button>
     </div>
@@ -15,18 +15,18 @@ import VSearchCard from './VSearchCard.vue'
 
 export default {
   components: {
-    VSearchCard
+    VSearchCard,
   },
 
   props: {
-    count: Number,
-    hotels: Array
+    count: { type: Number, required: true },
+    hotels: { type: Number, required: true },
   },
 
   data() {
     return {
       countDisplayedHotels: 3,
-      checkClick: false
+      checkClick: false,
     }
   },
 
@@ -38,14 +38,14 @@ export default {
 
     hotelsList() {
       return this.checkDisplayed ? this.hotels.slice(0, this.countDisplayedHotels) : this.hotels
-    }
+    },
   },
 
   methods: {
     showMore() {
       this.checkClick = true
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -75,3 +75,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

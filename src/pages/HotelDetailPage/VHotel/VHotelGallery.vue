@@ -3,7 +3,7 @@
     <div class="hotel-images__main" :style="{ 'background-image': `url(${mainImage})` }">
       <VCardHostInfo :avatar="avatar" :name="name" :price="price" />
     </div>
-    <VGallery :images="images" :countDisplayedImages="4" />
+    <VGallery :images="images" :count-displayed-images="4" />
   </section>
 </template>
 
@@ -14,15 +14,15 @@ import VGallery from '@/components/VGallery.vue'
 export default {
   components: {
     VCardHostInfo,
-    VGallery
+    VGallery,
   },
   props: {
-    avatar: String,
-    name: String,
-    price: Array,
-    mainImage: String,
-    images: Array
-  }
+    avatar: { type: String, required: true },
+    name: { type: String, required: true },
+    price: { type: Array, required: true },
+    mainImage: { type: String, required: true },
+    images: { type: Array, required: true },
+  },
 }
 </script>
 
@@ -79,3 +79,13 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

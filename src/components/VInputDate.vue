@@ -3,32 +3,32 @@
     :placeholder="placeholder"
     :enable-time-picker="false"
     :model-value="modelValue"
-    @update:model-value="setDate"
     hide-input-icon
     class="date"
     input-class-name="date__input"
+    @update:model-value="setDate"
   />
-</template>
+</template>
 <script>
 import VueDatePicker from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
 
 export default {
   components: {
-    VueDatePicker
+    VueDatePicker,
   },
 
   props: {
     modelValue: '',
-    placeholder: String
+    placeholder: String,
   },
   methods: {
     setDate(value) {
       this.$emit('update:modelValue', value)
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 <style lang="scss">
 @import '@/assets/scss/mixins/placeholder';
 
@@ -40,4 +40,4 @@ export default {
     @include placeholder-style;
   }
 }
-</style>
+</style>

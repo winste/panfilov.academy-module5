@@ -20,18 +20,21 @@ import formattedPrice from '@/helpers/formattedPrice'
 
 export default {
   components: {
-    VCarousel
+    VCarousel,
   },
 
   props: {
-    carouselCard: Object
+    carouselCard: {
+      type: Object,
+      required: true,
+    },
   },
 
   computed: {
     correctPrice() {
       return formattedPrice.separateWithDash(this.carouselCard.price)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -64,3 +67,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

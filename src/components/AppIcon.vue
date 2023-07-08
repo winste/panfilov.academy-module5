@@ -2,7 +2,7 @@
   <svg :width="width" :height="height">
     <use :xlink:href="`#${name}`" />
   </svg>
-</template>
+</template>
 
 <script>
 export default {
@@ -10,12 +10,12 @@ export default {
     name: String,
     width: {
       type: Number,
-      default: 20
+      default: 20,
     },
     height: {
       type: Number,
-      default: 20
-    }
-  }
+      default: 20,
+    },
+  },
 }
-</script>
+</script>

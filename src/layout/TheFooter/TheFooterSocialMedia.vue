@@ -13,7 +13,7 @@
       <AppButtonIcon :icon="iconLinkedin" :width="24" :height="24" />
     </a>
   </div>
-</template>
+</template>
 
 <script>
 import Facebook from '@/assets/images/icons/Facebook.svg'
@@ -24,18 +24,18 @@ import AppButtonIcon from '@/components/AppButtonIcon.vue'
 
 export default {
   components: {
-    AppButtonIcon
+    AppButtonIcon,
   },
   data() {
     return {
       iconFacebook: Facebook,
       iconTwitter: Twitter,
       iconInstagram: Instagram,
-      iconLinkedin: Linkedin
+      iconLinkedin: Linkedin,
     }
-  }
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/flexbox-general';
@@ -45,4 +45,4 @@ export default {
   margin-top: 21px;
   margin-left: 1px;
 }
-</style>
+</style>

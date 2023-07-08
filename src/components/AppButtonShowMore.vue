@@ -1,28 +1,28 @@
 <template>
-  <button @click="switchDisplayedList(), $emit('showAll', showAll)" class="button-show">
+  <button class="button-show" @click="switchDisplayedList(), $emit('showAll', showAll)">
     <span v-if="!showAll"> Show All {{ count }} {{ name }}</span>
     <span v-else> Hide {{ name }} list </span>
   </button>
-</template>
+</template>
 
 <script>
 export default {
   props: {
     count: Number,
-    name: String
+    name: String,
   },
   data() {
     return {
-      showAll: false
+      showAll: false,
     }
   },
   methods: {
     switchDisplayedList() {
       this.showAll = !this.showAll
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -43,4 +43,4 @@ export default {
     @include button-hover;
   }
 }
-</style>
+</style>

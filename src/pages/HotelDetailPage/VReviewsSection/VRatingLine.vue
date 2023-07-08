@@ -4,19 +4,19 @@
       <span class="rating-line__line"></span>
     </div>
 
-    <span v-text="formattedRating" class="rating-line__number"></span>
+    <span class="rating-line__number" v-text="formattedRating"></span>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    rating: Number
+    rating: { type: Number, required: true },
   },
   data() {
     return {
       maxRating: 5,
-      maxWidth: 135
+      maxWidth: 135,
     }
   },
   computed: {
@@ -28,8 +28,8 @@ export default {
     },
     formattedWidth() {
       return `${this.maxWidth}px`
-    }
-  }
+    },
+  },
 }
 </script>
 

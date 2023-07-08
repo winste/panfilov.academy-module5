@@ -1,5 +1,5 @@
 <template>
-  <Swiper :slides-per-view="1" @swiper="onSwiper" class="swiper">
+  <Swiper :slides-per-view="1" class="swiper" @swiper="onSwiper">
     <SwiperSlide
       v-for="slide in slides"
       :style="{ 'background-image': `url(${slide})` }"
@@ -13,17 +13,17 @@
       <div class="swiper__interaction-wrapper">
         <slot></slot>
         <VCarouselPagination
-          :slideCount="slides.length"
-          :slideIndex="currentSlideIndex()"
+          :slide-count="slides.length"
+          :slide-index="currentSlideIndex()"
           :position="paginationPosition"
+          class="swiper__pagination"
           @switch="switchSlideByButton"
           @click="slideToIndex(buttonIndex)"
-          class="swiper__pagination"
         />
       </div>
     </div>
   </Swiper>
-</template>
+</template>
 
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -38,7 +38,7 @@ export default {
     Swiper,
     SwiperSlide,
     AppButtonIcon,
-    VCarouselPagination
+    VCarouselPagination,
   },
 
   props: {
@@ -47,15 +47,15 @@ export default {
     height: String,
     block: {
       type: String,
-      default: 'featured'
-    }
+      default: 'featured',
+    },
   },
 
   data() {
     return {
       buttonIndex: 0,
       swiper: null,
-      icon: Like
+      icon: Like,
     }
   },
 
@@ -68,7 +68,7 @@ export default {
     },
     paginationMargin() {
       return this.block == 'search' ? '6px' : '3px'
-    }
+    },
   },
 
   methods: {
@@ -83,10 +83,10 @@ export default {
     },
     currentSlideIndex() {
       return this.swiper ? this.swiper.activeIndex : this.buttonIndex
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -122,4 +122,4 @@ export default {
     margin-right: v-bind(paginationMargin);
   }
 }
-</style>
+</style>

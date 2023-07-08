@@ -1,55 +1,57 @@
 <template>
-  <h2 class="filter__title">Find</h2>
-  <form class="filter">
-    <div class="filter__input filter__input-select">
-      <label class="filter__label"
-        >Location
-        <VSelect
-          :options="countries"
-          color="#C2C6CC"
-          weight="600"
-          placeholder="Which city do you prefer?"
-          v-model="filter.location"
-          id="select"
-        />
-      </label>
-    </div>
+  <div class="filter">
+    <h2 class="filter__title">Find</h2>
+    <form class="filter__form">
+      <div class="filter__input filter__input-select">
+        <label class="filter__label"
+          >Location
+          <VSelect
+            id="select"
+            v-model="filter.location"
+            :options="countries"
+            color="#C2C6CC"
+            weight="600"
+            placeholder="Which city do you prefer?"
+          />
+        </label>
+      </div>
 
-    <span class="filter__delimiter"></span>
+      <span class="filter__delimiter"></span>
 
-    <div class="filter__input filter__input-date-in">
-      <label class="filter__label"
-        >Check In
-        <VDateInput placeholder="Add Dates" v-model="filter.checkIn" />
-      </label>
-    </div>
+      <div class="filter__input filter__input-date-in">
+        <label class="filter__label"
+          >Check In
+          <VDateInput v-model="filter.checkIn" placeholder="Add Dates" />
+        </label>
+      </div>
 
-    <span class="filter__delimiter"></span>
+      <span class="filter__delimiter"></span>
 
-    <div class="filter__input filter__input-date-out">
-      <label class="filter__label"
-        >Check Out
-        <VDateInput placeholder="Add Dates" v-model="filter.checkOut" />
-      </label>
-    </div>
+      <div class="filter__input filter__input-date-out">
+        <label class="filter__label"
+          >Check Out
+          <VDateInput v-model="filter.checkOut" placeholder="Add Dates" />
+        </label>
+      </div>
 
-    <span class="filter__delimiter"></span>
+      <span class="filter__delimiter"></span>
 
-    <div class="filter__input filter__input-number">
-      <label class="filter__label"
-        >Guests
-        <VNumberInput placeholder="Add Guests" v-model="filter.guest" />
-      </label>
-    </div>
+      <div class="filter__input filter__input-number">
+        <label class="filter__label"
+          >Guests
+          <VNumberInput v-model="filter.guest" placeholder="Add Guests" />
+        </label>
+      </div>
 
-    <AppButtonSubmit
-      @click.prevent="searchHotels"
-      size="54px"
-      :icon="icon"
-      class="filter__button"
-    />
-  </form>
-  <AppErrorMessage v-show="error" :msg="error" />
+      <AppButtonSubmit
+        size="54px"
+        :icon="icon"
+        class="filter__button"
+        @click.prevent="searchHotels"
+      />
+    </form>
+    <AppErrorMessage v-show="error" :msg="error" />
+  </div>
 </template>
 
 <script>
@@ -75,7 +77,7 @@ export default {
     VDateInput,
     VNumberInput,
     AppButtonSubmit,
-    AppErrorMessage
+    AppErrorMessage,
   },
 
   data() {
@@ -87,18 +89,18 @@ export default {
         location: '',
         checkIn: '',
         checkOut: '',
-        guest: ''
+        guest: '',
       },
       store: useHotelStore(),
-      error: null
+      error: null,
     }
   },
 
   validations() {
     return {
       filter: {
-        location: { required }
-      }
+        location: { required },
+      },
     }
   },
 
@@ -126,7 +128,7 @@ export default {
             location: `${this.filter.location}`,
             checkIn: `${this.dateFormat(this.filter.checkIn)}`,
             checkOut: `${this.dateFormat(this.filter.checkOut)}`,
-            guest: `${this.filter.guest ? this.filter.guest : 0}`
+            guest: `${this.filter.guest ? this.filter.guest : 0}`,
           })
           .then((response) => {
             this.store.addHotels(response.data)
@@ -137,8 +139,8 @@ export default {
             console.log(error)
           })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -152,10 +154,12 @@ $filter-color: rgb(255, 255, 255);
 $delimiter-color: rgb(221, 221, 221);
 
 .filter {
-  @include flexbox-general($wrap: nowrap);
-  padding: 11px 8px 5px 8px;
-  background-color: $filter-color;
-  border-radius: 35px;
+  &__form {
+    @include flexbox-general($wrap: nowrap);
+    padding: 11px 8px 5px 8px;
+    background-color: $filter-color;
+    border-radius: 35px;
+  }
   &__title {
     display: block;
     padding-bottom: 22px;
@@ -188,9 +192,7 @@ $delimiter-color: rgb(221, 221, 221);
     }
   }
   &__label {
-    display: flex;
-    flex-direction: column;
-    gap: 2.1px;
+    @include flexbox-direction($direction: column, $gap: 2.1px);
     font-weight: 600;
     font-size: 12px;
     color: $main-font-color;
@@ -211,8 +213,10 @@ $delimiter-color: rgb(221, 221, 221);
 
 @media (max-width: 840px) {
   .filter {
-    flex-wrap: wrap;
-    padding: 20px 40px;
+    &__form {
+      flex-wrap: wrap;
+      padding: 20px 40px;
+    }
     &__title {
       text-transform: uppercase;
     }
@@ -244,3 +248,13 @@ $delimiter-color: rgb(221, 221, 221);
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

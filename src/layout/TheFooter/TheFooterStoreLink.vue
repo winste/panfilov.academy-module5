@@ -2,27 +2,27 @@
   <div class="store">
     <a :href="url" target="_blank" class="store-link">
       <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" class="store-icon" />
-      <p v-text="name" class="store-name"></p>
+      <p class="store-name" v-text="name"></p>
     </a>
   </div>
-</template>
+</template>
 
 <script>
 import AppIcon from '@/components/AppIcon.vue'
 
 export default {
   components: {
-    AppIcon
+    AppIcon,
   },
   props: {
     url: String,
     name: String,
     icon: String,
     iconWidth: Number,
-    iconHeight: Number
-  }
+    iconHeight: Number,
+  },
 }
-</script>
+</script>
 
 <style lang="scss">
 @import '@/assets/scss/const';
@@ -48,4 +48,4 @@ export default {
     }
   }
 }
-</style>
+</style>

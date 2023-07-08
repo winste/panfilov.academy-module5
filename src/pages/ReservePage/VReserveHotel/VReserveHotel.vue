@@ -40,18 +40,18 @@ import VReserveHotelProperty from './VReserveHotelProperty.vue'
 export default {
   components: {
     VCardTitleInfo,
-    VReserveHotelProperty
+    VReserveHotelProperty,
   },
 
   props: {
-    hotelData: Object
+    hotelData: { type: Object, required: true },
   },
 
   computed: {
     correctPrice() {
       return formattedPrice.addSpace(this.hotelData.price)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -115,3 +115,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

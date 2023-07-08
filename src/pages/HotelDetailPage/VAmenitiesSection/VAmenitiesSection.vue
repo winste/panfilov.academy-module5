@@ -2,13 +2,13 @@
   <section class="amenities">
     <h4 class="amenities__title">Offered Amenities</h4>
     <div class="amenities__list">
-      <VAmenity :amenitiesList="amenitiesListFormatted" />
+      <VAmenity v-for="amenity in amenitiesListFormatted" :key="amenity.id" :amenity="amenity" />
     </div>
 
     <AppButtonShowMore
-      @showAll="changeDisplayedValue"
       :count="amenitiesListCount"
       name="Amenities"
+      @showAll="changeDisplayedValue"
     />
   </section>
 </template>
@@ -20,15 +20,15 @@ import AppButtonShowMore from '@/components/AppButtonShowMore.vue'
 export default {
   components: {
     VAmenity,
-    AppButtonShowMore
+    AppButtonShowMore,
   },
   props: {
-    amenitiesList: Array,
-    amenitiesDisplayedCount: Number
+    amenitiesList: { type: Array, required: true },
+    amenitiesDisplayedCount: { type: Number, required: true },
   },
   data() {
     return {
-      showAllAmenities: null
+      showAllAmenities: null,
     }
   },
   computed: {
@@ -39,13 +39,13 @@ export default {
       return this.showAllAmenities
         ? this.amenitiesList
         : this.amenitiesList.slice(0, this.amenitiesDisplayedCount)
-    }
+    },
   },
   methods: {
     changeDisplayedValue(data) {
       this.showAllAmenities = data
-    }
-  }
+    },
+  },
 }
 </script>
 

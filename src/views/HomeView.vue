@@ -1,25 +1,27 @@
 <template>
-  <main v-if="banners" class="main">
-    <AppMetaTags :metaInfo="metaInfo" />
-    <VMainBanner :image="banners.main.image" class="main__banner-main" />
-    <div class="container-wrapper">
-      <VLatestSection class="main__latest" />
-      <VBanner
-        :url="banners.second.image"
-        :title="banners.second.title"
-        :text="banners.second.description"
-        class="main__banner-hosting"
-      />
-      <VFeaturedSection class="main__featured" />
-      <VBanner
-        :url="banners.last.image"
-        :title="banners.last.title"
-        :text="banners.last.description"
-        class="main__banner-browse"
-      />
+  <main class="home">
+    <div v-if="banners" class="home__content">
+      <AppMetaTags :meta-info="metaInfo" />
+      <VMainBanner :image="banners.main.image" class="home__banner-main" />
+      <div class="container-wrapper">
+        <VLatestSection class="home__latest" />
+        <VBanner
+          :url="banners.second.image"
+          :title="banners.second.title"
+          :text="banners.second.description"
+          class="home__banner-hosting"
+        />
+        <VFeaturedSection class="home__featured" />
+        <VBanner
+          :url="banners.last.image"
+          :title="banners.last.title"
+          :text="banners.last.description"
+          class="home__banner-browse"
+        />
+      </div>
+      <AppErrorMessage v-if="error" :msg="error" />
     </div>
   </main>
-  <AppErrorMessage v-if="error" :msg="error" />
 </template>
 
 <script>
@@ -39,7 +41,7 @@ export default {
     VBanner,
     VFeaturedSection,
     AppMetaTags,
-    AppErrorMessage
+    AppErrorMessage,
   },
   data() {
     return {
@@ -49,7 +51,7 @@ export default {
         'Hotels Booking',
         'The best service for booking and reserve hotels from all over the world',
         'fast booking, hotels all over the world, large selection of hotels, convenient hotel booking, hotels in different countries'
-      )
+      ),
     }
   },
   async created() {
@@ -57,12 +59,12 @@ export default {
       .fetchData('/banners')
       .then((response) => (this.banners = response.data))
       .catch((error) => (this.error = error.message))
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-.main {
+.home {
   &__banner {
     &-hosting {
       margin-bottom: 25px;
@@ -83,7 +85,7 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .main {
+  .home {
     &__banner {
       &-browse {
         margin-left: 0;
@@ -92,3 +94,24 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

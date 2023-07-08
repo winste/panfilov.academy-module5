@@ -3,34 +3,34 @@
     <button
       v-for="(number, index) in slideCount"
       :key="index"
-      @click="$emit('switch', index)"
       :class="
         index == slideIndex
           ? 'pagination__indicator pagination__indicator--active'
           : 'pagination__indicator'
       "
+      @click="$emit('switch', index)"
     ></button>
   </div>
-</template>
+</template>
 
 <script>
 export default {
   props: {
     slideCount: {
       type: Number,
-      default: 0
+      default: 0,
     },
     slideIndex: {
       type: Number,
-      default: 0
+      default: 0,
     },
     position: {
       type: String,
-      default: 'center'
-    }
-  }
+      default: 'center',
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -54,4 +54,4 @@ $indicator-size: 10px;
     }
   }
 }
-</style>
+</style>

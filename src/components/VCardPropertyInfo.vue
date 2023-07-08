@@ -6,9 +6,9 @@
       :height="iconHeight"
       class="card-property__icon card-property__icon-pet"
     />
-    <span v-text="count" class="card-property__number"></span>
+    <span class="card-property__number" v-text="count"></span>
   </div>
-</template>
+</template>
 
 <script>
 import AppIcon from './AppIcon.vue'
@@ -19,7 +19,20 @@ import Pet from '@/assets/images/icons/Pet.svg'
 
 export default {
   components: {
-    AppIcon
+    AppIcon,
+  },
+
+  props: {
+    name: String,
+    width: {
+      type: Number,
+      default: 25,
+    },
+    height: {
+      type: Number,
+      default: 24,
+    },
+    count: String,
   },
 
   data() {
@@ -27,21 +40,8 @@ export default {
       iconBedroom: Bedroom,
       iconBathroom: Bathroom,
       iconParking: Parking,
-      iconPet: Pet
+      iconPet: Pet,
     }
-  },
-
-  props: {
-    name: String,
-    width: {
-      type: Number,
-      default: 25
-    },
-    height: {
-      type: Number,
-      default: 24
-    },
-    count: String
   },
 
   computed: {
@@ -50,7 +50,7 @@ export default {
         bedroom: this.iconBedroom,
         bathroom: this.iconBathroom,
         parking: this.iconParking,
-        pet: this.iconPet
+        pet: this.iconPet,
       }
       return icon[this.name]
     },
@@ -59,7 +59,7 @@ export default {
       const icon = {
         bathroom: 20,
         parking: 22,
-        pet: 24
+        pet: 24,
       }
       return icon[this.name] ? icon[this.name] : this.width
     },
@@ -68,13 +68,13 @@ export default {
       const icon = {
         bathroom: 21,
         parking: 20,
-        pet: 22
+        pet: 22,
       }
       return icon[this.name] ? icon[this.name] : this.width
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/flexbox-general';
@@ -94,4 +94,4 @@ export default {
     align-self: center;
   }
 }
-</style>
+</style>

@@ -1,16 +1,16 @@
 <template>
   <section class="gallery">
-    <VueGallery :images="images" :index="index" @close="index = null" class="gg"></VueGallery>
+    <VueGallery :images="images" :index="index" class="gg" @close="index = null"></VueGallery>
     <div
       v-for="(image, imageIndex) in displayedImages"
       :key="imageIndex"
-      @click="index = imageIndex"
       :style="{ backgroundImage: 'url(' + image + ')' }"
       :class="
         imageIndex == countDisplayedImages - 1
           ? 'gallery__image gallery__image--btn'
           : 'gallery__image'
       "
+      @click="index = imageIndex"
     >
       <slot v-if="imageIndex == countDisplayedImages - 1">
         <span class="gallery__image-number">+{{ restImagesCount }} </span>
@@ -20,7 +20,7 @@
       </slot>
     </div>
   </section>
-</template>
+</template>
 
 <script>
 import VueGallery from 'vue-gallery'
@@ -29,18 +29,18 @@ import AppAvatar from './AppAvatar.vue'
 export default {
   components: {
     AppAvatar,
-    VueGallery
+    VueGallery,
   },
   props: {
     images: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
-    countDisplayedImages: Number
+    countDisplayedImages: Number,
   },
   data() {
     return {
-      index: null
+      index: null,
     }
   },
   computed: {
@@ -50,10 +50,10 @@ export default {
 
     displayedImages() {
       return this.images.slice(0, this.countDisplayedImages)
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -124,4 +124,4 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
     }
   }
 }
-</style>
+</style>

@@ -1,13 +1,13 @@
 export default {
-    separateWithDash(array) {
-        return array.map((item) => item.slice(1)).join(' - ')
-    },
+  separateWithDash(array) {
+    return array.map((item) => item.slice(1)).join(' - ')
+  },
 
-    addSpace(array) {
-        return array.map((price) => price.replace('$', '$ '))
-    },
+  addSpace(array) {
+    return array.map((price) => price.replace('$', '$ '))
+  },
 
-    addSpaceWithDash(array) {
-        return array.map((price) => price.replace('$', '$ ')).join(' - ')
-    },
+  addSpaceWithDash(array) {
+    return array.map((price) => price.replace('$', '$ ')).join(' - ')
+  },
 }

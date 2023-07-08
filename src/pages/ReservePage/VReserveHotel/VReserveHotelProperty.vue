@@ -5,9 +5,9 @@
 <script>
 export default {
   props: {
-    count: String,
-    name: String
-  }
+    count: { type: String, required: true },
+    name: { type: String, required: true },
+  },
 }
 </script>
 
@@ -19,3 +19,13 @@ export default {
   color: rgb(154, 154, 154);
 }
 </style>
+
+
+
+
+
+
+
+
+
+

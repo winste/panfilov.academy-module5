@@ -1,11 +1,11 @@
 <template>
   <div class="review">
     <div class="review__main">
-      <AppAvatar :url="reviewAvatar" class="review__avatar" />
-      <h5 v-text="reviewName" class="review__title"></h5>
-      <span v-text="dataFormatted" class="review__date"></span>
+      <AppAvatar :url="avatar" class="review__avatar" />
+      <h5 class="review__title" v-text="name"></h5>
+      <span class="review__date" v-text="dataFormatted"></span>
     </div>
-    <p v-text="reviewContent" class="review__text"></p>
+    <p class="review__text" v-text="text"></p>
   </div>
 </template>
 
@@ -14,26 +14,40 @@ import AppAvatar from '@/components/AppAvatar.vue'
 
 export default {
   components: {
-    AppAvatar
+    AppAvatar,
   },
+
   props: {
-    reviewAvatar: String,
-    reviewName: String,
-    reviewDate: String,
-    reviewContent: String
+    avatar: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: String,
+      required: true,
+    },
+    text: {
+      type: String,
+      required: true,
+    },
   },
+
   computed: {
     dataFormatted() {
-      const date = new Date(this.reviewDate)
+      const date = new Date(this.date)
       const options = {
         month: 'long',
         day: 'numeric',
-        year: 'numeric'
+        year: 'numeric',
       }
 
       return date.toLocaleDateString('en-US', options).replace(',', ' ')
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -66,3 +80,14 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+

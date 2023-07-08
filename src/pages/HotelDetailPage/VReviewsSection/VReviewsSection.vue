@@ -3,7 +3,7 @@
     <h4 class="reviews__title">
       <span class="reviews__title-text">Reviews</span>
       <AppIcon :name="reviewsIcon" class="reviews__title-icon" />
-      <span v-text="averageRating" class="reviews__title-rating"></span>
+      <span class="reviews__title-rating" v-text="averageRating"></span>
     </h4>
 
     <VRating :ratings="ratingList" class="reviews__rating" />
@@ -12,15 +12,15 @@
       <VReview
         v-for="(review, id) in reviewsListFormatted"
         :key="id"
-        :reviewAvatar="review.author.avatar"
-        :reviewName="review.author.name"
-        :reviewDate="review.date"
-        :reviewContent="review.content"
+        :avatar="review.author.avatar"
+        :name="review.author.name"
+        :date="review.date"
+        :text="review.content"
         class="reviews__item"
       />
     </div>
 
-    <AppButtonShowMore @showAll="changeDisplayedValue" :count="reviewsListCount" name="Reviews" />
+    <AppButtonShowMore :count="reviewsListCount" name="Reviews" @showAll="changeDisplayedValue" />
   </section>
 </template>
 
@@ -36,11 +36,11 @@ export default {
     AppIcon,
     VRating,
     VReview,
-    AppButtonShowMore
+    AppButtonShowMore,
   },
   props: {
-    reviewsList: Array,
-    reviewsDisplayedCount: Number
+    reviewsList: { type: Array, required: true },
+    reviewsDisplayedCount: { type: Number, default: 4 },
   },
   data() {
     return {
@@ -49,10 +49,10 @@ export default {
         { name: 'Hygiene', rating: 5 },
         { name: 'Communication', rating: 5 },
         { name: 'Location of Property', rating: 5 },
-        { name: 'Value for Money', rating: 5 }
+        { name: 'Value for Money', rating: 5 },
       ],
       reviewsIcon: Star,
-      showAllReviews: null
+      showAllReviews: null,
     }
   },
 
@@ -69,22 +69,22 @@ export default {
       return this.showAllReviews
         ? this.reviewsList
         : this.reviewsList.slice(0, this.reviewsDisplayedCount)
-    }
+    },
   },
   methods: {
     changeDisplayedValue(data) {
       this.showAllReviews = data
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/mixins/flexbox-general';
 .reviews {
   &__title {
-    display: flex;
+    @include flexbox-general($gap: 10px);
     align-items: center;
-    gap: 10px;
     margin-bottom: 27px;
     &-text {
       letter-spacing: -0.1px;
@@ -98,15 +98,11 @@ export default {
     }
   }
   &__list {
-    display: flex;
-    flex-wrap: wrap;
+    @include flexbox-general($gap: 31px 0px);
     justify-content: space-between;
-    row-gap: 31px;
   }
   &__rating {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16.5px 47.5px;
+    @include flexbox-general($gap: 16.5px 47.5px);
     margin-bottom: 50px;
     margin-left: 2px;
   }
@@ -119,3 +115,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

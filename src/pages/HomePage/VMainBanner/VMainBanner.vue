@@ -10,11 +10,14 @@
 import VSearchBar from './VSearchBar.vue'
 export default {
   components: {
-    VSearchBar
+    VSearchBar,
   },
   props: {
-    image: String
-  }
+    image: {
+      type: String,
+      required: true,
+    },
+  },
 }
 </script>
 
@@ -53,3 +56,13 @@ $banner-main-height: 567px;
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

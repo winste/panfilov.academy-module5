@@ -4,12 +4,12 @@ export default (title, description, keywords) => {
     meta: [
       {
         name: 'description',
-        content: description
+        content: description,
       },
       {
         name: 'keywords',
-        content: keywords
-      }
-    ]
+        content: keywords,
+      },
+    ],
   }
 }

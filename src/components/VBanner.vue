@@ -1,19 +1,19 @@
 <template>
   <section class="info-banner" :style="{ 'background-image': `url(${url})` }">
-    <h2 v-text="title" class="info-banner__title"></h2>
-    <p v-text="text" class="info-banner__description"></p>
+    <h2 class="info-banner__title" v-text="title"></h2>
+    <p class="info-banner__description" v-text="text"></p>
   </section>
-</template>
+</template>
 
 <script>
 export default {
   props: {
     url: String,
     title: String,
-    text: String
-  }
+    text: String,
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/background-position';
@@ -49,4 +49,4 @@ $description-width: 400px;
     }
   }
 }
-</style>
+</style>

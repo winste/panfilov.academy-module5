@@ -12,13 +12,13 @@ import AppIcon from '@/components/AppIcon.vue'
 
 export default {
   components: {
-    AppIcon
+    AppIcon,
   },
 
   props: {
-    icon: String,
-    name: String,
-    count: Number
+    icon: { type: String, required: true },
+    name: { type: String, required: true },
+    count: { type: Number, required: true },
   },
 
   computed: {
@@ -27,8 +27,8 @@ export default {
     },
     iconMargin() {
       return this.name == 'Bedrooms' ? '1px' : '13px'
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -63,3 +63,24 @@ $property-height: 160px;
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

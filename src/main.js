@@ -11,7 +11,7 @@ const settings = {
   lang: 'en_US',
   coordorder: 'latlong',
   enterprise: false,
-  version: '2.1'
+  version: '2.1',
 }
 
 createApp(App)

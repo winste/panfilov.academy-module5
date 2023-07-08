@@ -5,19 +5,19 @@
     max="20"
     :placeholder="placeholder"
     :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
     class="input-number"
+    @input="$emit('update:modelValue', $event.target.value)"
   />
-</template>
+</template>
 
 <script>
 export default {
   props: {
     modelValue: '',
-    placeholder: String
-  }
+    placeholder: String,
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/placeholder';
@@ -38,4 +38,4 @@ input[type='number'] {
   min-height: 24px;
   @include placeholder-style;
 }
-</style>
+</style>

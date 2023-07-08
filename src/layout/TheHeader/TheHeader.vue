@@ -5,13 +5,13 @@
     </router-link>
     <TheHeaderNavigation class="header__navigation" />
 
-    <div @click="showNavigation" class="burger burger__item">
+    <div class="burger burger__item" @click="showNavigation">
       <span class="burger__line burger__item burger__line"></span>
       <span class="burger__line burger__item burger__line2"></span>
       <span class="burger__line burger__item burger__line3"></span>
     </div>
   </header>
-</template>
+</template>
 
 <script>
 import AppIcon from '@/components/AppIcon.vue'
@@ -21,11 +21,11 @@ import TheHeaderNavigation from './TheHeaderNavigation.vue'
 export default {
   components: {
     AppIcon,
-    TheHeaderNavigation
+    TheHeaderNavigation,
   },
   data() {
     return {
-      logoIcon: Logo
+      logoIcon: Logo,
     }
   },
 
@@ -33,10 +33,10 @@ export default {
     showNavigation(e) {
       if (e.target.className.includes('burger__item'))
         document.querySelector('.navbar').classList.toggle('open')
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -91,4 +91,4 @@ export default {
     }
   }
 }
-</style>
+</style>

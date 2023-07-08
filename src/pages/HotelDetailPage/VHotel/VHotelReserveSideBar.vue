@@ -1,7 +1,7 @@
 <template>
   <div class="reserve">
-    <div v-text="correctPrice" class="reserve__price"></div>
-    <AppButtonReserve @click.prevent="reserveHotel" class="reserve__btn" />
+    <div class="reserve__price" v-text="correctPrice"></div>
+    <AppButtonReserve class="reserve__btn" @click.prevent="reserveHotel" />
   </div>
 </template>
 
@@ -12,15 +12,15 @@ import AppButtonReserve from '@/components/AppButtonReserve.vue'
 
 export default {
   components: {
-    AppButtonReserve
+    AppButtonReserve,
   },
   props: {
-    id: String,
-    name: String,
-    address: String,
-    price: Array,
-    properties: Object,
-    image: String
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    address: { type: String, required: true },
+    price: { type: Array, required: true },
+    properties: { type: Object, required: true },
+    image: { type: String, required: true },
   },
 
   data() {
@@ -32,23 +32,23 @@ export default {
         address: this.address,
         price: this.price,
         properties: this.properties,
-        image: this.image
-      }
+        image: this.image,
+      },
     }
   },
 
   computed: {
     correctPrice() {
       return formattedPrice.addSpaceWithDash(this.price)
-    }
+    },
   },
 
   methods: {
     reserveHotel() {
       this.store.addReserve(this.reserveData)
       this.$router.push('/order')
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -81,3 +81,13 @@ $button-height: 60px;
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

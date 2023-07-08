@@ -1,44 +1,48 @@
 <template>
-  <div v-if="hotelData" class="search-card">
-    <VCarousel
-      :slides="hotelData.images"
-      width="100%"
-      height="382px"
-      block="search"
-      class="search-card__carousel"
-    >
-      <VCardHostInfo
-        :avatar="hotelData.author.avatar"
-        :name="hotelData.name"
-        :price="hotelData.price"
-      />
-    </VCarousel>
-    <div class="search-card__info">
-      <VCardTitleInfo
-        :id="id"
-        :name="hotelData.name"
-        :address="hotelData.address"
-        gap="2px"
-        class="search-card__title"
-      />
-
-      <div class="search-card__properties">
-        <VCardPropertyInfo
-          v-for="(property, name) in hotelData.info[0]"
-          :key="name"
-          :name="name"
-          :count="property"
+  <div class="search-card--wpe">
+    <div v-if="hotelData" class="search-card">
+      <VCarousel
+        :slides="hotelData.images"
+        width="100%"
+        height="382px"
+        block="search"
+        class="search-card__carousel"
+      >
+        <VCardHostInfo
+          :avatar="hotelData.author.avatar"
+          :name="hotelData.name"
+          :price="hotelData.price"
         />
-      </div>
+      </VCarousel>
+      <div class="search-card__info">
+        <VCardTitleInfo
+          :id="id"
+          :name="hotelData.name"
+          :address="hotelData.address"
+          gap="2px"
+          class="search-card__title"
+        />
 
-      <span class="search-card__period">
-        <p class="search-card__type">{{ hotelData.type[0] }}</p>
-        <p class="search-card__period-delimiter"></p>
-        <p class="search-card__length">For {{ periodLength }} period: {{ hotelData.period[0] }}</p>
-      </span>
+        <div class="search-card__properties">
+          <VCardPropertyInfo
+            v-for="(property, name) in hotelData.info[0]"
+            :key="name"
+            :name="name"
+            :count="property"
+          />
+        </div>
+
+        <span class="search-card__period">
+          <p class="search-card__type">{{ hotelData.type[0] }}</p>
+          <p class="search-card__period-delimiter"></p>
+          <p class="search-card__length">
+            For {{ periodLength }} period: {{ hotelData.period[0] }}
+          </p>
+        </span>
+      </div>
+      <AppErrorMessage v-if="error" :msg="error" />
     </div>
   </div>
-  <AppErrorMessage v-if="error" :msg="error" />
 </template>
 
 <script>
@@ -55,16 +59,21 @@ export default {
     VCardHostInfo,
     VCardTitleInfo,
     VCardPropertyInfo,
-    AppErrorMessage
+    AppErrorMessage,
   },
   props: {
-    id: String
+    id: { type: String, required: true },
   },
   data() {
     return {
       hotelData: null,
-      error: null
+      error: null,
     }
+  },
+  computed: {
+    periodLength() {
+      return this.hotelData.period[0].includes('month') ? 'Short' : 'Long'
+    },
   },
   async created() {
     await api
@@ -72,11 +81,6 @@ export default {
       .then((response) => (this.hotelData = response.data))
       .catch((error) => (this.error = error))
   },
-  computed: {
-    periodLength() {
-      return this.hotelData.period[0].includes('month') ? 'Short' : 'Long'
-    }
-  }
 }
 </script>
 
@@ -131,3 +135,35 @@ $border-radus: 16px;
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

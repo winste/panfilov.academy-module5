@@ -12,15 +12,15 @@
             url="https://play.google.com/store/"
             name="PlayStore"
             :icon="playstoreIcon"
-            :iconWidth="22"
-            :iconHeight="22"
+            :icon-width="22"
+            :icon-height="22"
           />
           <TheFooterStoreLink
             url="https://www.apple.com/app-store/"
             name="AppleStore"
             :icon="appstoreIcon"
-            :iconWidth="24"
-            :iconHeight="24"
+            :icon-width="24"
+            :icon-height="24"
           />
         </div>
       </div>
@@ -34,7 +34,7 @@
       </p>
     </div>
   </footer>
-</template>
+</template>
 
 <script>
 import AppIcon from '@/components/AppIcon.vue'
@@ -50,7 +50,7 @@ export default {
     AppIcon,
     TheFooterList,
     TheFooterSocialMedia,
-    TheFooterStoreLink
+    TheFooterStoreLink,
   },
   data() {
     return {
@@ -61,27 +61,27 @@ export default {
         { name: 'About Us', href: '/about' },
         { name: 'Legal Information', href: '/legal' },
         { name: 'Contact Us', href: '/contacts' },
-        { name: 'Blogs', href: '/blogs' }
+        { name: 'Blogs', href: '/blogs' },
       ],
       listHelpCenter: [
         { name: 'Find a Property', href: '/find' },
         { name: 'How To Host?', href: '/accommodation' },
         { name: 'Why Us?', href: '/advantages' },
         { name: 'FAQs', href: '/faq' },
-        { name: 'Rental Guides', href: '/guides' }
+        { name: 'Rental Guides', href: '/guides' },
       ],
       listContacts: [
         { name: 'Phone: 1234567890', href: 'tel:1234567890' },
         { name: 'Email: company@email.com', href: 'mailto:company@email.com' },
         {
           name: 'Location: 100 Smart Street, LA, USA',
-          href: 'https://yandex.ru/maps/200/los-angeles/'
-        }
-      ]
+          href: 'https://yandex.ru/maps/200/los-angeles/',
+        },
+      ],
     }
-  }
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -157,4 +157,4 @@ export default {
     }
   }
 }
-</style>
+</style>

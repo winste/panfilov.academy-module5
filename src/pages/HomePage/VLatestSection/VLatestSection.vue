@@ -5,6 +5,7 @@
       <VLatestSectionCard
         v-for="card in cards"
         :id="card._id"
+        :key="card._id"
         :avatar="card.author.avatar"
         :background="card.image"
         :name="card.name"
@@ -24,13 +25,13 @@ import AppErrorMessage from '@/components/AppErrorMessage.vue'
 export default {
   components: {
     VLatestSectionCard,
-    AppErrorMessage
+    AppErrorMessage,
   },
 
   data() {
     return {
       cards: [],
-      error: null
+      error: null,
     }
   },
 
@@ -39,7 +40,7 @@ export default {
       .fetchData('/hotel/latest')
       .then((response) => (this.cards = response.data))
       .catch((error) => (this.error = error))
-  }
+  },
 }
 </script>
 
@@ -61,3 +62,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

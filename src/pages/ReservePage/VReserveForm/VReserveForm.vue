@@ -1,80 +1,80 @@
 <template>
-  <form @submit.prevent="submitOrder" class="form">
+  <form class="form" @submit.prevent="submitOrder">
     <div class="form__wrapper">
       <div class="form__main">
         <VReserveFormInput
+          v-model="order.first_name"
           type="text"
           placeholder="First name *"
           :error="condition('first_name')"
           :message="msg('first_name')"
-          v-model="order.first_name"
           class="form__field"
         />
 
         <VReserveFormInput
+          v-model="order.last_name"
           type="text"
           placeholder="Last name *"
           :error="condition('last_name')"
           :message="msg('last_name')"
-          v-model="order.last_name"
           class="form__field form__field-last-name"
         />
 
         <VReserveFormInput
+          v-model="order.info_1"
           type="text"
           placeholder="Info-1 *"
           :error="condition('info_1')"
           :message="msg('info_1')"
-          v-model="order.info_1"
           class="form__field"
         />
 
         <VReserveFormInput
+          v-model="order.info_2"
           type="text"
           placeholder="Info-2 *"
           :error="condition('info_2')"
           :message="msg('info_2')"
-          v-model="order.info_2"
           class="form__field form__field-info-2"
         />
 
         <div class="form__field">
           <div class="form__field-select">
             <VSelect
+              v-model="order.country"
               :options="countries"
               color="#959595"
               weight="500"
               placeholder="Country *"
-              v-model="order.country"
             />
           </div>
-          <span v-if="condition('country')" v-text="msg('country')" class="form__field-select-msg">
+          <span v-if="condition('country')" class="form__field-select-msg" v-text="msg('country')">
           </span>
         </div>
 
         <VReserveFormInput
+          v-model="order.email"
           type="email"
           placeholder="Email address *"
           :error="condition('email')"
           :message="msg('email')"
-          v-model="order.email"
           class="form__field form__field-email"
         />
       </div>
 
       <VReserveFormInput
+        v-model="order.phone"
         type="phone"
         placeholder="Phone number"
         :error="condition('phone')"
         message="Incorrect format"
-        v-model="order.phone"
         class="form__field form__field-phone"
       />
 
       <VReserveFormInput
+        v-model="order.comment"
         type="text"
         placeholder="Comment"
-        v-model="order.comment"
         class="form__field form__field-comment"
       />
     </div>
@@ -99,7 +99,7 @@ export default {
     VReserveFormInput,
     VSelect,
     AppButtonReserve,
-    AppErrorMessage
+    AppErrorMessage,
   },
 
   data() {
@@ -114,10 +114,10 @@ export default {
         country: '',
         email: '',
         phone: '',
-        comment: ''
+        comment: '',
       },
       store: useReserveStore(),
-      error: null
+      error: null,
     }
   },
 
@@ -129,8 +129,8 @@ export default {
         info_1: { required },
         info_2: { required },
         country: { required },
-        email: { required, email }
-      }
+        email: { required, email },
+      },
     }
   },
 
@@ -164,8 +164,8 @@ export default {
             console.log(error)
           })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -245,3 +245,13 @@ $input-height: 49px;
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

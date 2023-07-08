@@ -5,13 +5,13 @@
     <TheFooterListColumn
       title="CONTACT INFO"
       :list="listContacts"
-      typeFollow="link"
+      type-follow="link"
       class="company-links__contacts"
     >
       <TheFooterSocialMedia class="company-links__contacts-social" />
     </TheFooterListColumn>
   </div>
-</template>
+</template>
 
 <script>
 import TheFooterListColumn from './TheFooterListColumn.vue'
@@ -20,7 +20,7 @@ import TheFooterSocialMedia from './TheFooterSocialMedia.vue'
 export default {
   components: {
     TheFooterListColumn,
-    TheFooterSocialMedia
+    TheFooterSocialMedia,
   },
 
   data() {
@@ -29,27 +29,27 @@ export default {
         { name: 'About Us', href: '/about' },
         { name: 'Legal Information', href: '/legal' },
         { name: 'Contact Us', href: '/contacts' },
-        { name: 'Blogs', href: '/blogs' }
+        { name: 'Blogs', href: '/blogs' },
       ],
       listHelpCenter: [
         { name: 'Find a Property', href: '/find' },
         { name: 'How To Host?', href: '/accommodation' },
         { name: 'Why Us?', href: '/advantages' },
         { name: 'FAQs', href: '/faq' },
-        { name: 'Rental Guides', href: '/guides' }
+        { name: 'Rental Guides', href: '/guides' },
       ],
       listContacts: [
         { name: 'Phone: 1234567890', href: 'tel:1234567890' },
         { name: 'Email: company@email.com', href: 'mailto:company@email.com' },
         {
           name: 'Location: 100 Smart Street, LA, USA',
-          href: 'https://yandex.ru/maps/200/los-angeles/'
-        }
-      ]
+          href: 'https://yandex.ru/maps/200/los-angeles/',
+        },
+      ],
     }
-  }
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -75,4 +75,4 @@ export default {
     }
   }
 }
-</style>
+</style>

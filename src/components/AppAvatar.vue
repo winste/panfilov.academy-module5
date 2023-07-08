@@ -1,6 +1,6 @@
 <template>
   <img :src="url" alt="avatar" class="avatar" />
-</template>
+</template>
 
 <script>
 export default {
@@ -8,11 +8,11 @@ export default {
     url: String,
     size: {
       type: String,
-      default: '70px'
-    }
-  }
+      default: '70px',
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -34,4 +34,4 @@ export default {
     height: $size;
   }
 }
-</style>
+</style>

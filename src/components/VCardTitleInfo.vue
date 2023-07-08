@@ -1,11 +1,11 @@
 <template>
   <div class="card-info">
     <router-link :to="cardDetailLink">
-      <h4 v-text="name" class="card-info__name"></h4>
+      <h4 class="card-info__name" v-text="name"></h4>
     </router-link>
-    <p v-text="address" class="card-info__address"></p>
+    <p class="card-info__address" v-text="address"></p>
   </div>
-</template>
+</template>
 
 <script>
 export default {
@@ -15,24 +15,24 @@ export default {
     address: String,
     nameSize: {
       type: String,
-      default: '18px'
+      default: '18px',
     },
     addressSize: {
       type: String,
-      default: '14px'
+      default: '14px',
     },
     gap: {
       type: String,
-      default: '10px'
-    }
+      default: '10px',
+    },
   },
   computed: {
     cardDetailLink() {
       return `/hotel/detail/${this.id}`
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/text-hide';
@@ -50,4 +50,4 @@ export default {
     @include text-hide;
   }
 }
-</style>
+</style>

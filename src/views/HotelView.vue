@@ -1,63 +1,68 @@
 <template>
-  <main class="hotel" v-if="hotelData">
-    <AppMetaTags :metaInfo="metaInfo" />
-    <VHotelGallery
-      :avatar="hotelData.author.avatar"
-      :name="hotelData.name"
-      :price="hotelData.price"
-      :mainImage="hotelData.image"
-      :images="hotelData.images"
-      :countDisplayedImages="4"
-      class="hotel__gallery"
-    />
+  <main v-if="hotelData" class="hotel">
+    <div class="hotel__detail">
+      <AppMetaTags :meta-info="metaInfo" />
+      <VHotelGallery
+        :avatar="hotelData.author.avatar"
+        :name="hotelData.name"
+        :price="hotelData.price"
+        :main-image="hotelData.image"
+        :images="hotelData.images"
+        :count-displayed-images="4"
+        class="hotel__gallery"
+      />
 
-    <div class="container-wrapper">
-      <div class="hotel__main">
-        <div class="hotel__heading">
-          <VHotelTitle :hotelName="hotelData.name" :hotelAddress="hotelData.address" />
-          <div class="hotel__interaction">
-            <AppButtonIcon :icon="buttonIconLike" :width="36" :height="36" />
-            <AppButtonIcon :icon="buttonIconSearch" :width="35" :height="35" />
+      <div class="container-wrapper">
+        <div class="hotel__main">
+          <div class="hotel__heading">
+            <VHotelTitle :hotel-name="hotelData.name" :hotel-address="hotelData.address" />
+            <div class="hotel__interaction">
+              <AppButtonIcon :icon="buttonIconLike" :width="36" :height="36" />
+              <AppButtonIcon :icon="buttonIconSearch" :width="35" :height="35" />
+            </div>
           </div>
-        </div>
 
-        <div class="hotel__property">
-          <VHotelProperty :icon="iconBedroom" :count="+hotelData.info[0].bedroom" name="Bedrooms" />
-          <VHotelProperty
-            :icon="iconBathroom"
-            :count="+hotelData.info[0].bathroom"
-            name="Bathrooms"
+          <div class="hotel__property">
+            <VHotelProperty
+              :icon="iconBedroom"
+              :count="+hotelData.info[0].bedroom"
+              name="Bedrooms"
+            />
+            <VHotelProperty
+              :icon="iconBathroom"
+              :count="+hotelData.info[0].bathroom"
+              name="Bathrooms"
+            />
+          </div>
+
+          <VHotelReserveSideBar
+            :id="hotelData._id"
+            :name="hotelData.name"
+            :address="hotelData.address"
+            :price="hotelData.price"
+            :properties="hotelData.info[0]"
+            :image="hotelData.image"
+            class="hotel__reserve"
+          />
+          <VHotelDescription
+            :hotel-description="hotelData.description[0]"
+            class="hotel__description"
           />
         </div>
 
-        <VHotelReserveSideBar
-          :id="hotelData._id"
-          :name="hotelData.name"
-          :address="hotelData.address"
-          :price="hotelData.price"
-          :properties="hotelData.info[0]"
-          :image="hotelData.image"
-          class="hotel__reserve"
-        />
-        <VHotelDescription
-          :hotelDescription="hotelData.description[0]"
-          class="hotel__description"
-        />
-      </div>
-
-      <div class="hotel__information">
-        <VAmenitiesSection :amenitiesList="hotelData.amenities" :amenitiesDisplayedCount="6" />
-        <VMap :coords="hotelData.coords" width="771px" height="420px" class="hotel__map" />
-        <VReviewsSection :reviewsList="hotelData.reviews" :reviewsDisplayedCount="4" />
+        <div class="hotel__information">
+          <VAmenitiesSection :amenities-list="hotelData.amenities" :amenities-displayed-count="6" />
+          <VMap :coords="hotelData.coords" width="771px" height="420px" class="hotel__map" />
+          <VReviewsSection :reviews-list="hotelData.reviews" />
+        </div>
       </div>
     </div>
+    <AppErrorMessage v-if="error" :msg="error" />
   </main>
-  <AppErrorMessage v-if="error" :msg="error" />
 </template>
 
 <script>
 import { api } from '@/api/api'
-import VGallery from '@/components/VGallery.vue'
 import AppButtonIcon from '@/components/AppButtonIcon.vue'
 import LikeBig from '@/assets/images/icons/LikeBig.svg'
 import Share from '@/assets/images/icons/Share.svg'
@@ -78,7 +83,6 @@ import AppErrorMessage from '@/components/AppErrorMessage.vue'
 export default {
   name: 'MyComponent',
   components: {
-    VGallery,
     VHotelGallery,
     AppButtonIcon,
     VHotelReserveSideBar,
@@ -89,7 +93,7 @@ export default {
     VReviewsSection,
     VMap,
     AppMetaTags,
-    AppErrorMessage
+    AppErrorMessage,
   },
 
   data() {
@@ -106,7 +110,7 @@ export default {
         'Hotel Detail Information',
         'Detailed information about the selected hotel for booking in the desired country',
         'hotel detail information, hotels all over the world, large selection of hotels in many countries, hotels booking, hotels search'
-      )
+      ),
     }
   },
 
@@ -115,14 +119,16 @@ export default {
       .fetchData(`/hotel/detail/${this.idHotel}`)
       .then((response) => (this.hotelData = response.data))
       .catch((error) => (this.error = error.message))
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/flexbox-general';
 .hotel {
-  margin-bottom: 51px;
+  &__detail {
+    margin-bottom: 51px;
+  }
   &__gallery {
     margin: 35px 0 90px 0;
     padding: 0 14px;
@@ -170,3 +176,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

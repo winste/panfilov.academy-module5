@@ -5,19 +5,24 @@
       <p class="news-letter__text">Stay Upto Date</p>
     </div>
 
-    <form @submit.prevent="submitEmail" class="news-letter__form">
+    <form class="news-letter__form" @submit.prevent="submitEmail">
       <input
+        v-model="email"
         type="email"
         name="email"
-        v-model="email"
         placeholder="Your Email..."
         class="news-letter__input"
       />
 
-      <AppButtonSubmit :icon="icon" :iconWidth="26" :iconHeight="26" class="news-letter__button" />
+      <AppButtonSubmit
+        :icon="icon"
+        :icon-width="26"
+        :icon-height="26"
+        class="news-letter__button"
+      />
     </form>
   </div>
-</template>
+</template>
 
 <script>
 import AppButtonSubmit from '@/components/AppButtonSubmit.vue'
@@ -27,20 +32,20 @@ import { required, email } from '@vuelidate/validators'
 
 export default {
   components: {
-    AppButtonSubmit
+    AppButtonSubmit,
   },
 
   data() {
     return {
       v$: useVuelidate(),
       email: '',
-      icon: LetterSubmit
+      icon: LetterSubmit,
     }
   },
 
   validations() {
     return {
-      email: { required, email }
+      email: { required, email },
     }
   },
 
@@ -50,10 +55,10 @@ export default {
       if (result) {
         alert('NEWS LETTER subscribed')
       }
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -111,4 +116,4 @@ $formHeight: 50px;
     gap: 20px;
   }
 }
-</style>
+</style>

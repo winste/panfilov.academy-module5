@@ -7,7 +7,7 @@
       <p class="host-info__text-price">For: {{ correctPrice }}</p>
     </span>
   </div>
-</template>
+</template>
 
 <script>
 import AppAvatar from '@/components/AppAvatar.vue'
@@ -15,20 +15,20 @@ import formattedPrice from '@/helpers/formattedPrice'
 
 export default {
   components: {
-    AppAvatar
+    AppAvatar,
   },
   props: {
     avatar: String,
     name: String,
-    price: Array
+    price: Array,
   },
   computed: {
     correctPrice() {
       return formattedPrice.addSpaceWithDash(this.price)
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/flexbox-general';
@@ -65,4 +65,4 @@ export default {
     }
   }
 }
-</style>
+</style>

@@ -7,8 +7,8 @@
         :id="id"
         :name="name"
         :address="address"
-        nameSize="17px"
-        addressSize="13px"
+        name-size="17px"
+        address-size="13px"
         class="latest-card__info"
       />
     </div>
@@ -25,30 +25,30 @@ export default {
   components: {
     AppAvatar,
     VCardTitleInfo,
-    AppButtonIcon
+    AppButtonIcon,
   },
 
   props: {
-    id: String,
-    avatar: String,
-    background: String,
-    name: String,
-    address: String,
+    id: { type: String, required: true },
+    avatar: { type: String, required: true },
+    background: { type: String, required: true },
+    name: { type: String, required: true },
+    address: { type: String, required: true },
     width: {
       type: String,
-      default: '279px'
+      default: '279px',
     },
     height: {
       type: String,
-      default: '340px'
-    }
+      default: '340px',
+    },
   },
 
   data() {
     return {
-      icon: Like
+      icon: Like,
     }
-  }
+  },
 }
 </script>
 
@@ -81,3 +81,24 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

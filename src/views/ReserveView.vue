@@ -1,8 +1,8 @@
 <template>
   <main class="reserve">
-    <AppMetaTags :metaInfo="metaInfo" />
+    <AppMetaTags :meta-info="metaInfo" />
     <VReserveForm class="reserve__form" />
-    <VReserveHotel :hotelData="store.getReserve" class="reserve__preview" />
+    <VReserveHotel :hotel-data="store.getReserve" class="reserve__preview" />
   </main>
 </template>
 
@@ -17,7 +17,7 @@ export default {
   components: {
     VReserveForm,
     VReserveHotel,
-    AppMetaTags
+    AppMetaTags,
   },
   data() {
     return {
@@ -27,9 +27,9 @@ export default {
         'Reserve Hotel',
         'The best service for booking and reserve hotels from all over the world',
         'reserve hotels, fast reserve hotels, fast and comfortable reserve hotels, booking hotels'
-      )
+      ),
     }
-  }
+  },
 }
 </script>
 
@@ -65,3 +65,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

@@ -3,10 +3,10 @@
     :options="options"
     :placeholder="placeholder"
     :model-value="modelValue"
-    @update:model-value="setSelected"
     class="select"
+    @update:model-value="setSelected"
   />
-</template>
+</template>
 
 <script>
 import VueSelect from 'vue-select'
@@ -14,7 +14,7 @@ import 'vue-select/dist/vue-select.css'
 
 export default {
   components: {
-    VueSelect
+    VueSelect,
   },
 
   props: {
@@ -23,25 +23,25 @@ export default {
     placeholder: String,
     style: {
       type: Boolean,
-      default: true
+      default: true,
     },
     color: String,
-    weight: String
+    weight: String,
   },
 
   methods: {
     setSelected(value) {
       this.$emit('update:modelValue', value)
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style scoped>
 * {
   --vs-search-input-placeholder-color: v-bind(color);
 }
-</style>
+</style>
 
 <style lang="scss">
 @import '@/assets/scss/const';
@@ -77,4 +77,4 @@ export default {
     font-weight: v-bind(weight);
   }
 }
-</style>
+</style>

@@ -7,7 +7,7 @@
       <TheFooter />
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 import TheFooter from '@/layout/TheFooter/TheFooter.vue'
@@ -18,7 +18,7 @@ export default {
   components: {
     TheHeader,
     TheNewsLetter,
-    TheFooter
-  }
+    TheFooter,
+  },
 }
 </script>

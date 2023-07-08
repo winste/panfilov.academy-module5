@@ -9,30 +9,28 @@
         gap="6px"
         class="map-properties__title"
       />
-      <VCardPropertiesInfo :properties="properties" :showAll="true" />
+      <VCardPropertiesInfo :properties="properties" :show-all="true" />
     </div>
   </div>
 </template>
 
 <script>
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
-import VCardPropertyInfo from '../../components/VCardPropertyInfo.vue'
-import VCardPropertiesInfo from '../../components/VCardPropertiesInfo.vue'
+import VCardPropertiesInfo from '@/components/VCardPropertiesInfo.vue'
 
 export default {
   components: {
     VCardTitleInfo,
-    VCardPropertyInfo,
-    VCardPropertiesInfo
+    VCardPropertiesInfo,
   },
 
   props: {
-    image: String,
-    id: String,
-    name: String,
-    address: String,
-    properties: Object
-  }
+    image: { type: String, required: true },
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    address: { type: String, required: true },
+    properties: { type: Object, required: true },
+  },
 }
 </script>
 
@@ -75,3 +73,13 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+

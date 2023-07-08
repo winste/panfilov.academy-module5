@@ -4,14 +4,15 @@
     <div class="featured-section__cards">
       <VFeaturedSectionCard
         v-for="card in cards"
-        :carouselCard="card"
+        :key="card._id"
+        :carousel-card="card"
         class="featured-section__card"
       >
         <VCardTitleInfo
           :id="card._id"
           :name="card.name"
           :address="card.address"
-          nameSize="18px"
+          name-size="18px"
           gap="8px"
           class="featured-section__card-info"
         />
@@ -25,7 +26,6 @@
 
 <script>
 import { api } from '@/api/api'
-import VCardPropertyInfo from '@/components/VCardPropertyInfo.vue'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
 import VCardPropertiesInfo from '@/components/VCardPropertiesInfo.vue'
 import VFeaturedSectionCard from './VFeaturedSectionCard.vue'
@@ -35,14 +35,13 @@ export default {
   components: {
     VFeaturedSectionCard,
     VCardTitleInfo,
-    VCardPropertyInfo,
     VCardPropertiesInfo,
-    AppErrorMessage
+    AppErrorMessage,
   },
   data() {
     return {
       cards: [],
-      error: null
+      error: null,
     }
   },
   async created() {
@@ -50,7 +49,7 @@ export default {
       .fetchData('/hotel/featured')
       .then((response) => (this.cards = response.data))
       .catch((error) => (this.error = error))
-  }
+  },
 }
 </script>
 
@@ -91,3 +90,13 @@ $cardSize: 382px;
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
+
