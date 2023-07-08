@@ -1,18 +1,18 @@
 <template>
   <img :src="url" alt="avatar" class="avatar" />
-</template>
+</template>
 
 <script>
 export default {
   props: {
-    url: String,
+    url: { type: String, required: true },
     size: {
       type: String,
       default: '70px',
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -34,4 +34,4 @@ export default {
     height: $size;
   }
 }
-</style>
+</style>

@@ -1,10 +1,10 @@
 <template>
   <button type="submit" class="button-reserve">Reserve Now</button>
-</template>
+</template>
 
 <script>
 export default {}
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -31,4 +31,24 @@ $button-height: 60px;
     min-width: 100%;
   }
 }
-</style>
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

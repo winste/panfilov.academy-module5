@@ -4,7 +4,7 @@
       <YandexMarker :coordinates="coords" :marker-id="1" />
     </YandexMap>
   </div>
-</template>
+</template>
 
 <script>
 import { yandexMap, yandexMarker } from 'vue-yandex-maps'
@@ -12,15 +12,16 @@ import { yandexMap, yandexMarker } from 'vue-yandex-maps'
 export default {
   components: { yandexMap, yandexMarker },
   props: {
-    coords: Array,
-    width: String,
-    height: String,
+    coords: { type: Array, required: true },
+    width: { type: String, required: true },
+    height: { type: String, required: true },
   },
 }
-</script>
+</script>
+
 <style lang="scss" scoped>
 .map {
   max-width: v-bind(width);
   height: v-bind(height);
 }
-</style>
+</style>

@@ -2,12 +2,12 @@
   <svg :width="width" :height="height">
     <use :xlink:href="`#${name}`" />
   </svg>
-</template>
+</template>
 
 <script>
 export default {
   props: {
-    name: String,
+    name: { type: Number, required: true },
     width: {
       type: Number,
       default: 20,
@@ -18,4 +18,4 @@ export default {
     },
   },
 }
-</script>
+</script>

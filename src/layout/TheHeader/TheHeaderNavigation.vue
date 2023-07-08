@@ -5,7 +5,7 @@
     <a href="#latest" name="latest" class="navbar__link">Rental Guides</a>
     <a href="#footer" class="navbar__link">Download Mobile App</a>
   </nav>
-</template>
+</template>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -47,4 +47,4 @@
     min-width: 100%;
   }
 }
-</style>
+</style>

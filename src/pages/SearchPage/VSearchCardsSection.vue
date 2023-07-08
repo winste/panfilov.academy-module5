@@ -20,7 +20,7 @@ export default {
 
   props: {
     count: { type: Number, required: true },
-    hotels: { type: Number, required: true },
+    hotels: { type: Array, required: true },
   },
 
   data() {

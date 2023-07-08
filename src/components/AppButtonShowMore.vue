@@ -3,13 +3,13 @@
     <span v-if="!showAll"> Show All {{ count }} {{ name }}</span>
     <span v-else> Hide {{ name }} list </span>
   </button>
-</template>
+</template>
 
 <script>
 export default {
   props: {
-    count: Number,
-    name: String,
+    count: { type: Number, required: true },
+    name: { type: String, required: true },
   },
   data() {
     return {
@@ -22,7 +22,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -43,4 +43,4 @@ export default {
     @include button-hover;
   }
 }
-</style>
+</style>

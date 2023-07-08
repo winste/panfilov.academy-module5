@@ -6,7 +6,7 @@
     class="select"
     @update:model-value="setSelected"
   />
-</template>
+</template>
 
 <script>
 import VueSelect from 'vue-select'
@@ -18,15 +18,11 @@ export default {
   },
 
   props: {
-    modelValue: '',
-    options: Array,
-    placeholder: String,
-    style: {
-      type: Boolean,
-      default: true,
-    },
-    color: String,
-    weight: String,
+    modelValue: { type: String, default: '' },
+    options: { type: Array, required: true },
+    placeholder: { type: String, default: '' },
+    color: { type: String, default: '#C2C6CC' },
+    weight: { type: String, default: '600' },
   },
 
   methods: {
@@ -35,13 +31,13 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style scoped>
 * {
   --vs-search-input-placeholder-color: v-bind(color);
 }
-</style>
+</style>
 
 <style lang="scss">
 @import '@/assets/scss/const';
@@ -77,4 +73,4 @@ export default {
     font-weight: v-bind(weight);
   }
 }
-</style>
+</style>

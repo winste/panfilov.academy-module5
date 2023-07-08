@@ -20,15 +20,13 @@
       </slot>
     </div>
   </section>
-</template>
+</template>
 
 <script>
 import VueGallery from 'vue-gallery'
-import AppAvatar from './AppAvatar.vue'
 
 export default {
   components: {
-    AppAvatar,
     VueGallery,
   },
   props: {
@@ -36,7 +34,7 @@ export default {
       type: Array,
       default: () => [],
     },
-    countDisplayedImages: Number,
+    countDisplayedImages: { type: Number, required: true },
   },
   data() {
     return {
@@ -53,7 +51,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -124,4 +122,4 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
     }
   }
 }
-</style>
+</style>

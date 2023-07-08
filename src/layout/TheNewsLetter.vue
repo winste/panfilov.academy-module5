@@ -22,7 +22,7 @@
       />
     </form>
   </div>
-</template>
+</template>
 
 <script>
 import AppButtonSubmit from '@/components/AppButtonSubmit.vue'
@@ -58,7 +58,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -116,4 +116,4 @@ $formHeight: 50px;
     gap: 20px;
   }
 }
-</style>
+</style>

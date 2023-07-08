@@ -5,14 +5,14 @@
     </router-link>
     <p class="card-info__address" v-text="address"></p>
   </div>
-</template>
+</template>
 
 <script>
 export default {
   props: {
-    id: String,
-    name: String,
-    address: String,
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    address: { type: String, required: true },
     nameSize: {
       type: String,
       default: '18px',
@@ -32,7 +32,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/text-hide';
@@ -50,4 +50,4 @@ export default {
     @include text-hide;
   }
 }
-</style>
+</style>

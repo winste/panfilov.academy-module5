@@ -1,5 +1,5 @@
 <template>
-  <div class="search-card--wpe">
+  <div class="search-card">
     <div v-if="hotelData" class="search-card">
       <VCarousel
         :slides="hotelData.images"

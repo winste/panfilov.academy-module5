@@ -2,13 +2,10 @@
   <div class="info">
     <h4 class="info__list-title" v-text="title"></h4>
     <ul class="info__list">
-      <li v-for="item in list" class="info__list-item">
-        <router-link
-          v-if="typeFollow == 'router'"
-          :to="item.href"
-          class="info__list-link"
-          v-text="item.name"
-        ></router-link>
+      <li v-for="item in list" :key="item.href" class="info__list-item">
+        <router-link v-if="typeFollow == 'router'" :to="item.href" class="info__list-link">
+          {{ item.name }}</router-link
+        >
         <a
           v-if="typeFollow == 'link'"
           :href="item.href"
@@ -21,20 +18,20 @@
       </li>
     </ul>
   </div>
-</template>
+</template>
 
 <script>
 export default {
   props: {
-    title: String,
-    list: Array,
+    title: { type: String, required: true },
+    list: { type: Array, required: true },
     typeFollow: {
       type: String,
       default: 'router',
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss">
 @import '@/assets/scss/mixins/_flexbox-direction.scss';
@@ -55,4 +52,4 @@ export default {
     }
   }
 }
-</style>
+</style>

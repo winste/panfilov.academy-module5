@@ -1,6 +1,12 @@
 module.exports = {
-  extends: [ '@babel/core', 'plugin:vue/recommended', 'plugin:prettier-vue/recommended'],
-  parser: '@babel/eslint-parser',
+  extends: ['plugin:vue/recommended', 'plugin:prettier-vue/recommended'],
+
+  parserOptions: {
+    ecmaVersion: 12,
+    parser: '@babel/eslint-parser',
+    requireConfigFile: false,
+    sourceType: 'module',
+  },
 
   settings: {
     'prettier-vue': {

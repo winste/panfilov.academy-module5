@@ -23,13 +23,13 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-direction';
 @import '@/assets/scss/mixins/background-position';
 
 $banner-main-height: 567px;
 
 .main-banner {
-  display: flex;
-  flex-direction: column;
+  @include flexbox-direction($direction: column, $gap: 0, $flexWrap: nowrap);
   justify-content: end;
   align-items: center;
   min-height: $banner-main-height;

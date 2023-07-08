@@ -11,7 +11,7 @@
       <TheFooterSocialMedia class="company-links__contacts-social" />
     </TheFooterListColumn>
   </div>
-</template>
+</template>
 
 <script>
 import TheFooterListColumn from './TheFooterListColumn.vue'
@@ -49,7 +49,7 @@ export default {
     }
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -75,4 +75,4 @@ export default {
     }
   }
 }
-</style>
+</style>

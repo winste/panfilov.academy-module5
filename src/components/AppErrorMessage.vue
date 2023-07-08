@@ -2,12 +2,12 @@
   <span v-show="errorCheck" class="error-msg">
     <p v-text="msg"></p>
   </span>
-</template>
+</template>
 
 <script>
 export default {
   props: {
-    msg: String,
+    msg: { type: Number, required: true },
   },
 
   computed: {
@@ -16,7 +16,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -33,4 +33,4 @@ export default {
   border: 1px solid rgba(255, 0, 0, 0.801);
   box-shadow: $box-shadow;
 }
-</style>
+</style>

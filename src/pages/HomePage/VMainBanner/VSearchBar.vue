@@ -9,8 +9,6 @@
             id="select"
             v-model="filter.location"
             :options="countries"
-            color="#C2C6CC"
-            weight="600"
             placeholder="Which city do you prefer?"
           />
         </label>
@@ -175,6 +173,7 @@ $delimiter-color: rgb(221, 221, 221);
     justify-content: center;
     &-select {
       min-width: 258px;
+      max-width: 232px;
       min-height: 24px;
       padding-left: 22px;
       margin-right: 28px;

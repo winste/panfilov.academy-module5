@@ -12,8 +12,6 @@
             url="https://play.google.com/store/"
             name="PlayStore"
             :icon="playstoreIcon"
-            :icon-width="22"
-            :icon-height="22"
           />
           <TheFooterStoreLink
             url="https://www.apple.com/app-store/"
@@ -34,7 +32,7 @@
       </p>
     </div>
   </footer>
-</template>
+</template>
 
 <script>
 import AppIcon from '@/components/AppIcon.vue'
@@ -42,14 +40,12 @@ import Logo from '@/assets/images/Logo.svg'
 import Appstore from '@/assets/images/icons/Appstore.svg'
 import Playstore from '@/assets/images/icons/Playstore.svg'
 import TheFooterList from './TheFooterList.vue'
-import TheFooterSocialMedia from './TheFooterSocialMedia.vue'
 import TheFooterStoreLink from './TheFooterStoreLink.vue'
 
 export default {
   components: {
     AppIcon,
     TheFooterList,
-    TheFooterSocialMedia,
     TheFooterStoreLink,
   },
   data() {
@@ -57,31 +53,10 @@ export default {
       logoIcon: Logo,
       appstoreIcon: Appstore,
       playstoreIcon: Playstore,
-      listAbout: [
-        { name: 'About Us', href: '/about' },
-        { name: 'Legal Information', href: '/legal' },
-        { name: 'Contact Us', href: '/contacts' },
-        { name: 'Blogs', href: '/blogs' },
-      ],
-      listHelpCenter: [
-        { name: 'Find a Property', href: '/find' },
-        { name: 'How To Host?', href: '/accommodation' },
-        { name: 'Why Us?', href: '/advantages' },
-        { name: 'FAQs', href: '/faq' },
-        { name: 'Rental Guides', href: '/guides' },
-      ],
-      listContacts: [
-        { name: 'Phone: 1234567890', href: 'tel:1234567890' },
-        { name: 'Email: company@email.com', href: 'mailto:company@email.com' },
-        {
-          name: 'Location: 100 Smart Street, LA, USA',
-          href: 'https://yandex.ru/maps/200/los-angeles/',
-        },
-      ],
     }
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -157,4 +132,4 @@ export default {
     }
   }
 }
-</style>
+</style>

@@ -2,6 +2,7 @@
   <Swiper :slides-per-view="1" class="swiper" @swiper="onSwiper">
     <SwiperSlide
       v-for="slide in slides"
+      :key="slide"
       :style="{ 'background-image': `url(${slide})` }"
       class="swiper__slide"
     >
@@ -23,7 +24,7 @@
       </div>
     </div>
   </Swiper>
-</template>
+</template>
 
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -33,7 +34,7 @@ import AppButtonIcon from '@/components/AppButtonIcon.vue'
 import VCarouselPagination from './VCarousel.Pagination.vue'
 
 export default {
-  name: 'Carousel',
+  name: 'CarouselSlider',
   components: {
     Swiper,
     SwiperSlide,
@@ -42,9 +43,9 @@ export default {
   },
 
   props: {
-    slides: Array,
-    width: String,
-    height: String,
+    slides: { type: Array, required: true },
+    width: { type: String, required: true },
+    height: { type: String, required: true },
     block: {
       type: String,
       default: 'featured',
@@ -86,7 +87,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -122,4 +123,4 @@ export default {
     margin-right: v-bind(paginationMargin);
   }
 }
-</style>
+</style>

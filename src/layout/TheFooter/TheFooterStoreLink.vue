@@ -1,11 +1,11 @@
 <template>
   <div class="store">
-    <a :href="url" target="_blank" class="store-link">
-      <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" class="store-icon" />
-      <p class="store-name" v-text="name"></p>
+    <a :href="url" target="_blank" class="store__link">
+      <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" class="store__icon" />
+      <p class="store__name" v-text="name"></p>
     </a>
   </div>
-</template>
+</template>
 
 <script>
 import AppIcon from '@/components/AppIcon.vue'
@@ -15,14 +15,14 @@ export default {
     AppIcon,
   },
   props: {
-    url: String,
-    name: String,
-    icon: String,
-    iconWidth: Number,
-    iconHeight: Number,
+    url: { type: String, required: true },
+    name: { type: String, required: true },
+    icon: { type: String, required: true },
+    iconWidth: { type: Number, default: 22 },
+    iconHeight: { type: Number, default: 22 },
   },
 }
-</script>
+</script>
 
 <style lang="scss">
 @import '@/assets/scss/const';
@@ -34,12 +34,12 @@ export default {
   border-radius: 6px;
   width: 172px;
   height: 52px;
-  &-name {
+  &__name {
     font-size: 15px;
     font-weight: 600;
     margin-top: 2px;
   }
-  &-link {
+  &__link {
     @include flexbox-general($gap: 15px);
     justify-content: center;
     padding: 15px 15px 13px 13px;
@@ -48,4 +48,4 @@ export default {
     }
   }
 }
-</style>
+</style>

@@ -11,7 +11,7 @@
       <span class="burger__line burger__item burger__line3"></span>
     </div>
   </header>
-</template>
+</template>
 
 <script>
 import AppIcon from '@/components/AppIcon.vue'
@@ -36,10 +36,11 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '../../assets/scss/mixins/flexbox-direction';
 
 .header {
   display: flex;
@@ -77,10 +78,8 @@ export default {
 
   .burger {
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
+    @include flexbox-direction($direction: column, $gap: 7px);
     justify-content: center;
-    gap: 7px;
     width: 40px;
     &__line {
       display: inline-block;
@@ -91,4 +90,4 @@ export default {
     }
   }
 }
-</style>
+</style>

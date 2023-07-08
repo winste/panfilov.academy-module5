@@ -1,50 +1,51 @@
 <template>
   <div class="properties">
-    <VCardPropertyInfo v-for="(count, name) in properties" :count="count" :name="name" />
+    <VCardPropertyInfo
+      v-for="(count, name) in properties"
+      :key="name"
+      :count="count"
+      :name="name"
+    />
     <VCardPropertyInfo
       v-for="(count, name) in restProperties"
-      v-if="showAll && !hasProperty(name)"
+      :key="name"
       :count="count"
       :name="name"
     />
   </div>
-</template>
+</template>
 
 <script>
-import AppIcon from './AppIcon.vue'
 import VCardPropertyInfo from './VCardPropertyInfo.vue'
 
 export default {
   components: {
-    AppIcon,
     VCardPropertyInfo,
   },
 
   props: {
-    properties: Object,
+    properties: { type: Object, required: true },
     showAll: {
       type: Boolean,
       default: false,
     },
   },
 
-  data() {
-    return {
-      restProperties: {
+  computed: {
+    restProperties() {
+      const restPropertiesList = {
         parking: '0',
         pet: '0',
-      },
-      name: '',
-    }
-  },
+      }
 
-  methods: {
-    hasProperty(val) {
-      return Object.entries(this.properties).includes(val)
+      for (const property in restPropertiesList) {
+        if (this.properties.hasOwnProperty(property)) delete restPropertiesList[property]
+      }
+      return restPropertiesList
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/flexbox-general';
@@ -52,4 +53,4 @@ export default {
 .properties {
   @include flexbox-general($gap: 20px);
 }
-</style>
+</style>

@@ -8,7 +8,7 @@
     />
     <span class="card-property__number" v-text="count"></span>
   </div>
-</template>
+</template>
 
 <script>
 import AppIcon from './AppIcon.vue'
@@ -23,7 +23,7 @@ export default {
   },
 
   props: {
-    name: String,
+    name: { type: String, required: true },
     width: {
       type: Number,
       default: 25,
@@ -32,7 +32,7 @@ export default {
       type: Number,
       default: 24,
     },
-    count: String,
+    count: { type: String, required: true },
   },
 
   data() {
@@ -74,7 +74,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/flexbox-general';
@@ -94,4 +94,4 @@ export default {
     align-self: center;
   }
 }
-</style>
+</style>

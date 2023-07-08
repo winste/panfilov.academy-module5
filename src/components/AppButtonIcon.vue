@@ -2,7 +2,7 @@
   <button class="button-icon">
     <AppIcon :name="icon" :width="width" :height="height" class="button-icon__icon" />
   </button>
-</template>
+</template>
 
 <script>
 import AppIcon from './AppIcon.vue'
@@ -12,7 +12,7 @@ export default {
     AppIcon,
   },
   props: {
-    icon: String,
+    icon: { type: String, required: true },
     width: {
       type: Number,
       default: 30,
@@ -23,7 +23,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 .button-icon {
@@ -43,4 +43,4 @@ export default {
     scale: 1.3;
   }
 }
-</style>
+</style>

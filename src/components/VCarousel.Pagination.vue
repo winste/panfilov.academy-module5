@@ -11,7 +11,7 @@
       @click="$emit('switch', index)"
     ></button>
   </div>
-</template>
+</template>
 
 <script>
 export default {
@@ -30,7 +30,7 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
@@ -54,4 +54,4 @@ $indicator-size: 10px;
     }
   }
 }
-</style>
+</style>

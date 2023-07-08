@@ -3,17 +3,17 @@
     <h2 class="info-banner__title" v-text="title"></h2>
     <p class="info-banner__description" v-text="text"></p>
   </section>
-</template>
+</template>
 
 <script>
 export default {
   props: {
-    url: String,
-    title: String,
-    text: String,
+    url: { type: Number, required: true },
+    title: { type: Number, required: true },
+    text: { type: Number, required: true },
   },
 }
-</script>
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/mixins/background-position';
@@ -49,4 +49,4 @@ $description-width: 400px;
     }
   }
 }
-</style>
+</style>

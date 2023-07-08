@@ -1,6 +1,7 @@
 <template>
   <div class="description">
     <h4 class="description__title">Apartment Description</h4>
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="description__text" v-html="formattedText"></div>
   </div>
 </template>
@@ -37,13 +38,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-
