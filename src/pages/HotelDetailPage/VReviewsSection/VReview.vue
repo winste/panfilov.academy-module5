@@ -1,7 +1,7 @@
 <template>
   <div class="review">
     <div class="review__main">
-      <AppAvatar :url="avatar" class="review__avatar" />
+      <AppAvatar :src="avatar" class="review__avatar" />
       <h5 class="review__title" v-text="name"></h5>
       <span class="review__date" v-text="dataFormatted"></span>
     </div>
@@ -18,22 +18,10 @@ export default {
   },
 
   props: {
-    avatar: {
-      type: String,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    date: {
-      type: String,
-      required: true,
-    },
-    text: {
-      type: String,
-      required: true,
-    },
+    avatar: { type: String, required: true },
+    name: { type: String, required: true },
+    date: { type: String, required: true },
+    text: { type: String, required: true },
   },
 
   computed: {

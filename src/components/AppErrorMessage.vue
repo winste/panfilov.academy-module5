@@ -7,7 +7,7 @@
 <script>
 export default {
   props: {
-    msg: { type: Number, required: true },
+    msg: { type: String, default: '' },
   },
 
   computed: {

@@ -17,8 +17,8 @@ export default {
       default: '52px',
     },
     icon: { type: String, required: true },
-    iconWidth: { type: Number, required: true },
-    iconHeight: { type: Number, required: true },
+    iconWidth: { type: Number, default: 20 },
+    iconHeight: { type: Number, default: 20 },
   },
 }
 </script>

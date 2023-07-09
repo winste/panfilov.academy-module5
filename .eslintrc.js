@@ -2,10 +2,7 @@ module.exports = {
   extends: ['plugin:vue/recommended', 'plugin:prettier-vue/recommended'],
 
   parserOptions: {
-    ecmaVersion: 12,
     parser: '@babel/eslint-parser',
-    requireConfigFile: false,
-    sourceType: 'module',
   },
 
   settings: {

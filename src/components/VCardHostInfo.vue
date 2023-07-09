@@ -1,6 +1,6 @@
 <template>
   <div class="host-info">
-    <AppAvatar :url="avatar" size="76px" class="host-info__avatar" />
+    <AppAvatar :src="avatar" size="76px" class="host-info__avatar" />
     <span class="host-info__text">
       <p class="host-info__text-item">Listed By:</p>
       <p class="host-info__text-author">{{ name }}</p>
@@ -18,8 +18,8 @@ export default {
     AppAvatar,
   },
   props: {
-    avatar: { type: Number, required: true },
-    name: { type: Number, required: true },
+    avatar: { type: String, required: true },
+    name: { type: String, required: true },
     price: { type: Array, required: true },
   },
   computed: {

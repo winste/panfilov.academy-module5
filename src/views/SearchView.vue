@@ -15,7 +15,7 @@
 
       <VSearchCardsSection :count="hotels.length" :hotels="hotels" class="search__cards" />
     </div>
-    <h3 v-if="!hasHotelsInStore" class="search__result">No results for the given parameters</h3>
+    <h3 v-if="!hasHotelsInStore" class="search__cards">No results for the given parameters</h3>
     <AppErrorMessage :msg="error" />
   </main>
 </template>

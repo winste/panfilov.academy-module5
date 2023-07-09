@@ -14,8 +14,8 @@
 </template>
 
 <script>
+import Logo from '@/public/Logo.svg'
 import AppIcon from '@/components/AppIcon.vue'
-import Logo from '@/assets/images/Logo.svg'
 import TheHeaderNavigation from './TheHeaderNavigation.vue'
 
 export default {
@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
-@import '../../assets/scss/mixins/flexbox-direction';
+@import '@/assets/scss/mixins/flexbox-direction';
 
 .header {
   display: flex;

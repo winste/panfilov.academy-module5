@@ -35,8 +35,8 @@
 </template>
 
 <script>
+import Logo from '@/public/Logo.svg'
 import AppIcon from '@/components/AppIcon.vue'
-import Logo from '@/assets/images/Logo.svg'
 import Appstore from '@/assets/images/icons/Appstore.svg'
 import Playstore from '@/assets/images/icons/Playstore.svg'
 import TheFooterList from './TheFooterList.vue'

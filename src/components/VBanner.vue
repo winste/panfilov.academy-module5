@@ -8,9 +8,9 @@
 <script>
 export default {
   props: {
-    url: { type: Number, required: true },
-    title: { type: Number, required: true },
-    text: { type: Number, required: true },
+    url: { type: String, required: true },
+    title: { type: String, required: true },
+    text: { type: String, required: true },
   },
 }
 </script>

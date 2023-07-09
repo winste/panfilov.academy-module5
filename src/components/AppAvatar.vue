@@ -1,11 +1,11 @@
 <template>
-  <img :src="url" alt="avatar" class="avatar" />
+  <img :src="src" alt="avatar" class="avatar" />
 </template>
 
 <script>
 export default {
   props: {
-    url: { type: String, required: true },
+    src: { type: String, required: true },
     size: {
       type: String,
       default: '70px',
