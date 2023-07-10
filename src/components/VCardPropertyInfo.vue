@@ -23,7 +23,14 @@ export default {
   },
 
   props: {
-    name: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+    },
+    count: {
+      type: String,
+      required: true,
+    },
     width: {
       type: Number,
       default: 25,
@@ -32,7 +39,6 @@ export default {
       type: Number,
       default: 24,
     },
-    count: { type: String, required: true },
   },
 
   data() {
@@ -45,6 +51,7 @@ export default {
   },
 
   computed: {
+    // в зависимости от имени у иконки будет разный размер
     iconName() {
       const icon = {
         bedroom: this.iconBedroom,

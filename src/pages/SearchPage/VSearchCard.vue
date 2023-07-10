@@ -3,7 +3,6 @@
     <div v-if="hotelData" class="search-card">
       <VCarousel
         :slides="hotelData.images"
-        width="100%"
         height="382px"
         block="search"
         class="search-card__carousel"

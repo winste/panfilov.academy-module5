@@ -25,12 +25,30 @@ export default {
   },
 
   props: {
-    coords: { type: Array, required: true },
-    image: { type: String, required: true },
-    id: { type: String, required: true },
-    name: { type: String, required: true },
-    address: { type: String, required: true },
-    properties: { type: Object, required: true },
+    coords: {
+      type: Array,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    properties: {
+      type: Object,
+      required: true,
+    },
     width: {
       type: String,
       default: '668px',

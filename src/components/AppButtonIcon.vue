@@ -12,7 +12,10 @@ export default {
     AppIcon,
   },
   props: {
-    icon: { type: String, required: true },
+    icon: {
+      type: String,
+      required: true,
+    },
     width: {
       type: Number,
       default: 30,

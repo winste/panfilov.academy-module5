@@ -6,7 +6,7 @@
           v-model="order.first_name"
           type="text"
           placeholder="First name *"
-          :error="condition('first_name')"
+          :error="hasErrorMsg('first_name')"
           :message="msg('first_name')"
           class="form__field"
         />
@@ -15,7 +15,7 @@
           v-model="order.last_name"
           type="text"
           placeholder="Last name *"
-          :error="condition('last_name')"
+          :error="hasErrorMsg('last_name')"
           :message="msg('last_name')"
           class="form__field form__field-last-name"
         />
@@ -24,7 +24,7 @@
           v-model="order.info_1"
           type="text"
           placeholder="Info-1 *"
-          :error="condition('info_1')"
+          :error="hasErrorMsg('info_1')"
           :message="msg('info_1')"
           class="form__field"
         />
@@ -33,7 +33,7 @@
           v-model="order.info_2"
           type="text"
           placeholder="Info-2 *"
-          :error="condition('info_2')"
+          :error="hasErrorMsg('info_2')"
           :message="msg('info_2')"
           class="form__field form__field-info-2"
         />
@@ -48,7 +48,11 @@
               placeholder="Country *"
             />
           </div>
-          <span v-if="condition('country')" class="form__field-select-msg" v-text="msg('country')">
+          <span
+            v-if="hasErrorMsg('country')"
+            class="form__field-select-msg"
+            v-text="msg('country')"
+          >
           </span>
         </div>
 
@@ -56,7 +60,7 @@
           v-model="order.email"
           type="email"
           placeholder="Email address *"
-          :error="condition('email')"
+          :error="hasErrorMsg('email')"
           :message="msg('email')"
           class="form__field form__field-email"
         />
@@ -66,7 +70,7 @@
         v-model="order.phone"
         type="phone"
         placeholder="Phone number"
-        :error="condition('phone')"
+        :error="hasErrorMsg('phone')"
         message="Incorrect format"
         class="form__field form__field-phone"
       />
@@ -140,13 +144,15 @@ export default {
   },
 
   methods: {
-    condition(name) {
+    // для проверки, есть ли в списке ошибок валидатора неоходимое поле для отображения сообщения
+    hasErrorMsg(name) {
       return this.v$.$errors.map((item) => item.$property).includes(name)
     },
+    // находит необходимое поле в списке ошибок и возвращает сообщение
     msg(name) {
-      if (this.v$.$errors.length) {
+      if (this.hasErrorMsg(name)) {
         const index = this.v$.$errors.map((item) => item.$property).indexOf(name)
-        return index != -1 ? this.v$.$errors[index].$message : false
+        return this.v$.$errors[index].$message
       }
     },
 
@@ -161,7 +167,6 @@ export default {
           })
           .catch((error) => {
             this.error = error.message
-            console.log(error)
           })
       }
     },

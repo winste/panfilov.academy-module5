@@ -19,8 +19,14 @@ export default {
   },
 
   props: {
-    count: { type: Number, required: true },
-    hotels: { type: Array, required: true },
+    count: {
+      type: Number,
+      required: true,
+    },
+    hotels: {
+      type: Array,
+      required: true,
+    },
   },
 
   data() {

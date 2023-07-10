@@ -8,7 +8,10 @@
 <script>
 export default {
   props: {
-    metaInfo: { type: Object, required: true },
+    metaInfo: {
+      type: Object,
+      required: true,
+    },
   },
 }
 </script>

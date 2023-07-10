@@ -10,9 +10,18 @@
 <script>
 export default {
   props: {
-    id: { type: String, required: true },
-    name: { type: String, required: true },
-    address: { type: String, required: true },
+    id: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
     nameSize: {
       type: String,
       default: '18px',

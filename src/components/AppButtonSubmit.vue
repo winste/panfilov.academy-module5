@@ -12,13 +12,22 @@ export default {
     AppIcon,
   },
   props: {
+    icon: {
+      type: String,
+      required: true,
+    },
     size: {
       type: String,
       default: '52px',
     },
-    icon: { type: String, required: true },
-    iconWidth: { type: Number, default: 20 },
-    iconHeight: { type: Number, default: 20 },
+    iconWidth: {
+      type: Number,
+      default: 20,
+    },
+    iconHeight: {
+      type: Number,
+      default: 20,
+    },
   },
 }
 </script>

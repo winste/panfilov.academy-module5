@@ -1,11 +1,6 @@
 <template>
   <div class="featured-card">
-    <VCarousel
-      :slides="carouselCard.images"
-      width="100%"
-      height="340px"
-      class="featured-card__carousel"
-    >
+    <VCarousel :slides="carouselCard.images" class="featured-card__carousel">
       <p class="featured-card__price">$ {{ correctPrice }} USD</p>
     </VCarousel>
     <div class="featured-card__info">
@@ -67,13 +62,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

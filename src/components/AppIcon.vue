@@ -7,7 +7,10 @@
 <script>
 export default {
   props: {
-    name: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+    },
     width: {
       type: Number,
       default: 20,

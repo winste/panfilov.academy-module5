@@ -6,6 +6,7 @@
       :count="count"
       :name="name"
     />
+    <!-- добавление остальных свойств, которых не было в данных с сервера -->
     <VCardPropertyInfo
       v-for="(count, name) in restProperties"
       :key="name"
@@ -24,7 +25,10 @@ export default {
   },
 
   props: {
-    properties: { type: Object, required: true },
+    properties: {
+      type: Object,
+      required: true,
+    },
     showAll: {
       type: Boolean,
       default: false,
@@ -32,6 +36,7 @@ export default {
   },
 
   computed: {
+    // список свойств, которые будут отображены помимо основных
     restProperties() {
       const restPropertiesList = {
         parking: '0',

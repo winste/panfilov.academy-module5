@@ -18,11 +18,26 @@ export default {
   },
 
   props: {
-    modelValue: { type: String, default: '' },
-    options: { type: Array, required: true },
-    placeholder: { type: String, default: '' },
-    color: { type: String, default: '#C2C6CC' },
-    weight: { type: String, default: '600' },
+    modelValue: {
+      type: String,
+      default: '',
+    },
+    options: {
+      type: Array,
+      required: true,
+    },
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    color: {
+      type: String,
+      default: 'rgb(194, 198, 204)',
+    },
+    weight: {
+      type: String,
+      default: '600',
+    },
   },
 
   methods: {

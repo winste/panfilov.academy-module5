@@ -1,11 +1,12 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import inject from '@rollup/plugin-inject'
 import createSvgSpritePlugin from 'vite-plugin-svg-sprite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     vue({
       template: {
@@ -21,6 +22,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  build: {
+    rollupOptions: {
+      plugins: [inject({ Buffer: ['buffer', 'Buffer'] })],
+    },
+    commonjsOptions: {
+      transformMixedEsModules: true,
     },
   },
   optimizeDeps: {

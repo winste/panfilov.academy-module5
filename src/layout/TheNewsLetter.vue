@@ -62,6 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/placeholder';
 @import '@/assets/scss/mixins/flexbox-center';
 
 $formWidth: 794px;
@@ -102,6 +103,7 @@ $formHeight: 50px;
     color: $secondary-font-color;
     padding: 16px 23px;
     border-radius: 26px;
+    @include placeholder-style;
   }
   &__button {
     position: relative;

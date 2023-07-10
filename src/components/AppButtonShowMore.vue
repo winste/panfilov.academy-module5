@@ -8,8 +8,14 @@
 <script>
 export default {
   props: {
-    count: { type: Number, required: true },
-    name: { type: String, required: true },
+    count: {
+      type: Number,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {

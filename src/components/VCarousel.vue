@@ -43,9 +43,18 @@ export default {
   },
 
   props: {
-    slides: { type: Array, required: true },
-    width: { type: String, required: true },
-    height: { type: String, required: true },
+    slides: {
+      type: Array,
+      required: true,
+    },
+    width: {
+      type: String,
+      default: '100%',
+    },
+    height: {
+      type: String,
+      default: '340px',
+    },
     block: {
       type: String,
       default: 'featured',
@@ -61,6 +70,7 @@ export default {
   },
 
   computed: {
+    // в зависимости от роута к карусели применяются разные стили
     indent() {
       return this.block == 'search' ? '23px 22px 28px 26px' : '21px 18px 19px 23px'
     },
@@ -73,15 +83,19 @@ export default {
   },
 
   methods: {
+    // метод свайпера для работы
     onSwiper(swiper) {
       this.swiper = swiper
     },
+    // для переключения слайда при клике на пагинацию
     switchSlideByButton(id) {
       this.buttonIndex = id
     },
+    // для переключения активного индикатора в зависимости от текущего слайда
     slideToIndex(index) {
       this.swiper.slideTo(index)
     },
+    // для передачи номера активного слайда в пагинацию
     currentSlideIndex() {
       return this.swiper ? this.swiper.activeIndex : this.buttonIndex
     },

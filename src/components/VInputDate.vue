@@ -20,8 +20,14 @@ export default {
   },
 
   props: {
-    modelValue: { type: String, default: '' },
-    placeholder: { type: String, default: '' },
+    modelValue: {
+      type: String,
+      default: '',
+    },
+    placeholder: {
+      type: String,
+      default: '',
+    },
   },
   methods: {
     setDate(value) {

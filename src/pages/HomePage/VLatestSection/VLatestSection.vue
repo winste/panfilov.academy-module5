@@ -39,7 +39,7 @@ export default {
     await api
       .fetchData('/hotel/latest')
       .then((response) => (this.cards = response.data))
-      .catch((error) => (this.error = error))
+      .catch((error) => (this.error = error.message))
   },
 }
 </script>

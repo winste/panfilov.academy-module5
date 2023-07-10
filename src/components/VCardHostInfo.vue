@@ -18,9 +18,18 @@ export default {
     AppAvatar,
   },
   props: {
-    avatar: { type: String, required: true },
-    name: { type: String, required: true },
-    price: { type: Array, required: true },
+    avatar: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Array,
+      required: true,
+    },
   },
   computed: {
     correctPrice() {

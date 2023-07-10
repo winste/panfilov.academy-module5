@@ -5,7 +5,10 @@
 <script>
 export default {
   props: {
-    src: { type: String, required: true },
+    src: {
+      type: String,
+      required: true,
+    },
     size: {
       type: String,
       default: '70px',

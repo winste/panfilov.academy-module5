@@ -120,6 +120,7 @@ export default {
       this.store.$reset()
       const result = await this.v$.$validate()
 
+      // если валидатор возвращает true, то пост отправляется на сервер
       if (result) {
         api
           .postData('/hotel/filter', {

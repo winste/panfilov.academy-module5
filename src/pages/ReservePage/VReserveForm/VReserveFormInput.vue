@@ -14,9 +14,18 @@
 <script>
 export default {
   props: {
-    modelValue: { type: String, default: '' },
-    type: { type: String, required: true },
-    placeholder: { type: String, default: '' },
+    modelValue: {
+      type: String,
+      default: '',
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+    placeholder: {
+      type: String,
+      default: '',
+    },
     height: {
       type: String,
       default: '49px',
@@ -58,13 +67,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

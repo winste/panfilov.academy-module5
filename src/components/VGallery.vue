@@ -32,9 +32,12 @@ export default {
   props: {
     images: {
       type: Array,
-      default: () => [],
+      required: true,
     },
-    countDisplayedImages: { type: Number, required: true },
+    countDisplayedImages: {
+      type: Number,
+      default: 4,
+    },
   },
   data() {
     return {
@@ -63,7 +66,6 @@ export default {
 $image-item-width: 315px;
 $image-item-height: 260px;
 $images-gallery-width: 648px;
-$gallery-bg-color: rgba(194, 198, 204, 1);
 
 .gallery {
   display: grid;
@@ -74,7 +76,6 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
   &__image {
     min-width: 100%;
     min-height: $image-item-height;
-    background-color: $gallery-bg-color;
     @include background-position;
     border-radius: 8px;
     cursor: pointer;
