@@ -21,7 +21,7 @@ export default {
 
   props: {
     modelValue: {
-      type: String || Date,
+      type: [String, Date],
       default: '',
     },
     placeholder: {

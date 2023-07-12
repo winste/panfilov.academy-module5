@@ -154,18 +154,22 @@ export default {
       }
     },
 
-    selectLocation(e) {
+    selectLocation() {
       ym(94263519, 'reachGoal', 'website__select-one')
     },
+
     selectDateIn() {
       ym(94263519, 'reachGoal', 'website__select-two')
     },
+
     selectDateOut() {
       ym(94263519, 'reachGoal', 'website__select-three')
     },
+
     selectGuests() {
       ym(94263519, 'reachGoal', 'website__select-four')
     },
+
     redirectSearch() {
       ym(94263519, 'reachGoal', 'website__redirect')
     },
