@@ -6,7 +6,7 @@
     hide-input-icon
     class="date"
     input-class-name="date__input"
-    @update:model-value="setDate"
+    @update:modelValue="setDate"
   />
 </template>
 
@@ -21,7 +21,7 @@ export default {
 
   props: {
     modelValue: {
-      type: String,
+      type: String || Date,
       default: '',
     },
     placeholder: {

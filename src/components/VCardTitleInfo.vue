@@ -1,7 +1,7 @@
 <template>
   <div class="card-info">
-    <router-link :to="cardDetailLink" @click="redirectDetail">
-      <h4 class="card-info__name" v-text="name"></h4>
+    <router-link :to="cardDetailLink">
+      <h4 class="card-info__name" @click="redirectDetail" v-text="name"></h4>
     </router-link>
     <p class="card-info__address" v-text="address"></p>
   </div>

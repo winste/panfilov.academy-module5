@@ -10,7 +10,7 @@
             v-model="filter.location"
             :options="countries"
             placeholder="Which city do you prefer?"
-            @change="selectLocation"
+            @update:modelValue="selectLocation"
           />
         </label>
       </div>
@@ -20,7 +20,11 @@
       <div class="filter__input filter__input-date-in">
         <label class="filter__label"
           >Check In
-          <VDateInput v-model="filter.checkIn" placeholder="Add Dates" @input="selectDateIn" />
+          <VDateInput
+            v-model="filter.checkIn"
+            placeholder="Add Dates"
+            @update:modelValue="selectDateIn"
+          />
         </label>
       </div>
 
@@ -29,7 +33,11 @@
       <div class="filter__input filter__input-date-out">
         <label class="filter__label"
           >Check Out
-          <VDateInput v-model="filter.checkOut" placeholder="Add Dates" @input="selectDateOut" />
+          <VDateInput
+            v-model="filter.checkOut"
+            placeholder="Add Dates"
+            @update:modelValue="selectDateOut"
+          />
         </label>
       </div>
 
@@ -38,7 +46,11 @@
       <div class="filter__input filter__input-number">
         <label class="filter__label"
           >Guests
-          <VNumberInput v-model="filter.guest" placeholder="Add Guests" @input="selectGuests" />
+          <VNumberInput
+            v-model="filter.guest"
+            placeholder="Add Guests"
+            @update:modelValue="selectGuests"
+          />
         </label>
       </div>
 
@@ -142,7 +154,7 @@ export default {
       }
     },
 
-    selectLocation() {
+    selectLocation(e) {
       ym(94263519, 'reachGoal', 'website__select-one')
     },
     selectDateIn() {
@@ -266,13 +278,3 @@ $delimiter-color: rgb(221, 221, 221);
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-
