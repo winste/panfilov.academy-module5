@@ -1,7 +1,10 @@
 {
-  "name": "module5",
+  "name": "panfilov.academy-module5",
   "version": "0.0.0",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winste/panfilov.academy-module5.git"
+  },
   "scripts": {
     "build": "vite build",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
