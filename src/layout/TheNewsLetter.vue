@@ -21,18 +21,21 @@
         class="news-letter__button"
       />
     </form>
+    <AppModal ref="modal" text="NEWS LETTER subscribed" />
   </div>
 </template>
 
 <script>
 import AppButtonSubmit from '@/components/AppButtonSubmit.vue'
 import LetterSubmit from '@/assets/images/icons/LetterSubmit.svg'
+import AppModal from '../components/AppModal.vue'
 import { useVuelidate } from '@vuelidate/core'
 import { required, email } from '@vuelidate/validators'
 
 export default {
   components: {
     AppButtonSubmit,
+    AppModal,
   },
 
   data() {
@@ -40,6 +43,7 @@ export default {
       v$: useVuelidate(),
       email: '',
       icon: LetterSubmit,
+      showModal: false,
     }
   },
 
@@ -53,7 +57,7 @@ export default {
     async submitEmail() {
       const result = await this.v$.$validate()
       if (result) {
-        alert('NEWS LETTER subscribed')
+        this.$refs.modal.showModal()
       }
     },
   },

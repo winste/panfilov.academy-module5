@@ -81,6 +81,7 @@ export default {
     height: 24px;
     text-overflow: ellipsis;
     overflow: hidden;
+    z-index: 0;
   }
   & .vs__search {
     font-size: 14px;

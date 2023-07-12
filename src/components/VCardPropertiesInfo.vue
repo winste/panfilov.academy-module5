@@ -6,13 +6,15 @@
       :count="count"
       :name="name"
     />
-    <!-- добавление остальных свойств, которых не было в данных с сервера -->
-    <VCardPropertyInfo
-      v-for="(count, name) in restProperties"
-      :key="name"
-      :count="count"
-      :name="name"
-    />
+
+    <div v-if="showAll" class="properties__rest">
+      <VCardPropertyInfo
+        v-for="(count, name) in restProperties"
+        :key="name"
+        :count="count"
+        :name="name"
+      />
+    </div>
   </div>
 </template>
 
@@ -57,5 +59,8 @@ export default {
 
 .properties {
   @include flexbox-general($gap: 20px);
+  &__rest {
+    @include flexbox-general($gap: 20px);
+  }
 }
 </style>

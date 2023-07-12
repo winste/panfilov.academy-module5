@@ -42,6 +42,7 @@ export default {
   @include flexbox-direction($direction: column, $gap: 30px);
   min-width: 384px;
   max-width: 100%;
+  z-index: 0;
   &__carousel {
     border-radius: 12px;
   }

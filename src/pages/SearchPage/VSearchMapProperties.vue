@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-direction';
 
 .map-properties {
   max-width: 485px;
@@ -66,9 +67,7 @@ export default {
     background: $card-bg-color;
   }
   &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 19px;
+    @include flexbox-direction($direction: column, $gap: 19px);
     padding: 26px 16px;
   }
 }

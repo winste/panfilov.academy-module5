@@ -84,6 +84,7 @@
     </div>
     <AppButtonReserve class="form__button" />
     <AppErrorMessage v-if="error" :msg="error" />
+    <AppModal ref="modal" text="Application successfully sent!" />
   </form>
 </template>
 
@@ -97,6 +98,7 @@ import VSelect from '@/components/VSelect.vue'
 import VReserveFormInput from './VReserveFormInput.vue'
 import sortByName from '@/helpers/sortByName'
 import AppErrorMessage from '@/components/AppErrorMessage.vue'
+import AppModal from '@/components/AppModal.vue'
 
 export default {
   components: {
@@ -104,6 +106,7 @@ export default {
     VSelect,
     AppButtonReserve,
     AppErrorMessage,
+    AppModal,
   },
 
   data() {
@@ -163,12 +166,23 @@ export default {
         api
           .postData('/order', this.order)
           .then((response) => {
+            this.orderSuccess()
+            this.$refs.modal.showModal()
             console.log(response)
           })
           .catch((error) => {
+            this.orderError()
             this.error = error.message
           })
       }
+    },
+
+    orderSuccess() {
+      ym(94263519, 'reachGoal', 'website__order-success')
+    },
+
+    orderError() {
+      ym(94263519, 'reachGoal', 'website__order-error')
     },
   },
 }

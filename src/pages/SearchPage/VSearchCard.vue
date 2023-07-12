@@ -13,6 +13,7 @@
           :price="hotelData.price"
         />
       </VCarousel>
+
       <div class="search-card__info">
         <VCardTitleInfo
           :id="id"
@@ -21,16 +22,7 @@
           gap="2px"
           class="search-card__title"
         />
-
-        <div class="search-card__properties">
-          <VCardPropertyInfo
-            v-for="(property, name) in hotelData.info[0]"
-            :key="name"
-            :name="name"
-            :count="property"
-          />
-        </div>
-
+        <VCardPropertiesInfo :properties="hotelData.info[0]" class="search-card__properties" />
         <span class="search-card__period">
           <p class="search-card__type">{{ hotelData.type[0] }}</p>
           <p class="search-card__period-delimiter"></p>
@@ -49,7 +41,7 @@ import { api } from '@/api/api'
 import VCarousel from '@/components/VCarousel.vue'
 import VCardHostInfo from '@/components/VCardHostInfo.vue'
 import VCardTitleInfo from '@/components/VCardTitleInfo.vue'
-import VCardPropertyInfo from '@/components/VCardPropertyInfo.vue'
+import VCardPropertiesInfo from '@/components/VCardPropertiesInfo.vue'
 import AppErrorMessage from '@/components/AppErrorMessage.vue'
 
 export default {
@@ -57,11 +49,14 @@ export default {
     VCarousel,
     VCardHostInfo,
     VCardTitleInfo,
-    VCardPropertyInfo,
+    VCardPropertiesInfo,
     AppErrorMessage,
   },
   props: {
-    id: { type: String, required: true },
+    id: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -98,7 +93,6 @@ $border-radus: 16px;
     padding: 31px 27px 22px 24px;
   }
   &__properties {
-    @include flexbox-general($gap: 21px);
     margin-bottom: 18px;
   }
   &__title {
@@ -126,7 +120,7 @@ $border-radus: 16px;
       padding: 20px;
     }
     &__period {
-      gap: 0;
+      gap: 5px;
       &-delimiter {
         display: none;
       }

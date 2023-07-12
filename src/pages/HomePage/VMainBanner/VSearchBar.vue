@@ -10,6 +10,7 @@
             v-model="filter.location"
             :options="countries"
             placeholder="Which city do you prefer?"
+            @change="selectLocation"
           />
         </label>
       </div>
@@ -19,7 +20,7 @@
       <div class="filter__input filter__input-date-in">
         <label class="filter__label"
           >Check In
-          <VDateInput v-model="filter.checkIn" placeholder="Add Dates" />
+          <VDateInput v-model="filter.checkIn" placeholder="Add Dates" @input="selectDateIn" />
         </label>
       </div>
 
@@ -28,7 +29,7 @@
       <div class="filter__input filter__input-date-out">
         <label class="filter__label"
           >Check Out
-          <VDateInput v-model="filter.checkOut" placeholder="Add Dates" />
+          <VDateInput v-model="filter.checkOut" placeholder="Add Dates" @input="selectDateOut" />
         </label>
       </div>
 
@@ -37,7 +38,7 @@
       <div class="filter__input filter__input-number">
         <label class="filter__label"
           >Guests
-          <VNumberInput v-model="filter.guest" placeholder="Add Guests" />
+          <VNumberInput v-model="filter.guest" placeholder="Add Guests" @input="selectGuests" />
         </label>
       </div>
 
@@ -120,7 +121,7 @@ export default {
       this.store.$reset()
       const result = await this.v$.$validate()
 
-      // если валидатор возвращает true, то пост отправляется на сервер
+      // если валидатор возвращает true, то запрос отправляется на сервер
       if (result) {
         api
           .postData('/hotel/filter', {
@@ -132,12 +133,29 @@ export default {
           .then((response) => {
             this.store.addHotels(response.data)
             this.$router.push('/hotel/search')
+            this.redirectSearch()
           })
           .catch((error) => {
             this.error = error.message
             console.log(error)
           })
       }
+    },
+
+    selectLocation() {
+      ym(94263519, 'reachGoal', 'website__select-one')
+    },
+    selectDateIn() {
+      ym(94263519, 'reachGoal', 'website__select-two')
+    },
+    selectDateOut() {
+      ym(94263519, 'reachGoal', 'website__select-three')
+    },
+    selectGuests() {
+      ym(94263519, 'reachGoal', 'website__select-four')
+    },
+    redirectSearch() {
+      ym(94263519, 'reachGoal', 'website__redirect')
     },
   },
 }

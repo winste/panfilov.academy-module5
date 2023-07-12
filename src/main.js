@@ -5,6 +5,8 @@ import { createPinia } from 'pinia'
 import YmapPlugin from 'vue-yandex-maps'
 import { createMetaManager } from 'vue-meta'
 import './assets/scss/_main.scss'
+import 'vue-universal-modal/dist/index.css'
+import VueUniversalModal from 'vue-universal-modal'
 
 const settings = {
   apiKey: '85160a70-024d-405f-b7f4-d1b6974ae2cb',
@@ -19,4 +21,7 @@ createApp(App)
   .use(createPinia())
   .use(YmapPlugin, settings)
   .use(createMetaManager())
+  .use(VueUniversalModal, {
+    teleportTarget: '#modals',
+  })
   .mount('#app')

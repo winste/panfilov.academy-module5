@@ -1,6 +1,6 @@
 <template>
   <div class="card-info">
-    <router-link :to="cardDetailLink">
+    <router-link :to="cardDetailLink" @click="redirectDetail">
       <h4 class="card-info__name" v-text="name"></h4>
     </router-link>
     <p class="card-info__address" v-text="address"></p>
@@ -35,9 +35,16 @@ export default {
       default: '10px',
     },
   },
+
   computed: {
     cardDetailLink() {
       return `/hotel/detail/${this.id}`
+    },
+  },
+
+  methods: {
+    redirectDetail() {
+      ym(94263519, 'reachGoal', 'website__card-click')
     },
   },
 }
