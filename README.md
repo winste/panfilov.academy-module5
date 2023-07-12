@@ -1,6 +1,6 @@
-# vue-project
+# Panfilov.academy 5 module
 
-This template should help get you started developing with Vue 3 in Vite.
+Hotel Booking Prototype with using Vue3, vue-router, axios, pinia, etc.
 
 ## Project Setup
 

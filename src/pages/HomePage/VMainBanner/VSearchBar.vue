@@ -250,6 +250,7 @@ $delimiter-color: rgb(221, 221, 221);
     &__form {
       flex-wrap: wrap;
       padding: 20px 40px;
+      max-width: 600px;
     }
     &__title {
       text-transform: uppercase;

@@ -23,11 +23,5 @@ export default {
     TheFooter,
     AppModal,
   },
-
-  created() {
-    this.$router.beforeEach((to, from, next) => {
-      setTimeout(next, 500)
-    })
-  },
 }
 </script>
