@@ -1,18 +1,18 @@
 # Panfilov.academy 5 module
 
 Hotel Booking Prototype with using
--vue3
--vue-router
--axios
--pinia
--vue-yandex-maps
--swiper
--vuelidate
--vue-datepicker
--vue-gallery
--vue-meta
--vue-select
--vue-universal-modal
+- vue3
+- vue-router
+- axios
+- pinia
+- vue-yandex-maps
+- swiper
+- vuelidate
+- vue-datepicker
+- vue-gallery
+- vue-meta
+- vue-select
+- vue-universal-modal
 
 ## Project link
 
