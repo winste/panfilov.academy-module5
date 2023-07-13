@@ -34,13 +34,3 @@ export default {
   padding-bottom: 90px;
 }
 </style>
-
-
-
-
-
-
-
-
-
-

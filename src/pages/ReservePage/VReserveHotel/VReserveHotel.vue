@@ -44,7 +44,10 @@ export default {
   },
 
   props: {
-    hotelData: { type: Object, required: true },
+    hotelData: {
+      type: Object,
+      required: true,
+    },
   },
 
   computed: {

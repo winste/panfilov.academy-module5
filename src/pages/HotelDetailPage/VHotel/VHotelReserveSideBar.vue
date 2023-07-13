@@ -15,12 +15,30 @@ export default {
     AppButtonReserve,
   },
   props: {
-    id: { type: String, required: true },
-    name: { type: String, required: true },
-    address: { type: String, required: true },
-    price: { type: Array, required: true },
-    properties: { type: Object, required: true },
-    image: { type: String, required: true },
+    id: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Array,
+      required: true,
+    },
+    properties: {
+      type: Object,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
   },
 
   data() {
@@ -81,13 +99,3 @@ $button-height: 60px;
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

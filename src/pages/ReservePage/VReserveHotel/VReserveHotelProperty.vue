@@ -5,27 +5,24 @@
 <script>
 export default {
   props: {
-    count: { type: String, required: true },
-    name: { type: String, required: true },
+    count: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/const';
 .property-preview {
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  color: rgb(154, 154, 154);
+  color: $secondary-font-color;
 }
 </style>
-
-
-
-
-
-
-
-
-
-

@@ -4,9 +4,9 @@ import router from './router'
 import { createPinia } from 'pinia'
 import YmapPlugin from 'vue-yandex-maps'
 import { createMetaManager } from 'vue-meta'
-import './assets/scss/_main.scss'
 import 'vue-universal-modal/dist/index.css'
 import VueUniversalModal from 'vue-universal-modal'
+import './assets/scss/_main.scss'
 
 const settings = {
   apiKey: '85160a70-024d-405f-b7f4-d1b6974ae2cb',

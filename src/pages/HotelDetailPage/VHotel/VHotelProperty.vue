@@ -16,9 +16,18 @@ export default {
   },
 
   props: {
-    icon: { type: String, required: true },
-    name: { type: String, required: true },
-    count: { type: Number, required: true },
+    icon: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    count: {
+      type: Number,
+      required: true,
+    },
   },
 
   computed: {
@@ -34,15 +43,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-center';
 
 $property-width: 176px;
 $property-height: 160px;
 
 .property {
-  display: flex;
+  @include flexbox-center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-width: $property-width;
   min-height: $property-height;
   background-color: $main-decor-color;
@@ -63,24 +71,3 @@ $property-height: 160px;
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

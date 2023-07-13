@@ -1,15 +1,21 @@
 <template>
   <div class="hotel-info">
-    <h3 class="hotel-info__title" v-text="hotelName"></h3>
-    <p class="hotel-info__address" v-text="hotelAddress"></p>
+    <h3 class="hotel-info__title" v-text="name"></h3>
+    <p class="hotel-info__address" v-text="address"></p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    hotelName: { type: String, required: true },
-    hotelAddress: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
   },
 }
 </script>
@@ -25,13 +31,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

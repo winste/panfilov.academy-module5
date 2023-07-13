@@ -62,13 +62,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

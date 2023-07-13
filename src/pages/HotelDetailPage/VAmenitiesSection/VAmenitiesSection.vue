@@ -2,14 +2,10 @@
   <section class="amenities">
     <h4 class="amenities__title">Offered Amenities</h4>
     <div class="amenities__list">
-      <VAmenity v-for="amenity in amenitiesListFormatted" :key="amenity.id" :amenity="amenity" />
+      <VAmenity v-for="amenity in amenitiesFormatted" :key="amenity.id" :amenity="amenity" />
     </div>
 
-    <AppButtonShowMore
-      :count="amenitiesListCount"
-      name="Amenities"
-      @showAll="changeDisplayedValue"
-    />
+    <AppButtonShowMore :count="amenitiesCount" name="Amenities" @showAll="changeDisplayedValue" />
   </section>
 </template>
 
@@ -22,25 +18,35 @@ export default {
     VAmenity,
     AppButtonShowMore,
   },
+
   props: {
-    amenitiesList: { type: Array, required: true },
-    amenitiesDisplayedCount: { type: Number, required: true },
+    amenities: {
+      type: Array,
+      required: true,
+    },
+    amenitiesDisplayedCount: {
+      type: Number,
+      default: 6,
+    },
   },
+
   data() {
     return {
       showAllAmenities: null,
     }
   },
+
   computed: {
-    amenitiesListCount() {
-      return this.amenitiesList.length
+    amenitiesCount() {
+      return this.amenities.length
     },
-    amenitiesListFormatted() {
+    amenitiesFormatted() {
       return this.showAllAmenities
-        ? this.amenitiesList
-        : this.amenitiesList.slice(0, this.amenitiesDisplayedCount)
+        ? this.amenities
+        : this.amenities.slice(0, this.amenitiesDisplayedCount)
     },
   },
+
   methods: {
     changeDisplayedValue(data) {
       this.showAllAmenities = data

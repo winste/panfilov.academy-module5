@@ -17,11 +17,26 @@ export default {
     VGallery,
   },
   props: {
-    avatar: { type: String, required: true },
-    name: { type: String, required: true },
-    price: { type: Array, required: true },
-    mainImage: { type: String, required: true },
-    images: { type: Array, required: true },
+    avatar: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Array,
+      required: true,
+    },
+    mainImage: {
+      type: String,
+      required: true,
+    },
+    images: {
+      type: Array,
+      required: true,
+    },
   },
 }
 </script>
@@ -79,13 +94,3 @@ $gallery-bg-color: rgba(194, 198, 204, 1);
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

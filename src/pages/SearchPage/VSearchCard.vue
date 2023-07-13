@@ -9,7 +9,7 @@
       >
         <VCardHostInfo
           :avatar="hotelData.author.avatar"
-          :name="hotelData.name"
+          :name="hotelData.author.name || hotelData.name"
           :price="hotelData.price"
         />
       </VCarousel>
@@ -58,17 +58,20 @@ export default {
       required: true,
     },
   },
+
   data() {
     return {
       hotelData: null,
       error: null,
     }
   },
+
   computed: {
     periodLength() {
       return this.hotelData.period[0].includes('month') ? 'Short' : 'Long'
     },
   },
+
   async created() {
     await api
       .fetchData(`/hotel/detail/${this.id}`)
@@ -128,35 +131,3 @@ $border-radus: 16px;
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

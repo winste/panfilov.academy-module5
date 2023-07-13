@@ -3,7 +3,7 @@
     <div class="review__main">
       <AppAvatar :src="avatar" class="review__avatar" />
       <h5 class="review__title" v-text="name"></h5>
-      <span class="review__date" v-text="dataFormatted"></span>
+      <span class="review__date" v-text="dateFormatted"></span>
     </div>
     <p class="review__text" v-text="text"></p>
   </div>
@@ -18,14 +18,26 @@ export default {
   },
 
   props: {
-    avatar: { type: String, required: true },
-    name: { type: String, required: true },
-    date: { type: String, required: true },
-    text: { type: String, required: true },
+    avatar: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: String,
+      required: true,
+    },
+    text: {
+      type: String,
+      required: true,
+    },
   },
 
   computed: {
-    dataFormatted() {
+    dateFormatted() {
       const date = new Date(this.date)
       const options = {
         month: 'long',
@@ -68,14 +80,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-
-

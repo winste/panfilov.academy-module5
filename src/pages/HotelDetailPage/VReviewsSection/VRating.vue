@@ -15,7 +15,10 @@ export default {
     VRatingLine,
   },
   props: {
-    ratings: { type: Array, required: true },
+    ratings: {
+      type: Array,
+      required: true,
+    },
   },
 }
 </script>
@@ -40,13 +43,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

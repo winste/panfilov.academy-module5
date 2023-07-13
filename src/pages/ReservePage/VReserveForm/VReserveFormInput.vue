@@ -38,7 +38,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    message: { type: String, default: 'value' },
+    message: {
+      type: String,
+      default: 'value',
+    },
   },
 }
 </script>

@@ -38,12 +38,14 @@ export default {
     VCardPropertiesInfo,
     AppErrorMessage,
   },
+
   data() {
     return {
       cards: [],
       error: null,
     }
   },
+
   async created() {
     await api
       .fetchData('/hotel/featured')
@@ -90,13 +92,3 @@ $cardSize: 382px;
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

@@ -87,13 +87,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

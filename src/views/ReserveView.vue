@@ -19,6 +19,7 @@ export default {
     VReserveHotel,
     AppMetaTags,
   },
+
   data() {
     return {
       store: useReserveStore(),
@@ -65,13 +66,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

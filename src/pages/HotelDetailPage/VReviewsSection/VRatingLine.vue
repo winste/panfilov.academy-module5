@@ -11,7 +11,10 @@
 <script>
 export default {
   props: {
-    rating: { type: Number, required: true },
+    rating: {
+      type: Number,
+      required: true,
+    },
   },
   data() {
     return {
@@ -20,14 +23,13 @@ export default {
     }
   },
   computed: {
+    // ширина линиии по отношению к максимальной, уменьшается в процентном соотношении
     calculateWidth() {
       return `${this.maxWidth * (this.rating / this.maxRating)}px`
     },
+    // отформатированный отображаемый рейтинг рядом с линией
     formattedRating() {
       return this.rating % 1 > 0 ? this.rating : `${this.rating}.0`
-    },
-    formattedWidth() {
-      return `${this.maxWidth}px`
     },
   },
 }
@@ -35,12 +37,12 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/const';
+@import '@/assets/scss/mixins/flexbox-general';
 
 $line-width: 4px;
 
 .rating-line {
-  display: flex;
-  gap: 13px;
+  @include flexbox-general($gap: 13px, $wrap: nowrap);
   &__line {
     display: inline-block;
     height: $line-width;

@@ -25,7 +25,6 @@ export default {
     showModal() {
       this.isShow = true
     },
-
     closeModal() {
       this.isShow = false
     },

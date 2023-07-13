@@ -56,13 +56,3 @@ $banner-main-height: 567px;
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

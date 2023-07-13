@@ -4,7 +4,7 @@
       <AppMetaTags :meta-info="metaInfo" />
       <VHotelGallery
         :avatar="hotelData.author.avatar"
-        :name="hotelData.name"
+        :name="hotelData.author.name || hotelData.name"
         :price="hotelData.price"
         :main-image="hotelData.image"
         :images="hotelData.images"
@@ -15,7 +15,7 @@
       <div class="container-wrapper">
         <div class="hotel__main">
           <div class="hotel__heading">
-            <VHotelTitle :hotel-name="hotelData.name" :hotel-address="hotelData.address" />
+            <VHotelTitle :name="hotelData.name" :address="hotelData.address" />
             <div class="hotel__interaction">
               <AppButtonIcon :icon="buttonIconLike" :width="36" :height="36" />
               <AppButtonIcon :icon="buttonIconSearch" :width="35" :height="35" />
@@ -51,7 +51,7 @@
         </div>
 
         <div class="hotel__information">
-          <VAmenitiesSection :amenities-list="hotelData.amenities" :amenities-displayed-count="6" />
+          <VAmenitiesSection :amenities="hotelData.amenities" />
           <VMap :coords="hotelData.coords" width="771px" height="420px" class="hotel__map" />
           <VReviewsSection :reviews-list="hotelData.reviews" />
         </div>
@@ -176,13 +176,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

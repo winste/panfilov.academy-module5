@@ -84,7 +84,7 @@
     </div>
     <AppButtonReserve class="form__button" />
     <AppErrorMessage v-if="error" :msg="error" />
-    <AppModal ref="modal" text="Application successfully sent!" />
+    <AppModal ref="modal" text="Order successfully sent!" />
   </form>
 </template>
 
@@ -128,6 +128,7 @@ export default {
     }
   },
 
+  // метод валидатора
   validations() {
     return {
       order: {

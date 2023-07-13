@@ -37,6 +37,7 @@ export default {
   },
 
   computed: {
+    // для отслеживания нажатия кнопки
     checkDisplayed() {
       if (this.checkClick) return
       return this.hotels.length > this.countDisplayedHotels
@@ -81,13 +82,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

@@ -39,11 +39,18 @@ export default {
     AppButtonShowMore,
   },
   props: {
-    reviewsList: { type: Array, required: true },
-    reviewsDisplayedCount: { type: Number, default: 4 },
+    reviewsList: {
+      type: Array,
+      required: true,
+    },
+    reviewsDisplayedCount: {
+      type: Number,
+      default: 4,
+    },
   },
   data() {
     return {
+      reviewsIcon: Star,
       ratingList: [
         { name: 'Amenities', rating: 5 },
         { name: 'Hygiene', rating: 5 },
@@ -51,12 +58,12 @@ export default {
         { name: 'Location of Property', rating: 5 },
         { name: 'Value for Money', rating: 5 },
       ],
-      reviewsIcon: Star,
       showAllReviews: null,
     }
   },
 
   computed: {
+    // общее среднее значение рейтинга, отображаемое сверху
     averageRating() {
       return (
         this.ratingList.reduce((initial, obj) => initial + obj.rating, 0) / this.ratingList.length
@@ -65,6 +72,7 @@ export default {
     reviewsListCount() {
       return this.reviewsList.length
     },
+    // список отображаемых отзывов
     reviewsListFormatted() {
       return this.showAllReviews
         ? this.reviewsList
@@ -72,6 +80,7 @@ export default {
     },
   },
   methods: {
+    // меняется от события кнопки
     changeDisplayedValue(data) {
       this.showAllReviews = data
     },
@@ -115,13 +124,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-
