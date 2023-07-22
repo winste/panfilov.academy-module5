@@ -62,6 +62,7 @@ export default {
     &__preview {
       padding: 30px;
       min-width: auto;
+      order: -1;
     }
   }
 }

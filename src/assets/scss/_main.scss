@@ -3,6 +3,12 @@
 @import './const';
 @include normalize();
 
+
+* {
+    box-sizing: border-box;
+}
+
+
 *,
 *::before,
 *::after,
