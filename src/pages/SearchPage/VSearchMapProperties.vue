@@ -50,24 +50,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .map-properties {
+  display: flex;
   max-width: 485px;
   min-height: 160px;
-  display: flex;
   border-radius: 10px;
   overflow: hidden;
-  background: rgb(255, 255, 255);
+  background: #ffffff;
   box-shadow: $box-shadow;
   &__image {
     max-width: 160px;
     min-height: 160px;
-    background: $card-bg-color;
   }
   &__info {
-    @include flexbox-direction($direction: column, $gap: 19px);
+    @include flexbox($direction: column, $gap: 19px);
     padding: 26px 16px;
   }
 }

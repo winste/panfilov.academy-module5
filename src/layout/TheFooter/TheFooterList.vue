@@ -52,12 +52,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .company-links {
-  @include flexbox-general($gap: 55px);
+  @include flexbox($gap: 55px);
   &__contacts {
     margin-left: 15px;
     &-social {

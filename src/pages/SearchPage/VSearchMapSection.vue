@@ -62,8 +62,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-
 .search-map {
   position: relative;
   max-width: v-bind(width);
@@ -75,7 +73,7 @@ export default {
     left: 101px;
     border-radius: 10px;
     overflow: hidden;
-    background: rgb(255, 255, 255);
+    background: #ffffff;
     box-shadow: $box-shadow;
   }
 }

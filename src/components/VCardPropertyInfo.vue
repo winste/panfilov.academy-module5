@@ -84,9 +84,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/flexbox-general';
 .card-property {
-  @include flexbox-general($gap: 7px);
+  @include flexbox($gap: 7px);
   align-items: center;
   &__icon {
     margin-left: 1px;

@@ -90,8 +90,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-
 .search {
   &__result {
     display: grid;

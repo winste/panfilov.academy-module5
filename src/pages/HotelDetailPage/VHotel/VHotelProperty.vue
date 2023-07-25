@@ -42,17 +42,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-center';
-
-$property-width: 176px;
-$property-height: 160px;
-
 .property {
-  @include flexbox-center;
-  flex-direction: column;
-  min-width: $property-width;
-  min-height: $property-height;
+  @include flexbox($direction: column, $align-items: center, $justify-content: center);
+  min-width: 176px;
+  min-height: 160px;
   background-color: $main-decor-color;
   border-radius: 8px;
   &__icon {

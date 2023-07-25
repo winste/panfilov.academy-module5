@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Logo from '@/public/Logo.svg'
+import Logo from '@/assets/images/Logo.svg'
 import AppIcon from '@/components/AppIcon.vue'
 import Appstore from '@/assets/images/icons/Appstore.svg'
 import Playstore from '@/assets/images/icons/Playstore.svg'
@@ -59,21 +59,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .footer {
   padding-top: 83px;
   padding-bottom: 30px;
   background-color: $main-decor-color;
   &__wrapper {
-    @include flexbox-general($gap: 45px);
+    @include flexbox($gap: 45px);
     padding-bottom: 199px;
   }
   &__about {
     max-width: 380px;
-    @include flexbox-direction($direction: column, $gap: 31px);
+    @include flexbox($direction: column, $gap: 31px);
   }
   &__logo {
     align-self: start;
@@ -87,16 +83,15 @@ export default {
     margin-bottom: 13px;
   }
   &__stores {
-    @include flexbox-general($gap: 13px);
+    @include flexbox($gap: 13px);
   }
   &__info {
     margin-top: 2px;
   }
   &__copywrite {
-    @include flexbox-general($gap: 20px);
-    justify-content: space-between;
+    @include flexbox($justify-content: space-between, $gap: 20px);
     font-weight: 600;
-    border-top: 1px solid $card-bg-color;
+    border-top: 1px solid #e0e2e6;
     margin: 0 -80px;
     padding: 40px 79px 0 80px;
     &-name {

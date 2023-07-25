@@ -57,16 +57,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .cards {
   &__title {
     font-size: 24px;
     letter-spacing: -0.3px;
   }
   &__list {
-    @include flexbox-direction($direction: column, $gap: 78px);
+    @include flexbox($direction: column, $gap: 78px);
     margin-top: 117px;
   }
   &__button {

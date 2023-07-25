@@ -35,11 +35,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/flexbox-general';
-
 .reserve {
-  @include flexbox-general($gap: 66px);
-  justify-content: center;
+  @include flexbox($justify-content: center, $gap: 66px);
   padding: 83px 82px 75px 68px;
   margin: 0 auto;
   &__preview {

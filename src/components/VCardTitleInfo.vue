@@ -51,12 +51,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/text-hide';
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .card-info {
-  @include flexbox-direction($direction: column, $gap: v-bind(gap));
+  @include flexbox($direction: column, $gap: v-bind(gap));
   &__name {
     font-size: v-bind(nameSize);
   }

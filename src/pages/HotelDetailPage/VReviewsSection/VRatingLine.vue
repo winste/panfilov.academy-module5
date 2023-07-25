@@ -36,16 +36,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-
-$line-width: 4px;
-
 .rating-line {
-  @include flexbox-general($gap: 13px, $wrap: nowrap);
+  @include flexbox($gap: 13px, $wrap: nowrap);
   &__line {
     display: inline-block;
-    height: $line-width;
+    height: 4px;
     width: v-bind(calculateWidth);
     background-color: $secondary-font-color;
     border-radius: 2px;

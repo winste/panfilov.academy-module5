@@ -82,15 +82,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-
-$border-radus: 16px;
-
 .search-card {
   min-width: 300px;
   max-width: 100%;
-  border-radius: $border-radus;
+  border-radius: 16px;
   box-shadow: $box-shadow;
   &__info {
     padding: 31px 27px 22px 24px;
@@ -102,16 +97,16 @@ $border-radus: 16px;
     margin-bottom: 20px;
   }
   &__carousel {
-    border-radius: $border-radus $border-radus 0 0;
+    border-radius: 16px 16px 0 0;
   }
   &__period {
-    @include flexbox-general($gap: 17px);
+    @include flexbox($gap: 17px);
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
     color: $secondary-font-color;
     &-delimiter {
-      border-right: 1px solid $card-bg-color;
+      border-right: 1px solid #e0e2e6;
     }
   }
 }

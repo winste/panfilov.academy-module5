@@ -8,11 +8,8 @@
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-
 .navbar {
-  @include flexbox-general($gap: 32.5px);
+  @include flexbox($gap: 32.5px);
   font-weight: 600;
 }
 
@@ -22,13 +19,14 @@
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 992px) {
   .navbar {
     display: none;
     position: absolute;
     top: 70px;
-    right: 0;
+    right: -100%;
     padding: 70px;
+    display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     gap: 45px;
@@ -36,8 +34,9 @@
     background-color: $main-decor-color;
     box-shadow: $box-shadow;
     border-radius: 12px;
+    transition: $transition;
     &.open {
-      display: flex;
+      right: 0;
     }
   }
 }

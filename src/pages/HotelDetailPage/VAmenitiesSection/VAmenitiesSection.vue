@@ -63,9 +63,8 @@ export default {
     margin-bottom: 29px;
   }
   &__list {
-    $column-width: 325px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min-content, $column-width));
+    grid-template-columns: repeat(auto-fill, minmax(min-content, 325px));
     gap: 17px 10px;
     padding-bottom: 41px;
   }
@@ -74,8 +73,7 @@ export default {
 @media (max-width: 768px) {
   .amenities {
     &__list {
-      $column-width: 200px;
-      grid-template-columns: repeat(auto-fill, minmax(min-content, $column-width));
+      grid-template-columns: repeat(auto-fill, minmax(min-content, 200px));
     }
   }
 }

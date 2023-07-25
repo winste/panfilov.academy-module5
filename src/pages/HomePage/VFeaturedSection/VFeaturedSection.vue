@@ -56,11 +56,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/section-title';
-@import '@/assets//scss/mixins/flexbox-general';
-@import '@/assets//scss/mixins/flexbox-direction';
-
-$cardSize: 382px;
 .featured-section {
   &__title {
     @include section-title-style;
@@ -68,7 +63,7 @@ $cardSize: 382px;
   }
   &__cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax($cardSize, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(382px, 1fr));
     grid-gap: 65px 32px;
     margin-right: -4px;
   }
@@ -78,7 +73,7 @@ $cardSize: 382px;
       margin-bottom: 14px;
     }
     &-properties {
-      @include flexbox-general($gap: 21px);
+      @include flexbox($gap: 21px);
     }
   }
 }
@@ -86,8 +81,7 @@ $cardSize: 382px;
 @media (max-width: 480px) {
   .featured-section {
     &__cards {
-      @include flexbox-direction($direction: column, $gap: 40px, $flexWrap: nowrap);
-      align-items: center;
+      @include flexbox($direction: column, $align-items: center, $gap: 40px, $wrap: nowrap);
     }
   }
 }

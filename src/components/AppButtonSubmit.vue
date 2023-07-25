@@ -33,9 +33,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/button-hover';
-
 .button-submit {
   width: v-bind(size);
   height: v-bind(size);

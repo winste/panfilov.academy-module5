@@ -17,17 +17,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-
-$icon-size: 30px;
 .amenity {
-  @include flexbox-general($gap: 17px);
-  align-items: center;
+  @include flexbox($align-items: center, $gap: 17px);
   color: $main-font-color;
   &__image {
-    max-width: $icon-size;
-    max-height: $icon-size;
+    max-width: 30px;
+    max-height: 30px;
     opacity: 0.65;
   }
 }

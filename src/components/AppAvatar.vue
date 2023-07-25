@@ -18,14 +18,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-center';
-
 .avatar {
-  @include flexbox-center;
+  @include flexbox($align-items: center, $justify-content: center);
   width: v-bind(size);
   height: v-bind(size);
-  background-color: $placeholder-color;
+  background-color: #c2c6cc;
   border-radius: 50%;
 }
 

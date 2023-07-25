@@ -32,7 +32,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'rgb(194, 198, 204)',
+      default: '#c2c6cc',
     },
     weight: {
       type: String,
@@ -55,8 +55,6 @@ export default {
 </style>
 
 <style lang="scss">
-@import '@/assets/scss/const';
-
 .select {
   min-width: 100%;
   & .vs__dropdown-toggle,

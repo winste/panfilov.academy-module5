@@ -22,17 +22,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-direction';
 .burger {
   display: none;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 992px) {
   .burger {
     cursor: pointer;
-    @include flexbox-direction($direction: column, $gap: 7px);
-    justify-content: center;
+    @include flexbox($direction: column, $justify-content: center, $gap: 7px);
     width: 40px;
     &__line {
       display: inline-block;
@@ -40,7 +37,7 @@ export default {
       height: 5px;
       background-color: $secondary-font-color;
       border-radius: 20px;
-      transition: all 0.5s;
+      transition: $transition;
     }
     &__line1.open {
       transform: translate(0, 225%) rotate(45deg);

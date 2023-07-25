@@ -22,17 +22,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-direction';
-@import '@/assets/scss/mixins/background-position';
-
-$banner-main-height: 567px;
-
 .main-banner {
-  @include flexbox-direction($direction: column, $gap: 0, $flexWrap: nowrap);
-  justify-content: end;
-  align-items: center;
-  min-height: $banner-main-height;
+  @include flexbox(
+    $direction: column,
+    $justify-content: end,
+    $align-items: center,
+    $gap: 0,
+    $wrap: nowrap
+  );
+  min-height: 567px;
   background-color: $main-decor-color;
   @include background-position;
   &__search {

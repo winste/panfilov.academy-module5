@@ -52,8 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-
 .review {
   &__main {
     display: grid;
@@ -76,7 +74,7 @@ export default {
     font-weight: 400;
     font-size: 15px;
     line-height: 20px;
-    color: rgb(153, 153, 153);
+    color: #999999;
   }
 }
 </style>

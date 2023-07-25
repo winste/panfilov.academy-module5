@@ -104,11 +104,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/background-position';
-@import '@/assets/scss/mixins/carousel-elements-position';
-@import '@/assets/scss/mixins/flexbox-general';
-
 .swiper {
   position: relative;
   max-width: v-bind(width);
@@ -120,17 +115,21 @@ export default {
     @include background-position;
   }
   &__button {
+    position: absolute;
+    right: 0;
+    top: 0;
     margin: v-bind(indent);
-    @include carousel-elements-position(top);
+    z-index: 111;
   }
   &__interaction {
-    @include carousel-elements-position(bottom);
+    position: absolute;
+    bottom: 0;
     min-width: 100%;
     padding: v-bind(indent);
     padding-top: 0;
+    z-index: 111;
     &-wrapper {
-      @include flexbox-general($gap: 15px);
-      justify-content: space-between;
+      @include flexbox($gap: 15px, $justify-content: space-between);
     }
   }
   &__pagination {

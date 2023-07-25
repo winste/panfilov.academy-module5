@@ -34,12 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .featured-card {
   justify-self: center;
-  @include flexbox-direction($direction: column, $gap: 30px);
+  @include flexbox($direction: column, $gap: 30px);
   min-width: 384px;
   max-width: 100%;
   z-index: 0;

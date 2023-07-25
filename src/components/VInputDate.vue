@@ -38,14 +38,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/mixins/placeholder';
-
 .date {
   &__input {
     font-size: 13px;
     border: none;
     padding: 0;
-    @include placeholder-style;
+    @include placeholder;
   }
 }
 </style>

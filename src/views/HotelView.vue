@@ -124,7 +124,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/flexbox-general';
 .hotel {
   &__detail {
     margin-bottom: 51px;
@@ -140,12 +139,11 @@ export default {
     margin-bottom: 63px;
   }
   &__heading {
-    @include flexbox-general($gap: 40px);
-    justify-content: space-between;
+    @include flexbox($justify-content: space-between, $gap: 40px);
     margin-bottom: 55px;
   }
   &__interaction {
-    @include flexbox-general($gap: 18px);
+    @include flexbox($gap: 18px);
     margin-top: 5px;
   }
   &__reserve {
@@ -154,7 +152,7 @@ export default {
     margin-top: 5px;
   }
   &__property {
-    @include flexbox-general($gap: 14px);
+    @include flexbox($gap: 14px);
     margin-bottom: 27px;
   }
   &__description {

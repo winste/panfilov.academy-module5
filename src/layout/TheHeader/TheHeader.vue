@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Logo from '@/public/Logo.svg'
+import Logo from '@/assets/images/Logo.svg'
 import AppIcon from '@/components/AppIcon.vue'
 import TheHeaderNavigation from './TheHeaderNavigation.vue'
 import TheHeaderBurger from './TheHeaderBurger.vue'
@@ -29,9 +29,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .header {
   display: flex;
   padding-top: 27px;
@@ -54,7 +51,7 @@ export default {
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 992px) {
   .header {
     justify-content: space-between;
     &__navigation {

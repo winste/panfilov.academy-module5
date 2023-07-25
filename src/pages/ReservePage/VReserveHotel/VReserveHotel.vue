@@ -1,6 +1,6 @@
 <template>
   <section class="hotel-preview">
-    <div class="hotel-preview__main">
+    <div class="hotel-preview__heading">
       <img :src="hotelData.image" alt="Hotel image" class="hotel-preview__image" />
       <div class="hotel-preview__info">
         <VCardTitleInfo
@@ -21,9 +21,9 @@
       </div>
     </div>
 
-    <div class="hotel-preview__price">
-      <h3 class="hotel-preview__price-title">Price Details</h3>
-      <span class="hotel-preview__price-info">
+    <div class="hotel-preview__detail">
+      <h3 class="hotel-preview__title">Price Details</h3>
+      <span class="hotel-preview__price">
         <span>Short Period: {{ correctPrice[0] }}</span>
         <span>Medium Period: {{ correctPrice[1] }}</span>
         <span>Long Period: {{ correctPrice[1] }}</span>
@@ -59,56 +59,49 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .hotel-preview {
   padding: 30px 30px 58px 31px;
   background: $main-decor-color;
   border-radius: 10px;
-  &__main {
-    @include flexbox-general($wrap: nowrap, $gap: 22px);
+  &__heading {
+    @include flexbox($wrap: nowrap, $gap: 22px);
     margin-bottom: 47px;
   }
   &__image {
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    min-height: 100px;
     border-radius: 6px;
   }
   &__address {
     padding-bottom: 13px;
-    border-bottom: 1px solid $card-bg-color;
+    border-bottom: 1px solid #e0e2e6;
   }
   &__property {
-    @include flexbox-general($gap: 15px);
+    @include flexbox($gap: 15px);
     margin-top: 10px;
     text-transform: capitalize;
   }
   &__info {
-    @include flexbox-direction($direction: column, $gap: 0);
-    justify-content: center;
+    @include flexbox($direction: column, $justify-content: center, $gap: 0);
+  }
+  &__title {
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    margin-bottom: 18px;
   }
   &__price {
-    &-title {
-      font-size: 18px;
-      letter-spacing: -0.3px;
-      margin-bottom: 18px;
-    }
-    &-info {
-      @include flexbox-direction($direction: column, $gap: 10px);
-      font-style: normal;
-      font-weight: 500;
-      font-size: 15px;
-      line-height: 18px;
-      color: $secondary-font-color;
-    }
+    @include flexbox($direction: column, $gap: 10px);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: $secondary-font-color;
   }
 }
 
 @media (max-width: 480px) {
   .hotel-preview {
-    &__main {
+    &__heading {
       flex-direction: column;
       gap: 10px;
     }

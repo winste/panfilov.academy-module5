@@ -1,6 +1,6 @@
 <template>
   <form class="form" @submit.prevent="submitOrder">
-    <div class="form__wrapper">
+    <div class="form__fields">
       <div class="form__main">
         <VReserveFormInput
           v-model="order.first_name"
@@ -8,7 +8,7 @@
           placeholder="First name *"
           :error="hasErrorMsg('first_name')"
           :message="msg('first_name')"
-          class="form__field"
+          class="form__first-name"
         />
 
         <VReserveFormInput
@@ -17,7 +17,7 @@
           placeholder="Last name *"
           :error="hasErrorMsg('last_name')"
           :message="msg('last_name')"
-          class="form__field form__field-last-name"
+          class="form__last-name"
         />
 
         <VReserveFormInput
@@ -26,7 +26,7 @@
           placeholder="Info-1 *"
           :error="hasErrorMsg('info_1')"
           :message="msg('info_1')"
-          class="form__field"
+          class="form__info-1"
         />
 
         <VReserveFormInput
@@ -35,24 +35,19 @@
           placeholder="Info-2 *"
           :error="hasErrorMsg('info_2')"
           :message="msg('info_2')"
-          class="form__field form__field-info-2"
+          class="form__info-2"
         />
 
-        <div class="form__field">
-          <div class="form__field-select">
-            <VSelect
-              v-model="order.country"
-              :options="countries"
-              color="#959595"
-              weight="500"
-              placeholder="Country *"
-            />
-          </div>
-          <span
-            v-if="hasErrorMsg('country')"
-            class="form__field-select-msg"
-            v-text="msg('country')"
-          >
+        <div class="form__select">
+          <VSelect
+            v-model="order.country"
+            :options="countries"
+            color="#959595"
+            weight="500"
+            placeholder="Country *"
+          />
+
+          <span v-if="hasErrorMsg('country')" class="form__select-msg" v-text="msg('country')">
           </span>
         </div>
 
@@ -62,7 +57,7 @@
           placeholder="Email address *"
           :error="hasErrorMsg('email')"
           :message="msg('email')"
-          class="form__field form__field-email"
+          class="form__email"
         />
       </div>
 
@@ -72,14 +67,14 @@
         placeholder="Phone number"
         :error="hasErrorMsg('phone')"
         message="Incorrect format"
-        class="form__field form__field-phone"
+        class="form__phone"
       />
 
       <VReserveFormInput
         v-model="order.comment"
         type="text"
         placeholder="Comment"
-        class="form__field form__field-comment"
+        class="form__comment"
       />
     </div>
     <AppButtonReserve class="form__button" />
@@ -190,56 +185,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-@import '@/assets/scss/mixins/flexbox-direction';
-@import '@/assets/scss/mixins/reserve-input';
-
-$form-width: 670px;
-$input-width: 329px;
-$input-height: 49px;
-
 .form {
-  @include flexbox-direction($direction: column, $gap: 24px);
-  max-width: $form-width;
-  &__wrapper {
-    @include flexbox-direction($direction: column, $gap: 10px);
+  @include flexbox($direction: column, $gap: 24px);
+  max-width: 670px;
+  &_fields {
+    @include flexbox($direction: column, $gap: 10px);
   }
   &__main {
-    @include flexbox-general($gap: 10px 0);
-    justify-content: space-between;
+    @include flexbox($justify-content: space-between, $gap: 10px 0);
   }
-  &__item {
-    @include flexbox-direction($direction: column, $gap: 0);
-  }
-  &__field {
-    &-select {
-      position: relative;
-      @include flexbox-general();
-      align-items: center;
-      @include reserve-input($width: $input-width, $height: $input-height);
-      &-msg {
-        padding: 5px 10px;
-        font-size: 10px;
-        color: rgb(255, 0, 0);
-      }
-      &::before {
-        position: absolute;
-        content: '';
-        right: 20px;
-        bottom: 22px;
-        width: 10px;
-        height: 10px;
-        border-top: 1px solid rgb(205, 205, 205);
-        border-right: 1px solid rgb(205, 205, 205);
-        transform: rotate(135deg);
-      }
+  &__select {
+    position: relative;
+    @include flexbox;
+    align-items: center;
+    @include placeholder($color: #959595, $weight: 500);
+    min-width: 329px;
+    height: 49px;
+    padding: 15px;
+    border-bottom: 1px solid #000000;
+    &-msg {
+      padding-top: 15px;
+      font-size: 10px;
+      color: #ff0000;
     }
-    &-phone,
-    &-comment {
-      min-width: 100%;
+    &::before {
+      position: absolute;
+      content: '';
+      right: 20px;
+      bottom: 22px;
+      width: 10px;
+      height: 10px;
+      border-top: 1px solid #cdcdcd;
+      border-right: 1px solid #cdcdcd;
+      transform: rotate(135deg);
     }
   }
+  &__phone,
+  &__comment {
+    min-width: 100%;
+  }
+
   &__button {
     position: relative;
     left: 13px;
@@ -247,20 +232,18 @@ $input-height: 49px;
   }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 992px) {
   .form {
     min-width: 100%;
     padding: 0 30px;
-    &__wrapper {
+    &__fields {
       display: block;
     }
     &__main {
       display: block;
     }
-    &__field {
-      &-select {
-        min-width: 100%;
-      }
+    &__select {
+      min-width: 100%;
     }
   }
 }

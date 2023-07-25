@@ -25,28 +25,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/background-position';
-@import '@/assets/scss/mixins/text-hide';
-@import '@/assets/scss/const';
-
-$banner-height: 395px;
-$banner-width: 100%;
-$title-width: 339px;
-$description-width: 400px;
-
 .info-banner {
-  min-height: $banner-height;
-  min-width: $banner-width;
+  min-height: 395px;
+  min-width: 100%;
   padding: 70px 54px;
   @include background-position;
   border-radius: 12px;
   &__title {
     line-height: 52px;
-    max-width: $title-width;
+    max-width: 339px;
     margin-bottom: 22px;
   }
   &__description {
-    max-width: $description-width;
+    max-width: 400px;
     @include text-hide;
   }
 }

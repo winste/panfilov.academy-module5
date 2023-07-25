@@ -18,7 +18,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
 .property-preview {
   font-weight: 600;
   font-size: 14px;

@@ -31,9 +31,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/button-hover';
-
 .button-show {
   display: flex;
   justify-content: center;
@@ -41,7 +38,7 @@ export default {
   font-size: 15px;
   letter-spacing: -0.2px;
   padding: 20px 36px 19px 36px;
-  background: $button-font-color;
+  background: #ffffff;
   border: 1px solid $main-font-color;
   border-radius: 6px;
   &:hover {

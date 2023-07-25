@@ -25,12 +25,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-@import '@/assets/scss/mixins/button-hover';
-
 .store {
-  background-color: $card-bg-color;
+  background-color: #e0e2e6;
   border-radius: 6px;
   width: 172px;
   height: 52px;
@@ -40,8 +36,7 @@ export default {
     margin-top: 2px;
   }
   &__link {
-    @include flexbox-general($gap: 15px);
-    justify-content: center;
+    @include flexbox($justify-content: center, $gap: 15px);
     padding: 15px 15px 13px 13px;
     &:hover {
       @include button-hover;

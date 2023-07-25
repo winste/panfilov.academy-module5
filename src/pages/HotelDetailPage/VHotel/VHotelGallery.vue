@@ -42,35 +42,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/background-position';
-@import '@/assets/scss/mixins/flexbox-general';
-@import '@/assets/scss/mixins/flexbox-center';
-@import '@/assets/scss/mixins/flexbox-direction';
-
-$image-item-width: 315px;
-$image-item-height: 260px;
-$images-gallery-width: 648px;
-$images-gallery-height: 540px;
-$gallery-bg-color: rgba(194, 198, 204, 1);
-
 .hotel-images {
-  @include flexbox-general($gap: 17px);
-  justify-content: center;
+  @include flexbox($justify-content: center, $gap: 17px);
   &__main {
-    @include flexbox-general($gap: 22px, $wrap: nowrap);
-    align-items: end;
+    @include flexbox($align-items: end, $gap: 22px, $wrap: nowrap);
     flex: 1 1 0;
     min-width: 300px;
     max-width: 669px;
     min-height: 350px;
     padding: 55px 65px;
-    background-color: $gallery-bg-color;
+    background-color: #c2c6cc;
     border-radius: 16px;
     @include background-position;
   }
   &__text {
-    @include flexbox-direction($direction: column, $gap: 4px);
+    @include flexbox($direction: column, $gap: 4px);
     font-weight: 500;
     &-item {
       font-size: 12px;

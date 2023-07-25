@@ -57,25 +57,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/background-position';
-@import '@/assets/scss/mixins/flexbox-general';
-@import '@/assets/scss/mixins/flexbox-center';
-@import '@/assets/scss/mixins/flexbox-direction';
-
-$image-item-width: 315px;
-$image-item-height: 260px;
-$images-gallery-width: 648px;
-
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax($image-item-width, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
   grid-gap: 19px 18px;
-  max-width: $images-gallery-width;
+  max-width: 648px;
   margin-top: 1px;
   &__image {
     min-width: 100%;
-    min-height: $image-item-height;
+    min-height: 260px;
     @include background-position;
     border-radius: 8px;
     cursor: pointer;
@@ -84,35 +74,31 @@ $images-gallery-width: 648px;
       font-size: 48px;
     }
     &-text {
-      @include flexbox-direction($direction: column, $gap: 0);
+      @include flexbox($direction: column, $gap: 0);
+      align-items: start;
       font-weight: 600;
       font-size: 14px;
-      align-items: start;
     }
     &-subtext {
       font-weight: 700;
       font-size: 18px;
     }
     &--btn {
-      @include flexbox-center($gap: 15px);
+      @include flexbox($align-items: center, $justify-content: center, $gap: 15px);
       letter-spacing: -0.2px;
       padding-right: 25px;
     }
   }
 }
 
-@media (max-width: 680px) {
-  $image-item-height: 120px;
-  $gap: 15px;
-  $image-item-width: 200px;
-
+@media (max-width: 768px) {
   .gallery {
     min-width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     &__image {
       min-width: auto;
       max-width: auto;
-      min-height: $image-item-height;
+      min-height: 120px;
       &-number {
         font-size: 35px;
       }

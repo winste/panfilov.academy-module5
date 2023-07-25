@@ -65,19 +65,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/placeholder';
-@import '@/assets/scss/mixins/flexbox-center';
-
-$formWidth: 794px;
-$formHeight: 50px;
-
 .news-letter {
-  @include flexbox-center($gap: 80px);
+  @include flexbox($align-items: center, $justify-content: center, $gap: 80px);
   min-width: 100%;
   padding-top: 34px;
   padding-bottom: 33px;
-  background-color: $news-letter-bg-color;
+  background-color: #e8eaec;
   &__info {
     padding-left: 7px;
   }
@@ -94,11 +87,11 @@ $formHeight: 50px;
   &__form {
     display: flex;
     flex: 1 1 0;
-    max-width: $formWidth;
-    max-height: $formHeight;
-    background-color: $input-bg-color;
+    max-width: 794px;
+    max-height: 50px;
+    background-color: #ffffff;
     border-radius: 26px;
-    box-shadow: inset -2px 0px 0px $news-letter-bg-color;
+    box-shadow: inset -2px 0px 0px #e8eaec;
   }
   &__input {
     flex: 1 1 0;
@@ -107,7 +100,7 @@ $formHeight: 50px;
     color: $secondary-font-color;
     padding: 16px 23px;
     border-radius: 26px;
-    @include placeholder-style;
+    @include placeholder;
   }
   &__button {
     position: relative;

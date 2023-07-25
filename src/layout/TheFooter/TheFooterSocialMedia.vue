@@ -38,10 +38,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/flexbox-general';
-
 .social {
-  @include flexbox-general($gap: 24px);
+  @include flexbox($gap: 24px);
   margin-top: 21px;
   margin-left: 1px;
 }

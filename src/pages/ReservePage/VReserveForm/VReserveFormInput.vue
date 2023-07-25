@@ -47,20 +47,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-direction';
-@import '@/assets/scss/mixins/reserve-input';
-
 .input-wrapper {
-  @include flexbox-direction($direction: column, $gap: 0);
+  @include flexbox($direction: column, $gap: 0);
 }
 
 .input {
-  @include reserve-input($width: v-bind(width), $height: v-bind(height));
+  @include placeholder($color: #959595, $weight: 500);
+  min-width: v-bind(width);
+  height: v-bind(height);
+  padding: 15px;
+  border-bottom: 1px solid #000000;
   &__msg {
     padding: 5px 10px;
     font-size: 10px;
-    color: rgb(255, 0, 0);
+    color: #ff0000;
   }
 }
 

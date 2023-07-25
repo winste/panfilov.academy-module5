@@ -25,3 +25,11 @@ createApp(App)
     teleportTarget: '#modals',
   })
   .mount('#app')
+
+// слушатель для закрытия бургера при клике вне навигации
+document.body.addEventListener('click', (e) => {
+  const clickTarget = e.target.className
+  if (!clickTarget.includes('burger__item') && !clickTarget.includes('navbar')) {
+    Array.from(document.querySelectorAll('.open')).forEach((item) => item.classList.remove('open'))
+  }
+})

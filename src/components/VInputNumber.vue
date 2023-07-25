@@ -26,8 +26,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/placeholder';
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -42,6 +40,6 @@ input[type='number'] {
 
 .input-number {
   min-height: 24px;
-  @include placeholder-style;
+  @include placeholder;
 }
 </style>

@@ -2,9 +2,9 @@
   <div class="host-info">
     <AppAvatar :src="avatar" size="76px" class="host-info__avatar" />
     <span class="host-info__text">
-      <p class="host-info__text-item">Listed By:</p>
-      <p class="host-info__text-author">{{ name }}</p>
-      <p class="host-info__text-price">For: {{ correctPrice }}</p>
+      <p class="host-info__item">Listed By:</p>
+      <p class="host-info__author">{{ name }}</p>
+      <p class="host-info__price">For: {{ correctPrice }}</p>
     </span>
   </div>
 </template>
@@ -40,25 +40,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/flexbox-general';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .host-info {
-  @include flexbox-general($gap: 21px);
+  @include flexbox($gap: 21px);
   &__text {
-    @include flexbox-direction($direction: column, $gap: 4px);
+    @include flexbox($direction: column, $gap: 4px);
     font-weight: 500;
     margin-top: 8px;
-    &-item {
-      font-size: 12px;
-    }
-    &-author {
-      font-weight: 700;
-      font-size: 18px;
-    }
-    &-price {
-      margin-bottom: 4px;
-    }
+  }
+  &__item {
+    font-size: 12px;
+  }
+  &__author {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  &__price {
+    margin-bottom: 4px;
   }
 }
 
@@ -68,9 +65,9 @@ export default {
     gap: 7px;
     &__text {
       margin: 0;
-      &-author {
-        font-size: 16px;
-      }
+    }
+    &__author {
+      font-size: 16px;
     }
   }
 }

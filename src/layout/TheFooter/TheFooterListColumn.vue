@@ -34,12 +34,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/mixins/_flexbox-direction.scss';
-
 .info {
   padding: 0 5px;
   &__list {
-    @include flexbox-direction($direction: column, $gap: 14px);
+    @include flexbox($direction: column, $gap: 14px);
     &-title {
       font-size: 18px;
       margin-bottom: 27px;

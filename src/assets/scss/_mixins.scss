@@ -1,0 +1,65 @@
+@mixin flexbox($gap: normal, $wrap: wrap, $direction: null, $align-items: null, $justify-content: null) {
+  display: flex;
+  flex-wrap: $wrap;
+  gap: $gap;
+  @if ($direction) {
+    flex-direction: $direction;
+  }
+  @if ($align-items) {
+    align-items: $align-items;
+  }
+  @if ($justify-content) {
+  justify-content: $justify-content;
+  } 
+}
+
+@mixin section-title-style {
+  position: relative;
+  max-width: 420px;
+  line-height: 48px;
+  @media (max-width: 480px) {
+    line-height: normal;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -37px;
+    left: 1px;
+    width: 140px;
+    height: 6px;
+    background-color: $main-font-color;
+    border-radius: 3px;
+  }
+}
+
+@mixin background-position {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+@mixin button-hover() {
+  &:hover {
+    box-shadow: 0px 0px 5px $secondary-font-color;
+    opacity: 0.8;
+  }
+}
+
+@mixin text-hide($number: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $number;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin placeholder($color: #c2c6cc, $weight: 600) {
+  &::placeholder {
+    font-family: $main-font-family;
+    font-size: 14px;
+    @if ($weight) {
+      font-weight: $weight;
+    }
+    color: $color;
+  }
+}

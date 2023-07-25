@@ -1,6 +1,0 @@
-@import './flexbox-general';
-
-@mixin flexbox-direction($direction, $gap, $flexWrap: wrap) {
-  @include flexbox-general($gap, $flexWrap);
-  flex-direction: $direction;
-}

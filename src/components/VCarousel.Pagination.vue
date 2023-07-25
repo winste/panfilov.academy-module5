@@ -33,18 +33,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/flexbox-general';
-
-$indicator-size: 10px;
-
 .pagination {
-  @include flexbox-general($gap: 5px);
-  align-items: v-bind(position);
+  @include flexbox($align-items: v-bind(position), $gap: 5px);
   &__indicator {
-    width: $indicator-size;
-    height: $indicator-size;
-    background-color: $input-bg-color;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
     border-radius: 50%;
     &:hover {
       background-color: $secondary-font-color;

@@ -45,17 +45,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/section-title';
-@import '@/assets/scss/mixins/flexbox-general';
-
 .latest-section {
   &__title {
     @include section-title-style;
     margin-bottom: 101px;
   }
   &__cards {
-    @include flexbox-general($gap: 30px);
-    justify-content: center;
+    @include flexbox($justify-content: center, $gap: 30px);
   }
   &__card {
     flex: 1 1 0;

@@ -71,19 +71,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/button-hover';
-
-$reserve-width: 382px;
-$reserve-height: 201px;
-$button-width: 324px;
-$button-height: 60px;
-
 .reserve {
-  max-width: $reserve-width;
-  min-height: $reserve-height;
+  max-width: 382px;
+  min-height: 201px;
   padding: 30px 30px 30px 29px;
-  box-shadow: 0px 0px 16px rgba(194, 198, 204, 0.6);
+  box-shadow: 0px 0px 16px #c2c6cc99;
   border-radius: 10px;
   font-weight: 700;
   font-size: 22px;
@@ -92,7 +84,7 @@ $button-height: 60px;
     padding-bottom: 26px;
     margin-bottom: 27px;
     margin-left: 1px;
-    border-bottom: 1px solid $card-bg-color;
+    border-bottom: 1px solid #e0e2e6;
   }
   &__btn {
     margin-right: 1px;

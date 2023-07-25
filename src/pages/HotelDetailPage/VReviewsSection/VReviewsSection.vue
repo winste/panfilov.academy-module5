@@ -89,11 +89,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/mixins/flexbox-general';
 .reviews {
   &__title {
-    @include flexbox-general($gap: 10px);
-    align-items: center;
+    @include flexbox($align-items: center, $gap: 10px);
     margin-bottom: 27px;
     &-text {
       letter-spacing: -0.1px;
@@ -107,11 +105,10 @@ export default {
     }
   }
   &__list {
-    @include flexbox-general($gap: 31px 0px);
-    justify-content: space-between;
+    @include flexbox($justify-content: space-between, $gap: 31px 0px);
   }
   &__rating {
-    @include flexbox-general($gap: 16.5px 47.5px);
+    @include flexbox($gap: 16.5px 47.5px);
     margin-bottom: 50px;
     margin-left: 2px;
   }

@@ -23,8 +23,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-
 .description {
   &__title {
     margin-bottom: 15px;

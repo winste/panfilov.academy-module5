@@ -68,19 +68,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/const';
-@import '@/assets/scss/mixins/background-position';
-@import '@/assets/scss/mixins/flexbox-direction';
-
 .latest-card {
-  @include flexbox-direction($direction: column, $gap: 0px, $flexWrap: nowrap);
-  justify-content: space-between;
+  @include flexbox($direction: column, $justify-content: space-between, $gap: 0px, $wrap: nowrap);
   min-width: v-bind(width);
   max-width: 600px;
   min-height: v-bind(height);
   padding: 18px 17px 19px 21px;
   border-radius: 8px;
-  background-color: $card-bg-color;
   @include background-position;
   &__icon {
     align-self: end;
