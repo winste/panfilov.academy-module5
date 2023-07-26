@@ -31,6 +31,7 @@ export default {
     cursor: pointer;
     @include flexbox($direction: column, $justify-content: center, $gap: 7px);
     width: 40px;
+    z-index: 11;
     &__line {
       display: inline-block;
       width: 100%;

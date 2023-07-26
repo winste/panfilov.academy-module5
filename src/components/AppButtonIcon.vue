@@ -33,17 +33,9 @@ export default {
   background: transparent;
   &__icon {
     &:hover {
-      animation: 0.2s forwards flashIcon;
+      transform: scale(1.1);
+      transition: $transition;
     }
-  }
-}
-
-@keyframes flashIcon {
-  0% {
-    scale: 0.8;
-  }
-  100% {
-    scale: 1.3;
   }
 }
 </style>

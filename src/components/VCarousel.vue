@@ -109,6 +109,7 @@ export default {
   max-width: v-bind(width);
   height: v-bind(height);
   margin: 0;
+  background-color: #e0e2e6;
   &__slide {
     max-width: v-bind(width);
     height: v-bind(height);

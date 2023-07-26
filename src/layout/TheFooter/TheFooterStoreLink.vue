@@ -40,6 +40,7 @@ export default {
     padding: 15px 15px 13px 13px;
     &:hover {
       @include button-hover;
+      border-radius: 6px;
     }
   }
 }

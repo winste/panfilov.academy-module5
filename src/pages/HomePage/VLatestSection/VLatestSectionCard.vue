@@ -76,6 +76,7 @@ export default {
   padding: 18px 17px 19px 21px;
   border-radius: 8px;
   @include background-position;
+  background-color: #e0e2e6;
   &__icon {
     align-self: end;
   }

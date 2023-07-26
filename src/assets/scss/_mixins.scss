@@ -41,8 +41,9 @@
 
 @mixin button-hover() {
   &:hover {
-    box-shadow: 0px 0px 5px $secondary-font-color;
+    box-shadow: 0 0 5px #9a9a9a;
     opacity: 0.8;
+    
   }
 }
 

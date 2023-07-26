@@ -27,11 +27,9 @@ export default {
 }
 
 @media (max-width: 480px) {
-  $size: 60px;
-
   .avatar {
-    width: $size;
-    height: $size;
+    width: 60px;
+    height: 60px;
   }
 }
 </style>

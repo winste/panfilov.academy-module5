@@ -27,9 +27,11 @@ createApp(App)
   .mount('#app')
 
 // слушатель для закрытия бургера при клике вне навигации
-document.body.addEventListener('click', (e) => {
-  const clickTarget = e.target.className
-  if (!clickTarget.includes('burger__item') && !clickTarget.includes('navbar')) {
+document.body.addEventListener('mouseup', (e) => {
+  const clickTarget = e.target.classList
+  const classNames = ['burger__item', 'navbar']
+
+  if (!classNames.some((className) => clickTarget.contains(className))) {
     Array.from(document.querySelectorAll('.open')).forEach((item) => item.classList.remove('open'))
   }
 })

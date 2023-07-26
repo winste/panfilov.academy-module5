@@ -69,13 +69,13 @@ export default {
     @include background-position;
     border-radius: 8px;
     cursor: pointer;
+    background-color: #c2c6cc;
     &-number {
       font-weight: 700;
       font-size: 48px;
     }
     &-text {
-      @include flexbox($direction: column, $gap: 0);
-      align-items: start;
+      @include flexbox($direction: column, $align-items: start, $gap: 0);
       font-weight: 600;
       font-size: 14px;
     }
