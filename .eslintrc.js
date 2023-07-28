@@ -71,16 +71,17 @@ module.exports = {
   },
 
   rules: {
+    'linebreak-style': 0,
     'prettier-vue/prettier': [
       'error',
       {
         // Override all options of `prettier` here
         // @see https://prettier.io/docs/en/options.html
+        endOfLine: 'auto',
         printWidth: 100,
         singleQuote: true,
         semi: false,
         trailingComma: 'es5',
-        endOfLine: 'auto',
       },
     ],
   },

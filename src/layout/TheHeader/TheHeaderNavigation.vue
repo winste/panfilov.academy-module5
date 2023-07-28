@@ -35,19 +35,16 @@ export default {
 
 @media (max-width: 992px) {
   .navbar {
-    display: flex;
     position: absolute;
     top: -100%;
     right: 0;
     padding: 70px;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    gap: 45px;
+    @include flexbox($direction: column, $gap: 45px, $wrap: nowrap);
     z-index: 11;
     background-color: $main-decor-color;
     box-shadow: 0px 10px 10px #e5e5e5;
     border-radius: 12px;
-    transition: all 0.5s;
+    transition: $transition;
     &.open {
       top: 70px;
     }

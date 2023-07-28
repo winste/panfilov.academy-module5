@@ -248,13 +248,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

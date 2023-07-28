@@ -58,9 +58,9 @@
   &::placeholder {
     font-family: $main-font-family;
     font-size: 14px;
+    color: $color;
     @if ($weight) {
       font-weight: $weight;
     }
-    color: $color;
   }
 }

@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .store {
   background-color: #e0e2e6;
   border-radius: 6px;

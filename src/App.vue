@@ -8,7 +8,7 @@
       <TheFooter />
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 import TheFooter from '@/layout/TheFooter/TheFooter.vue'
