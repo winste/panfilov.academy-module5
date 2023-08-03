@@ -2,13 +2,16 @@
   display: flex;
   flex-wrap: $wrap;
   gap: $gap;
-  @if ($direction) {
+
+  @if  $direction {
     flex-direction: $direction;
   }
-  @if ($align-items) {
+
+  @if  $align-items {
     align-items: $align-items;
   }
-  @if ($justify-content) {
+
+  @if  $justify-content {
   justify-content: $justify-content;
   } 
 }
@@ -17,9 +20,11 @@
   position: relative;
   max-width: 420px;
   line-height: 48px;
-  @media (max-width: 480px) {
+
+  @media (width <= 480px) {
     line-height: normal;
   }
+
   &::after {
     content: '';
     position: absolute;
@@ -59,7 +64,8 @@
     font-family: $main-font-family;
     font-size: 14px;
     color: $color;
-    @if ($weight) {
+
+    @if  $weight {
       font-weight: $weight;
     }
   }

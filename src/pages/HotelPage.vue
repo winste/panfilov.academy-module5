@@ -129,7 +129,7 @@ export default {
     margin-bottom: 51px;
   }
   &__gallery {
-    margin: 35px 0 90px 0;
+    margin: 35px 0 90px;
     padding: 0 14px;
   }
   &__main {

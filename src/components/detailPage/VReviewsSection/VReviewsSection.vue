@@ -105,15 +105,13 @@ export default {
     }
   }
   &__list {
-    @include flexbox($justify-content: space-between, $gap: 31px 0px);
+    @include flexbox($justify-content: space-between, $gap: 31px 0);
+    margin-bottom: 40px;
   }
   &__rating {
     @include flexbox($gap: 16.5px 47.5px);
     margin-bottom: 50px;
     margin-left: 2px;
-  }
-  &__list {
-    margin-bottom: 40px;
   }
   &__item {
     max-width: 382px;

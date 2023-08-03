@@ -91,7 +91,7 @@ export default {
     max-height: 50px;
     background-color: #ffffff;
     border-radius: 26px;
-    box-shadow: inset -2px 0px 0px #e8eaec;
+    box-shadow: inset -2px 0 0 #e8eaec;
   }
   &__input {
     flex: 1 1 0;

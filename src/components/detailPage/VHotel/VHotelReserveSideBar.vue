@@ -75,7 +75,7 @@ export default {
   max-width: 382px;
   min-height: 201px;
   padding: 30px 30px 30px 29px;
-  box-shadow: 0px 0px 16px #c2c6cc99;
+  box-shadow: 0 0 16px #c2c6cc99;
   border-radius: 10px;
   font-weight: 700;
   font-size: 22px;

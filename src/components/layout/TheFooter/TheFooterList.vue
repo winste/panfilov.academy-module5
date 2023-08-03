@@ -57,7 +57,7 @@ export default {
   &__contacts {
     margin-left: 15px;
     &-social {
-      margin-left: 0px;
+      margin-left: 0;
     }
   }
 }
@@ -67,7 +67,7 @@ export default {
     flex-direction: column;
     margin-left: 15px;
     &__contacts {
-      margin-left: 0px;
+      margin-left: 0;
     }
   }
 }

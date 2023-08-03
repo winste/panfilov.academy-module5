@@ -8,8 +8,8 @@
 
 <script>
 import { useReserveStore } from '@/store/reserveStore'
-import VReserveForm from '@/components/ReservePage/VReserveForm/VReserveForm.vue'
-import VReserveHotel from '@/components/ReservePage/VReserveHotel/VReserveHotel.vue'
+import VReserveForm from '@/components/reservePage/VReserveForm/VReserveForm.vue'
+import VReserveHotel from '@/components/reservePage/VReserveHotel/VReserveHotel.vue'
 import AppMetaTags from '@/components/general/AppMetaTags.vue'
 import metaTags from '@/helpers/metaTags'
 

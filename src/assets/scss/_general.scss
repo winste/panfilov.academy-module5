@@ -32,7 +32,7 @@ body {
   font-family: $main-font-family;
   font-size: $main-font-size;
   color: $main-font-color;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,6 +41,7 @@ a {
   text-decoration: none;
   color: $main-font-color;
   transition: $transition;
+
   &:hover {
     opacity: 0.5;
   }
@@ -48,6 +49,10 @@ a {
 
 img {
   object-fit: cover;
+}
+
+svg {
+  transition: $transition;
 }
 
 button {
@@ -80,6 +85,7 @@ h5 {
   font-weight: normal;
   border-radius: 20px;
   overflow: hidden;
+
   &-wrapper {
     max-width: 100%;
     margin: 0 auto;
@@ -89,27 +95,31 @@ h5 {
 
 
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .container {
     &-wrapper {
       padding: 0 45px;
     }
   }
+
   body {
     font-size: $tablet-font-size;
   }
+
   h2 {
     font-size: 30px;
   }
+
   h3 {
     font-size: 22px;
   }
+
   h4 {
     font-size: 18px;
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .container {
     &-wrapper {
       padding: 0 25px;

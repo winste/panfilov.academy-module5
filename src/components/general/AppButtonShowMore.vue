@@ -37,7 +37,7 @@ export default {
   font-weight: 600;
   font-size: 15px;
   letter-spacing: -0.2px;
-  padding: 20px 36px 19px 36px;
+  padding: 20px 36px 19px;
   background: #ffffff;
   border: 1px solid $main-font-color;
   border-radius: 6px;

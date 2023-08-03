@@ -69,7 +69,7 @@ export default {
 
 <style lang="scss" scoped>
 .latest-card {
-  @include flexbox($direction: column, $justify-content: space-between, $gap: 0px, $wrap: nowrap);
+  @include flexbox($direction: column, $justify-content: space-between, $gap: 0, $wrap: nowrap);
   min-width: v-bind(width);
   max-width: 600px;
   min-height: v-bind(height);

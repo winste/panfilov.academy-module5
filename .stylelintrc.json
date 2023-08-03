@@ -1,3 +1,29 @@
 {
-    "extends": "stylelint-config-standard-scss"
+  "extends": [
+    "stylelint-config-recommended-vue/scss"
+  ],
+  "overrides": [
+    {
+      "files": "**/*.scss",
+      "customSyntax": "postcss-scss"
+    }
+  ],
+  "rules": {
+    "length-zero-no-unit": true,
+    "unit-no-unknown": true,
+    "property-no-unknown": true,
+    "function-disallowed-list": ["/^rgb/", "/^hsl/"],
+    "color-named": "never",
+    "declaration-block-no-duplicate-properties": true,
+    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["ng-deep"] }],
+    "media-feature-name-no-unknown": true,
+    "at-rule-no-unknown": null,
+    "comment-no-empty": true,
+    "no-duplicate-at-import-rules": true,
+    "no-invalid-double-slash-comments": true,
+    "shorthand-property-no-redundant-values": true,
+    "max-nesting-depth": null,
+    "selector-no-qualifying-type": null,
+    "selector-max-compound-selectors": null
+  }
 }

@@ -62,7 +62,6 @@ export default {
     padding: 0;
     margin: 0;
     border: none;
-    border: none;
   }
   & .vs__open-indicator,
   .vs__actions {

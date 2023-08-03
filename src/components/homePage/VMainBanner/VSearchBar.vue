@@ -173,7 +173,7 @@ export default {
 .filter {
   &__form {
     @include flexbox($wrap: nowrap);
-    padding: 11px 8px 5px 8px;
+    padding: 11px 8px 5px;
     background-color: #ffffff;
     border-radius: 35px;
   }
@@ -194,7 +194,7 @@ export default {
   }
   &__input {
     position: relative;
-    @include flexbox($direction: column, $justify-content: center, $gap: 0px);
+    @include flexbox($direction: column, $justify-content: center, $gap: 0);
   }
   &__select {
     min-width: 258px;

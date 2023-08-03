@@ -42,7 +42,7 @@ export default {
     @include flexbox($direction: column, $gap: 45px, $wrap: nowrap);
     z-index: 11;
     background-color: $main-decor-color;
-    box-shadow: 0px 10px 10px #e5e5e5;
+    box-shadow: 0 10px 10px #e5e5e5;
     border-radius: 12px;
     transition: $transition;
     &.open {

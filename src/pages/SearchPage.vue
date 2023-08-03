@@ -97,6 +97,7 @@ export default {
   }
   &__map {
     order: 1;
+    margin-left: 16px;
   }
   &__cards {
     padding: 90px 30px 90px 80px;

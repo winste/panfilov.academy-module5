@@ -78,6 +78,14 @@ export default {
   }
 }
 
+@media (max-width: 1024px) {
+  .search-map {
+    &__info {
+      left: 60px;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .search-map {
     display: none;
