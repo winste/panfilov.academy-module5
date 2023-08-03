@@ -16,7 +16,6 @@
     "color-named": "never",
     "declaration-block-no-duplicate-properties": true,
     "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["ng-deep"] }],
-    "media-feature-name-no-unknown": true,
     "at-rule-no-unknown": null,
     "comment-no-empty": true,
     "no-duplicate-at-import-rules": true,

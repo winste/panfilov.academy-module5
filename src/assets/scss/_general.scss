@@ -95,7 +95,7 @@ h5 {
 
 
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .container {
     &-wrapper {
       padding: 0 45px;
@@ -119,7 +119,7 @@ h5 {
   }
 }
 
-@media (width <= 480px) {
+@media (max-width: 480px) {
   .container {
     &-wrapper {
       padding: 0 25px;
