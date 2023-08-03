@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import TheFooter from '@/layout/TheFooter/TheFooter.vue'
-import TheHeader from '@/layout/TheHeader/TheHeader.vue'
-import TheNewsLetter from '@/layout/TheNewsLetter.vue'
-import AppModal from './components/AppModal.vue'
+import TheFooter from '@/components/layout/TheFooter/TheFooter.vue'
+import TheHeader from '@/components/layout/TheHeader/TheHeader.vue'
+import TheNewsLetter from '@/components/layout/TheNewsLetter.vue'
+import AppModal from '@/components/general/AppModal.vue'
 
 export default {
   components: {

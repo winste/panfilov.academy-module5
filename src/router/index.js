@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import HotelView from '@/views/HotelView.vue'
-import ReserveView from '@/views/ReserveView.vue'
-import SearchView from '@/views/SearchView.vue'
-import NotFound from '@/views/NotFound.vue'
+import HomePage from '@/pages/HomePage.vue'
+import HotelPage from '@/pages/HotelPage.vue'
+import ReservePage from '@/pages/ReservePage.vue'
+import SearchPage from '@/pages/SearchPage.vue'
+import NotFoundPage from '@/pages/NotFoundPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,27 +11,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: HomePage,
     },
     {
       path: '/hotel/detail/:id',
       name: 'hotel',
-      component: HotelView,
+      component: HotelPage,
     },
     {
       path: '/order',
       name: 'reserve',
-      component: ReserveView,
+      component: ReservePage,
     },
     {
       path: '/hotel/search',
       name: 'search',
-      component: SearchView,
+      component: SearchPage,
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
-      component: NotFound,
+      component: NotFoundPage,
     },
   ],
   scrollBehavior(to, from, savedPosition) {
