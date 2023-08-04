@@ -39,14 +39,15 @@
         />
 
         <div class="form__select">
-          <VSelect
-            v-model="order.country"
-            :options="countries"
-            color="#959595"
-            weight="500"
-            placeholder="Country *"
-          />
-
+          <div class="form__select-field">
+            <VSelect
+              v-model="order.country"
+              :options="countries"
+              color="#959595"
+              weight="500"
+              placeholder="Country *"
+            />
+          </div>
           <span v-if="hasErrorMsg('country')" class="form__select-msg" v-text="msg('country')">
           </span>
         </div>
@@ -195,19 +196,22 @@ export default {
     @include flexbox($justify-content: space-between, $gap: 10px 0);
   }
   &__select {
-    position: relative;
     @include flexbox;
     align-items: center;
-    @include placeholder($color: #959595, $weight: 500);
     min-width: 329px;
-    height: 49px;
-    padding: 15px;
-    border-bottom: 1px solid #000000;
     &-msg {
-      padding-top: 15px;
+      padding: 5px 10px;
       font-size: 10px;
       color: #ff0000;
     }
+  }
+  &__select-field {
+    position: relative;
+    padding: 15px;
+    max-height: 49px;
+    min-width: 100%;
+    @include placeholder($color: #959595, $weight: 500);
+    border-bottom: 1px solid #000000;
     &::before {
       position: absolute;
       content: '';
