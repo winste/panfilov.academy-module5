@@ -31,6 +31,7 @@ export default {
   padding: 70px 54px;
   @include background-position;
   border-radius: 12px;
+  background-color: #eff0f2;
   &__title {
     line-height: 52px;
     max-width: 339px;
