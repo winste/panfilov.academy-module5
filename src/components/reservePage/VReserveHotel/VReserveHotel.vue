@@ -1,7 +1,11 @@
 <template>
   <section class="hotel-preview">
     <div class="hotel-preview__heading">
-      <img :src="hotelData.image" alt="Hotel image" class="hotel-preview__image" />
+      <img
+        :src="hotelData.image"
+        alt="Hotel image"
+        class="hotel-preview__image"
+      />
       <div class="hotel-preview__info">
         <VCardTitleInfo
           :id="hotelData.id"

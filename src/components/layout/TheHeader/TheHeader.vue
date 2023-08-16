@@ -1,7 +1,12 @@
 <template>
   <header class="header container-wrapper">
     <router-link to="/"
-      ><AppIcon :name="logoIcon" :width="104" :height="30" class="header__logo" />
+      ><AppIcon
+        :name="logoIcon"
+        :width="104"
+        :height="30"
+        class="header__logo"
+      />
     </router-link>
     <TheHeaderNavigation class="header__navigation" />
     <TheHeaderBurger class="header__burger" />

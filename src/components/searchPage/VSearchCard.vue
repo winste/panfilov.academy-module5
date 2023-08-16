@@ -21,11 +21,16 @@
         gap="2px"
         class="search-card__title"
       />
-      <VCardPropertiesInfo :properties="hotelData.info[0]" class="search-card__properties" />
+      <VCardPropertiesInfo
+        :properties="hotelData.info[0]"
+        class="search-card__properties"
+      />
       <span class="search-card__period">
         <p class="search-card__type">{{ hotelData.type[0] }}</p>
         <p class="search-card__period-delimiter"></p>
-        <p class="search-card__length">For {{ periodLength }} period: {{ hotelData.period[0] }}</p>
+        <p class="search-card__length">
+          For {{ periodLength }} period: {{ hotelData.period[0] }}
+        </p>
       </span>
     </div>
     <AppErrorMessage v-if="error" :msg="error" />

@@ -81,7 +81,12 @@ export default {
 @media (max-width: 480px) {
   .featured-section {
     &__cards {
-      @include flexbox($direction: column, $align-items: center, $gap: 40px, $wrap: nowrap);
+      @include flexbox(
+        $direction: column,
+        $align-items: center,
+        $gap: 40px,
+        $wrap: nowrap
+      );
     }
   }
 }

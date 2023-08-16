@@ -20,7 +20,11 @@
       />
     </div>
 
-    <AppButtonShowMore :count="reviewsListCount" name="Reviews" @showAll="changeDisplayedValue" />
+    <AppButtonShowMore
+      :count="reviewsListCount"
+      name="Reviews"
+      @showAll="changeDisplayedValue"
+    />
   </section>
 </template>
 
@@ -66,7 +70,8 @@ export default {
     // общее среднее значение рейтинга, отображаемое сверху
     averageRating() {
       return (
-        this.ratingList.reduce((initial, obj) => initial + obj.rating, 0) / this.ratingList.length
+        this.ratingList.reduce((initial, obj) => initial + obj.rating, 0) /
+        this.ratingList.length
       ).toFixed(1)
     },
     reviewsListCount() {

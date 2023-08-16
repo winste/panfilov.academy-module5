@@ -2,10 +2,15 @@
   <footer id="footer" class="footer container-wrapper">
     <div class="footer__wrapper">
       <div class="footer__about">
-        <AppIcon :name="logoIcon" :width="148.5" :height="40" class="footer__logo" />
+        <AppIcon
+          :name="logoIcon"
+          :width="148.5"
+          :height="40"
+          class="footer__logo"
+        />
         <p class="footer__text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
         <div class="footer__stores">
           <TheFooterStoreLink
@@ -26,9 +31,12 @@
       <TheFooterList class="footer__info" />
     </div>
     <div class="footer__copywrite">
-      <p class="footer__copywrite-text">© 2022 thecreation.design | All rights raserved</p>
       <p class="footer__copywrite-text">
-        Created with love by <span class="footer__copywrite-name">thecreation.design</span>
+        © 2022 thecreation.design | All rights raserved
+      </p>
+      <p class="footer__copywrite-text">
+        Created with love by
+        <span class="footer__copywrite-name">thecreation.design</span>
       </p>
     </div>
   </footer>

@@ -18,7 +18,11 @@
             <VHotelTitle :name="hotelData.name" :address="hotelData.address" />
             <div class="hotel__interaction">
               <AppButtonIcon :icon="buttonIconLike" :width="36" :height="36" />
-              <AppButtonIcon :icon="buttonIconSearch" :width="35" :height="35" />
+              <AppButtonIcon
+                :icon="buttonIconSearch"
+                :width="35"
+                :height="35"
+              />
             </div>
           </div>
 
@@ -52,7 +56,12 @@
 
         <div class="hotel__information">
           <VAmenitiesSection :amenities="hotelData.amenities" />
-          <VMap :coords="hotelData.coords" width="771px" height="420px" class="hotel__map" />
+          <VMap
+            :coords="hotelData.coords"
+            width="771px"
+            height="420px"
+            class="hotel__map"
+          />
           <VReviewsSection :reviews-list="hotelData.reviews" />
         </div>
       </div>

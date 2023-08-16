@@ -1,19 +1,25 @@
-@mixin flexbox($gap: normal, $wrap: wrap, $direction: null, $align-items: null, $justify-content: null) {
+@mixin flexbox(
+  $gap: normal,
+  $wrap: wrap,
+  $direction: null,
+  $align-items: null,
+  $justify-content: null
+) {
   display: flex;
   flex-wrap: $wrap;
   gap: $gap;
 
-  @if  $direction {
+  @if $direction {
     flex-direction: $direction;
   }
 
-  @if  $align-items {
+  @if $align-items {
     align-items: $align-items;
   }
 
-  @if  $justify-content {
-  justify-content: $justify-content;
-  } 
+  @if $justify-content {
+    justify-content: $justify-content;
+  }
 }
 
 @mixin section-title-style {
@@ -43,12 +49,10 @@
   background-position: center;
 }
 
-
 @mixin button-hover() {
   &:hover {
     box-shadow: 0 0 5px #9a9a9a;
     opacity: 0.8;
-    
   }
 }
 
@@ -65,7 +69,7 @@
     font-size: 14px;
     color: $color;
 
-    @if  $weight {
+    @if $weight {
       font-weight: $weight;
     }
   }

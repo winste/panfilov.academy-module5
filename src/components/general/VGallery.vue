@@ -1,6 +1,11 @@
 <template>
   <section class="gallery">
-    <VueGallery :images="images" :index="index" class="gg" @close="index = null"></VueGallery>
+    <VueGallery
+      :images="images"
+      :index="index"
+      class="gg"
+      @close="index = null"
+    ></VueGallery>
     <div
       v-for="(image, imageIndex) in displayedImages"
       :key="imageIndex"
@@ -84,7 +89,11 @@ export default {
       font-size: 18px;
     }
     &--btn {
-      @include flexbox($align-items: center, $justify-content: center, $gap: 15px);
+      @include flexbox(
+        $align-items: center,
+        $justify-content: center,
+        $gap: 15px
+      );
       letter-spacing: -0.2px;
       padding-right: 25px;
     }

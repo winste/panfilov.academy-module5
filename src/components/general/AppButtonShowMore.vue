@@ -1,5 +1,8 @@
 <template>
-  <button class="button-show" @click="switchDisplayedList(), $emit('showAll', showAll)">
+  <button
+    class="button-show"
+    @click="switchDisplayedList(), $emit('showAll', showAll)"
+  >
     <span v-if="!showAll"> Show All {{ count }} {{ name }}</span>
     <span v-else> Hide {{ name }} list </span>
   </button>

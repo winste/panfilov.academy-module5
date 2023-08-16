@@ -43,7 +43,11 @@ export default {
 
 <style lang="scss" scoped>
 .property {
-  @include flexbox($direction: column, $align-items: center, $justify-content: center);
+  @include flexbox(
+    $direction: column,
+    $align-items: center,
+    $justify-content: center
+  );
   min-width: 176px;
   min-height: 160px;
   background-color: $main-decor-color;

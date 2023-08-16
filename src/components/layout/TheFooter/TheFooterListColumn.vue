@@ -3,7 +3,11 @@
     <h4 class="info__list-title" v-text="title"></h4>
     <ul class="info__list">
       <li v-for="item in list" :key="item.href" class="info__list-item">
-        <router-link v-if="typeFollow == 'router'" :to="item.href" class="info__list-link">
+        <router-link
+          v-if="typeFollow == 'router'"
+          :to="item.href"
+          class="info__list-link"
+        >
           {{ item.name }}</router-link
         >
         <a

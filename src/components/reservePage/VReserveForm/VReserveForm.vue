@@ -48,7 +48,11 @@
               placeholder="Country *"
             />
           </div>
-          <span v-if="hasErrorMsg('country')" class="form__select-msg" v-text="msg('country')">
+          <span
+            v-if="hasErrorMsg('country')"
+            class="form__select-msg"
+            v-text="msg('country')"
+          >
           </span>
         </div>
 
@@ -139,7 +143,9 @@ export default {
   },
 
   async created() {
-    const countries = await api.fetchData('/hotel/location').then((response) => response.data)
+    const countries = await api
+      .fetchData('/hotel/location')
+      .then((response) => response.data)
     this.countries = sortByName(countries)
   },
 
@@ -151,7 +157,9 @@ export default {
     // находит необходимое поле в списке ошибок и возвращает сообщение
     msg(name) {
       if (this.hasErrorMsg(name)) {
-        const index = this.v$.$errors.map((item) => item.$property).indexOf(name)
+        const index = this.v$.$errors
+          .map((item) => item.$property)
+          .indexOf(name)
         return this.v$.$errors[index].$message
       }
     },

@@ -109,7 +109,9 @@ export default {
 
   async created() {
     try {
-      const countries = await api.fetchData('/hotel/location').then((response) => response.data)
+      const countries = await api
+        .fetchData('/hotel/location')
+        .then((response) => response.data)
       this.countries = sortByName(countries)
     } catch (error) {
       this.error = error.message

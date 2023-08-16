@@ -32,6 +32,8 @@ document.body.addEventListener('mouseup', (e) => {
   const classNames = ['burger__item', 'navbar']
 
   if (!classNames.some((className) => clickTarget.contains(className))) {
-    Array.from(document.querySelectorAll('.open')).forEach((item) => item.classList.remove('open'))
+    Array.from(document.querySelectorAll('.open')).forEach((item) =>
+      item.classList.remove('open')
+    )
   }
 })

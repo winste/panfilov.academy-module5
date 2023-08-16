@@ -2,10 +2,18 @@
   <section class="amenities">
     <h4 class="amenities__title">Offered Amenities</h4>
     <div class="amenities__list">
-      <VAmenity v-for="amenity in amenitiesFormatted" :key="amenity.id" :amenity="amenity" />
+      <VAmenity
+        v-for="amenity in amenitiesFormatted"
+        :key="amenity.id"
+        :amenity="amenity"
+      />
     </div>
 
-    <AppButtonShowMore :count="amenitiesCount" name="Amenities" @showAll="changeDisplayedValue" />
+    <AppButtonShowMore
+      :count="amenitiesCount"
+      name="Amenities"
+      @showAll="changeDisplayedValue"
+    />
   </section>
 </template>
 

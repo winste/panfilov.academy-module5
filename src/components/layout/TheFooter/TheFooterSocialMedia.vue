@@ -6,7 +6,11 @@
     <a href="https://twitter.com" target="_blank" class="social__twitter">
       <AppButtonIcon :icon="iconTwitter" :width="27" :height="26" />
     </a>
-    <a href="https://www.instagram.com" target="_blank" class="social__instagram">
+    <a
+      href="https://www.instagram.com"
+      target="_blank"
+      class="social__instagram"
+    >
       <AppButtonIcon :icon="iconInstagram" :width="24" :height="24" />
     </a>
     <a href="https://ru.linkedin.com" target="_blank" class="social__linkedin">

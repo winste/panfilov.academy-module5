@@ -47,7 +47,8 @@ export default {
 
       for (const property in restPropertiesList) {
         // если свойство есть в списке, пришедшего с сервера, то удяляем его
-        if (this.properties.hasOwnProperty(property)) delete restPropertiesList[property]
+        if (this.properties.hasOwnProperty(property))
+          delete restPropertiesList[property]
       }
       return restPropertiesList
     },

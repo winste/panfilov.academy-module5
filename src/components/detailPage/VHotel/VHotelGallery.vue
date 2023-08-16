@@ -1,6 +1,9 @@
 <template>
   <section class="hotel-images">
-    <div class="hotel-images__main" :style="{ 'background-image': `url(${mainImage})` }">
+    <div
+      class="hotel-images__main"
+      :style="{ 'background-image': `url(${mainImage})` }"
+    >
       <VCardHostInfo :avatar="avatar" :name="name" :price="price" />
     </div>
     <VGallery :images="images" />

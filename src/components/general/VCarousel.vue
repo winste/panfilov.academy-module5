@@ -8,7 +8,12 @@
     >
     </SwiperSlide>
 
-    <AppButtonIcon :icon="icon" :width="30" :heigh="30" class="swiper__button" />
+    <AppButtonIcon
+      :icon="icon"
+      :width="30"
+      :heigh="30"
+      class="swiper__button"
+    />
 
     <div class="swiper__interaction">
       <div class="swiper__interaction-wrapper">
@@ -72,7 +77,9 @@ export default {
   computed: {
     // в зависимости от роута к карусели применяются разные стили
     indent() {
-      return this.block == 'search' ? '23px 22px 28px 26px' : '21px 18px 19px 23px'
+      return this.block == 'search'
+        ? '23px 22px 28px 26px'
+        : '21px 18px 19px 23px'
     },
     paginationPosition() {
       return this.block == 'search' ? 'end' : 'center'

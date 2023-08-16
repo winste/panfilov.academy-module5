@@ -1,7 +1,15 @@
 <template>
   <div class="company-links">
-    <TheFooterListColumn title="COMPANY" :list="listAbout" class="company-links__about" />
-    <TheFooterListColumn title="HELP CENTER" :list="listHelpCenter" class="company-links__help" />
+    <TheFooterListColumn
+      title="COMPANY"
+      :list="listAbout"
+      class="company-links__about"
+    />
+    <TheFooterListColumn
+      title="HELP CENTER"
+      :list="listHelpCenter"
+      class="company-links__help"
+    />
     <TheFooterListColumn
       title="CONTACT INFO"
       :list="listContacts"

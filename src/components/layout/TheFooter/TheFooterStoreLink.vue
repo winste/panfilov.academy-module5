@@ -1,7 +1,12 @@
 <template>
   <div class="store">
     <a :href="url" target="_blank" class="store__link">
-      <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" class="store__icon" />
+      <AppIcon
+        :name="icon"
+        :width="iconWidth"
+        :height="iconHeight"
+        class="store__icon"
+      />
       <p class="store__name" v-text="name"></p>
     </a>
   </div>

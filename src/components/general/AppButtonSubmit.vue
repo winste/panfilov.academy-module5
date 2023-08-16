@@ -1,6 +1,11 @@
 <template>
   <button type="submit" class="button-submit">
-    <AppIcon :name="icon" :width="iconWidth" :height="iconHeight" class="button-submit__icon" />
+    <AppIcon
+      :name="icon"
+      :width="iconWidth"
+      :height="iconHeight"
+      class="button-submit__icon"
+    />
   </button>
 </template>
 

@@ -1,6 +1,11 @@
 <template>
   <button class="button-icon">
-    <AppIcon :name="icon" :width="width" :height="height" class="button-icon__icon" />
+    <AppIcon
+      :name="icon"
+      :width="width"
+      :height="height"
+      class="button-icon__icon"
+    />
   </button>
 </template>
 
